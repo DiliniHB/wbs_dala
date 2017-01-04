@@ -9,6 +9,7 @@ app.controller("DlHealthSummaryDamageNationwideController", ['$scope','$http',fu
  $scope.submitted = false;
 
     var init_data = {
+      'health':{
         'Table_10': {
             'DsnPubP1Lmh': [{
                 facilities_assets : 'Teaching Hospitals',
@@ -401,6 +402,7 @@ app.controller("DlHealthSummaryDamageNationwideController", ['$scope','$http',fu
 
 
         }
+        }
     }
 
 
@@ -410,13 +412,14 @@ app.controller("DlHealthSummaryDamageNationwideController", ['$scope','$http',fu
         console.log($scope.data);
 
     $scope.submitted = true;
+    console.log(init_data);
 
     if(form.$valid){
 
 
         $http({
             method: 'POST',
-            url: '/damage_losses/dl_save_data',
+            url: '/health/damage_losses/dl_save_data',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
                 'table_data': $scope.dlhealthsummarydamagenationwide,
@@ -452,7 +455,7 @@ $("#modal-container-239453").modal('show');
         console.log($scope.incident);
         $http({
         method: 'POST',
-        url: '/damage_losses/dl_get_data',
+        url: '/health/damage_losses/dl_get_data',
         contentType: 'application/json; charset=utf-8',
         data: angular.toJson({
 //                'db_tables': ['DspPubD1Lmh','DspPubDnLmh','DspPubDnMoh','DspPubD1Moh','DspPubD1Omc','DspPubDnOmc','DspPvtD1','DspPvtDn'],
@@ -493,7 +496,7 @@ $("#modal-container-239453").modal('show');
 
     $http({
     method: "POST",
-    url: '/damage_losses/dl_fetch_edit_data',
+    url: '/health/damage_losses/dl_fetch_edit_data',
     data: angular.toJson({
     'table_name':  'Table_10',
     'com_data': {

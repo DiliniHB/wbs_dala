@@ -1,2 +1,3 @@
 *.pyc
 base_line/migrations damage_losses/migrations dashboard/migrations incidents/migrations reports/migrations settings/migrations
+.idea/vcs.xml

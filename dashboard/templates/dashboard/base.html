@@ -27,22 +27,22 @@
     <script src='{% static "dashboard/js/angular/angular.js" %}'></script>
    
 
-    <script src="{% static 'base_line/js/pub_med_facilities.js' %}"></script>
-    <script src="{% static 'base_line/js/bs_health_status.js' %}"></script>
+    <script src="{% static 'health/base_line/js/pub_med_facilities.js' %}"></script>
+    <script src="{% static 'health/base_line/js/bs_health_status.js' %}"></script>
     <!--<script src="{% static 'damage_losses/js/dl_health_damagelost_other_medi.js' %}"></script>-->
 
     <!-- Sachie -->
-    <script src="{% static 'base_line/js/bs_health_pub_med_facilities.js' %}"></script>
-    <script src="{% static 'base_line/js/bs_health_other_med_facilities_unit_cost.js' %}"></script>
-    <script src="{% static 'damage_losses/js/dl_health_other_medi.js' %}"></script>
-    <script src="{% static 'damage_losses/js/dl_health_sector_district.js' %}"></script>
-    <script src="{% static 'damage_losses/js/dl_health_summary_damage_nationwide.js' %}"></script>
-    <script src="{% static 'damage_losses/js/dl_health_summery_damageloss_province.js' %}"></script>
+    <script src="{% static 'health/base_line/js/bs_health_pub_med_facilities.js' %}"></script>
+    <script src="{% static 'health/base_line/js/bs_health_other_med_facilities_unit_cost.js' %}"></script>
+    <script src="{% static 'health/damage_losses/js/dl_health_other_medi.js' %}"></script>
+    <script src="{% static 'health/damage_losses/js/dl_health_sector_district.js' %}"></script>
+    <script src="{% static 'health/damage_losses/js/dl_health_summary_damage_nationwide.js' %}"></script>
+    <script src="{% static 'health/damage_losses/js/dl_health_summery_damageloss_province.js' %}"></script>
 
     <!-- Amitha -->
-    <script src='{% static "base_line/js/bs_unit_cost_mini_health_sys.js" %}'></script>
-    <script src='{% static "damage_losses/js/dl_line_ministry_health_sys.js" %}'></script>
-    <script src='{% static "damage_losses/js/dl_health_damagelost_private.js" %}'></script>
+    <script src='{% static "health/base_line/js/bs_unit_cost_mini_health_sys.js" %}'></script>
+    <script src='{% static "health/damage_losses/js/dl_line_ministry_health_sys.js" %}'></script>
+    <script src='{% static "health/damage_losses/js/dl_health_damagelost_private.js" %}'></script>
 
     <!-- Bootstrap popover -->
     <script data-require="angular-bootstrap@0.12.0" data-semver="0.12.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
@@ -171,18 +171,17 @@ $('#s4').on('click', function(){
                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Baseline Info</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'base_line:bs_health_status' %}"> Health Status in a District or RDH</a>
+                            <a class="nav-link" href="/health/base_line/bs_health_status"> Health Status in a District or RDH</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'base_line:bs_health_medical_facilities' %}"> Medical Facilities in a District</a>
+                            <a class="nav-link" href="/health/base_line/bs_health_medical_facilities"> Medical Facilities in a District</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'base_line:bs_health_info_unit_cost_ministry_health' %}"> Unit Cost of the Ministry Health System in a District</a>
+                            <a class="nav-link" href="/health/base_line/bs_health_info_unit_cost_ministry_health"> Unit Cost of the Ministry Health System in a District</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'base_line:bs_health_other_medical_facilities_unit_cost' %}"> Unit Cost of Other Medical Facilities in a District </a>
+                            <a class="nav-link" href="/health/base_line/bs_health_other_medical_facilities_unit_cost"> Unit Cost of Other Medical Facilities in a District </a>
                         </li>
-                       
                         <li class="nav-item">
                             
                         </li>
@@ -194,22 +193,22 @@ $('#s4').on('click', function(){
                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Damages and Loss</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'damage_losses:health_damagelost_ministry_helth' %}"> Line Ministry Health System</a>
+                            <a class="nav-link" href="/health/damage_losses/health_damagelost_ministry_helth"> Line Ministry Health System</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'damage_losses:dl_health_damagelost_other_medical_facilities' %}"> Other Medical Facilities</a>
+                            <a class="nav-link" href="/health/damage_losses/dl_health_damagelost_other_medical_facilities"> Other Medical Facilities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'damage_losses:health_damagelost_private' %}"> Assessment of Private Health Facilities</a>
+                            <a class="nav-link" href="/health/damage_losses/health_damagelost_private"> Assessment of Private Health Facilities</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'damage_losses:dl_health_summary_sector_district' %}"> Summary Health Sector in a District</a>
+                            <a class="nav-link" href="/health/damage_losses/dl_health_summary_sector_district"> Summary Health Sector in a District</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'damage_losses:health_summery_damageloss_province' %}"> Summary Health Sector in the Province</a>
+                            <a class="nav-link" href="/health/damage_losses/health_summery_damageloss_province"> Summary Health Sector in the Province</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'damage_losses:dl_health_summary_damage_nationwide' %}"> Summary Health Sector Nationwide</a>
+                            <a class="nav-link" href="/health/damage_losses/dl_health_summary_damage_nationwide"> Summary Health Sector Nationwide</a>
                         </li>
 					
 						

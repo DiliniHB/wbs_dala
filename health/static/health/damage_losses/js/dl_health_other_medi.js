@@ -636,7 +636,7 @@ $("#modal-container-239453").modal('show');
 
        $http({
     method: "POST",
-    url: "/damage_losses/fetch_incident_districts",
+    url: "/health/damage_losses/fetch_incident_districts",
     data: angular.toJson({'incident': $scope.incident }),
     }).success(function(data) {
         $scope.districts = data;
@@ -650,7 +650,7 @@ $("#modal-container-239453").modal('show');
 
         $http({
             method: 'POST',
-            url: '/base_line/bs_get_data_mock',
+            url: '/health/base_line/bs_get_data_mock',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
               'db_tables': ['BucOmarStructure','BucOmarSupplies','BucOmarMequipment','BucOmarOassets','BucOmarcStructure','BucOmarcCrpm','BucOmarcMequipment','BucOmarcOassets'],
@@ -690,7 +690,7 @@ $("#modal-container-239453").modal('show');
 
     $http({
     method: "POST",
-    url: '/damage_losses/dl_fetch_edit_data',
+    url: '/health/damage_losses/dl_fetch_edit_data',
     data: angular.toJson({
     'table_name':  'Table_6',
     'com_data': {

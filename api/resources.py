@@ -1,6 +1,7 @@
 from tastypie.resources import ModelResource
+
+from health.base_line.models import BmfPubMf
 from settings.models import District, Province
-from base_line.models import BmfPubMf
 
 
 class ProvinceResource(ModelResource):
