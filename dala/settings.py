@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'charts',
     'health',
     'health.base_line',
-    'health.damage_losses'
+    # 'health.damage_losses'
     # 'db_tools'
+    'other_govn_services',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -86,9 +87,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-                'options': '-c search_path=health,public'
+                'options': '-c search_path=health,public,other_government'
             },
-        'NAME': 'dala_new',
+        'NAME': 'dala',
         'USER': 'postgres',
 
     },
