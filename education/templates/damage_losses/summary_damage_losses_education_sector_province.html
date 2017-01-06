@@ -1,0 +1,1215 @@
+{% extends "dashboard/base.html" %}
+{% block content %}
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a href="#">Admin</a>
+            </li>
+			 <li class="breadcrumb-item"><a href="#">Educaiton Sector</a>
+            </li>
+           
+			<li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 6. Summary of damages and losses in the education sector in a Province</span></li>
+
+           
+        </ol>
+
+
+        <div class="container-fluid">
+
+        <ul class='nav nav-wizard'>
+				    <li class="active"><a href='#step1' data-toggle="tab">1 - Public Sector</a></li>
+				    <li><a href='#step2' data-toggle="tab">2 - Private Sector</a></li>
+					  <li><a href='#step3' data-toggle="tab">2 - TOTAL DAMAGES AND LOSSES</a></li>
+				   
+				  </ul>
+				
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane active" id="step1">
+						 
+                           <table class="table table-bordered" >
+  
+    <colgroup>
+        <col width="296"/>
+        <col width="91" span="7"/>
+    </colgroup>
+    <tbody>
+        <tr class="trhead" height="17">
+            <td width="296" height="17">
+                &nbsp;&nbsp;Province
+            </td>
+            <td colspan="7" width="637">
+			 <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
+      <option value="1">Option one</option>
+      <option value="2">Option two</option>
+    </select>
+            </td>
+        </tr>
+        
+        <tr class="trheadc" height="34">
+            <td rowspan="2" width="296" height="51">
+                Facilities and Assets
+            </td>
+            <td rowspan="2" width="91">
+                Total Number Affected
+            </td>
+            <td colspan="2" width="182">
+                Total Number of Students Affected
+            </td>
+            <td rowspan="2" width="91">
+                Total Damages (LKR)
+            </td>
+            <td colspan="2" width="182">
+                Losses (LKR)
+            </td>
+            <td rowspan="2" width="91">
+                Total Losses (LKR)
+            </td>
+        </tr>
+        <tr class="trsubc" height="17">
+            <td width="91" height="17">
+                Male
+            </td>
+            <td width="91">
+                Female
+            </td>
+            <td width="91">
+                Year 1
+            </td>
+            <td width="91">
+                Year 2
+            </td>
+        </tr>
+		</tbody>
+		</table>
+		<div id="boxscroll" style="height:400px;overflow:auto;">	
+		  <table class="table table-bordered" >
+        <tr class="trheadc" height="17">
+            <td width="296" height="17">
+                District 1
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                1AB, 1C
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Type 2
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Type 3
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Pirivena
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Training Institutes
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                NCOE, Training Colleges
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                TC, CRC, RESC
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Ministry, Provincial, Zonal, Divisional Offices, NIE
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td class="tdpa" width="91">
+			
+            </td>
+            <td class="tdpa" width="91">
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Total
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr class="trheadc" height="17">
+            <td width="296" height="17">
+                District N
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                1AB, 1C
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Type 2
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Type 3
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Pirivena
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Training Institutes
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                NCOE, Training Colleges
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                TC, CRC, RESC
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Ministry, Provincial, Zonal, Divisional Offices, NIE
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td class="tdpa" width="91">
+			
+            </td>
+            <td class="tdpa" width="91">
+			
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Total
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                TOTAL
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+		</tbody>
+		</table>
+		</div>
+		
+		
+		          
+                                
+                           
+                            <br>
+<a href="#step2" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill Private Sector Informations</a>
+               <br>        
+            </div>
+                        	<div class="tab-pane fade" id="step2">
+                              <table class="table table-bordered" >
+							  <tbody>
+							  
+      
+        <tr class="trheadc" height="34">
+            <td rowspan="2" width="296" height="51">
+                Facilities and Assets
+            </td>
+            <td rowspan="2" width="91">
+                Total Number Affected
+            </td>
+            <td colspan="2" width="182">
+                Total Number of Students Affected
+            </td>
+            <td rowspan="2" width="91">
+                Total Damages (LKR)
+            </td>
+            <td colspan="2" width="182">
+                Losses (LKR)
+            </td>
+            <td rowspan="2" width="91">
+                Total Losses (LKR)
+            </td>
+        </tr>
+        <tr class="trsubc" height="17">
+            <td width="91" height="17">
+                Male
+            </td>
+            <td width="91">
+                Female
+            </td>
+            <td width="91">
+                Year 1
+            </td>
+            <td width="91">
+                Year 2
+            </td>
+        </tr>
+        <tr class="trheadc" height="17">
+            <td width="296" height="17">
+                District 1
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Pre-schools
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Primary Schools
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Secondary Schools
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Universities
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Technical Institutes
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Others
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Total
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr class="trheadc" height="17">
+            <td width="296" height="17">
+                District N
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+            <td width="91">
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Pre-schools
+            </td>
+            <td width="91"> 
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Primary Schools
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Secondary Schools
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Universities
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Technical Institutes
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Others
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Total
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                TOTAL
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+		</tbody>
+		</table>
+								
+							<a href="#step3" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill Total Damages and Losses</a>	
+                                <br>
+                              
+        </div>
+		
+		<div class="tab-pane fade" id="step3">
+                 
+	 <table class="table table-bordered" >
+							  <tbody>
+							
+      
+        <tr class="trheadc" height="17">
+            <td rowspan="2" width="296" height="34">
+                Ownership
+            </td>
+            <td colspan="2" rowspan="2" width="182">
+                Damages (LKR)
+            </td>
+            <td colspan="4" width="364">
+                Losses (LKR)
+            </td>
+            <td rowspan="2" width="91">
+                Total (LKR)
+            </td>
+        </tr>
+        <tr class="trsubc" height="17">
+            <td colspan="2" width="182" height="17">
+                Year 1
+            </td>
+            <td colspan="2" width="182">
+                Year 2
+            </td>
+        </tr>
+        <tr  height="17">
+            <td class="tdpa" width="296" height="17">
+                Public Sector
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                Private Sector
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+        <tr height="17">
+            <td class="tdpa" width="296" height="17">
+                TOTAL
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td colspan="2" width="182">
+                -
+            </td>
+            <td width="91">
+                -
+            </td>
+        </tr>
+    </tbody>
+</table>
+	
+								
+                                <br>
+                                <div class="pull-right">
+		<br>
+<button type="button" class="btn btn-info">Clear</button>
+<button type="button" class="btn btn-success">Submit</button>
+</div>	
+                                <br><br><br>
+        </div>
+		
+        </div>
+							
+							
+			
+								
+                            </div>
+                        </div>
+
+                    </div>    
+
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+  
+  
+{% endblock content %}
