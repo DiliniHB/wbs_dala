@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'reports',
     'charts',
     'health',
+    'education',
     'health.base_line',
     'health.damage_losses'
     # 'db_tools'
@@ -86,7 +87,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-                'options': '-c search_path=health,public'
+                'options': '-c search_path=health,public,education'
             },
         'NAME': 'dala_new',
         'USER': 'postgres',

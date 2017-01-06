@@ -72,46 +72,53 @@ def bs_save_data(request):
     is_edit = bs_data['is_edit']
 
     if not is_edit:
-
         for sector in bs_table_hs_data:
             for interface_table in bs_table_hs_data[sector]:
                 print 'interface table', ' -->', interface_table, '\n'
-                for db_table in bs_table_hs_data[sector][interface_table]:
 
-                    print 'db table', ' -->', db_table, '\n'
+                record_exist = BdSessionKeys.objects.filter(bs_date=com_data['bs_date'],
+                                                            table_name=interface_table,
+                                                            district=district)
 
-                    for row in bs_table_hs_data[sector][interface_table][db_table]:
+                if not record_exist:
+                    # get bs full date
+                    split_date = bs_date.split('/')
+                    bs_month = split_date[0]
+                    bs_year = split_date[1]
+                    bs_full_date = datetime.date(int(bs_year), int(bs_month), 1)
 
-                        model_class = apps.get_model('base_line', db_table)
-                        model_object = model_class()
+                    bd_session = BdSessionKeys(bs_date=com_data['bs_date'], table_name=interface_table,
+                                               date=todate, district_id=district, data_type='base_line',
+                                               full_bs_date=bs_full_date)
+                    bd_session.save()
 
-                        # assigning common properties to model object
-                        model_object.created_date = todate
-                        model_object.lmd = todate
-                        model_object.district_id = district
-                        model_object.bs_date = bs_date
+                    for db_table in bs_table_hs_data[sector][interface_table]:
 
-                        print 'row', ' --> ', row, '\n', ' object '
+                        print 'db table', ' -->', db_table, '\n'
 
-                        for property in row:
-                            setattr(model_object, property, row[property])
+                        for row in bs_table_hs_data[sector][interface_table][db_table]:
 
-                            print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
-                            model_object.save()
+                            model_class = apps.get_model('base_line', db_table)
+                            model_object = model_class()
 
-        record_exist = BdSessionKeys.objects.filter(bs_date=com_data['bs_date'], table_name=interface_table,
-                                                    district=district)
-        if not record_exist:
-            # get bs full date
-            split_date = bs_date.split('/')
-            bs_month = split_date[0]
-            bs_year = split_date[1]
-            bs_full_date = datetime.date(int(bs_year), int(bs_month), 1)
+                            # assigning common properties to model object
+                            model_object.created_date = todate
+                            model_object.lmd = todate
+                            model_object.district_id = district
+                            model_object.bs_date = bs_date
 
-            bd_session = BdSessionKeys(bs_date=com_data['bs_date'], table_name=interface_table,
-                                       date=todate, district_id=district, data_type='base_line',
-                                       full_bs_date=bs_full_date)
-            bd_session.save()
+                            print 'row', ' --> ', row, '\n', ' object '
+
+                            for property in row:
+                                setattr(model_object, property, row[property])
+
+                                print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
+                                model_object.save()
+
+                    return HttpResponse(True)
+
+                else:
+                    return HttpResponse(False)
 
     else:
         bs_save_edit_data(bs_table_hs_data, com_data)

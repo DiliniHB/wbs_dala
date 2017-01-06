@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^dashboard/', include('dashboard.urls', namespace='dashboard')),
     url(r'^api/', include(v1_api.urls)),
     url(r'^health/', include('health.urls', namespace='health')),
+    url(r'^education/', include('education.urls', namespace='education')),
     url(r'^users/', include('users.urls', namespace='users')),
     url(r'^reports/', include('reports.urls', namespace='reports')),
     url(r'^charts/', include('charts.urls', namespace='charts')),

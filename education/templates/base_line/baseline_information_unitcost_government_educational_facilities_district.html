@@ -1,995 +1,489 @@
 {% extends "dashboard/base.html" %}
 {% block content %}
 
-  <!-- Main content -->
-    <main class="main">
+<!-- Main content -->
+<main class="main" ng-app="bsUcostGeduFacilitiesApp" ng-controller="BsUcostGeduFacilitiesController">
 
-        <!-- Breadcrumb -->
-        <ol class="breadcrumb">
-            
-            <li class="breadcrumb-item"><a href="#">Admin</a>
-            </li>
-			 <li class="breadcrumb-item"><a href="#">Education Sector</a>
-            </li>
-           
-			<li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 2. Baseline information of unit cost of government educational facilities in a District</span></li>
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
 
-           
-        </ol>
+        <li class="breadcrumb-item"><a href="#">Admin</a>
+        </li>
+        <li class="breadcrumb-item"><a href="#">Education Sector</a>
+        </li>
+
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 2. Baseline information of unit cost of government educational facilities in a District</span>
+        </li>
 
 
-        <div class="container-fluid">
+    </ol>
+
+
+    <div class="container-fluid">
 
         <div class="col-sm-12" style="padding:0;">
-                        <div class="card" >
-                            
-                            <div class="card-block">
-                                
-                                     
-                                
-                              <table class="table table-bordered" >
-   
-    <colgroup>
-        <col width="280"/>
-        <col width="136" span="8"/>
-    </colgroup>
-    <tbody>
-        <tr class="trhead">
-<td style="padding-left:5px;"> Name of District </td>
+            <div class="card">
 
-<td colspan="3" style="background:#EFEFEF;">
- <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
- </td>
- <td colspan="2" style="padding-right:5px;text-align:right;">
- Incident
- </td>
- <td colspan="3" style="background:#EFEFEF;">
- <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
- </td>
-</tr>
-        <tr class="trheadc" height="17">
-            <td rowspan="2" width="320" height="65">
-                Particulars
-            </td>
-            <td colspan="8" width="1088">
-                Values (in LKR)
-            </td>
-        </tr>
-        <tr class="trsubc" height="48">
-            <td width="136" height="48">
-                1AB, 1C
-            </td>
-            <td width="136">
-                Type 2
-            </td>
-            <td width="136">
-                Type 3
-            </td>
-            <td width="136">
-                Pirivena
-            </td>
-            <td width="136">
-                Training Institutes
-            </td>
-            <td width="136">
-                NCOE, Training Colleges
-            </td>
-            <td width="136">
-                TC, CRC, RESC
-            </td>
-            <td width="136">
-                Ministry, Provincial, Zonal, Divisional Offices
-            </td>
-        </tr>
-		 </tbody>
-		</table>
-		
-		<div id="boxscroll" style="height:400px;overflow:auto;">				
-                                
-          <table class="table table-bordered" >
-		  <tbody>
-        <tr class="trheadc" height="17">
-            <td colspan="9" width="1368" height="17">
-                Average Replacement Cost
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="9" width="1368" height="17">
-                <span style="margin-left:3%;">Structures (LKR/sqm)</span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                1 floor structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                2-3 floors structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                More than 3 floors structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="9" width="1368" height="17">
-                <span style="margin-left:3%;"> Supplies and materials (LKR/Unit)</span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Books
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Desks
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Chairs
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Boards
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Table
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td colspan="9" class="tdpa" width="280" height="17">
-                Others &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-           
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="9" width="1368" height="17">
-              <span style="margin-left:3%;">  Equipment (LKR/Unit)</span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Computers
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Aesthetic Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Sports Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Science Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Other equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td colspan="9" width="1368" height="17">
-                Average Repair Cost
-            </td>
-        </tr>
-        <tr class="trhead" height="25">
-            <td colspan="9" width="1368" height="25">
-              <span style="margin-left:3%;">   Structures (LKR/sqm) </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Roof
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Wall
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Flooring
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="9" width="1368" height="17">
-               <span style="margin-left:3%;"> Supplies and materials (LKR/Unit) </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Books
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Desks
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Chairs
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Boards
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Tables
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="tdpa" height="17">
-            <td colspan="9" class="tdpa" width="280" height="17">
-                Others &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-           
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="9" width="1368" height="17">
-               <span style="margin-left:3%;"> Equipment (LKR/Unit) </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Computers
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Aesthetic Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Sports Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Science Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="tdpa" height="17">
-            <td colspan="9" width="280" height="17">
-                Other equipment &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-            
-        </tr>
-        <tr class="trheadc" height="17">
-            <td colspan="9" width="1368" height="17">
-                Average Fees/ Revenue (LKR)
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Average revenue per month
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td colspan="9" width="1368" height="17">
-                Construction/ Repair Period (in months)
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Average construction period
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Average repair period
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-							
-							
-		<div class="pull-right">
-		<br>
-<button type="button" class="btn btn-info">Clear</button>
-<button type="button" class="btn btn-success">Submit</button>
-</div>		
-								
-                            </div>
-                        </div>
+                <div class="card-block">
 
-                    </div>    
+
+                    <table class="table table-bordered">
+
+                        <colgroup>
+                            <col width="280"/>
+                            <col width="136" span="8"/>
+                        </colgroup>
+                        <tbody>
+                        <tr class="trhead">
+                            <td style="padding-left:5px;"> Name of District</td>
+
+                            <td colspan="3" style="background:#EFEFEF;">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+                            <td colspan="2" style="padding-right:5px;text-align:right;">
+                                Incident
+                            </td>
+                            <td colspan="3" style="background:#EFEFEF;">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="17">
+                            <td rowspan="2" width="320" height="65">
+                                Particulars
+                            </td>
+                            <td colspan="8" width="1088">
+                                Values (in LKR)
+                            </td>
+                        </tr>
+                        <tr class="trsubc" height="48">
+                            <td width="136" height="48">
+                                1AB, 1C
+                            </td>
+                            <td width="136">
+                                Type 2
+                            </td>
+                            <td width="136">
+                                Type 3
+                            </td>
+                            <td width="136">
+                                Pirivena
+                            </td>
+                            <td width="136">
+                                Training Institutes
+                            </td>
+                            <td width="136">
+                                NCOE, Training Colleges
+                            </td>
+                            <td width="136">
+                                TC, CRC, RESC
+                            </td>
+                            <td width="136">
+                                Ministry, Provincial, Zonal, Divisional Offices
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="boxscroll" style="height:400px;overflow:auto;">
+
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr class="trheadc" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    Average Replacement Cost
+                                </td>
+                            </tr>
+                            <tr class="trhead" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    <span style="margin-left:3%;">Structures (LKR/sqm)</span>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="bugArcStructure in bsUcostGeduFacilities.education.Table_2.BugArcStructures"
+                                height="17">
+                                <td ng-bind="bugArcStructure.particulars" ng-model="bugArcStructure.particulars"
+                                    class="tdpa" width="280" height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcStructure.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+
+
+                            <tr class="trhead" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    <span style="margin-left:3%;"> Supplies and materials (LKR/Unit)</span>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="bugArcSupply in bsUcostGeduFacilities.education.Table_2.BugArcSupplies"
+                                height="17">
+                                <td class="tdpa" ng-bind="bugArcSupply.particulars" ng-model="bugArcSupply.particulars"
+                                    width="280" height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcSupply.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+
+                            <tr class="trhead" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    <span style="margin-left:3%;">  Equipment (LKR/Unit)</span>
+                                </td>
+                            </tr>
+
+                            <tr ng-repeat="bugArcEquipment in bsUcostGeduFacilities.education.Table_2.BugArcEquipment"
+                                height="17">
+                                <td class="tdpa" ng-bind="bugArcEquipment.particulars"
+                                    ng-model="bugArcEquipment.particulars" width="280" height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArcEquipment.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+
+                            <tr class="trheadc" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    Average Repair Cost
+                                </td>
+                            </tr>
+                            <tr class="trhead" height="25">
+                                <td colspan="9" width="1368" height="25">
+                                    <span style="margin-left:3%;">   Structures (LKR/sqm) </span>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="bugArpcStructure in bsUcostGeduFacilities.education.Table_2.BugArpcStructures"
+                                height="17">
+                                <td class="tdpa" ng-bind="bugArpcStructure.particulars"
+                                    ng-model="bugArpcStructure.particulars" width="280" height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcStructure.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+
+                            <tr class="trhead" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    <span style="margin-left:3%;"> Supplies and materials (LKR/Unit) </span>
+                                </td>
+                            </tr>
+
+                            <tr ng-repeat="bugArpcSupply in bsUcostGeduFacilities.education.Table_2.BugArpcSupplies"
+                                height="17">
+                                <td class="tdpa" ng-bind="bugArpcSupply.particulars"
+                                    ng-model="bugArpcSupply.particulars" width="280" height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcSupply.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+
+                            <tr class="trhead" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    <span style="margin-left:3%;"> Equipment (LKR/Unit) </span>
+                                </td>
+                            </tr>
+
+                            <tr ng-repeat="bugArpcEquipment in bsUcostGeduFacilities.education.Table_2.BugArpcEquipment"
+                                height="17">
+                                <td class="tdpa" ng-bind="bugArpcEquipment.particulars"
+                                    ng-model="bugArpcEquipment.particulars" width="280" height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugArpcEquipment.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+
+                            <tr class="trheadc" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    Average Fees/ Revenue (LKR)
+                                </td>
+                            </tr>
+                            <tr ng-repeat="bugAfr in bsUcostGeduFacilities.education.Table_2.BugAfr" height="17">
+                                <td class="tdpa" ng-bind="bugAfr.particulars" ng-model="bugAfr.particulars" width="280"
+                                    height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugAfr.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+                            <tr class="trheadc" height="17">
+                                <td colspan="9" width="1368" height="17">
+                                    Construction/ Repair Period (in months)
+                                </td>
+                            </tr>
+
+                            <tr ng-repeat="bugCrp in bsUcostGeduFacilities.education.Table_2.BugCrp" height="17">
+                                <td class="tdpa" ng-bind="bugCrp.particulars" ng-model="bugCrp.particulars" width="280"
+                                    height="17">
+
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.ab1_1c" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.type_2" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.type_3" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.pirivena" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.training_institutes" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.training_colleges" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.tc_crc_resc" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="bugCrp.min_pzd_offices" type="text" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="pull-right">
+                        <br>
+                        <button type="button" class="btn btn-info">Clear</button>
+                        <button type="button" class="btn btn-success">Submit</button>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
-        <!-- /.conainer-fluid -->
-    </main>
+
+    </div>
+    <!-- /.conainer-fluid -->
+</main>
 {% endblock content %}
