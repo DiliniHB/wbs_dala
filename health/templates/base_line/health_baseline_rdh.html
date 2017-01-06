@@ -10,6 +10,7 @@
     
   });
   
+
 </script>
 <!-- Main content -->
 <main class="main" ng-app="bsHealthStatusApp" ng-controller="BsHealthStatusController">
@@ -17,6 +18,7 @@
   .popover {
     background: tomato;
 }
+
 
 
     </style>
@@ -38,16 +40,13 @@
 
         <div class="col-sm-12" style="padding:0;">
             <div class="card">
-                <!--select ng-model="incident" id="selectbasic" name="district" class="form-control"
-                                          style="width:50%;font-weight:400;" required>
-                                      <option value="">-- Select --</option>
-                                      {% for incident in incidents %}
-                                      <option value="{{ incident.id }}">{{ incident.id }}</option>
-                                      {% endfor %}
-                                  </select-->
+
                 <div ng-form name="form_pop_lat_census" class="card-block">
                      <span style="color:red" ng-show="submitted && form_pop_lat_census.$error.required">
                                        Please fill all required fields
+                     </span>
+                    <span style="color:red" ng-show="!is_valid_data">
+                        This request can't be proceed, there is data-set available for this selection.
                      </span>
                     <table class="table table-bordered"
                            style="width:100%;background:#4679B2;color:#fff;">
@@ -57,25 +56,25 @@
                         </colgroup>
                         <tbody>
 
-			<tr style="background:#fff;border:1px solid #fff;text-align:center;">
-<td style="background:#fff;border:1px solid #fff;text-align:center;">
+                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td style="background:#fff;border:1px solid #fff;text-align:center;">
 
-</td>
-<td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
  <span class="arrow_box" ng-show="submitted && form_pop_lat_census.district.$error.required">
                                        Please select District
                                  </span>
-</td>
+                            </td>
 
-<td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
-</td>
-<td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
   <span class="arrow_box" ng-show="submitted && form_pop_lat_census.bs_date.$error.required">
                                        Please select Date
                                  </span>
-</td>
-</tr>
-			
+                            </td>
+                        </tr>
+
 
                         <tr style="background:#4679B2;">
                             <td class="trhead"> Name of District or RDH</td>
@@ -89,7 +88,7 @@
                                     <option value="{{ district.id }}">{{ district.name }}</option>
                                     {% endfor %}
                                 </select>
-                                 
+
                             </td>
 
                             <td colspan="1" style="padding-right:5px;text-align:right;">
@@ -99,7 +98,7 @@
                                 <input ng-model="bs_date" required name="bs_date" type="text" placeholder=""
                                        id="datepicker"
                                        class="form-control input-md">
-                               
+
                             </td>
                         </tr>
                         <tr height="20" class="trhead">
@@ -128,7 +127,8 @@
                             </td>
                         </tr>
 
-                        <tr height="20" style="background:#fff;" ng-repeat="bhsPlc in dataHealthStatus.health.Table_1.BhsPlc">
+                        <tr height="20" style="background:#fff;"
+                            ng-repeat="bhsPlc in dataHealthStatus.health.Table_1.BhsPlc">
                             {% verbatim %}
 
                             <td height="20" width="98">
@@ -194,8 +194,11 @@
                                 </td>
                                 <td width="98" ng-if="$index > 1">
                                     {% verbatim %}
-                                  <button id="delete" ng-click="removeItem('BhsComDiseases', $index)" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button>
-                                    <input style="width:90%;float:right;" name="comDisease_{{$index}}" ng-model="comDisease.com_disease"
+                                    <button id="delete" ng-click="removeItem('BhsComDiseases', $index)"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fa fa-minus"></i>
+                                    </button>
+                                    <input style="width:90%;float:right;" name="comDisease_{{$index}}"
+                                           ng-model="comDisease.com_disease"
                                            popover="This field is required"
                                            popover-toggle="form_pop_lat_census['comDisease_' + $index].$dirty && !form_pop_lat_census['comDisease_' + $index].$valid"
                                            popover-placement="top" required
@@ -231,9 +234,10 @@
                             <tr height="20">
                                 <td height="20" width="264" class="tdpa">
                                     Others (Enumerate)&nbsp;&nbsp;
-                                    <button ng-click="insertDisease('BhsComDiseases')" class="btn btn-sm btn-info btn-circle"
+                                    <button ng-click="insertDisease('BhsComDiseases')"
+                                            class="btn btn-sm btn-info btn-circle"
                                             id="insert"><span
-                                            class="fa fa-plus"></span> 
+                                            class="fa fa-plus"></span>
                                     </button>
                                 </td>
                                 <td width="98" colspan="4" class="tdpa">
@@ -257,7 +261,9 @@
                                 </td>
                                 <td width="98" ng-if="$index > 1">
                                     {% verbatim %}
-                                 <button id="delete" ng-click="removeItem('BhsVi', $index)" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button>
+                                    <button id="delete" ng-click="removeItem('BhsVi', $index)"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fa fa-minus"></i>
+                                    </button>
                                     <input style="width:90%;float:right;" ng-model="vitalIndicator.vital_indicators"
                                            popover="This field is required" required
                                            popover-toggle="form_pop_lat_census['vitalIndicator_' + $index].$dirty && !form_pop_lat_census['vitalIndicator_' + $index].$valid"
@@ -294,9 +300,10 @@
                             <tr height="20">
                                 <td height="20" width="264" class="tdpa">
                                     Others (Enumerate)&nbsp;&nbsp;
-                                    <button ng-click="insertDisease('BhsVi')" class="btn btn-sm btn-info btn-circle" id="insert4">
+                                    <button ng-click="insertDisease('BhsVi')" class="btn btn-sm btn-info btn-circle"
+                                            id="insert4">
                                         <span class="fa fa-plus"></span>
-                                        
+
                                     </button>
                                 </td>
                                 <td width="98" colspan="4" class="tdpa">
@@ -318,7 +325,9 @@
                                 </td>
                                 <td width="264" height="20" ng-if="$index > 1">
                                     {% verbatim %}
-                                 <button id="delete" ng-click="removeItem('BhsOi', $index)" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button>
+                                    <button id="delete" ng-click="removeItem('BhsOi', $index)"
+                                            class="btn btn-sm btn-danger btn-circle"><i class="fa fa-minus"></i>
+                                    </button>
                                     <input style="width:90%;float:right;" ng-model="otherIndicator.other_indicators"
                                            name="otherIndicator_{{$index}}" type="text" placeholder=""
                                            popover="This field is required"
@@ -338,9 +347,10 @@
                             <tr height="20">
                                 <td height="20" width="264" class="tdpa">
                                     Others (Enumerate)&nbsp;&nbsp;
-                                    <button ng-click="insertDisease('BhsOi')" class="btn btn-sm btn-info btn-circle" id="insert2">
+                                    <button ng-click="insertDisease('BhsOi')" class="btn btn-sm btn-info btn-circle"
+                                            id="insert2">
                                         <span class="fa fa-plus"></span>
-                                        
+
                                     </button>
                                 </td>
                                 <td width="98" colspan="4" class="tdpa">
@@ -401,6 +411,7 @@ button.onclick = function() {
 
 
 
+
 </script>
 <script>
 /*var button = document.getElementById('insert4');
@@ -420,6 +431,7 @@ button.onclick = function() {
 
 
 
+
 </script>
 <script>
 /*var button = document.getElementById('insert2');
@@ -433,6 +445,7 @@ button.onclick = function() {
  $(this).parent().parent().remove();
 });
 }*/
+
 
 
 

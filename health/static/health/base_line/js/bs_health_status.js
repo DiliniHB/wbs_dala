@@ -10,6 +10,7 @@ $scope.sum;
 $scope.bs_date;
 $scope.is_edit = false;
 $scope.submitted = false;
+$scope.is_valid_data = true;
 
 var init_data = {
 'health':{
@@ -87,7 +88,7 @@ $scope.submitted = true;
 if(form.$valid){
  $http({
     method: "POST",
-    url: "/health/base_line/bs_save_data",
+    url: "/bs_save_data",
     data: angular.toJson({'table_data': ($scope.dataHealthStatus), 'com_data': {'district': $scope.district,
           'bs_date': $scope.bs_date}, 'is_edit': $scope.is_edit }),
     }).success(function(data) {
@@ -95,7 +96,10 @@ if(form.$valid){
      $scope.dataHealthStatus = init_data;
      $scope.is_edit = false;
 
-     $("#modal-container-239453").modal('show');
+     if(data == 'False')
+      $scope.is_valid_data = false;
+     else
+      $("#modal-container-239453").modal('show');
 
  })
  }
@@ -142,7 +146,7 @@ $scope.submitted = true;
    $scope.is_edit = true;
     $http({
     method: "POST",
-    url: "/health/base_line/bs_fetch_edit_data",
+    url: "/bs_fetch_edit_data",
     data: angular.toJson({'table_name': 'Table_1', 'sector': 'health', 'com_data': {'district': $scope.district,
           'bs_date': $scope.bs_date} }),
     }).success(function(data) {

@@ -305,6 +305,7 @@ class BdSessionKeys(models.Model):
     bs_date = models.CharField(max_length=255, blank=True, null=True)
     table_name = models.CharField(max_length=255, blank=True, null=True)
     full_bs_date = models.DateField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
 
     class Meta:
         managed = False

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from settings.models import District, BdSessionKeys, Province
+from settings.models import District, Province
 from incidents.models import IncidentReport
 from .models import BmfPubMf, BhsPlc, BhsComDiseases, BhsVi, BhsOi, BucOmarStructure
 import json
@@ -17,8 +17,7 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.conf import settings
 from users.decorators import permission_required
-
-
+from dala.views import fetch_districts
 # from db_tools import Datediff
 
 
@@ -41,36 +40,6 @@ def bs_health_status(request):
         'incidents': filtered_incidents
     }
     return render(request, 'base_line/health_baseline_rdh.html', context)
-
-
-def fetch_districts(user):
-    districts = District.objects.all().order_by('name')
-    incidents = IncidentReport.objects.all()
-    if user.is_superuser:
-        return {'districts': districts, 'incidents': incidents}
-    else:
-        role = user.user_role.code_name
-
-        if role == 'district':
-            district_id = user.district_id
-            districts = District.objects.filter(id=district_id).order_by('name')
-            incidents = IncidentReport.objects.filter(effectedarea__district=district_id)
-        elif role == 'provincial':
-            province = user.province
-            districts = province.district_set.all().order_by('name')
-            incidents = IncidentReport.objects.filter(effectedarea__district__province=province).distinct()
-        incidents = IncidentReport.objects.all()
-        return {'districts': districts, 'incidents': incidents}
-
-
-def fetch_incidents(user):
-    incidents = IncidentReport.objects.all()
-    if user.is_superuser:
-        return incidents
-    else:
-        incidents = IncidentReport.objects.filter(effectedarea__district=1)
-
-    return incidents
 
 
 def bs_health_information_health_status(request):
