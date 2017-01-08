@@ -89,8 +89,12 @@ if(form.$valid){
  $http({
     method: "POST",
     url: "/bs_save_data",
-    data: angular.toJson({'table_data': ($scope.dataHealthStatus), 'com_data': {'district': $scope.district,
-          'bs_date': $scope.bs_date}, 'is_edit': $scope.is_edit }),
+    data: angular.toJson({
+    'table_data': ($scope.dataHealthStatus),
+    'com_data': {'district': $scope.district,
+    'bs_date': $scope.bs_date,
+    },
+    'is_edit': $scope.is_edit }),
     }).success(function(data) {
 
      $scope.dataHealthStatus = init_data;

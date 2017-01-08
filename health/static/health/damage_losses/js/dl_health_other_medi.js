@@ -9,9 +9,10 @@ $scope.district;
  $scope.is_edit = false;
  $scope.submitted = false;
  $scope.Districts=[];
-
+ $scope.is_valid_data = true;
 
     var init_data = {
+    'health':{
         'Table_6': {
             'DmfDfaNum': [{
                 num_des_facilities: 'Number of Destroyed Facilities',
@@ -592,6 +593,9 @@ $scope.district;
             }]
 
 
+            }
+
+
 
         }
     }
@@ -603,7 +607,7 @@ $scope.district;
        if(form.$valid){
         $http({
             method: 'POST',
-            url:'/damage_losses/dl_save_data',
+            url:'/dl_save_data',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
                 'table_data': $scope.dlDataHealthDamagelostOtherMedicalFacilities,
@@ -616,8 +620,13 @@ $scope.district;
             }),
             dataType: 'json',
         }).then(function successCallback(response) {
-$("#modal-container-239453").modal('show');
-            console.log(response);
+//        $scope.dlDataHealthDamagelostOtherMedicalFacilities = init_data;
+//                $scope.is_edit = false;
+
+                 if(response.data == 'False')
+             $scope.is_valid_data = false;
+                else
+             $("#modal-container-239453").modal('show');
 
         }, function errorCallback(response) {
 
@@ -636,7 +645,7 @@ $("#modal-container-239453").modal('show');
 
        $http({
     method: "POST",
-    url: "/health/damage_losses/fetch_incident_districts",
+    url: "/fetch_incident_districts",
     data: angular.toJson({'incident': $scope.incident }),
     }).success(function(data) {
         $scope.districts = data;
@@ -650,7 +659,7 @@ $("#modal-container-239453").modal('show');
 
         $http({
             method: 'POST',
-            url: '/health/base_line/bs_get_data_mock',
+            url: '/bs_get_data_mock',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
               'db_tables': ['BucOmarStructure','BucOmarSupplies','BucOmarMequipment','BucOmarOassets','BucOmarcStructure','BucOmarcCrpm','BucOmarcMequipment','BucOmarcOassets'],
@@ -690,9 +699,10 @@ $("#modal-container-239453").modal('show');
 
     $http({
     method: "POST",
-    url: '/health/damage_losses/dl_fetch_edit_data',
+    url: '/dl_fetch_edit_data',
     data: angular.toJson({
     'table_name':  'Table_6',
+    'sector':'health',
     'com_data': {
            'district': $scope.district,
             'incident': $scope.incident,
