@@ -7,199 +7,202 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
     $scope.is_edit = false;
 
     $scope.submitted = false;
+    $scope.is_valid_data = true;
 
     var init_data = {
-        'Table_3': {
-            'BucMarStructure': [{
-                particulars : '1 Floor Structure',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : '2-3 Floors Structure',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'More Than 3 Floors Structure',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }],
-            'BucMarSupplies': [{
-                particulars : 'Medicines',
-                teaching_hospital: 0,
-                provincial_general_hospital: 0,
-                district_general_hospital: 0,
-            }, {
-                particulars : 'Medical Supplies',
-                teaching_hospital: 0,
-                provincial_general_hospital: 0,
-                district_general_hospital: 0,
-            }, {
-                particulars : 'Others',
-                teaching_hospital: 0,
-                provincial_general_hospital: 0,
-                district_general_hospital: 0,
-            }],
-            'BucMarMequipment' : [{
-                particulars : 'CT Scan',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }, {
-                particulars : 'X-ray Machine',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }, {
-                particulars : 'MRI Machine',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }, {
-                particulars : 'Other Equipment (Specify)',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }],
-            'BucMarOassets' : [{
-                particulars : 'Computers',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Vehicles',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Furniture',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Office Equipment',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Others',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }],
-            //----
-            'BucMarcStructures': [{
-                particulars : 'Roof',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Wall',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Flooring',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }],
-            'BucMarcMequipment' : [{
-                particulars : 'CT Scan',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }, {
-                particulars : 'X-ray Machine',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }, {
-                particulars : 'MRI Machine',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-            }, {
-                particulars : 'Other Equipment (Specify)',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-             }],
-            'BucMarcOassets' : [{
-                particulars : 'Computers',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Vehicles',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Furniture',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Office Equipment',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Others',
-                teaching_hospital : 0,
-                provincial_general_hospital : 0,
-                district_general_hospital : 0,
-                office : 0,
-                other : 0,
-            }],
-            'BucMarcCrpm': [{
-                particulars : 'Average Construction Period',
-                teaching_hospital: 0,
-                provincial_general_hospital: 0,
-                district_general_hospital: 0,
-                office : 0,
-                other : 0,
-            }, {
-                particulars : 'Average Repair Period',
-                teaching_hospital: 0,
-                provincial_general_hospital: 0,
-                district_general_hospital: 0,
-                office : 0,
-                other : 0,
-            }]
+        'health': {
+            'Table_3': {
+                'BucMarStructure': [{
+                    particulars : '1 Floor Structure',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : '2-3 Floors Structure',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'More Than 3 Floors Structure',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }],
+                'BucMarSupplies': [{
+                    particulars : 'Medicines',
+                    teaching_hospital: null,
+                    provincial_general_hospital: null,
+                    district_general_hospital: null,
+                }, {
+                    particulars : 'Medical Supplies',
+                    teaching_hospital: null,
+                    provincial_general_hospital: null,
+                    district_general_hospital: null,
+                }, {
+                    particulars : 'Others',
+                    teaching_hospital: null,
+                    provincial_general_hospital: null,
+                    district_general_hospital: null,
+                }],
+                'BucMarMequipment' : [{
+                    particulars : 'CT Scan',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }, {
+                    particulars : 'X-ray Machine',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }, {
+                    particulars : 'MRI Machine',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }, {
+                    particulars : 'Other Equipment (Specify)',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }],
+                'BucMarOassets' : [{
+                    particulars : 'Computers',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Vehicles',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Furniture',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Office Equipment',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Others',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }],
+                //----
+                'BucMarcStructures': [{
+                    particulars : 'Roof',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Wall',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Flooring',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }],
+                'BucMarcMequipment' : [{
+                    particulars : 'CT Scan',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }, {
+                    particulars : 'X-ray Machine',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }, {
+                    particulars : 'MRI Machine',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                }, {
+                    particulars : 'Other Equipment (Specify)',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                 }],
+                'BucMarcOassets' : [{
+                    particulars : 'Computers',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Vehicles',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Furniture',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Office Equipment',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Others',
+                    teaching_hospital : null,
+                    provincial_general_hospital : null,
+                    district_general_hospital : null,
+                    office : null,
+                    other : null,
+                }],
+                'BucMarcCrpm': [{
+                    particulars : 'Average Construction Period',
+                    teaching_hospital: null,
+                    provincial_general_hospital: null,
+                    district_general_hospital: null,
+                    office : null,
+                    other : null,
+                }, {
+                    particulars : 'Average Repair Period',
+                    teaching_hospital: null,
+                    provincial_general_hospital: null,
+                    district_general_hospital: null,
+                    office : null,
+                    other : null,
+                }]
+            }
         }
     }
 
@@ -211,7 +214,7 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
             console.log($scope.data);
             $http({
                 method : 'POST',
-                url : '/base_line/bs_save_data',
+                url : '/bs_save_data',
                 contentType: 'application/json; charset=utf-8',
                 data: angular.toJson({
                     'table_data': $scope.bsUnitCostMiniHealthSys,
@@ -222,13 +225,17 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
                     'is_edit': $scope.is_edit
                 }),
                 dataType: 'json',
-            }).then(function mySucces(response) {
-                //if data sent to server side method successfull
-                console.log(response);
-                }, function myError(response) {
-                    //if data sent to server side method unsuccessfull
-                    console.log(response);
-            });
+            }).then(function successCallback(response) {
+            console.log(response);
+            if(response.data == 'False')
+                $scope.is_valid_data = false;
+            else
+                $("#modal-container-239453").modal('show');
+
+        }, function errorCallback(response) {
+
+            console.log(response);
+        });
         }
     }
 
@@ -238,15 +245,15 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
         if(form.$valid) {
         $http({
             method: "POST",
-            url: '/base_line/bs_fetch_edit_data',
+            url: '/bs_fetch_edit_data',
             data: angular.toJson({
                 'table_name':  'Table_3',
+                'sector': 'health',
                 'com_data': {
                     'district': $scope.district,
                     'bs_date': $scope.baselineDate,
 
                 },
-//                'is_edit':$scope.is_edit
             }),
         }).success(function(data) {
 
@@ -257,7 +264,7 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
     }
     }
 
-//
+
 //    $scope.cancelEdit = function() {
 //         $scope.is_edit = false;
 //         $scope.bsUnitCostMiniHealthSys = init_data;
@@ -273,6 +280,14 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
 //                console.log(response);
 //        });
 //    }
+
+
+
+    $scope.cancelEdit = function()
+{
+     $scope.is_edit = false;
+     $scope.bsUnitCostMiniHealthSys = init_data;
+}
 
     // get relevant base-line data for calculations
 //    function getBsData()

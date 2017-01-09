@@ -1,19 +1,19 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from tastypie.api import Api
+# from tastypie.api import Api
 from .import views
-from api.resources import DistrictResource, ProvinceResource, BmfPubMfResource
+# from api.resources import DistrictResource, ProvinceResource, BmfPubMfResource
 
-v1_api = Api(api_name='v1')
-v1_api.register(DistrictResource())
-v1_api.register(ProvinceResource())
-v1_api.register(BmfPubMfResource())
+# v1_api = Api(api_name='v1')
+# v1_api.register(DistrictResource())
+# v1_api.register(ProvinceResource())
+# v1_api.register(BmfPubMfResource())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('dashboard.urls', namespace='dashboard')),
     url(r'^dashboard/', include('dashboard.urls', namespace='dashboard')),
-    url(r'^api/', include(v1_api.urls)),
+    # url(r'^api/', include(v1_api.urls)),
     url(r'^health/', include('health.urls', namespace='health')),
     url(r'^education/', include('education.urls', namespace='education')),
     url(r'^users/', include('users.urls', namespace='users')),
@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^fetch_incident_districts$', views.fetch_incident_districts, name='fetch_incident_districts'),
     url(r'^fetch_incident_provinces$', views.fetch_incident_provinces, name='fetch_incident_provinces'),
 
-
+    # other govn services
+    url(r'^other_govn_services/', include('other_govn_services.urls', namespace='other_govn_services')),
 ]

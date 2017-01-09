@@ -1,0 +1,572 @@
+{% extends "dashboard/base.html" %}
+{% block content %}
+
+<script>
+  $(document).ready(function() {
+
+   var nicesx = $("#boxscroll1").niceScroll({touchbehavior:false,cursorcolor:"#4679B2",cursoropacitymax:0.6,cursorwidth:8});
+  
+   
+    
+  });
+  
+</script>
+<!-- Main content -->
+		<main class="main">
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a href="#">Admin</a>
+            </li>
+			 <li class="breadcrumb-item"><a href="#">Mining Sector</a>
+            </li>
+           
+			<li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 2: Damage and loss assessment of government departments or offices in a District </span></li>
+
+           
+        </ol>
+
+
+        <div class="container-fluid">
+
+        <ul class='nav nav-wizard'>
+				    <li class="active"><a href='#step1' data-toggle="tab">1 - Damages</a></li>
+				    <li><a href='#step2' data-toggle="tab">2 - Losses</a></li>
+				   
+				  </ul>
+				
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane active" id="step1">
+						 
+                           <table  class="table table-bordered">
+
+    <colgroup>
+        <col width="241"/>
+        <col width="124"/>
+        <col width="100" span="3"/>
+        <col width="100" span="3"/>
+    </colgroup>
+    <tbody>
+         <tr class="trhead">
+<td style="padding-left:5px;"> Name of District </td>
+
+<td colspan="2" style="background:#EFEFEF;">
+ <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
+      <option value="1">Option one</option>
+      <option value="2">Option two</option>
+    </select>
+ </td>
+ <td colspan="2" style="padding-right:5px;text-align:right;">
+ Incident
+ </td>
+ <td colspan="3" style="background:#EFEFEF;">
+ <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
+      <option value="1">Option one</option>
+      <option value="2">Option two</option>
+    </select>
+ </td>
+</tr>
+        <tr height="20">
+            <td class="trheadc" width="241" height="20">
+                Name of Department or Office
+            </td>
+            <td colspan="7" width="724">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="trheadc" width="241" height="20">
+                Ownership
+            </td>
+            <td colspan="7" width="724">
+               <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
+      <option value="1">Option one</option>
+      <option value="2">Option two</option>
+    </select>
+            </td>
+        </tr>
+       
+        <tr class="trheadc" height="20">
+            <td rowspan="3" width="241" height="61">
+                Structure
+            </td>
+            <td colspan="2" width="224">
+                Totally Destroyed
+            </td>
+            <td colspan="4" width="400">
+                Partially Damaged
+            </td>
+            <td rowspan="3" width="100">
+                Damages (LKR)
+            </td>
+        </tr>
+        <tr class="trsubc" height="21">
+            <td rowspan="2" width="124" height="41">
+                Number of Structures
+            </td>
+            <td rowspan="2" width="100">
+                Total Square Meters
+            </td>
+            <td rowspan="2" width="100">
+                Number of Structures
+            </td>
+            <td colspan="3" width="300">
+                Total Square Meters
+            </td>
+        </tr>
+        <tr class="trsubc" height="20">
+            <td width="100" height="20">
+                Roof
+            </td>
+            <td width="100">
+                Walls
+            </td>
+            <td width="100">
+                Floors
+            </td>
+        </tr>
+                               </tbody>
+                            </table>
+                              <div id="boxscroll" style="height:400px;overflow:auto;">	
+                         <table  class="table table-bordered">
+                             <tbody>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                1 floor structure
+            </td>
+            <td width="124">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                2-3 floors structure
+            </td>
+            <td width="124">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                More than 3 floors
+            </td>
+            <td width="124">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Total
+            </td>
+            <td width="124">
+                -
+            </td>
+            <td width="100">
+            </td>
+            <td width="100">
+                -
+            </td>
+            <td width="100">
+            </td>
+            <td width="100">
+            </td>
+            <td width="100">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr class="trheadc" height="20">
+            <td width="241" height="20">
+                Office Equipment
+            </td>
+            <td colspan="3" width="324">
+                Number of Totally Destroyed
+            </td>
+            <td colspan="3" width="300">
+                Number of Partially Damaged
+            </td>
+            <td width="100">
+                Damages (LKR)
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Computers
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Furniture
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr class="tdpa" height="20">
+            <td width="241" height="20">
+                Others (Enumerate) <button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
+            </td>
+            <td colspan="3" width="324">
+            </td>
+            <td colspan="3" width="300">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Total
+            </td>
+            <td class="tdpa" colspan="3" width="324">
+            </td>
+            <td class="tdpa" colspan="3" width="300">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr class="trheadc" height="20">
+            <td width="241" height="20">
+                Machinery
+            </td>
+            <td colspan="3" width="324">
+                Number of Totally Destroyed
+            </td>
+            <td colspan="3" width="300">
+                Number of Partially Damaged
+            </td>
+            <td width="100">
+                Damages (LKR)
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Vehicles
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Generators
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Elevators
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr class="tdpa" height="20">
+            <td width="241" height="20">
+                Others (Enumerate) <button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
+            </td>
+            <td colspan="3" width="324">
+            </td>
+            <td colspan="3" width="300">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Total
+            </td>
+            <td class="tdpa" colspan="3" width="324">
+            </td>
+            <td class="tdpa" colspan="3" width="300">
+            </td>
+            <td width="100">
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa"width="241" height="20">
+                TOTAL DAMAGES
+            </td>
+            <td class="tdpa" colspan="3" width="324">
+            </td>
+            <td class="tdpa" colspan="3" width="300">
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
+
+            </div>                         
+                                
+                           
+                            <br>
+<a href="#step2" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill Average Repair Cost Informations</a>
+               <br>        
+            </div>
+                        	<div class="tab-pane fade" id="step2">
+                              <table  class="table table-bordered">
+							<tbody>
+								
+        <tr class="trheadc" height="34">
+            <td width="241" height="34">
+                Type of Losses
+            </td>
+            <td colspan="3" width="324">
+                Year 1
+            </td>
+            <td colspan="3" width="300">
+                Year 2
+            </td>
+            <td width="100">
+                Total Losses (LKR)
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Foregone income
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Cleaning up of debris
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Higher operating costs
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                Other unexpected expenses
+            </td>
+            <td colspan="3" width="324">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td colspan="3" width="300">
+                  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+        <tr height="20">
+            <td class="tdpa" width="241" height="20">
+                TOTAL LOSSES
+            </td>
+            <td colspan="3" width="324">
+                -
+            </td>
+            <td colspan="3" width="300">
+                -
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+	</tbody>
+</table>							
+                                <br>
+                                <div class="pull-right">
+		<br>
+<button type="button" class="btn btn-info">Clear</button>
+<button type="button" class="btn btn-success">Submit</button>
+</div>	
+                                <br><br><br>
+        </div>
+        </div>
+							
+							
+			
+								
+                            </div>
+                        </div>
+
+                    </div>    
+
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+<script>
+/*var button = document.getElementById('insert');
+var table = document.getElementById('tb1');
+
+button.onclick = function() {
+    var position=Math.round(table.rows.length / 4);
+    var row = table.insertRow(position);
+    row.innerHTML = '<td width="264"><button id="delete" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button><input id="textinput" placeholder="Name" style="width:90%;float:right;" name="textinput" type="text" placeholder="" class="form-control input-md"><span></span></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+ '<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"> </td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>';
+
+	$("#delete").click(function(){
+ $(this).parent().parent().remove();
+});
+}
+*/
+
+
+
+
+
+
+
+</script>
+<script>
+/*var button = document.getElementById('insert4');
+var table = document.getElementById('tb1');
+
+button.onclick = function() {
+    var position=Math.round(table.rows.length / 2);
+    var row = table.insertRow(position);
+    row.innerHTML = '<td width="264"><button id="delete1" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button><input id="textinput" placeholder="Name" style="width:90%;float:right;" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+ '<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"> </td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>';
+
+	$("#delete1").click(function(){
+ $(this).parent().parent().remove();
+});
+}*/
+
+
+
+
+
+</script>
+<script>
+/*var button = document.getElementById('insert2');
+var table = document.getElementById('tb1');
+
+button.onclick = function() {
+    var position=Math.round(table.rows.length / 1);
+    var row = table.insertRow(position);
+    row.innerHTML = '<td width="264"><button id="delete2" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button><input id="textinput" style="width:90%;float:right;" placeholder="Name" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td colspan="4" width="392"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>';
+	$("#delete2").click(function(){
+ $(this).parent().parent().remove();
+});
+}*/
+
+
+
+
+
+</script>
+{% endblock content %}
