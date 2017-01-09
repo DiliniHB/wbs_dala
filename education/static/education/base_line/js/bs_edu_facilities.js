@@ -10,6 +10,7 @@ $scope.district;
 $scope.bs_date;
 $scope.is_edit = false;
 $scope.submitted = false;
+$scope.is_valid_data = true;
 
 var init_data = {
 'education':{
@@ -133,5 +134,31 @@ avg_female: null,
 }
 
 $scope.bsEduFacilities = init_data;
+
+$scope.bsEduDataSubmit = function(form)
+{
+$scope.submitted = true;
+
+if(form.$valid){
+ $http({
+    method: "POST",
+    url: "/bs_save_data",
+    data: angular.toJson({'table_data': ($scope.bsEduFacilities), 'com_data': {'district': $scope.district,
+          'bs_date': $scope.bs_date}, 'is_edit': $scope.is_edit }),
+    }).success(function(data) {
+
+     $scope.bsEduDataSubmit = init_data;
+     $scope.is_edit = false;
+
+     if(data == 'False')
+      $scope.is_valid_data = false;
+     else
+      $("#modal-container-239453").modal('show');
+
+ })
+ }
+
+}
+
 
 })

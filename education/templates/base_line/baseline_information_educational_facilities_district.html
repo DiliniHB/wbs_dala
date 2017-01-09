@@ -26,32 +26,52 @@
 
                 <div class="card-block">
 
-
-                    <table class="table table-bordered">
+                    <span style="color:red" ng-show="!is_valid_data">
+                        This request can't be proceed, there is data-set available for this selection.
+                     </span>
+                    <table ng-form name="form_bs_edu_fac" class="table table-bordered">
                         <colgroup>
                             <col width="280"/>
                             <col width="136" span="3"/>
                         </colgroup>
                         <tbody>
+                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td style="background:#fff;border:1px solid #fff;text-align:center;">
+
+                            </td>
+                            <td colspan="" style="background:#fff;border:1px solid #fff;text-align:center;">
+ <span class="arrow_box" ng-show="submitted && form_bs_edu_fac.district.$error.required">
+                                       Please select District
+                                 </span>
+                            </td>
+
+                            <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+  <span class="arrow_box" ng-show="submitted && form_bs_edu_fac.bs_date.$error.required">
+                                       Please select Date
+                                 </span>
+                            </td>
+                        </tr>
                         <tr class="trhead">
                             <td style="padding-left:5px;"> Name of District</td>
 
                             <td colspan="" style="background:#EFEFEF;">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                <select ng-model="district" id="selectbasic" name="district" class="form-control"
+                                        style="font-weight:400;" required>
+                                    <option value="">-- Select --</option>
+                                    {% for district in districts %}
+                                    <option value="{{ district.id }}">{{ district.name }}</option>
+                                    {% endfor %}
                                 </select>
                             </td>
                             <td colspan="" style="padding-right:5px;text-align:right;">
-                                Incident
+                                Year/Month
                             </td>
-                            <td colspan="2" style="background:#EFEFEF;">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
+                            <td colspan="2" style="background:#EFEFEF;font-weight:normal;">
+                                <input ng-model="bs_date" required name="bs_date" type="text" placeholder=""
+                                       id="datepicker"
+                                       class="form-control input-md">
                             </td>
                         </tr>
                         <tr class="trheadc" height="17">
@@ -102,15 +122,15 @@
 
                                 </td>
                                 <td width="136">
-                                    <input ng-model="befPubSchool.total_number" type="text" placeholder=""
+                                    <input ng-model="befPubSchool.total_number" type="number" placeholder=""
                                            class="form-control input-md">
                                 </td>
                                 <td width="136">
-                                    <input ng-model="befPubSchool.avg_male" type="text" placeholder=""
+                                    <input ng-model="befPubSchool.avg_male" type="number" placeholder=""
                                            class="form-control input-md">
                                 </td>
                                 <td width="136">
-                                    <input ng-model="befPubSchool.avg_female" type="text" placeholder=""
+                                    <input ng-model="befPubSchool.avg_female" type="number" placeholder=""
                                            class="form-control input-md">
                                 </td>
                             </tr>
@@ -131,7 +151,7 @@
 
                                 </td>
                                 <td width="136">
-                                    <input ng-model="befPubSchool.total_number" type="text" placeholder=""
+                                    <input ng-model="befPubSchool.total_number" type="number" placeholder=""
                                            class="form-control input-md">
                                 </td>
                                 <td class="tdpa" width="136">
@@ -181,7 +201,13 @@
                     <div class="pull-right">
                         <br>
                         <button type="button" class="btn btn-info">Clear</button>
-                        <button type="button" class="btn btn-success">Submit</button>
+                        <button type="button" ng-click="bsHsDataEdit(form_bs_edu_fac)" ng-if="!is_edit"
+                                class="btn btn-success">Edit
+                        </button>
+                        <button type="button" ng-click="cancelEdit()" ng-if="is_edit" class="btn btn-warning">Cancel
+                            Edit
+                        </button>
+                        <button type="button" ng-click="bsEduDataSubmit(form_bs_edu_fac)" class="btn btn-success">Submit</button>
                     </div>
 
                 </div>

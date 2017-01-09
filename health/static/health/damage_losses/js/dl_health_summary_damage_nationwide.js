@@ -419,7 +419,7 @@ app.controller("DlHealthSummaryDamageNationwideController", ['$scope','$http',fu
 
         $http({
             method: 'POST',
-            url: '/health/damage_losses/dl_save_data',
+            url: '/dl_save_data',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
                 'table_data': $scope.dlhealthsummarydamagenationwide,

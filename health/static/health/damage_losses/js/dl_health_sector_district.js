@@ -260,7 +260,7 @@ $("#modal-container-239453").modal('show');
 
        $http({
     method: "POST",
-    url: "/damage_losses/fetch_incident_districts",
+    url: "/fetch_incident_districts",
     data: angular.toJson({'incident': $scope.incident }),
     }).success(function(data) {
         $scope.districts = data;
@@ -306,11 +306,6 @@ $("#modal-container-239453").modal('show');
 
 
     }
-
-
-
-
-
 
  }])
 

@@ -8,6 +8,7 @@ from django.apps import apps
 import datetime
 from django.utils import timezone
 from health.base_line.models import BdSessionKeys
+from health.damage_losses.models import DlSessionKeys
 from incidents.models import IncidentReport
 
 from settings.models import District, Province
@@ -81,16 +82,6 @@ def bs_save_data(request):
                                                             district=district)
 
                 if not record_exist:
-                    # get bs full date
-                    split_date = bs_date.split('/')
-                    bs_month = split_date[0]
-                    bs_year = split_date[1]
-                    bs_full_date = datetime.date(int(bs_year), int(bs_month), 1)
-
-                    bd_session = BdSessionKeys(bs_date=com_data['bs_date'], table_name=interface_table,
-                                               date=todate, district_id=district, data_type='base_line',
-                                               full_bs_date=bs_full_date)
-                    bd_session.save()
 
                     for db_table in bs_table_hs_data[sector][interface_table]:
 
@@ -114,6 +105,17 @@ def bs_save_data(request):
 
                                 print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
                                 model_object.save()
+
+                                # get bs full date
+                    split_date = bs_date.split('/')
+                    bs_month = split_date[0]
+                    bs_year = split_date[1]
+                    bs_full_date = datetime.date(int(bs_year), int(bs_month), 1)
+
+                    bd_session = BdSessionKeys(bs_date=com_data['bs_date'], table_name=interface_table,
+                                               date=todate, district_id=district, data_type='base_line',
+                                               full_bs_date=bs_full_date)
+                    bd_session.save()
 
                     return HttpResponse(True)
 
@@ -245,37 +247,63 @@ def dl_save_data(request):
     todate = timezone.now()
     is_edit = dl_data['is_edit']
 
+    filter_fields = {}
+
     if not is_edit:
         try:
             for sector in dl_table_data:
                 for interface_table in dl_table_data[sector]:
-                    print 'interface table', ' -->', interface_table, '\n'
-                    for db_table in dl_table_data[sector][interface_table]:
 
-                        print 'db table', ' -->', db_table, '\n'
+                    incident = com_data['incident']
+                    if 'province' in com_data:
+                        admin_area = com_data['province']
+                        filter_fields = {'table_name': interface_table, 'incident': incident, 'province': admin_area}
+                    elif 'district' in com_data:
+                        admin_area = com_data['district']
+                        filter_fields = {'table_name': interface_table, 'incident': incident, 'district': admin_area}
+                    else:
+                        filter_fields = {'table_name': interface_table, 'incident': incident}
 
-                        for row in dl_table_data[sector][interface_table][db_table]:
+                    record_exist = DlSessionKeys.objects.filter(**filter_fields)
 
-                            model_class = apps.get_model('damage_losses', db_table)
-                            model_object = model_class()
+                    if not record_exist:
 
-                            # assigning common properties to model object
-                            model_object.created_date = todate
-                            model_object.lmd = todate
-                            if 'province' in com_data:
-                                model_object.province_id = com_data['province']
-                            elif 'district' in com_data:
-                                model_object.district_id = com_data['district']
+                        print 'interface table', ' -->', interface_table, '\n'
+                        for db_table in dl_table_data[sector][interface_table]:
 
-                            model_object.incident_id = com_data['incident']
+                            print 'db table', ' -->', db_table, '\n'
 
-                            print 'row', ' --> ', row, '\n', ' object '
+                            for row in dl_table_data[sector][interface_table][db_table]:
 
-                            for property in row:
-                                setattr(model_object, property, row[property])
+                                model_class = apps.get_model('damage_losses', db_table)
+                                model_object = model_class()
 
-                                print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
-                                model_object.save()
+                                # assigning common properties to model object
+                                model_object.created_date = todate
+                                model_object.lmd = todate
+                                if 'province' in com_data:
+                                    model_object.province_id = com_data['province']
+                                elif 'district' in com_data:
+                                    model_object.district_id = com_data['district']
+
+                                model_object.incident_id = com_data['incident']
+
+                                print 'row', ' --> ', row, '\n', ' object '
+
+                                for property in row:
+                                    setattr(model_object, property, row[property])
+
+                                    print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
+                                    model_object.save()
+
+                        dl_session = DlSessionKeys(**filter_fields)
+                        dl_session.date = todate
+                        dl_session.save()
+
+                        return HttpResponse(True)
+
+                    else:
+                        return HttpResponse(False)
 
         except Exception as e:
             return HttpResponse(e)
