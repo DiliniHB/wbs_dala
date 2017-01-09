@@ -26,11 +26,17 @@
 				   
 				  </ul>
 				
-					<div id="myTabContent" class="tab-content">
+					<div id="myTabContent" class="tab-content" ng-form name="form_health_baseline_unitcost_district">
 						<div class="tab-pane active" id="step1">
 						 
-						 
-						 <table class="table table-bordered" style="width:98.3%;background:#E4E5E6;" ng-form name="form_health_baseline_unitcost_district">
+						 <span style="color:red" ng-show="submitted && form_health_baseline_unitcost_district.$error.required">
+                                       Please fill all required fields
+                         </span>
+                        <span style="color:red" ng-show="!is_valid_data">
+                            This request can't be proceed, there is data-set available for this selection.
+                        </span>
+
+						 <table class="table table-bordered" style="width:98.3%;background:#E4E5E6;">
     <colgroup>
         <col width="264"/>
         <col width="98" span="5"/>
@@ -65,16 +71,19 @@
 
 <td colspan="3" style="background:#EFEFEF;">
     <select id="selectbasic" ng-model="district" name="district" class="form-control" style="width:50%;font-weight:400;" required>
+        <option value="" selected="true">Select a District</option>
         {% for district in districts %}
             <option value={{ district.id }}>{{ district.name }}</option>
+
         {% endfor %}
+
     </select>
  </td>
  <td colspan="1" style="padding-right:5px;text-align:right;">
  Year/Month
  </td>
  <td colspan="3" style="background:#EFEFEF;font-weight:normal;">
-    <input name="baselineDate" type="text" ng-model="baselineDate" placeholder="" id="datepicker" class="form-control input-md">
+    <input name="baselineDate" type="text" ng-model="baselineDate" placeholder="" id="datepicker" class="form-control input-md" required>
  </td>
 </tr>  	
 
@@ -123,23 +132,23 @@
                 Structure (LKR/sqm)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarStructure in bsUnitCostMiniHealthSys.Table_3.BucMarStructure">
+        <tr height="20" ng-repeat="bucMarStructure in bsUnitCostMiniHealthSys.health.Table_3.BucMarStructure">
             <td ng-bind="bucMarStructure.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarStructure[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarStructure[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarStructure[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarStructure[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarStructure[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarStructure[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarStructure[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarStructure[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarStructure[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarStructure[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
         </tr>
         <tr height="20" class="trheadc">
@@ -147,17 +156,17 @@
                 Set of Supplies (LKR/Unit)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarSupplies in bsUnitCostMiniHealthSys.Table_3.BucMarSupplies">
+        <tr height="20" ng-repeat="bucMarSupplies in bsUnitCostMiniHealthSys.health.Table_3.BucMarSupplies">
             <td ng-bind="bucMarSupplies.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarSupplies[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarSupplies[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarSupplies[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarSupplies[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarSupplies[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarSupplies[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98" style="background:#E4E5E6;">
             </td>
@@ -169,17 +178,17 @@
                 Medical Equipment (LKR/Unit)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarMequipment in bsUnitCostMiniHealthSys.Table_3.BucMarMequipment">
+        <tr height="20" ng-repeat="bucMarMequipment in bsUnitCostMiniHealthSys.health.Table_3.BucMarMequipment">
             <td ng-bind="bucMarMequipment.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarMequipment[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarMequipment[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarMequipment[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarMequipment[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarMequipment[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarMequipment[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98" style="background:#E4E5E6;">
             </td>
@@ -191,23 +200,23 @@
                 Other Assets (LKR/Unit)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarOassets in bsUnitCostMiniHealthSys.Table_3.BucMarOassets">
+        <tr height="20" ng-repeat="bucMarOassets in bsUnitCostMiniHealthSys.health.Table_3.BucMarOassets">
             <td ng-bind="bucMarOassets.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarOassets[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarOassets[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarOassets[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarOassets[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarOassets[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarOassets[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarOassets[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarOassets[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarOassets[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarOassets[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
         </tr>
     </tbody>
@@ -270,23 +279,23 @@
                 Structure (LKR/sqm)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarcStructures in bsUnitCostMiniHealthSys.Table_3.BucMarcStructures">
+        <tr height="20" ng-repeat="bucMarcStructures in bsUnitCostMiniHealthSys.health.Table_3.BucMarcStructures">
             <td ng-bind="bucMarcStructures.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcStructures[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcStructures[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcStructures[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcStructures[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcStructures[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcStructures[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcStructures[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcStructures[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcStructures[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcStructures[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
         </tr>
         <tr height="20" class="trheadc">
@@ -294,17 +303,17 @@
                 Medical Equipment (LKR/Unit)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarcMequipment in bsUnitCostMiniHealthSys.Table_3.BucMarcMequipment">
+        <tr height="20" ng-repeat="bucMarcMequipment in bsUnitCostMiniHealthSys.health.Table_3.BucMarcMequipment">
             <td ng-bind="bucMarcMequipment.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcMequipment[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcMequipment[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcMequipment[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcMequipment[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcMequipment[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcMequipment[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98" style="background:#E4E5E6;">
             </td>
@@ -316,23 +325,23 @@
                 Other Assets (LKR/Unit)
             </td>
         </tr>
-        <tr height="20" ng-repeat="bucMarcOassets in bsUnitCostMiniHealthSys.Table_3.BucMarcOassets">
+        <tr height="20" ng-repeat="bucMarcOassets in bsUnitCostMiniHealthSys.health.Table_3.BucMarcOassets">
             <td ng-bind="bucMarcOassets.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcOassets[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcOassets[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcOassets[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcOassets[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcOassets[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcOassets[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcOassets[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcOassets[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcOassets[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcOassets[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
         </tr>
         <tr height="20" class="trheadc">
@@ -340,7 +349,7 @@
                 Construction/ Repair Period in Months
             </td>
         </tr>
-        <!--<tr height="20" ng-repeat="bucMarcCrpm in bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm">-->
+        <!--<tr height="20" ng-repeat="bucMarcCrpm in bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm">-->
             <!--<td ng-bind="bucMarcCrpm.particulars" width="264" height="20" class="tdpa">-->
             <!--</td >-->
             <!--<td ng-repeat="(key, value) in bucMarcCrpm" ng-if="$index > 0" width="98">-->
@@ -348,23 +357,23 @@
             <!--</td>-->
         <!--</tr>-->
 
-        <tr height="20" ng-repeat="bucMarcCrpm in bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm">
+        <tr height="20" ng-repeat="bucMarcCrpm in bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm">
             <td ng-bind="bucMarcCrpm.particulars" width="264" height="20" class="tdpa">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm[$index].teaching_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm[$index].provincial_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm[$index].district_general_hospital" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm[$index].office" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
             <td width="98">
-                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.Table_3.BucMarcCrpm[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
+                <input id="textinput" ng-model="bsUnitCostMiniHealthSys.health.Table_3.BucMarcCrpm[$index].other" name="textinput" type="number" placeholder="" class="form-control input-md">
             </td>
         </tr>
     </tbody>

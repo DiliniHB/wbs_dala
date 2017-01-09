@@ -94,32 +94,32 @@ app.controller('bsInfoforCostsOfAssetsOnTheDistrictController', ['$scope', '$htt
     }
 
 
-//    $scope.saveBucMarStructure = function(form) {
-//        $scope.submitted = true;
-//        if(form.$valid) {
-//            console.log($scope.data);
-//            $http({
-//                method : 'POST',
-//                url : '/base_line/bs_save_data',
-//                contentType: 'application/json; charset=utf-8',
-//                data: angular.toJson({
-//                    'table_data': $scope.bsUnitCostMiniHealthSys,
-//                    'com_data':{
-//                        'district': $scope.district,
-//                        'bs_date': $scope.baselineDate,
-//                    },
-//                    'is_edit': $scope.is_edit
-//                }),
-//                dataType: 'json',
-//            }).then(function mySucces(response) {
-//                //if data sent to server side method successfull
-//                console.log(response);
-//            }, function myError(response) {
-//                //if data sent to server side method unsuccessfull
-//                console.log(response);
-//            });
-//        }
-//    }
+    $scope.save = function(form) {
+        $scope.submitted = true;
+        if(form.$valid) {
+            console.log($scope.data);
+            $http({
+                method : 'POST',
+                url : '/bs_save_data',
+                contentType: 'application/json; charset=utf-8',
+                data: angular.toJson({
+                    'table_data': $scope.bsUnitCostMiniHealthSys,
+                    'com_data':{
+                        'district': $scope.district,
+                        'bs_date': $scope.baselineDate,
+                    },
+                    'is_edit': $scope.is_edit
+                }),
+                dataType: 'json',
+            }).then(function mySucces(response) {
+                //if data sent to server side method successfull
+                console.log(response);
+            }, function myError(response) {
+                //if data sent to server side method unsuccessfull
+                console.log(response);
+            });
+        }
+    }
 //
 //    $scope.blDataEdit = function(form){
 //        $scope.is_edit = true;

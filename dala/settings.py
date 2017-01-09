@@ -43,11 +43,12 @@ INSTALLED_APPS = [
     'reports',
     'charts',
     'health',
-    'education',
+    # 'education',
     'health.base_line',
-    # 'health.damage_losses'
+    'health.damage_losses'
     # 'db_tools'
-    'other_govn_services',
+    # 'other_govn_services',
+    # 'other_govn_services.base_line',
 ]
 
 MIDDLEWARE_CLASSES = [
