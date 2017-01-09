@@ -40,10 +40,20 @@
 
             </ul>
 
-            <div id="myTabContent" class="tab-content">
+            <div id="myTabContent" class="tab-content" ng-form name="form_health_summary_damageloss_dis">
                 <div class="tab-pane active" id="step1">
+<<<<<<< HEAD
                     <table class="table table-bordered" style="width:100%;background:#E4E5E6;" ng-form
                            name="form_health_summary_damageloss_dis">
+=======
+                     <span style="color:red" ng-show="submitted && form_health_summary_damageloss_dis.$error.required">
+                                       Please fill all required fields
+                     </span>
+                    <span style="color:red" ng-show="!is_valid_data">
+                        This request can't be proceed, there is data-set available for this selection.
+                     </span>
+                    <table class="table table-bordered" style="width:100%;background:#E4E5E6;" >
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
                         <colgroup>
                             <col width="264"/>
                             <col width="98" span="7"/>
@@ -94,6 +104,7 @@
                             <td colspan="2" style="padding-left:5px;"> Name of District</td>
 
                             <td colspan="3" style="background:#EFEFEF;">
+<<<<<<< HEAD
                                 <select ng-options="district as district.district__name for district in districts track by district.district__id"
                                         name="district" id="ccyear" ng-model="district" class="form-control" required>
 
@@ -106,6 +117,11 @@
 
                                     <option ng-repeat="district in districts" ng-value="district.district__id"
                                             ng-bind="district.district__name"></option>
+=======
+
+                               <select name="district" id="ccyear" ng-model="district" class="form-control" required>
+                            <option value="">Select District</option>
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </select-->
 
@@ -173,57 +189,79 @@
                             <!--Table 8 :table one:tab1  first row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
-                                <td width="98" ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].total_num_affected"
+                                <td width="98" ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_num_affected"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].total_num_affected=dl_data['DmhDfNum'][0].fields.teaching_hospital + dl_data['DmhPdfaNum'][0].fields.teaching_hospital ">
+=======
+                                ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_num_affected=dl_data['DmhDfNum'][0].fields.teaching_hospital + dl_data['DmhPdfaNum'][0].fields.teaching_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].male"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].male"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].male=dl_data['DmhDfPaf'][0].fields.teaching_hospital + dl_data['DmhPdfaPaf'][0].fields.teaching_hospital">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].male=dl_data['DmhDfPaf'][0].fields.teaching_hospital + dl_data['DmhPdfaPaf'][0].fields.teaching_hospital">
 
 
                                 </td>
 
                                 <td width="98"
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].female=dl_data['DmhDfPaf'][1].fields.teaching_hospital + dl_data['DmhPdfaPaf'][1].fields.teaching_hospital">
+=======
+                                   ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].female"
+
+                                   ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].female=dl_data['DmhDfPaf'][1].fields.teaching_hospital + dl_data['DmhPdfaPaf'][1].fields.teaching_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].total_damages=dl_data['DmhPdfaOassets'][7].fields.teaching_hospital">
+=======
+                                ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_damages"
+
+                                ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_damages=dl_data['DmhPdfaOassets'][7].fields.teaching_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y1"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y1"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y1=dl_data['DmhLosFi'][0].fields.teaching_hospital+ dl_data['DmhLosCud'][0].fields.teaching_hospital + dl_data['DmhLosHoc'][0].fields.teaching_hospital + dl_data['DmhLosOue'][0].fields.teaching_hospital ">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y1=dl_data['DmhLosFi'][0].fields.teaching_hospital+ dl_data['DmhLosCud'][0].fields.teaching_hospital + dl_data['DmhLosHoc'][0].fields.teaching_hospital + dl_data['DmhLosOue'][0].fields.teaching_hospital ">
 
                                 </td>
 
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y2"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y2"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y2=dl_data['DmhLosFi'][1].fields.teaching_hospital+ dl_data['DmhLosCud'][1].fields.teaching_hospital + dl_data['DmhLosHoc'][1].fields.teaching_hospital + dl_data['DmhLosOue'][1].fields.teaching_hospital ">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y2=dl_data['DmhLosFi'][1].fields.teaching_hospital+ dl_data['DmhLosCud'][1].fields.teaching_hospital + dl_data['DmhLosHoc'][1].fields.teaching_hospital + dl_data['DmhLosOue'][1].fields.teaching_hospital ">
 
                                 </td>
                                 <td width="98"
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[0].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[0].total_losses=dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y1 + dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y2">
+=======
+                                ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_losses"
+
+                                ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_losses=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
 
@@ -233,60 +271,96 @@
                             <!--Table 8 :table one:tab1  second row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].total_num_affected=dl_data['DmhDfNum'][0].fields.provincial_general_hospital + dl_data['DmhPdfaNum'][0].fields.teaching_hospital ">
+=======
+                                ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_num_affected"
+
+                                ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_num_affected=dl_data['DmhDfNum'][0].fields.provincial_general_hospital + dl_data['DmhPdfaNum'][0].fields.teaching_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].male"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].male"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].male=dl_data['DmhDfPaf'][0].fields.provincial_general_hospital + dl_data['DmhPdfaPaf'][0].fields.provincial_general_hospital">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].male=dl_data['DmhDfPaf'][0].fields.provincial_general_hospital + dl_data['DmhPdfaPaf'][0].fields.provincial_general_hospital">
 
 
                                 </td>
                                 <td width="98"
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].female=dl_data['DmhDfPaf'][1].fields.provincial_general_hospital + dl_data['DmhPdfaPaf'][1].fields.provincial_general_hospital">
+=======
+                                   ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].female"
+
+                                   ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].female=dl_data['DmhDfPaf'][1].fields.provincial_general_hospital + dl_data['DmhPdfaPaf'][1].fields.provincial_general_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].total_damages"
 
                                     g-value="dlhealthsectordistrict.Table_8.DshPubLmh[1].total_damages=dl_data['DmhPdfaOassets'][7].fields.provincial_general_hospital">
+=======
+                                 ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_damages"
+
+                                 g-value="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_damages=dl_data['DmhPdfaOassets'][7].fields.provincial_general_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y1=dl_data['DmhLosFi'][0].fields.provincial_general_hospital+ dl_data['DmhLosCud'][0].fields.teaching_hospital + dl_data['DmhLosHoc'][0].fields.provincial_general_hospital + dl_data['DmhLosOue'][0].fields.provincial_general_hospital ">
+=======
+                                   ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y1"
+
+                                   ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y1=dl_data['DmhLosFi'][0].fields.provincial_general_hospital+ dl_data['DmhLosCud'][0].fields.teaching_hospital + dl_data['DmhLosHoc'][0].fields.provincial_general_hospital + dl_data['DmhLosOue'][0].fields.provincial_general_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
+<<<<<<< HEAD
                                 <td width="98" ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y2=dl_data['DmhLosFi'][1].fields.provincial_general_hospital+ dl_data['DmhLosCud'][1].fields.provincial_general_hospital + dl_data['DmhLosHoc'][1].fields.provincial_general_hospital + dl_data['DmhLosOue'][1].fields.provincial_general_hospital ">
+=======
+                                <td  width="98" ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y2"
+
+                                      ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y2=dl_data['DmhLosFi'][1].fields.provincial_general_hospital+ dl_data['DmhLosCud'][1].fields.provincial_general_hospital + dl_data['DmhLosHoc'][1].fields.provincial_general_hospital + dl_data['DmhLosOue'][1].fields.provincial_general_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[1].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[1].total_losses=dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y1 + dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y2">
+=======
+                                  ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_losses"
+
+                                  ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_losses=dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -296,59 +370,79 @@
                             <!--Table 8 :table one:tab1 third row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].total_num_affected"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_num_affected"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].total_num_affected=dl_data['DmhDfNum'][0].fields.district_general_hospital + dl_data['DmhPdfaNum'][0].fields.district_general_hospital ">
-
-
-                                </td>
-                                <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].male"
-
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].male=dl_data['DmhDfPaf'][0].fields.district_general_hospital + dl_data['DmhPdfaPaf'][0].fields.district_general_hospital">
-
-                                </td>
-                                <td width="98" ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].female"
-
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].female=dl_data['DmhDfPaf'][1].fields.district_general_hospital + dl_data['DmhPdfaPaf'][1].fields.district_general_hospital">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_num_affected=dl_data['DmhDfNum'][0].fields.district_general_hospital + dl_data['DmhPdfaNum'][0].fields.district_general_hospital ">
 
 
                                 </td>
                                 <td width="98"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].male"
 
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].male=dl_data['DmhDfPaf'][0].fields.district_general_hospital + dl_data['DmhPdfaPaf'][0].fields.district_general_hospital">
+
+                                </td>
+                                <td width="98" ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].female"
+
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].female=dl_data['DmhDfPaf'][1].fields.district_general_hospital + dl_data['DmhPdfaPaf'][1].fields.district_general_hospital">
+
+
+                                </td>
+                                <td width="98"
+
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].total_damages=dl_data['DmhPdfaOassets'][7].fields.district_general_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_damages=dl_data['DmhPdfaOassets'][7].fields.district_general_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y1"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y1"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y1=dl_data['DmhLosFi'][0].fields.district_general_hospital+ dl_data['DmhLosCud'][0].fields.district_general_hospital + dl_data['DmhLosHoc'][0].fields.district_general_hospital + dl_data['DmhLosOue'][0].fields.district_general_hospital ">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y1=dl_data['DmhLosFi'][0].fields.district_general_hospital+ dl_data['DmhLosCud'][0].fields.district_general_hospital + dl_data['DmhLosHoc'][0].fields.district_general_hospital + dl_data['DmhLosOue'][0].fields.district_general_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y2"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y2"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y2=dl_data['DmhLosFi'][1].fields.district_general_hospital+ dl_data['DmhLosCud'][1].fields.district_general_hospital + dl_data['DmhLosHoc'][1].fields.district_general_hospital + dl_data['DmhLosOue'][1].fields.district_general_hospital ">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y2=dl_data['DmhLosFi'][1].fields.district_general_hospital+ dl_data['DmhLosCud'][1].fields.district_general_hospital + dl_data['DmhLosHoc'][1].fields.district_general_hospital + dl_data['DmhLosOue'][1].fields.district_general_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[2].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[2].total_losses=dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y1 + dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y2">
+=======
+                                  ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_losses"
+
+                                   ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_losses=dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -358,58 +452,76 @@
                             <!--Table 8 :table one:tab1  fourth row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].facilities_assets"
                                     width="264" height="20" class="boldash">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].total_num_affected=dlhealthsectordistrict.Table_8.DshPubLmh[0].total_num_affected + dlhealthsectordistrict.Table_8.DshPubLmh[1].total_num_affected + dlhealthsectordistrict.Table_8.DshPubLmh[2].total_num_affected">
+=======
+                                   ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_num_affected"
+
+                                   ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_num_affected=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_num_affected">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].male"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].male"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].male=dlhealthsectordistrict.Table_8.DshPubLmh[0].male + dlhealthsectordistrict.Table_8.DshPubLmh[1].male + dlhealthsectordistrict.Table_8.DshPubLmh[2].male">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].male=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].male + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].male + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].male">
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].female"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].female"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].female=dlhealthsectordistrict.Table_8.DshPubLmh[0].female + dlhealthsectordistrict.Table_8.DshPubLmh[1].female + dlhealthsectordistrict.Table_8.DshPubLmh[2].female">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].female=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].female + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].female + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].female">
 
 
                                 </td>
 
 
-                                <td width="98" ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].total_damages"
+                                <td width="98" ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_damages"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].total_damages=dlhealthsectordistrict.Table_8.DshPubLmh[0].total_damages + dlhealthsectordistrict.Table_8.DshPubLmh[1].total_damages + dlhealthsectordistrict.Table_8.DshPubLmh[2].total_damages">
+=======
+                                  ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_damages=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_damages + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_damages + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].losses_y1"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].losses_y1"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].losses_y1=dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y1 + dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y1 + dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y1">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].losses_y1=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
-                                <td width="98" ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].losses_y2"
+                                <td width="98" ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].losses_y2"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].losses_y2=dlhealthsectordistrict.Table_8.DshPubLmh[0].losses_y2 + dlhealthsectordistrict.Table_8.DshPubLmh[1].losses_y2 + dlhealthsectordistrict.Table_8.DshPubLmh[2].losses_y2">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].losses_y2=dlhealthsectordistrict.health.Table_8.DshPubLmh[0].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].losses_y2">
 
 
                                 </td>
-                                <td width="98" ng-model="dlhealthsectordistrict.Table_8.DshPubLmh[3].total_losses"
+                                <td width="98" ng-model="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_losses"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubLmh[3].total_losses= dlhealthsectordistrict.Table_8.DshPubLmh[0].total_losses + dlhealthsectordistrict.Table_8.DshPubLmh[1].total_losses + dlhealthsectordistrict.Table_8.DshPubLmh[2].total_losses">
+=======
+                                ng-bind="dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_losses= dlhealthsectordistrict.health.Table_8.DshPubLmh[0].total_losses + dlhealthsectordistrict.health.Table_8.DshPubLmh[1].total_losses + dlhealthsectordistrict.health.Table_8.DshPubLmh[2].total_losses">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -440,60 +552,86 @@
 
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].total_num_affected=dl_data['DmhDfNum'][0].fields.office + dl_data['DmhPdfaNum'][0].fields.office ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_num_affected=dl_data['DmhDfNum'][0].fields.office + dl_data['DmhPdfaNum'][0].fields.office ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].male"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].male"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].male=dl_data['DmhDfPaf'][0].fields.office + dl_data['DmhPdfaPaf'][0].fields.office">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].male=dl_data['DmhDfPaf'][0].fields.office + dl_data['DmhPdfaPaf'][0].fields.office">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].female"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].female"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].female=dl_data['DmhDfPaf'][1].fields.office + dl_data['DmhPdfaPaf'][1].fields.office">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].female=dl_data['DmhDfPaf'][1].fields.office + dl_data['DmhPdfaPaf'][1].fields.office">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].total_damages=dl_data['DmhPdfaOassets'][7].fields.office">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_damages=dl_data['DmhPdfaOassets'][7].fields.office">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y1"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y1"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y1=dl_data['DmhLosFi'][0].fields.office+ dl_data['DmhLosCud'][0].fields.office + dl_data['DmhLosHoc'][0].fields.office + dl_data['DmhLosOue'][0].fields.office ">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y1=dl_data['DmhLosFi'][0].fields.office+ dl_data['DmhLosCud'][0].fields.office + dl_data['DmhLosHoc'][0].fields.office + dl_data['DmhLosOue'][0].fields.office ">
 
 
                                 </td>
 
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y2"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y2"
 
-                                    ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y2=dl_data['DmhLosFi'][1].fields.office+ dl_data['DmhLosCud'][1].fields.office + dl_data['DmhLosHoc'][1].fields.office + dl_data['DmhLosOue'][1].fields.office ">
+                                    ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y2=dl_data['DmhLosFi'][1].fields.office+ dl_data['DmhLosCud'][1].fields.office + dl_data['DmhLosHoc'][1].fields.office + dl_data['DmhLosOue'][1].fields.office ">
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[0].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[0].total_losses=dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y1 + dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_losses=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -504,60 +642,94 @@
 
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].total_num_affected=dl_data['DmhDfNum'][0].fields.other + dl_data['DmhPdfaNum'][0].fields.other ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_num_affected=dl_data['DmhDfNum'][0].fields.other + dl_data['DmhPdfaNum'][0].fields.other ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].male"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].male"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].male=dl_data['DmhDfPaf'][0].fields.other + dl_data['DmhPdfaPaf'][0].fields.other">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].male=dl_data['DmhDfPaf'][0].fields.other + dl_data['DmhPdfaPaf'][0].fields.other">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].female"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].female"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].female=dl_data['DmhDfPaf'][1].fields.other + dl_data['DmhPdfaPaf'][1].fields.other">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].female=dl_data['DmhDfPaf'][1].fields.other + dl_data['DmhPdfaPaf'][1].fields.other">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].total_damages=dl_data['DmhPdfaOassets'][7].fields.other">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_damages=dl_data['DmhPdfaOassets'][7].fields.other">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y1"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y1"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y1=dl_data['DmhLosFi'][0].fields.other+ dl_data['DmhLosCud'][0].fields.other + dl_data['DmhLosHoc'][0].fields.other + dl_data['DmhLosOue'][0].fields.other ">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y1=dl_data['DmhLosFi'][0].fields.other+ dl_data['DmhLosCud'][0].fields.other + dl_data['DmhLosHoc'][0].fields.other + dl_data['DmhLosOue'][0].fields.other ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y2"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y2"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y2=dl_data['DmhLosFi'][1].fields.other+ dl_data['DmhLosCud'][1].fields.other + dl_data['DmhLosHoc'][1].fields.other + dl_data['DmhLosOue'][1].fields.other ">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y2=dl_data['DmhLosFi'][1].fields.other+ dl_data['DmhLosCud'][1].fields.other + dl_data['DmhLosHoc'][1].fields.other + dl_data['DmhLosOue'][1].fields.other ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[1].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[1].total_losses=dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y1 + dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_losses=dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -568,22 +740,29 @@
                             <!--Table 8 :table two:tab1  third row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].facilities_assets"
                                     width="264" height="20" class="boldash">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].total_num_affected=dlhealthsectordistrict.Table_8.DshPubMoh[0].total_num_affected + dlhealthsectordistrict.Table_8.DshPubMoh[1].total_num_affected">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_num_affected=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_num_affected">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].male"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].male"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].male=dlhealthsectordistrict.Table_8.DshPubMoh[0].male + dlhealthsectordistrict.Table_8.DshPubMoh[1].male ">
 
 
@@ -592,37 +771,67 @@
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].female=dlhealthsectordistrict.Table_8.DshPubMoh[0].female + dlhealthsectordistrict.Table_8.DshPubMoh[1].female ">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].male=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].male + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].male ">
+
+
+                                </td>
+                                <td  width="98"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].female=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].female + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].female ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].total_damages=dlhealthsectordistrict.Table_8.DshPubMoh[0].total_damages + dlhealthsectordistrict.Table_8.DshPubMoh[1].total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_damages=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_damages + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].losses_y1"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].losses_y1"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].losses_y1=dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y1 + dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y1">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].losses_y1=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
-                                    ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].losses_y2"
+                                    ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].losses_y2"
 
+<<<<<<< HEAD
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].losses_y2=dlhealthsectordistrict.Table_8.DshPubMoh[0].losses_y2 + dlhealthsectordistrict.Table_8.DshPubMoh[1].losses_y2">
+=======
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].losses_y2=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubMoh[2].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubMoh[2].total_losses=dlhealthsectordistrict.Table_8.DshPubMoh[0].total_losses + dlhealthsectordistrict.Table_8.DshPubMoh[1].total_losses">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_losses=dlhealthsectordistrict.health.Table_8.DshPubMoh[0].total_losses + dlhealthsectordistrict.health.Table_8.DshPubMoh[1].total_losses">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -653,61 +862,103 @@
                             <!--Table 8 :table Three:tab1  first row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].total_num_affected=dl_data['DmfDfaNum'][0].fields.base_hospital + dl_data['DmfPdfaNum'][0].fields.base_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_num_affected=dl_data['DmfDfaNum'][0].fields.base_hospital + dl_data['DmfPdfaNum'][0].fields.base_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].male=dl_data['DmfDfaPaf'][0].fields.base_hospital + dl_data['DmfPdfaPaf'][0].fields.base_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].male=dl_data['DmfDfaPaf'][0].fields.base_hospital + dl_data['DmfPdfaPaf'][0].fields.base_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].female=dl_data['DmfDfaPaf'][1].fields.base_hospital + dl_data['DmfPdfaPaf'][1].fields.base_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].female=dl_data['DmfDfaPaf'][1].fields.base_hospital + dl_data['DmfPdfaPaf'][1].fields.base_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].total_damages=dl_data['DmfPdaOassets'][7].fields.base_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_damages=dl_data['DmfPdaOassets'][7].fields.base_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y1=dl_data['DmfLosFi'][0].fields.base_hospital + dl_data['DmfLosCud'][0].fields.base_hospital + dl_data['DmfLosHoc'][0].fields.base_hospital  + dl_data['DmfLosOue'][0].fields.base_hospital  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y1=dl_data['DmfLosFi'][0].fields.base_hospital + dl_data['DmfLosCud'][0].fields.base_hospital + dl_data['DmfLosHoc'][0].fields.base_hospital  + dl_data['DmfLosOue'][0].fields.base_hospital  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y2=dl_data['DmfLosFi'][1].fields.base_hospital + dl_data['DmfLosCud'][1].fields.base_hospital + dl_data['DmfLosHoc'][1].fields.base_hospital  + dl_data['DmfLosOue'][1].fields.base_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y2=dl_data['DmfLosFi'][1].fields.base_hospital + dl_data['DmfLosCud'][1].fields.base_hospital + dl_data['DmfLosHoc'][1].fields.base_hospital  + dl_data['DmfLosOue'][1].fields.base_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[0].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[0].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y1  + dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y1  + dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -716,63 +967,105 @@
                             <!--Table 8 :table three:tab1  second row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].total_num_affected=dl_data['DmfDfaNum'][0].fields.divisional_hospital + dl_data['DmfPdfaNum'][0].fields.divisional_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_num_affected=dl_data['DmfDfaNum'][0].fields.divisional_hospital + dl_data['DmfPdfaNum'][0].fields.divisional_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].male=dl_data['DmfDfaPaf'][0].fields.divisional_hospital + dl_data['DmfPdfaPaf'][0].fields.divisional_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].male=dl_data['DmfDfaPaf'][0].fields.divisional_hospital + dl_data['DmfPdfaPaf'][0].fields.divisional_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].female=dl_data['DmfDfaPaf'][1].fields.divisional_hospital + dl_data['DmfPdfaPaf'][1].fields.divisional_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].female=dl_data['DmfDfaPaf'][1].fields.divisional_hospital + dl_data['DmfPdfaPaf'][1].fields.divisional_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].total_damages=dl_data['DmfPdaOassets'][7].fields.divisional_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_damages=dl_data['DmfPdaOassets'][7].fields.divisional_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y1=dl_data['DmfLosFi'][0].fields.divisional_hospital + dl_data['DmfLosCud'][0].fields.divisional_hospital + dl_data['DmfLosHoc'][0].fields.divisional_hospital  + dl_data['DmfLosOue'][0].fields.divisional_hospital  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y1=dl_data['DmfLosFi'][0].fields.divisional_hospital + dl_data['DmfLosCud'][0].fields.divisional_hospital + dl_data['DmfLosHoc'][0].fields.divisional_hospital  + dl_data['DmfLosOue'][0].fields.divisional_hospital  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y2=dl_data['DmfLosFi'][1].fields.divisional_hospital + dl_data['DmfLosCud'][1].fields.divisional_hospital + dl_data['DmfLosHoc'][1].fields.divisional_hospital  + dl_data['DmfLosOue'][1].fields.divisional_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y2=dl_data['DmfLosFi'][1].fields.divisional_hospital + dl_data['DmfLosCud'][1].fields.divisional_hospital + dl_data['DmfLosHoc'][1].fields.divisional_hospital  + dl_data['DmfLosOue'][1].fields.divisional_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[1].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[1].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y1+ dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y1+ dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -781,62 +1074,104 @@
                             <!--Table 8 :table three:tab1  third row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].total_num_affected=dl_data['DmfDfaNum'][0].fields.rural_hospital + dl_data['DmfPdfaNum'][0].fields.rural_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_num_affected=dl_data['DmfDfaNum'][0].fields.rural_hospital + dl_data['DmfPdfaNum'][0].fields.rural_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].male=dl_data['DmfDfaPaf'][0].fields.rural_hospital + dl_data['DmfPdfaPaf'][0].fields.rural_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].male=dl_data['DmfDfaPaf'][0].fields.rural_hospital + dl_data['DmfPdfaPaf'][0].fields.rural_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].female=dl_data['DmfDfaPaf'][1].fields.rural_hospital + dl_data['DmfPdfaPaf'][1].fields.rural_hospital ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].female=dl_data['DmfDfaPaf'][1].fields.rural_hospital + dl_data['DmfPdfaPaf'][1].fields.rural_hospital ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].total_damages=dl_data['DmfPdaOassets'][7].fields.rural_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_damages=dl_data['DmfPdaOassets'][7].fields.rural_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y1=dl_data['DmfLosFi'][0].fields.rural_hospital + dl_data['DmfLosCud'][0].fields.rural_hospital + dl_data['DmfLosHoc'][0].fields.rural_hospital  + dl_data['DmfLosOue'][0].fields.rural_hospital  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y1=dl_data['DmfLosFi'][0].fields.rural_hospital + dl_data['DmfLosCud'][0].fields.rural_hospital + dl_data['DmfLosHoc'][0].fields.rural_hospital  + dl_data['DmfLosOue'][0].fields.rural_hospital  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y2=dl_data['DmfLosFi'][1].fields.rural_hospital + dl_data['DmfLosCud'][1].fields.rural_hospital + dl_data['DmfLosHoc'][1].fields.rural_hospital  + dl_data['DmfLosOue'][1].fields.rural_hospital">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y2=dl_data['DmfLosFi'][1].fields.rural_hospital + dl_data['DmfLosCud'][1].fields.rural_hospital + dl_data['DmfLosHoc'][1].fields.rural_hospital  + dl_data['DmfLosOue'][1].fields.rural_hospital">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[2].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[2].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -845,54 +1180,90 @@
                             <!--Table 8 :table three:tab1  fourth row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].total_num_affected=dl_data['DmfDfaNum'][0].fields.central_dispensary + dl_data['DmfPdfaNum'][0].fields.central_dispensary ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_num_affected=dl_data['DmfDfaNum'][0].fields.central_dispensary + dl_data['DmfPdfaNum'][0].fields.central_dispensary ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].male=dl_data['DmfDfaPaf'][0].fields.central_dispensary + dl_data['DmfPdfaPaf'][0].fields.central_dispensary ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].male=dl_data['DmfDfaPaf'][0].fields.central_dispensary + dl_data['DmfPdfaPaf'][0].fields.central_dispensary ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].female=dl_data['DmfDfaPaf'][1].fields.central_dispensary + dl_data['DmfPdfaPaf'][1].fields.central_dispensary ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].female=dl_data['DmfDfaPaf'][1].fields.central_dispensary + dl_data['DmfPdfaPaf'][1].fields.central_dispensary ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].total_damages=dl_data['DmfPdaOassets'][7].fields.central_dispensary">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_damages=dl_data['DmfPdaOassets'][7].fields.central_dispensary">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y1=dl_data['DmfLosFi'][0].fields.central_dispensary + dl_data['DmfLosCud'][0].fields.central_dispensary + dl_data['DmfLosHoc'][0].fields.central_dispensary  + dl_data['DmfLosOue'][0].fields.central_dispensary  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y1=dl_data['DmfLosFi'][0].fields.central_dispensary + dl_data['DmfLosCud'][0].fields.central_dispensary + dl_data['DmfLosHoc'][0].fields.central_dispensary  + dl_data['DmfLosOue'][0].fields.central_dispensary  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y2=dl_data['DmfLosFi'][1].fields.central_dispensary + dl_data['DmfLosCud'][1].fields.central_dispensary + dl_data['DmfLosHoc'][1].fields.central_dispensary  + dl_data['DmfLosOue'][1].fields.central_dispensary">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y2=dl_data['DmfLosFi'][1].fields.central_dispensary + dl_data['DmfLosCud'][1].fields.central_dispensary + dl_data['DmfLosHoc'][1].fields.central_dispensary  + dl_data['DmfLosOue'][1].fields.central_dispensary">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -900,9 +1271,15 @@
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[3].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[3].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -913,55 +1290,91 @@
                             <!--Table 8 :table three:tab1  fifth row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].total_num_affected=dl_data['DmfDfaNum'][0].fields.pmcus + dl_data['DmfPdfaNum'][0].fields.pmcus ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_num_affected=dl_data['DmfDfaNum'][0].fields.pmcus + dl_data['DmfPdfaNum'][0].fields.pmcus ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].male=dl_data['DmfDfaPaf'][0].fields.pmcus + dl_data['DmfPdfaPaf'][0].fields.pmcus ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].male=dl_data['DmfDfaPaf'][0].fields.pmcus + dl_data['DmfPdfaPaf'][0].fields.pmcus ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].female=dl_data['DmfDfaPaf'][1].fields.pmcus + dl_data['DmfPdfaPaf'][1].fields.pmcus ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].female=dl_data['DmfDfaPaf'][1].fields.pmcus + dl_data['DmfPdfaPaf'][1].fields.pmcus ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].total_damages=dl_data['DmfPdaOassets'][7].fields.pmcus">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_damages=dl_data['DmfPdaOassets'][7].fields.pmcus">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y1=dl_data['DmfLosFi'][0].fields.pmcus + dl_data['DmfLosCud'][0].fields.pmcus + dl_data['DmfLosHoc'][0].fields.pmcus  + dl_data['DmfLosOue'][0].fields.pmcus  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y1=dl_data['DmfLosFi'][0].fields.pmcus + dl_data['DmfLosCud'][0].fields.pmcus + dl_data['DmfLosHoc'][0].fields.pmcus  + dl_data['DmfLosOue'][0].fields.pmcus  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y2=dl_data['DmfLosFi'][1].fields.pmcus + dl_data['DmfLosCud'][1].fields.pmcus + dl_data['DmfLosHoc'][1].fields.pmcus  + dl_data['DmfLosOue'][1].fields.pmcus">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y2=dl_data['DmfLosFi'][1].fields.pmcus + dl_data['DmfLosCud'][1].fields.pmcus + dl_data['DmfLosHoc'][1].fields.pmcus  + dl_data['DmfLosOue'][1].fields.pmcus">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -969,9 +1382,15 @@
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[4].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[4].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -982,63 +1401,105 @@
                             <!--Table 8 :table three:tab1  sixth row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].total_num_affected=dl_data['DmfDfaNum'][0].fields.phccs + dl_data['DmfPdfaNum'][0].fields.phccs ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_num_affected=dl_data['DmfDfaNum'][0].fields.phccs + dl_data['DmfPdfaNum'][0].fields.phccs ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].male=dl_data['DmfDfaPaf'][0].fields.phccs + dl_data['DmfPdfaPaf'][0].fields.phccs ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].male=dl_data['DmfDfaPaf'][0].fields.phccs + dl_data['DmfPdfaPaf'][0].fields.phccs ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].female=dl_data['DmfDfaPaf'][1].fields.phccs + dl_data['DmfPdfaPaf'][1].fields.phccs ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].female=dl_data['DmfDfaPaf'][1].fields.phccs + dl_data['DmfPdfaPaf'][1].fields.phccs ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].total_damages=dl_data['DmfPdaOassets'][7].fields.phccs">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_damages=dl_data['DmfPdaOassets'][7].fields.phccs">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y1=dl_data['DmfLosFi'][0].fields.phccs + dl_data['DmfLosCud'][0].fields.phccs + dl_data['DmfLosHoc'][0].fields.phccs  + dl_data['DmfLosOue'][0].fields.phccs  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y1=dl_data['DmfLosFi'][0].fields.phccs + dl_data['DmfLosCud'][0].fields.phccs + dl_data['DmfLosHoc'][0].fields.phccs  + dl_data['DmfLosOue'][0].fields.phccs  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y2=dl_data['DmfLosFi'][1].fields.phccs + dl_data['DmfLosCud'][1].fields.phccs + dl_data['DmfLosHoc'][1].fields.phccs  + dl_data['DmfLosOue'][1].fields.phccs">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y2=dl_data['DmfLosFi'][1].fields.phccs + dl_data['DmfLosCud'][1].fields.phccs + dl_data['DmfLosHoc'][1].fields.phccs  + dl_data['DmfLosOue'][1].fields.phccs">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[5].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[5].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -1048,55 +1509,91 @@
                             <!--Table 8 :table three:tab1  seventh row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].facilities_assets"
                                     width="264" height="20" class="tdpa">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].total_num_affected=dl_data['DmfDfaNum'][0].fields.mchcs + dl_data['DmfPdfaNum'][0].fields.mchcs ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_num_affected=dl_data['DmfDfaNum'][0].fields.mchcs + dl_data['DmfPdfaNum'][0].fields.mchcs ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].male=dl_data['DmfDfaPaf'][0].fields.mchcs + dl_data['DmfPdfaPaf'][0].fields.mchcs ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].male=dl_data['DmfDfaPaf'][0].fields.mchcs + dl_data['DmfPdfaPaf'][0].fields.mchcs ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].female=dl_data['DmfDfaPaf'][1].fields.mchcs + dl_data['DmfPdfaPaf'][1].fields.mchcs ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].female=dl_data['DmfDfaPaf'][1].fields.mchcs + dl_data['DmfPdfaPaf'][1].fields.mchcs ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].total_damages=dl_data['DmfPdaOassets'][7].fields.mchcs">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_damages=dl_data['DmfPdaOassets'][7].fields.mchcs">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y1=dl_data['DmfLosFi'][0].fields.mchcs + dl_data['DmfLosCud'][0].fields.mchcs + dl_data['DmfLosHoc'][0].fields.mchcs  + dl_data['DmfLosOue'][0].fields.mchcs  ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y1=dl_data['DmfLosFi'][0].fields.mchcs + dl_data['DmfLosCud'][0].fields.mchcs + dl_data['DmfLosHoc'][0].fields.mchcs  + dl_data['DmfLosOue'][0].fields.mchcs  ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y2=dl_data['DmfLosFi'][1].fields.mchcs + dl_data['DmfLosCud'][1].fields.mchcs + dl_data['DmfLosHoc'][1].fields.mchcs  + dl_data['DmfLosOue'][1].fields.mchcs">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y2=dl_data['DmfLosFi'][1].fields.mchcs + dl_data['DmfLosCud'][1].fields.mchcs + dl_data['DmfLosHoc'][1].fields.mchcs  + dl_data['DmfLosOue'][1].fields.mchcs">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -1104,9 +1601,15 @@
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[6].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[6].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -1117,13 +1620,14 @@
                             <!--Table 8 :table three:tab1  eight row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].facilities_assets"
                                     width="264" height="20" class="boldash">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].total_num_affected=dlhealthsectordistrict.Table_8.DshPubOmf[0].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[1].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[2].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[3].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[4].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[5].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[6].total_num_affected">
@@ -1133,49 +1637,90 @@
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].male=dlhealthsectordistrict.Table_8.DshPubOmf[0].male + dlhealthsectordistrict.Table_8.DshPubOmf[1].male + dlhealthsectordistrict.Table_8.DshPubOmf[2].male + dlhealthsectordistrict.Table_8.DshPubOmf[3].male + dlhealthsectordistrict.Table_8.DshPubOmf[4].male + dlhealthsectordistrict.Table_8.DshPubOmf[5].male + dlhealthsectordistrict.Table_8.DshPubOmf[6].male">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_num_affected=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_num_affected">
+                                </td>
+                                <td width="98"
+
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].male=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[1].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].male">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].female=dlhealthsectordistrict.Table_8.DshPubOmf[0].female + dlhealthsectordistrict.Table_8.DshPubOmf[1].female + dlhealthsectordistrict.Table_8.DshPubOmf[2].female + dlhealthsectordistrict.Table_8.DshPubOmf[3].male + dlhealthsectordistrict.Table_8.DshPubOmf[4].male + dlhealthsectordistrict.Table_8.DshPubOmf[5].female + dlhealthsectordistrict.Table_8.DshPubOmf[6].female">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].female=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].female + dlhealthsectordistrict.health.Table_8.DshPubOmf[1].female + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].female + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].female + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].female">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].total_damages=dlhealthsectordistrict.Table_8.DshPubOmf[0].total_damages+dlhealthsectordistrict.Table_8.DshPubOmf[1].total_damages + dlhealthsectordistrict.Table_8.DshPubOmf[2].total_damages + dlhealthsectordistrict.Table_8.DshPubOmf[3].total_damages + dlhealthsectordistrict.Table_8.DshPubOmf[4].total_damages + dlhealthsectordistrict.Table_8.DshPubOmf[5].total_damages + dlhealthsectordistrict.Table_8.DshPubOmf[6].total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_damages=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_damages+dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_damages + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_damages + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_damages + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_damages + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_damages + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].losses_y1=dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y1+dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].losses_y1=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y1+dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].losses_y2=dlhealthsectordistrict.Table_8.DshPubOmf[0].losses_y2+dlhealthsectordistrict.Table_8.DshPubOmf[1].losses_y2 + dlhealthsectordistrict.Table_8.DshPubOmf[2].losses_y2 + dlhealthsectordistrict.Table_8.DshPubOmf[3].losses_y2 + dlhealthsectordistrict.Table_8.DshPubOmf[4].losses_y2 + dlhealthsectordistrict.Table_8.DshPubOmf[5].losses_y2 + dlhealthsectordistrict.Table_8.DshPubOmf[6].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].losses_y2=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].losses_y2+dlhealthsectordistrict.health.Table_8.DshPubOmf[1].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[7].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[7].total_losses=dlhealthsectordistrict.Table_8.DshPubOmf[0].total_losses+dlhealthsectordistrict.Table_8.DshPubOmf[1].total_losses + dlhealthsectordistrict.Table_8.DshPubOmf[2].total_losses + dlhealthsectordistrict.Table_8.DshPubOmf[3].total_losses + dlhealthsectordistrict.Table_8.DshPubOmf[4].total_losses + dlhealthsectordistrict.Table_8.DshPubOmf[5].total_losses + dlhealthsectordistrict.Table_8.DshPubOmf[6].total_losses">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_losses=dlhealthsectordistrict.health.Table_8.DshPubOmf[0].total_losses+dlhealthsectordistrict.health.Table_8.DshPubOmf[1].total_losses + dlhealthsectordistrict.health.Table_8.DshPubOmf[2].total_losses + dlhealthsectordistrict.health.Table_8.DshPubOmf[3].total_losses + dlhealthsectordistrict.health.Table_8.DshPubOmf[4].total_losses + dlhealthsectordistrict.health.Table_8.DshPubOmf[5].total_losses + dlhealthsectordistrict.health.Table_8.DshPubOmf[6].total_losses">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -1184,13 +1729,14 @@
                             <!--Table 8 :table three:tab1  ninth row-->
                             <tr height="20">
 
-                                <td ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].facilities_assets"
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].facilities_assets"
                                     width="264" height="20" class="boldash">
 
                                 </td>
 
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].total_num_affected"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].total_num_affected=dlhealthsectordistrict.Table_8.DshPubLmh[3].total_num_affected + dlhealthsectordistrict.Table_8.DshPubMoh[2].total_num_affected + dlhealthsectordistrict.Table_8.DshPubOmf[7].total_num_affected">
@@ -1200,46 +1746,87 @@
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].male"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].male=dlhealthsectordistrict.Table_8.DshPubLmh[3].male + dlhealthsectordistrict.Table_8.DshPubMoh[2].male + dlhealthsectordistrict.Table_8.DshPubOmf[7].male">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_num_affected=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_num_affected">
+                                </td>
+                                <td width="98"
+
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].male=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].male + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].male + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].male">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].female"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].female=dlhealthsectordistrict.Table_8.DshPubLmh[3].female + dlhealthsectordistrict.Table_8.DshPubMoh[2].female + dlhealthsectordistrict.Table_8.DshPubOmf[7].female">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].female=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].female + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].female + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].female">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].total_damages"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].total_damages=dlhealthsectordistrict.Table_8.DshPubLmh[3].total_damages + dlhealthsectordistrict.Table_8.DshPubMoh[2].total_damages + dlhealthsectordistrict.Table_8.DshPubOmf[7].total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_damages=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_damages + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_damages + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].losses_y1"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].losses_y1=dlhealthsectordistrict.Table_8.DshPubLmh[3].losses_y1 + dlhealthsectordistrict.Table_8.DshPubMoh[2].losses_y1 + dlhealthsectordistrict.Table_8.DshPubOmf[7].losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].losses_y1=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].losses_y2"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].losses_y2=dlhealthsectordistrict.Table_8.DshPubLmh[3].losses_y2 + dlhealthsectordistrict.Table_8.DshPubMoh[2].losses_y2 + dlhealthsectordistrict.Table_8.DshPubOmf[7].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].losses_y2=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
                                 <td width="98"
 
+<<<<<<< HEAD
                                     ng-model="dlhealthsectordistrict.Table_8.DshPubOmf[8].total_losses"
 
                                     ng-bind="dlhealthsectordistrict.Table_8.DshPubOmf[8].total_losses=dlhealthsectordistrict.Table_8.DshPubLmh[3].total_losses + dlhealthsectordistrict.Table_8.DshPubMoh[2].total_losses + dlhealthsectordistrict.Table_8.DshPubOmf[7].total_losses">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_losses=dlhealthsectordistrict.health.Table_8.DshPubLmh[3].total_losses + dlhealthsectordistrict.health.Table_8.DshPubMoh[2].total_losses + dlhealthsectordistrict.health.Table_8.DshPubOmf[7].total_losses">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
 
                                 </td>
@@ -1302,51 +1889,87 @@
 
                         <tr height="20">
 
+<<<<<<< HEAD
                             <td ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].facilities_assets"
                                 width="264" height="20" class="tdpa">
+=======
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].facilities_assets"
+                                    width="264" height="20" class="tdpa">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].total_num_affected"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].total_num_affected=dl_data['DapNapTmf'][0].fields.num_affected_fac">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_num_affected=dl_data['DapNapTmf'][0].fields.num_affected_fac">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].male"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].male=dl_data['DapNapTmf'][0].fields.male">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].male=dl_data['DapNapTmf'][0].fields.male">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].female"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].female=dl_data['DapNapTmf'][0].fields.female">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].female=dl_data['DapNapTmf'][0].fields.female">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].total_damages"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].total_damages=dl_data['DapBefPc1'][3].fields.total_damages + dl_data['DapBefPcn'][3].fields.total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_damages=dl_data['DapBefPc1'][3].fields.total_damages + dl_data['DapBefPcn'][3].fields.total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].losses_y1"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].losses_y1=dl_data['DapBefPc1'][3].fields.est_losses_y1 + dl_data['DapBefPcn'][3].fields.est_losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y1=dl_data['DapBefPc1'][3].fields.est_losses_y1 + dl_data['DapBefPcn'][3].fields.est_losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].losses_y2"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[0].losses_y2=dl_data['DapBefPc1'][3].fields.est_losses_y2 + dl_data['DapBefPcn'][3].fields.est_losses_y2">
@@ -1354,6 +1977,19 @@
                             </td>
 
                             <td width="98"
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y2=dl_data['DapBefPc1'][3].fields.est_losses_y2 + dl_data['DapBefPcn'][3].fields.est_losses_y2">
+
+                                </td>
+
+                             <td width="98"
+
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_losses=dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[0].total_losses"
 
@@ -1368,61 +2004,110 @@
 
                         <tr height="20">
 
+<<<<<<< HEAD
                             <td ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].facilities_assets"
                                 width="264" height="20" class="tdpa">
+=======
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].facilities_assets"
+                                    width="264" height="20" class="tdpa">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].total_num_affected"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].total_num_affected=dl_data['DapNapTmf'][1].fields.num_affected_fac">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_num_affected=dl_data['DapNapTmf'][1].fields.num_affected_fac">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].male"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].male=dl_data['DapNapTmf'][1].fields.male">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].male=dl_data['DapNapTmf'][1].fields.male">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].female"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].female=dl_data['DapNapTmf'][1].fields.female">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].female=dl_data['DapNapTmf'][1].fields.female">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].total_damages"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].total_damages=dl_data['DapBefOther'][4].fields.total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_damages=dl_data['DapBefOther'][4].fields.total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y1"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y1=dl_data['DapBefOther'][4].fields.est_losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y1=dl_data['DapBefOther'][4].fields.est_losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_2"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y2=dl_data['DapBefOther'][4].fields.est_losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y2=dl_data['DapBefOther'][4].fields.est_losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[1].total_losses"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[1].total_losses=dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y1 + dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_losses=dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y2">
+
+                                </td>
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
@@ -1433,57 +2118,104 @@
 
                         <tr height="20">
 
+<<<<<<< HEAD
                             <td ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].facilities_assets"
                                 width="264" height="20" class="boldash">
+=======
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].facilities_assets"
+                                    width="264" height="20" class="boldash">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].total_num_affected"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].total_num_affected= dlhealthsectordistrict.Table_8.DshPvtFa[0].total_num_affected + dlhealthsectordistrict.Table_8.DshPvtFa[1].total_num_affected">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_num_affected"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_num_affected= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_num_affected + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_num_affected">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].male"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].male= dlhealthsectordistrict.Table_8.DshPvtFa[0].male + dlhealthsectordistrict.Table_8.DshPvtFa[1].male">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].male"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].male= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].male + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].male">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].female"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].female= dlhealthsectordistrict.Table_8.DshPvtFa[0].female + dlhealthsectordistrict.Table_8.DshPvtFa[1].female">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].female"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].female= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].female + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].female">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].total_damages"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].total_damages= dlhealthsectordistrict.Table_8.DshPvtFa[0].total_damages + dlhealthsectordistrict.Table_8.DshPvtFa[1].total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_damages= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_damages + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].losses_y1"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].losses_y1= dlhealthsectordistrict.Table_8.DshPvtFa[0].losses_y1 + dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].losses_y1= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].losses_y2"
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].losses_y2= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].losses_y2 + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].losses_y2= dlhealthsectordistrict.Table_8.DshPvtFa[0].losses_y2 + dlhealthsectordistrict.Table_8.DshPvtFa[1].losses_y2">
 
+<<<<<<< HEAD
                             </td>
                             <td width="98"
 
                                 ng-model="dlhealthsectordistrict.Table_8.DshPvtFa[2].total_losses"
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_losses"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_losses= dlhealthsectordistrict.health.Table_8.DshPvtFa[0].total_losses + dlhealthsectordistrict.health.Table_8.DshPvtFa[1].total_losses">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshPvtFa[2].total_losses= dlhealthsectordistrict.Table_8.DshPvtFa[0].total_losses + dlhealthsectordistrict.Table_8.DshPvtFa[1].total_losses">
 
@@ -1538,41 +2270,70 @@
 
                         <tr height="20">
 
+<<<<<<< HEAD
                             <td ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[0].ownership"
                                 width="264" height="20" class="tdpa">
+=======
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].ownership"
+                                    width="264" height="20" class="tdpa">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[0].damages"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[0].damages= dlhealthsectordistrict.Table_8.DshPubOmf[8].total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].damages= dlhealthsectordistrict.health.Table_8.DshPubOmf[8].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y1"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y1= dlhealthsectordistrict.Table_8.DshPubOmf[8].losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y1= dlhealthsectordistrict.health.Table_8.DshPubOmf[8].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y2"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y2= dlhealthsectordistrict.Table_8.DshPubOmf[8].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y2= dlhealthsectordistrict.health.Table_8.DshPubOmf[8].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[0].total"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[0].total= dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y1 + dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].total"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].total= dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
@@ -1582,41 +2343,70 @@
 
                         <tr height="20">
 
+<<<<<<< HEAD
                             <td ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[1].ownership"
                                 width="264" height="20" class="tdpa">
+=======
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].ownership"
+                                    width="264" height="20" class="tdpa">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[1].damages"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[1].damages= dlhealthsectordistrict.Table_8.DshPvtFa[2].total_damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].damages= dlhealthsectordistrict.health.Table_8.DshPvtFa[2].total_damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y1"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y1= dlhealthsectordistrict.Table_8.DshPvtFa[2].losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y1= dlhealthsectordistrict.health.Table_8.DshPvtFa[2].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y2"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y2= dlhealthsectordistrict.Table_8.DshPvtFa[2].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y2= dlhealthsectordistrict.health.Table_8.DshPvtFa[2].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[1].total"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[1].total= dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y1 + dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y2 ">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].total"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].total= dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y1 + dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y2 ">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
@@ -1626,41 +2416,70 @@
 
                         <tr height="20">
 
+<<<<<<< HEAD
                             <td ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[2].ownership"
                                 width="264" height="20" class="boldash">
+=======
+                                <td ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].ownership"
+                                    width="264" height="20" class="boldash">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[2].damages"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[2].damages=dlhealthsectordistrict.Table_8.DshTdlOwship[0].damages + dlhealthsectordistrict.Table_8.DshTdlOwship[1].damages">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].damages"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].damages=dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].damages + dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].damages">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[2].losses_y1"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[2].losses_y1=dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y1 + dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y1">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].losses_y1"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].losses_y1=dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y1 + dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y1">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[2].losses_y2"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[2].losses_y2=dlhealthsectordistrict.Table_8.DshTdlOwship[0].losses_y2 + dlhealthsectordistrict.Table_8.DshTdlOwship[1].losses_y2">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].losses_y2"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].losses_y2=dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].losses_y2 + dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].losses_y2">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
                             <td colspan="2"
                                 width="98"
 
+<<<<<<< HEAD
                                 ng-model="dlhealthsectordistrict.Table_8.DshTdlOwship[2].total"
 
                                 ng-bind="dlhealthsectordistrict.Table_8.DshTdlOwship[2].total=dlhealthsectordistrict.Table_8.DshTdlOwship[0].total + dlhealthsectordistrict.Table_8.DshTdlOwship[1].total">
+=======
+                                           ng-model="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].total"
+
+                                           ng-bind="dlhealthsectordistrict.health.Table_8.DshTdlOwship[2].total=dlhealthsectordistrict.health.Table_8.DshTdlOwship[0].total + dlhealthsectordistrict.health.Table_8.DshTdlOwship[1].total">
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
 
                             </td>
 

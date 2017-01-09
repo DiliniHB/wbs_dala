@@ -7,9 +7,11 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
  $scope.dl_data={};
  $scope.is_edit=false;
  $scope.submitted = false;
-  $scope.Districts=[];
+ $scope.is_valid_data = true;
+ $scope.Districts=[];
  //bind Disasteroption
     $scope.dlhealthsectordistrict = {
+    'health':{
         'Table_8': {
             'DshPubLmh': [{
                 facilities_assets : 'Teaching Hospitals',
@@ -207,9 +209,7 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
                 }
 
                 ]
-
-
-
+            }
         }
     }
 
@@ -223,7 +223,7 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
 
         $http({
             method: 'POST',
-            url: '/damage_losses/dl_save_data',
+            url: '/dl_save_data',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
 
@@ -237,8 +237,13 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
             }),
             dataType: 'json',
         }).then(function successCallback(response) {
-$("#modal-container-239453").modal('show');
-            console.log(response);
+//            $scope.dlhealthsectordistrict = init_data;
+//                $scope.is_edit = false;
+
+                 if(response.data == 'False')
+             $scope.is_valid_data = false;
+                else
+             $("#modal-container-239453").modal('show');
 
         }, function errorCallback(response) {
 
@@ -271,15 +276,14 @@ $("#modal-container-239453").modal('show');
         }
 
         if($scope.district && $scope.incident){
-        console.log($scope.district);
-        console.log($scope.incident);
 
         $http({
         method: 'POST',
-        url: '/damage_losses/dl_get_data',
+        url: '/dl_get_data',
         contentType: 'application/json; charset=utf-8',
         data: angular.toJson({
                 'table_name':'Table_8',
+                'sector':'health',
                 'db_tables': ['DmhDfNum','DmhDfPaf','DmhPdfaNum','DmhPdfaPaf','DmhPdfaOassets','DmhLosFi','DmhLosCud','DmhLosHoc','DmhLosOue','DmfDfaNum','DmfDfaPaf','DmfPdfaNum','DmfPdfaPaf','DmfPdaOassets','DmfLosFi','DmfLosCud','DmfLosHoc','DmfLosOue','DapNapTmf','DapBefPc1','DapBefPcn','DapBefOther'],
                 'com_data': {
                     'district': $scope.district,
@@ -307,6 +311,10 @@ $("#modal-container-239453").modal('show');
 
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
  }])
 
 

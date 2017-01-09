@@ -7,6 +7,7 @@ app.controller("DlHealthSummaryDamageNationwideController", ['$scope','$http',fu
  $scope.dl_data={};
  $scope.is_edit = false;
  $scope.submitted = false;
+ $scope.is_valid_data = true;
 
     var init_data = {
       'health':{
@@ -431,8 +432,15 @@ app.controller("DlHealthSummaryDamageNationwideController", ['$scope','$http',fu
             }),
             dataType: 'json',
         }).then(function successCallback(response) {
-$("#modal-container-239453").modal('show');
-            console.log(response);
+//            $scope.dlhealthsummarydamagenationwide = init_data;
+//            $scope.is_edit = false;
+            if(response.data == 'False')
+                $scope.is_valid_data = false;
+            else
+                $("#modal-container-239453").modal('show');
+
+
+
 
         }, function errorCallback(response) {
 
@@ -455,11 +463,12 @@ $("#modal-container-239453").modal('show');
         console.log($scope.incident);
         $http({
         method: 'POST',
-        url: '/health/damage_losses/dl_get_data',
+        url: '/dl_get_data',
         contentType: 'application/json; charset=utf-8',
         data: angular.toJson({
 //                'db_tables': ['DspPubD1Lmh','DspPubDnLmh','DspPubDnMoh','DspPubD1Moh','DspPubD1Omc','DspPubDnOmc','DspPvtD1','DspPvtDn'],
                 'table_name': 'Table_10',
+                'sector':'health',
                 'db_tables': ['DspPubD1LmhNational','DspPubDnLmhNational','DspPubDnMohNational','DspPubD1MohNational','DspPubD1OmcNational','DspPubDnOmcNational','DspPvtD1National','DspPvtDnNational'],
                 'com_data': {
 
@@ -496,9 +505,10 @@ $("#modal-container-239453").modal('show');
 
     $http({
     method: "POST",
-    url: '/health/damage_losses/dl_fetch_edit_data',
+    url: '/dl_fetch_edit_data',
     data: angular.toJson({
     'table_name':  'Table_10',
+    'sector' : 'health',
     'com_data': {
 
             'incident': $scope.incident,

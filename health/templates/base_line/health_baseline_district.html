@@ -39,10 +39,15 @@
         <div class="col-sm-12" style="padding:0;">
             <div class="card">
 
-                <div class="card-block">
+                <div class="card-block" ng-form name="form_health_baseline_district">
+  <span style="color:red" ng-show="submitted && form_health_baseline_district.$error.required">
+                                       Please fill all required fields
+                     </span>
+                    <span style="color:red" ng-show="!is_valid_data">
+                        This request can't be proceed, there is data-set available for this selection.
+                     </span>
 
-
-                    <table ng-form name="form_health_baseline_district" class="table table-bordered"
+                    <table  class="table table-bordered"
                            style="background:#E4E5E6;">
                         <colgroup>
                             <col width="264"/>
@@ -141,7 +146,7 @@
 
                                 </td>
                             </tr>
-                            <tr ng-repeat="bmfPubMf in bsDataMedicalFacilities.Table_2.BmfPubMf" ng-if="$index < 12"
+                            <tr ng-repeat="bmfPubMf in bsDataMedicalFacilities.health.Table_2.BmfPubMf" ng-if="$index < 12"
                                 height="20">
 
                                 <td ng-bind="bmfPubMf.type_pub_mf" width="264"
@@ -171,7 +176,7 @@
 
                             </tr>
                             <tr height="20">
-                                <td ng-bind="bsDataMedicalFacilities.Table_2.BmfPubMf[12].type_pub_mf" width="264"
+                                <td ng-bind="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].type_pub_mf" width="264"
                                     height="20" class="boldash">
 
                                 </td>
@@ -179,9 +184,9 @@
                                 <td width="98">
 
                                     <input id="text"
-                                           ng-value="bsDataMedicalFacilities.Table_2.BmfPubMf[12].number=bsDataMedicalFacilities.Table_2.BmfPubMf[0].number + bsDataMedicalFacilities.Table_2.BmfPubMf[1].number + bsDataMedicalFacilities.Table_2.BmfPubMf[2].number + bsDataMedicalFacilities.Table_2.BmfPubMf[3].number +bsDataMedicalFacilities.Table_2.BmfPubMf[4].number +bsDataMedicalFacilities.Table_2.BmfPubMf[5].number +bsDataMedicalFacilities.Table_2.BmfPubMf[6].number +bsDataMedicalFacilities.Table_2.BmfPubMf[7].number +bsDataMedicalFacilities.Table_2.BmfPubMf[8].number +bsDataMedicalFacilities.Table_2.BmfPubMf[9].number +bsDataMedicalFacilities.Table_2.BmfPubMf[10].number +bsDataMedicalFacilities.Table_2.BmfPubMf[11].number"
+                                           ng-value="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].number=bsDataMedicalFacilities.health.Table_2.BmfPubMf[0].number + bsDataMedicalFacilities.health.Table_2.BmfPubMf[1].number + bsDataMedicalFacilities.health.Table_2.BmfPubMf[2].number + bsDataMedicalFacilities.health.Table_2.BmfPubMf[3].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[4].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[5].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[6].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[7].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[8].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[9].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[10].number +bsDataMedicalFacilities.health.Table_2.BmfPubMf[11].number"
 
-                                           ng-model="bsDataMedicalFacilities.Table_2.BmfPubMf[12].number"
+                                           ng-model="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].number"
                                            name="textinput" type="text"
                                            placeholder=""
                                            class="form-control input-md">
@@ -189,9 +194,9 @@
                                 <td width="98">
 
                                     <input id="text"
-                                           ng-value="bsDataMedicalFacilities.Table_2.BmfPubMf[12].male=bsDataMedicalFacilities.Table_2.BmfPubMf[0].male + bsDataMedicalFacilities.Table_2.BmfPubMf[1].male + bsDataMedicalFacilities.Table_2.BmfPubMf[2].male + bsDataMedicalFacilities.Table_2.BmfPubMf[3].male +bsDataMedicalFacilities.Table_2.BmfPubMf[4].male +bsDataMedicalFacilities.Table_2.BmfPubMf[5].male +bsDataMedicalFacilities.Table_2.BmfPubMf[6].male +bsDataMedicalFacilities.Table_2.BmfPubMf[7].male +bsDataMedicalFacilities.Table_2.BmfPubMf[8].male +bsDataMedicalFacilities.Table_2.BmfPubMf[9].male +bsDataMedicalFacilities.Table_2.BmfPubMf[10].male +bsDataMedicalFacilities.Table_2.BmfPubMf[11].male"
+                                           ng-value="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].male=bsDataMedicalFacilities.health.Table_2.BmfPubMf[0].male + bsDataMedicalFacilities.health.Table_2.BmfPubMf[1].male + bsDataMedicalFacilities.health.Table_2.BmfPubMf[2].male + bsDataMedicalFacilities.health.Table_2.BmfPubMf[3].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[4].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[5].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[6].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[7].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[8].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[9].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[10].male +bsDataMedicalFacilities.health.Table_2.BmfPubMf[11].male"
 
-                                           ng-model="bsDataMedicalFacilities.Table_2.BmfPubMf[12].male" name="textinput"
+                                           ng-model="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].male" name="textinput"
                                            type="text"
                                            placeholder=""
                                            class="form-control input-md">
@@ -199,9 +204,9 @@
                                 <td width="98">
 
                                     <input id="text"
-                                           ng-value="bsDataMedicalFacilities.Table_2.BmfPubMf[12].female=bsDataMedicalFacilities.Table_2.BmfPubMf[0].female + bsDataMedicalFacilities.Table_2.BmfPubMf[1].female + bsDataMedicalFacilities.Table_2.BmfPubMf[2].female + bsDataMedicalFacilities.Table_2.BmfPubMf[3].female +bsDataMedicalFacilities.Table_2.BmfPubMf[4].female +bsDataMedicalFacilities.Table_2.BmfPubMf[5].female +bsDataMedicalFacilities.Table_2.BmfPubMf[6].female +bsDataMedicalFacilities.Table_2.BmfPubMf[7].female +bsDataMedicalFacilities.Table_2.BmfPubMf[8].female +bsDataMedicalFacilities.Table_2.BmfPubMf[9].female +bsDataMedicalFacilities.Table_2.BmfPubMf[10].female +bsDataMedicalFacilities.Table_2.BmfPubMf[11].female"
+                                           ng-value="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].female=bsDataMedicalFacilities.health.Table_2.BmfPubMf[0].female + bsDataMedicalFacilities.health.Table_2.BmfPubMf[1].female + bsDataMedicalFacilities.health.Table_2.BmfPubMf[2].female + bsDataMedicalFacilities.health.Table_2.BmfPubMf[3].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[4].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[5].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[6].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[7].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[8].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[9].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[10].female +bsDataMedicalFacilities.health.Table_2.BmfPubMf[11].female"
 
-                                           ng-model="bsDataMedicalFacilities.Table_2.BmfPubMf[12].female"
+                                           ng-model="bsDataMedicalFacilities.health.Table_2.BmfPubMf[12].female"
                                            name="textinput" type="text"
                                            placeholder=""
                                            class="form-control input-md">
@@ -225,7 +230,7 @@
                                 </td>
                             </tr>
 
-                            <tr ng-repeat="bmfPvtMf in bsDataMedicalFacilities.Table_2.BmfPvtMf" ng-if="$index < 2"
+                            <tr ng-repeat="bmfPvtMf in bsDataMedicalFacilities.health.Table_2.BmfPvtMf" ng-if="$index < 2"
                                 height="20">
 
                                 <td ng-bind="bmfPvtMf.type_pvt_mf" width="264"
@@ -256,7 +261,7 @@
                             </tr>
 
                             <tr height="20">
-                                <td ng-bind="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].type_pvt_mf" width="264"
+                                <td ng-bind="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].type_pvt_mf" width="264"
                                     height="20" class="boldash">
 
                                 </td>
@@ -264,9 +269,9 @@
                                 <td width="98">
 
                                     <input id="text"
-                                           ng-value="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].number = bsDataMedicalFacilities.Table_2.BmfPvtMf[0].number + bsDataMedicalFacilities.Table_2.BmfPvtMf[1].number"
+                                           ng-value="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].number = bsDataMedicalFacilities.health.Table_2.BmfPvtMf[0].number + bsDataMedicalFacilities.health.Table_2.BmfPvtMf[1].number"
 
-                                           ng-model="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].number"
+                                           ng-model="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].number"
                                            name="textinput" type="text"
                                            placeholder=""
                                            class="form-control input-md">
@@ -274,9 +279,9 @@
                                 <td width="98">
 
                                     <input id="text"
-                                           ng-value="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].male = bsDataMedicalFacilities.Table_2.BmfPvtMf[0].male + bsDataMedicalFacilities.Table_2.BmfPvtMf[1].male"
+                                           ng-value="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].male = bsDataMedicalFacilities.health.Table_2.BmfPvtMf[0].male + bsDataMedicalFacilities.health.Table_2.BmfPvtMf[1].male"
 
-                                           ng-model="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].male" name="textinput"
+                                           ng-model="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].male" name="textinput"
                                            type="text"
                                            placeholder=""
                                            class="form-control input-md">
@@ -284,9 +289,9 @@
                                 <td width="98">
 
                                     <input id="text"
-                                           ng-value="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].female = bsDataMedicalFacilities.Table_2.BmfPvtMf[0].female + bsDataMedicalFacilities.Table_2.BmfPvtMf[1].female"
+                                           ng-value="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].female = bsDataMedicalFacilities.health.Table_2.BmfPvtMf[0].female + bsDataMedicalFacilities.health.Table_2.BmfPvtMf[1].female"
 
-                                           ng-model="bsDataMedicalFacilities.Table_2.BmfPvtMf[2].female"
+                                           ng-model="bsDataMedicalFacilities.health.Table_2.BmfPvtMf[2].female"
                                            name="textinput" type="text"
                                            placeholder=""
                                            class="form-control input-md">
