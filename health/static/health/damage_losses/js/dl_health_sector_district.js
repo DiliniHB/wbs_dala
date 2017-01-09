@@ -310,11 +310,6 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
 
 
     }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e4a65c34996146961a63e67fc73a6dd0aa95106
  }])
 
 
