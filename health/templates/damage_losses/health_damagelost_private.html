@@ -101,8 +101,10 @@
                     <option ng-repeat="district in districts" ng-value="district.district__id" ng-bind="district.district__name"></option>
 
                 </select>
-
-                               
+                <!--<select ng-options="district as district.district__name for district in districts track by district.district__id"-->
+                        <!--name="district" id="ccyear" ng-model="district" class="form-control" required>-->
+                    <!--<option value="" selected>Select District</option>-->
+                <!--</select>-->
             </td>
 
         </tr>
