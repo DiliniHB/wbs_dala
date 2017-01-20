@@ -209,7 +209,7 @@ app.controller('unitCostMiniHealthSysController', ['$scope', '$http', function($
     $scope.bsUnitCostMiniHealthSys = init_data;
 
     $scope.saveBucMarStructure = function(form) {
-         $scope.submitted = true;
+        $scope.submitted = true;
         if(form.$valid) {
             console.log($scope.data);
             $http({

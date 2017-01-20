@@ -29,8 +29,14 @@
             </ul>
 
             <div id="myTabContent" class="tab-content">
-                <div class="tab-pane active" id="step1">
-                    <table ng-form name="form_health_damagelost_lmh" class="table table-bordered" style="width:100%;background:#E4E5E6;">
+                <div class="tab-pane active" id="step1" ng-form name="form_health_damagelost_lmh">
+                    <span style="color:red" ng-show="submitted && health_summery_damageloss_province.$error.required">
+                       Please fill all required fields
+                    </span>
+                    <span style="color:red" ng-show="!is_valid_data">
+                        This request can't be proceed, there is data-set available for this selection.
+                    </span>
+                    <table class="table table-bordered" style="width:100%;background:#E4E5E6;">
                         <colgroup>
                             <col width="264"/>
                             <col width="98" span="6"/>
@@ -60,7 +66,7 @@
                             </td>
                             <td colspan="2" style="background:#EFEFEF;">
                                  <select id="selectbasic" name="incident" ng-model="incident"
-                                    class="form-control" ng-change="changedValue(incident)"
+                                    class="form-control" ng-change="changedValue(true)"
                                     style="width:100%;font-weight:400;" required >
 
                                 <option value="" selected="true">Select an Incident</option>
@@ -75,12 +81,14 @@
                             </td>
                             <td style="padding-left:5px;"> Name of District</td>
                             <td colspan="2" style="background:#EFEFEF;">
-                                <select name="district" id="ccyear" ng-model="selectedDistrict" class="form-control"  required>
-                    <option value="">Select District</option>
-
-                    <option ng-repeat="district in districts" ng-value="district.district__id" ng-bind="district.district__name"></option>
-                
-                </select>
+                                <!--<select name="district" id="ccyear" ng-model="selectedDistrict" class="form-control"  required>-->
+                                    <!--<option value="">Select District</option>-->
+                                    <!--<option ng-repeat="district in districts" ng-value="district.district__id" ng-bind="district.district__name"></option>-->
+                                <!--</select>-->
+                                <select ng-options="district as district.district__name for district in districts track by district.district__id"
+                                        name="district" id="ccyear" ng-model="district" ng-change="changedValue(false)" class="form-control" required>
+                                    <option value="" selected>Select District</option>
+                                </select>
 
                             </td>
                         </tr>

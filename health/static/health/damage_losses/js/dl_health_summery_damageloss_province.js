@@ -449,7 +449,7 @@ app.controller("dlHealthSummeryDamageLossProvinceAppController", ['$scope','$htt
 
     // get relevant damage_losses data for calculations
     $scope.changedValue = function getDlData(selectProvinces) {
-//        alert(selectProvinces);
+        alert(selectProvinces);
         if($scope.incident && selectProvinces) {
           fetchProvinces();
         }
