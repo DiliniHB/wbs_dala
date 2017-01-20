@@ -3,7 +3,7 @@ var bsHealthStatusApp = angular.module('dlGovnEduFacilitiesApp', ['ui.bootstrap'
 
 bsHealthStatusApp.controller('DlGovnEduFacilitiesController', function DlGovnEduFacilitiesController($scope, $http) {
 
-$scope.bsUcostGeduFacilities;
+$scope.dlGovnEduFacilities;
 $scope.total;
 $scope.iter_tot;
 $scope.district;
@@ -13,8 +13,45 @@ $scope.submitted = false;
 
 var init_data = {
 'education':{
-'Table_2':{
-'BugArcStructures':[
+'Table_3':{
+'DugDfNdf':[
+{
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+}
+],
+'DugDfNsa':[
+{
+particulars: 'Male',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+total: null
+},
+{
+particulars: 'Female',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+total: null
+}
+],
+'DugNdafStructure':[
 {
 particulars: '1 floor structure',
 ab1_1c: null,
@@ -25,6 +62,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: '2-3 floors structure',
@@ -36,6 +74,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'More than 3 floors structure',
@@ -47,9 +86,22 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Value of Destroyed Structures',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
 }
 ],
-'BugArcSupplies':[
+'DugNdafSupplies':[
 {
 particulars: 'Books',
 ab1_1c: null,
@@ -60,6 +112,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Desks',
@@ -71,6 +124,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Chairs',
@@ -82,6 +136,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Boards',
@@ -93,9 +148,10 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
-particulars: 'Tables',
+particulars: 'Table',
 ab1_1c: null,
 type_2: null,
 type_3: null,
@@ -104,20 +160,10 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
-},
-{
-particulars: 'Others',
-ab1_1c: null,
-type_2: null,
-type_3: null,
-pirivena: null,
-training_institutes: null,
-training_colleges: null,
-tc_crc_resc: null,
-min_pzd_offices: null,
+total: null
 }
 ],
-'BugArcEquipment':[
+'DugNdafEquipment':[
 {
 particulars: 'Computers',
 ab1_1c: null,
@@ -128,6 +174,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Aesthetic Equipment',
@@ -139,6 +186,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Sports Equipment',
@@ -150,6 +198,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Science Equipment',
@@ -161,9 +210,12 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
+],
+'DugPdfaNpdf':[
 {
-particulars: 'Other equipment',
+particulars: 'Computers',
 ab1_1c: null,
 type_2: null,
 type_3: null,
@@ -172,9 +224,36 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 }
 ],
-'BugArpcStructures':[
+'DugPdfaNsa':[
+{
+particulars: 'Male',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Female',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+}
+],
+'DugNpdatStructure':[
 {
 particulars: 'Roof',
 ab1_1c: null,
@@ -185,6 +264,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Wall',
@@ -196,6 +276,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Flooring',
@@ -207,9 +288,22 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Flooring',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
 }
 ],
-'BugArpcSupplies':[
+'DugNpdatSupplies':[
 {
 particulars: 'Books',
 ab1_1c: null,
@@ -220,6 +314,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Desks',
@@ -231,6 +326,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Chairs',
@@ -242,6 +338,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Boards',
@@ -253,9 +350,10 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
-particulars: 'Tables',
+particulars: 'Table',
 ab1_1c: null,
 type_2: null,
 type_3: null,
@@ -264,20 +362,10 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
-},
-{
-particulars: 'Others',
-ab1_1c: null,
-type_2: null,
-type_3: null,
-pirivena: null,
-training_institutes: null,
-training_colleges: null,
-tc_crc_resc: null,
-min_pzd_offices: null,
+total: null
 }
 ],
-'BugArpcEquipment':[
+'DugNpdatEquipment':[
 {
 particulars: 'Computers',
 ab1_1c: null,
@@ -288,6 +376,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Aesthetic Equipment',
@@ -299,6 +388,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Sports Equipment',
@@ -310,6 +400,7 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
 },
 {
 particulars: 'Science Equipment',
@@ -321,22 +412,12 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
-},
-{
-particulars: 'Other Equipment',
-ab1_1c: null,
-type_2: null,
-type_3: null,
-pirivena: null,
-training_institutes: null,
-training_colleges: null,
-tc_crc_resc: null,
-min_pzd_offices: null,
+total: null
 }
 ],
-'BugAfr':[
+'DugLosFi':[
 {
-particulars: 'Average revenue per month',
+particulars: 'Disaster Year 1',
 ab1_1c: null,
 type_2: null,
 type_3: null,
@@ -345,22 +426,10 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
-}
-],
-'BugCrp':[
-{
-particulars: 'Average construction period',
-ab1_1c: null,
-type_2: null,
-type_3: null,
-pirivena: null,
-training_institutes: null,
-training_colleges: null,
-tc_crc_resc: null,
-min_pzd_offices: null,
+total: null
 },
 {
-particulars: 'Average repair period',
+particulars: 'Year 2',
 ab1_1c: null,
 type_2: null,
 type_3: null,
@@ -369,12 +438,139 @@ training_institutes: null,
 training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Total',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
 }
-]
+],
+'DugLosCud':[
+{
+particulars: 'Disaster Year 1',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Year 2',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Total',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+}
+],
+'DugLosHoc':[
+{
+particulars: 'Disaster Year 1',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Year 2',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Total',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+}
+],
+'DugLosOue':[
+{
+particulars: 'Disaster Year 1',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Year 2',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Total',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+}
+],
 }
 }
 }
 
-$scope.bsUcostGeduFacilities = init_data;
+$scope.dlGovnEduFacilities = init_data;
 
 })

@@ -79,10 +79,6 @@ total_number: null
 {
 type_facilities: 'NIE',
 total_number: null
-},
-{
-type_facilities: 'TOTAL',
-total_number: null
 }
 ],
 'BefPvt':[
@@ -133,7 +129,23 @@ avg_female: null,
 }
 }
 
+ $scope.items = [ { value: 1 }, { value: 2 }, { value: 5}, { value: 7}];
+
 $scope.bsEduFacilities = init_data;
+
+$scope.sum = function()
+{
+
+    var total=0;
+    angular.forEach($scope.bsEduFacilities.education.Table_1.BefPubSchools , function(item){
+        console.log(item['total_number']);
+        if(item.total_number)
+            total+= parseInt(item.total_number);
+    });
+
+    return total;
+
+}
 
 $scope.bsEduDataSubmit = function(form)
 {

@@ -1,2291 +1,1457 @@
 {% extends "dashboard/base.html" %}
 {% block content %}
 
-  <!-- Main content -->
-    <main class="main">
+<!-- Main content -->
+<main class="main" ng-app="dlGovnEduFacilitiesApp" ng-controller="DlGovnEduFacilitiesController">
 
-        <!-- Breadcrumb -->
-        <ol class="breadcrumb">
-            
-            <li class="breadcrumb-item"><a href="#">Admin</a>
-            </li>
-			 <li class="breadcrumb-item"><a href="#">Health Sector</a>
-            </li>
-           
-			<li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 3. Damage and loss assessment of government education facilities in the district </span></li>
-           
-        </ol>
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="#">Admin</a>
+        </li>
+        <li class="breadcrumb-item"><a href="#">Health Sector</a>
+        </li>
+
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 3. Damage and loss assessment of government education facilities in the district </span>
+        </li>
+
+    </ol>
 
 
-        <div class="container-fluid">
-		
-		 <div>
-			    <ul class='nav nav-wizard'>
-				    <li class="active"><a href='#step1' data-toggle="tab">1 Destroyed Facilities and Assets</a></li>
-				    <li><a href='#step2' data-toggle="tab">2 No of Destroyed Assets  </a></li>
-                    <li ><a href='#step3' data-toggle="tab">3 Partially Damaged Facilities and Assets</a></li>
-				    <li><a href='#step4' data-toggle="tab">4 No of Partially Damaged Assets</a></li>
-                    <li><a href='#step5' data-toggle="tab">5 Losses</a></li>
-				   
-				  </ul>
-				
-					<div id="myTabContent" class="tab-content">
-						<div class="tab-pane active" id="step1">
-						  <table class="table table-bordered" >
-    <colgroup>
-        <col width="280"/>
-        <col width="136" span="8"/>
-        <col width="122"/>
-    </colgroup>
-    <tbody>
-        <tr class="trhead">
-<td style="padding-left:5px;"> Name of District </td>
+    <div class="container-fluid">
 
-<td colspan="3" style="background:#EFEFEF;">
- <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
- </td>
- <td colspan="3" style="padding-right:5px;text-align:right;">
- Incident
- </td>
- <td colspan="3" style="background:#EFEFEF;">
- <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
- </td>
-</tr>
-       
-        <tr class="trheadc" height="17">
-            <td width="280" height="17">
-            </td>
-            <td colspan="8" width="1088">
-                Type of Facility
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr class="trsubc" height="51">
-            <td class="trheadc" width="280" height="51">
-                Particular
-            </td>
-            <td width="136">
-                1AB, 1C
-            </td>
-            <td width="136">
-                Type 2
-            </td>
-            <td width="136">
-                Type 3
-            </td>
-            <td width="136">
-                Pirivena
-            </td>
-            <td width="136">
-                Training Institutes
-            </td>
-            <td width="136">
-                NCOE, Training Colleges
-            </td>
-            <td width="136">
-                TC, CRC, RESC
-            </td>
-            <td width="136">
-                Ministry, Provincial, Zonal, Divisional Offices, NIE
-            </td>
-            <td width="122">
-                Total Number
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                No. of Destroyed Facilities
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="tdpa" height="17">
-            <td class="tdpa" width="280" height="17">
-                No. of Students Affected
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Male
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td class="tdpa" width="136">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Female
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td class="tdpa" width="136">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-		</tbody>
-	</table>
-                                    <br>
-                            <a href="#step2" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill No of Destroyed Assets Informations</a>
-                        
-                            <br>
-                       
-                        
-						</div>
-						
-						<div class="tab-pane" id="step2">
-						 <table class="table table-bordered" >
-   
-   
-    <tbody>
-                           
-        <tr class="trsubc" height="51">
-            <td class="trheadc" width="360" height="51">
-                Assets
-            </td>
-            <td width="136">
-                1AB, 1C
-            </td>
-            <td width="136">
-                Type 2
-            </td>
-            <td width="136">
-                Type 3
-            </td>
-            <td width="136">
-                Pirivena
-            </td>
-            <td width="136">
-                Training Institutes
-            </td>
-            <td width="136">
-                NCOE, Training Colleges
-            </td>
-            <td width="136">
-                TC, CRC, RESC
-            </td>
-            <td width="136">
-                Ministry, Provincial, Zonal, Divisional Offices, NIE
-            </td>
-            <td width="122">
-                Total Damages (LKR)
-            </td>
-        </tr>
-		</tbody>
-		</table>
-		<div id="boxscroll1" style="height:400px;overflow:auto;cursor:auto;">
-		<table class="table table-bordered" >
-		<tbody>
-        <tr class="trhead" height="17">
-            <td colspan="10" width="1490" height="17">
-                <span style="margin-left:3%;"> Structure (in sqm) </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                1 floor structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-			
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                2-3 floors structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr  height="17">
-            <td class="tdpa" width="280" height="17">
-                More than 3 floors structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Value of Destroyed Structures
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="10" width="1490" height="17">
-                <span style="margin-left:3%;"> Supplies and materials </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Books
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Desks
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Chairs
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Boards
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Table
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="tdpa" height="17">
-            <td  width="280" height="17">
-                Others &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Value of Destroyed Supplies and Materials
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td  colspan="10" width="1490" height="17">
-              <span style="margin-left:3%;">  Equipment </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Computers
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Aesthetic Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Sports Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Science Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Other equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Value of Destroyed Equipment
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                VALUE OF DESTROYED ASSETS
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-		</tbody>
-	</table>
-	 </div>
-                            
-                                <br>
-                                <a href="#step3" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill Partially Damaged Facilities and Assets Informations</a>
-                           <br>
-                          
-                            </div>
-                        
-                        <div class="tab-pane" id="step3">
-                           
-                           <table class="table table-bordered" >
-   
-   
-    <tbody>
-       
-        <tr class="trheadc" height="17">
-            <td rowspan="2" width="280" height="68">
-                Particular
-            </td>
-            <td colspan="8" width="1088">
-                Types of Facilities
-            </td>
-            <td rowspan="2" width="122">
-                Total Number
-            </td>
-        </tr>
-        <tr class="trsubc" height="51">
-            <td width="136" height="51">
-                1AB, 1C
-            </td>
-            <td width="136">
-                Type 2
-            </td>
-            <td width="136">
-                Type 3
-            </td>
-            <td width="136">
-                Pirivena
-            </td>
-            <td width="136">
-                Training Institutes
-            </td>
-            <td width="136">
-                NCOE, Training Colleges
-            </td>
-            <td width="136">
-                TC, CRC, RESC
-            </td>
-            <td width="136">
-                Ministry, Provincial, Zonal, Divisional Offices, NIE
-            </td>
-        </tr>
-        <tr height="17">
-            <td width="280" height="17">
-                No of Partially Damaged Facilities
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td  width="280" height="17">
-                Number of Students Affected
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr height="17">
-            <td width="280" height="17">
-                Male
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td class="tdpa" width="136">
-			
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td width="280" height="17">
-                Female
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td class="tdpa" width="136">
-			
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        </tbody>
-		</table>
-     
-						
-                                    <br>
-                                    <a href="#step4" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill No of Partially Damaged Assets Informations</a>
-                            <br>
+        <div>
+            <ul class='nav nav-wizard'>
+                <li class="active"><a href='#step1' data-toggle="tab">1 Destroyed Facilities and Assets</a></li>
+                <li><a href='#step2' data-toggle="tab">2 No of Destroyed Assets </a></li>
+                <li><a href='#step3' data-toggle="tab">3 Partially Damaged Facilities and Assets</a></li>
+                <li><a href='#step4' data-toggle="tab">4 No of Partially Damaged Assets</a></li>
+                <li><a href='#step5' data-toggle="tab">5 Losses</a></li>
 
-                            </div>
-                        
-                        <div class="tab-pane" id="step4">
-						  <table class="table table-bordered" >
-   
-    <tbody>
-                            
-        <tr class="trsubc" height="51">
-            <td class="trheadc" width="280" height="51">
-                Assets
-            </td>
-            <td width="136">
-                1AB, 1C
-            </td>
-            <td width="136">
-                Type 2
-            </td>
-            <td width="136">
-                Type 3
-            </td>
-            <td width="136">
-                Pirivena
-            </td>
-            <td width="136">
-                Training Institutes
-            </td>
-            <td width="136">
-                NCOE, Training Colleges
-            </td>
-            <td width="136">
-                TC, CRC, RESC
-            </td>
-            <td width="136">
-                Ministry, Provincial, Zonal, Divisional Offices, NIE
-            </td>
-            <td width="122">
-                Total Damages (LKR)
-            </td>
-        </tr>
-		</tbody>
-		</table>
-		<div id="boxscroll2" style="height:400px;overflow:auto;">
-		 <table class="table table-bordered" >
-		 <tbody>
-        <tr class="trhead" height="17">
-            <td  colspan="10" width="1490" height="17">
-               <span style="margin-left:3%;"> Structure (in sqm) </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Roof
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Wall
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Flooring
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Value of Partially Damaged Structures
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td colspan="10" width="1490" height="17">
-               <span style="margin-left:3%;"> Supplies and materials </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Books
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Desks
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Chairs
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Boards
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Table
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="tdpa" height="17">
-            <td class="tdpa"  width="280" height="17">
-                Others &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Value of Partially Damaged Supplies and Materials
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trhead" height="17">
-            <td class="" colspan="10" width="1490" height="17">
-                <span style="margin-left:3%;"> Equipment </span>
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Computers
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Aesthetic Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Sports Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Science Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="tdpa" height="17">
-            <td class="tdpa" width="280" height="17">
-                Other equipment &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Value of Partially Damaged Equipment
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                VALUE OF PARTIALLY DAMAGED ASSETS
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                TOTAL VALUE OF DAMAGES
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-		</tbody>
-	</table>
-	
-                            
-                                <br>
-                                <a href="#step5" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill Losses Informations</a>
-                           
-                            
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="step5">
-					<table class="table table-bordered" >
-   
-   
-    <tbody>
+            </ul>
 
-       
-        <tr class="trsubc" height="51">
-            <td class="trheadc" width="280" height="51">
-                Types of Losses
-            </td>
-            <td width="136">
-                1AB, 1C
-            </td>
-            <td width="136">
-                Type 2
-            </td>
-            <td width="136">
-                Type 3
-            </td>
-            <td width="136">
-                Pirivena
-            </td>
-            <td width="136">
-                Training Institutes
-            </td>
-            <td width="136">
-                NCOE, Training Colleges
-            </td>
-            <td width="136">
-                TC, CRC, RESC
-            </td>
-            <td width="136">
-                Ministry, Provincial, Zonal, Divisional Offices, NIE
-            </td>
-            <td width="122">
-                Total Losses (LKR)
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td width="280" height="17">
-                Foregone income
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Disaster Year 1
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Year 2
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td width="280" height="17">
-                Cleaning up of debris
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Disaster Year 1
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Year 2
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td width="280" height="17">
-                Higher operating costs
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-		
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="136">
-			
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Disaster Year 1
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Year 2
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr class="trheadc" height="17">
-            <td width="280" height="17">
-                Other unexpected expenses
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="122">
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Disaster Year 1
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Year 2
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-        <tr height="17">
-            <td class="tdpa" width="280" height="17">
-                TOTAL VALUE OF LOSSES
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="122">
-                -
-            </td>
-        </tr>
-    </tbody>
-</table>	
-						
-						
-						
-						
-		<div class="pull-right">
-<br>
-<button type="button" class="btn btn-info">Clear</button>
-<button type="button" class="btn btn-success">Submit</button>
-</div>					
-						</div>
-					</div>
-		</div>
-		
-		
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane active" id="step1">
+                    <table class="table table-bordered">
+                        <colgroup>
+                            <col width="280"/>
+                            <col width="136" span="8"/>
+                            <col width="122"/>
+                        </colgroup>
+                        <tbody>
+                        <tr class="trhead">
+                            <td style="padding-left:5px;"> Name of District</td>
 
-       <br>
+                            <td colspan="3" style="background:#EFEFEF;">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+                            <td colspan="3" style="padding-right:5px;text-align:right;">
+                                Incident
+                            </td>
+                            <td colspan="3" style="background:#EFEFEF;">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+                        </tr>
 
+                        <tr class="trheadc" height="17">
+                            <td width="280" height="17">
+                            </td>
+                            <td colspan="8" width="1088">
+                                Type of Facility
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+                        <tr class="trsubc" height="51">
+                            <td class="trheadc" width="280" height="51">
+                                Particular
+                            </td>
+                            <td width="136">
+                                1AB, 1C
+                            </td>
+                            <td width="136">
+                                Type 2
+                            </td>
+                            <td width="136">
+                                Type 3
+                            </td>
+                            <td width="136">
+                                Pirivena
+                            </td>
+                            <td width="136">
+                                Training Institutes
+                            </td>
+                            <td width="136">
+                                NCOE, Training Colleges
+                            </td>
+                            <td width="136">
+                                TC, CRC, RESC
+                            </td>
+                            <td width="136">
+                                Ministry, Provincial, Zonal, Divisional Offices, NIE
+                            </td>
+                            <td width="122">
+                                Total Number
+                            </td>
+                        </tr>
+                        <tr height="17">
+                            <td class="tdpa" width="280" height="17">
+                                No. of Destroyed Facilities
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.ab1_1c" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.type_2" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.type_3" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.pirivena" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.training_institutes"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.training_colleges"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.tc_crc_resc"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.min_pzd_offices"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dlGovnEduFacilities.education.Table_3.DugDfNdf.total"
+                                ng-bind="dlGovnEduFacilities.education.Table_3.DugDfNdf.total" type="number">
+                            </td>
+                        </tr>
+                        <tr class="tdpa" height="17">
+                            <td class="tdpa" width="280" height="17">
+                                No. of Students Affected
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+
+                        <tr height="17" ng-repeat="dugDfNsa in dlGovnEduFacilities.education.Table_3.DugDfNsa">
+                            <td ng-model="dugDfNsa.particulars" ng-bind="dugDfNsa.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugDfNsa.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugDfNsa.total" ng-bind="dugDfNsa.total" type="number">
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <br>
+                    <a href="#step2" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
+                            class="glyphicon glyphicon-arrow-right"></span> Fill No of Destroyed Assets Informations</a>
+
+                    <br>
+
+
+                </div>
+
+                <div class="tab-pane" id="step2">
+                    <table class="table table-bordered">
+
+
+                        <tbody>
+
+                        <tr class="trsubc" height="51">
+                            <td class="trheadc" width="360" height="51">
+                                Assets
+                            </td>
+                            <td width="136">
+                                1AB, 1C
+                            </td>
+                            <td width="136">
+                                Type 2
+                            </td>
+                            <td width="136">
+                                Type 3
+                            </td>
+                            <td width="136">
+                                Pirivena
+                            </td>
+                            <td width="136">
+                                Training Institutes
+                            </td>
+                            <td width="136">
+                                NCOE, Training Colleges
+                            </td>
+                            <td width="136">
+                                TC, CRC, RESC
+                            </td>
+                            <td width="136">
+                                Ministry, Provincial, Zonal, Divisional Offices, NIE
+                            </td>
+                            <td width="122">
+                                Total Damages (LKR)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="boxscroll1" style="height:400px;overflow:auto;cursor:auto;">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr class="trhead" height="17">
+                                <td colspan="10" width="1490" height="17">
+                                    <span style="margin-left:3%;"> Structure (in sqm) </span>
+                                </td>
+                            </tr>
+                            <tr height="17"
+                                ng-repeat="dugNdafStructure in dlGovnEduFacilities.education.Table_3.DugNdafStructure">
+                                <td ng-model="dugNdafStructure.particulars" ng-bind="dugNdafStructure.particulars"
+                                    class="tdpa" width="280" height="17">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.ab1_1c" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.type_2" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.type_3" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.pirivena" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.training_institutes" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.training_colleges" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.tc_crc_resc" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafStructure.min_pzd_offices" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="122" ng-model="dugNdafStructure.total" ng-bind="dugNdafStructure.total"
+                                    type="number">
+                                </td>
+                            </tr>
+
+                            <tr class="trhead" height="17">
+                                <td colspan="10" width="1490" height="17">
+                                    <span style="margin-left:3%;"> Supplies and materials </span>
+                                </td>
+                            </tr>
+                            <tr height="17"
+                                ng-repeat="dugNdafSupplies in dlGovnEduFacilities.education.Table_3.DugNdafSupplies">
+                                <td ng-model="dugNdafSupplies.particulars" ng-bind="dugNdafSupplies.particulars"
+                                    class="tdpa" width="280" height="17">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.ab1_1c" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.type_2" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.type_3" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.pirivena" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.training_institutes" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.training_colleges" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.tc_crc_resc" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafSupplies.min_pzd_offices" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="122" ng-model="dugNdafSupplies.total" ng-bind="dugNdafSupplies.total"
+                                    type="number">
+                                </td>
+                            </tr>
+                            <tr class="tdpa" height="17">
+                                <td width="280" height="17">
+                                    Others &nbsp;&nbsp;
+                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
+                                            class="fa fa-plus"></span></button>
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    Value of Destroyed Supplies and Materials
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr class="trhead" height="17">
+                                <td colspan="10" width="1490" height="17">
+                                    <span style="margin-left:3%;">  Equipment </span>
+                                </td>
+                            </tr>
+
+                            <tr height="17"
+                                ng-repeat="dugNdafEquipment in dlGovnEduFacilities.education.Table_3.DugNdafEquipment">
+                                <td ng-model="dugNdafEquipment.particulars" ng-bind="dugNdafEquipment.particulars"
+                                    class="tdpa" width="280" height="17">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.ab1_1c" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.type_2" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.type_3" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.pirivena" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.training_institutes" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.training_colleges" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.tc_crc_resc" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="136">
+                                    <input ng-model="dugNdafEquipment.min_pzd_offices" type="number" placeholder=""
+                                           class="form-control input-md">
+                                </td>
+                                <td width="122" ng-model="dugNdafEquipment.total" ng-bind="dugNdafEquipment.total"
+                                    type="number">
+                                </td>
+                            </tr>
+                            <tr class="tdpa" height="17">
+                                <td width="280" height="17">
+                                    Other Equipments &nbsp;&nbsp;
+                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
+                                            class="fa fa-plus"></span></button>
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="136">
+
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    Value of Destroyed Equipment
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    VALUE OF DESTROYED ASSETS
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br>
+                    <a href="#step3" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
+                            class="glyphicon glyphicon-arrow-right"></span> Fill Partially Damaged Facilities and Assets
+                        Informations</a>
+                    <br>
+
+                </div>
+
+                <div class="tab-pane" id="step3">
+
+                    <table class="table table-bordered">
+
+
+                        <tbody>
+
+                        <tr class="trheadc" height="17">
+                            <td rowspan="2" width="280" height="68">
+                                Particular
+                            </td>
+                            <td colspan="8" width="1088">
+                                Types of Facilities
+                            </td>
+                            <td rowspan="2" width="122">
+                                Total Number
+                            </td>
+                        </tr>
+                        <tr class="trsubc" height="51">
+                            <td width="136" height="51">
+                                1AB, 1C
+                            </td>
+                            <td width="136">
+                                Type 2
+                            </td>
+                            <td width="136">
+                                Type 3
+                            </td>
+                            <td width="136">
+                                Pirivena
+                            </td>
+                            <td width="136">
+                                Training Institutes
+                            </td>
+                            <td width="136">
+                                NCOE, Training Colleges
+                            </td>
+                            <td width="136">
+                                TC, CRC, RESC
+                            </td>
+                            <td width="136">
+                                Ministry, Provincial, Zonal, Divisional Offices, NIE
+                            </td>
+                        </tr>
+                        <tr height="17">
+                            <td class="tdpa" width="280" height="17">
+                                No of Partially Damaged Facilities
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.ab1_1c" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.type_2" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.type_3" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.pirivena" type="number"
+                                       placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.training_institutes"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.training_colleges"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.tc_crc_resc"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.min_pzd_offices"
+                                       type="number" placeholder="" class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.total"
+                                ng-bind="dlGovnEduFacilities.education.Table_3.DugPdfaNpdf.total" type="number">
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="17">
+                            <td width="280" height="17">
+                                Number of Students Affected
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+                        <tr height="17" ng-repeat="dugPdfaNsa in dlGovnEduFacilities.education.Table_3.DugPdfaNsa">
+                            <td ng-model="dugPdfaNsa.particulars" ng-bind="dugPdfaNsa.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugPdfaNsa.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugPdfaNsa.total" ng-bind="dugPdfaNsa.total" type="number">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <br>
+                    <a href="#step4" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
+                            class="glyphicon glyphicon-arrow-right"></span> Fill No of Partially Damaged Assets
+                        Informations</a>
+                    <br>
+
+                </div>
+
+                <div class="tab-pane" id="step4">
+                    <table class="table table-bordered">
+
+                        <tbody>
+
+                        <tr class="trsubc" height="51">
+                            <td class="trheadc" width="280" height="51">
+                                Assets
+                            </td>
+                            <td width="136">
+                                1AB, 1C
+                            </td>
+                            <td width="136">
+                                Type 2
+                            </td>
+                            <td width="136">
+                                Type 3
+                            </td>
+                            <td width="136">
+                                Pirivena
+                            </td>
+                            <td width="136">
+                                Training Institutes
+                            </td>
+                            <td width="136">
+                                NCOE, Training Colleges
+                            </td>
+                            <td width="136">
+                                TC, CRC, RESC
+                            </td>
+                            <td width="136">
+                                Ministry, Provincial, Zonal, Divisional Offices, NIE
+                            </td>
+                            <td width="122">
+                                Total Damages (LKR)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div id="boxscroll2" style="height:400px;overflow:auto;">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr class="trhead" height="17">
+                                <td colspan="10" width="1490" height="17">
+                                    <span style="margin-left:3%;"> Structure (in sqm) </span>
+                                </td>
+                            </tr>
+                            <tr height="17" ng-repeat="dugNpdatStructure in dlGovnEduFacilities.education.Table_3.DugNpdatStructure">
+                            <td ng-model="dugNpdatStructure.particulars" ng-bind="dugNpdatStructure.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatStructure.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugNpdatStructure.total" ng-bind="dugNpdatStructure.total" type="number">
+                            </td>
+                        </tr>
+
+                            <tr class="trhead" height="17">
+                                <td colspan="10" width="1490" height="17">
+                                    <span style="margin-left:3%;"> Supplies and materials </span>
+                                </td>
+                            </tr>
+                            <tr height="17" ng-repeat="dugNpdatSupplies in dlGovnEduFacilities.education.Table_3.DugNpdatSupplies">
+                            <td ng-model="dugNpdatSupplies.particulars" ng-bind="dugNpdatSupplies.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatSupplies.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugNpdatSupplies.total" ng-bind="dugNpdatSupplies.total" type="number">
+                            </td>
+                        </tr>
+                            <tr class="tdpa" height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    Others &nbsp;&nbsp;
+                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
+                                            class="fa fa-plus"></span></button>
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    Value of Partially Damaged Supplies and Materials
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr class="trhead" height="17">
+                                <td class="" colspan="10" width="1490" height="17">
+                                    <span style="margin-left:3%;"> Equipment </span>
+                                </td>
+                            </tr>
+                            <tr height="17" ng-repeat="dugNpdatEquipment in dlGovnEduFacilities.education.Table_3.DugNpdatEquipment">
+                            <td ng-model="dugNpdatEquipment.particulars" ng-bind="dugNpdatEquipment.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugNpdatEquipment.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugNpdatEquipment.total" ng-bind="dugNpdatEquipment.total" type="number">
+                            </td>
+                        </tr>
+                            <tr class="tdpa" height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    Other equipment &nbsp;&nbsp;
+                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
+                                            class="fa fa-plus"></span></button>
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    Value of Partially Damaged Equipment
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    VALUE OF PARTIALLY DAMAGED ASSETS
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            <tr height="17">
+                                <td class="tdpa" width="280" height="17">
+                                    TOTAL VALUE OF DAMAGES
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="136">
+                                    -
+                                </td>
+                                <td width="122">
+                                    -
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <br>
+                        <a href="#step5" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
+                                class="glyphicon glyphicon-arrow-right"></span> Fill Losses Informations</a>
+
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="step5">
+                    <table class="table table-bordered">
+
+
+                        <tbody>
+
+
+                        <tr class="trsubc" height="51">
+                            <td class="trheadc" width="280" height="51">
+                                Types of Losses
+                            </td>
+                            <td width="136">
+                                1AB, 1C
+                            </td>
+                            <td width="136">
+                                Type 2
+                            </td>
+                            <td width="136">
+                                Type 3
+                            </td>
+                            <td width="136">
+                                Pirivena
+                            </td>
+                            <td width="136">
+                                Training Institutes
+                            </td>
+                            <td width="136">
+                                NCOE, Training Colleges
+                            </td>
+                            <td width="136">
+                                TC, CRC, RESC
+                            </td>
+                            <td width="136">
+                                Ministry, Provincial, Zonal, Divisional Offices, NIE
+                            </td>
+                            <td width="122">
+                                Total Losses (LKR)
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="17">
+                            <td width="280" height="17">
+                                Foregone income
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+                        <tr height="17" ng-repeat="dugLosFi in dlGovnEduFacilities.education.Table_3.DugLosFi">
+                            <td ng-model="dugLosFi.particulars" ng-bind="dugLosFi.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosFi.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugLosFi.total" ng-bind="dugLosFi.total" type="number">
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="17">
+                            <td width="280" height="17">
+                                Cleaning up of debris
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+                        <tr height="17" ng-repeat="dugLosCud in dlGovnEduFacilities.education.Table_3.DugLosCud">
+                            <td ng-model="dugLosCud.particulars" ng-bind="dugLosCud.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosCud.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugLosCud.total" ng-bind="dugLosCud.total" type="number">
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="17">
+                            <td width="280" height="17">
+                                Higher operating costs
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="136">
+
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+                        <tr height="17" ng-repeat="dugLosHoc in dlGovnEduFacilities.education.Table_3.DugLosHoc">
+                            <td ng-model="dugLosHoc.particulars" ng-bind="dugLosHoc.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosHoc.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugLosHoc.total" ng-bind="dugLosHoc.total" type="number">
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="17">
+                            <td width="280" height="17">
+                                Other unexpected expenses
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="122">
+                            </td>
+                        </tr>
+                        <tr height="17" ng-repeat="dugLosOue in dlGovnEduFacilities.education.Table_3.DugLosOue">
+                            <td ng-model="dugLosOue.particulars" ng-bind="dugLosOue.particulars" class="tdpa" width="280"
+                                height="17">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.ab1_1c" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.type_2" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.type_3" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.pirivena" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.training_institutes" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.training_colleges" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.tc_crc_resc" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dugLosOue.min_pzd_offices" type="number" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="122" ng-model="dugLosOue.total" ng-bind="dugLosOue.total" type="number">
+                            </td>
+                        </tr>
+                        <tr height="17">
+                            <td class="tdpa" width="280" height="17">
+                                TOTAL VALUE OF LOSSES
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="122">
+                                -
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div class="pull-right">
+                        <br>
+                        <button type="button" class="btn btn-info">Clear</button>
+                        <button type="button" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.conainer-fluid -->
-    </main>
+
+
+        <br>
+
+    </div>
+    <!-- /.conainer-fluid -->
+</main>
 {% endblock content %}

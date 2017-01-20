@@ -2,6 +2,7 @@ from __future__ import absolute_import
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
+from django.core.serializers.json import DjangoJSONEncoder
 import yaml
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.apps import apps
@@ -376,8 +377,73 @@ def dl_fetch_edit_data(request):
                                                  filter(**filter_fields).
                                                  values(*table_fields).order_by('id'))
 
+        print dl_mtable_data
+
     return HttpResponse(
-        json.dumps(dl_mtable_data),
+        json.dumps(dl_mtable_data, cls=DjangoJSONEncoder),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
+@csrf_exempt
+def dl_fetch_district_disagtn(request):
+
+    data = (yaml.safe_load(request.body))
+    table_name = data['table_name']
+    sector = data['sector']
+    com_data = data['com_data']
+    incident = com_data['incident']
+    tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
+
+    dl_mtable_data = {sector: {}}
+    dl_mtable_data[sector][table_name] = {}
+
+    filter_fields = {}
+
+    if 'province' in com_data:
+        admin_area = com_data['province']
+        filter_fields = {'incident': incident, 'district__province': admin_area}
+    else:
+        filter_fields = {'incident': incident}
+
+    dl_sessions = DlSessionKeys.objects.filter(**filter_fields)
+
+    for dl_session in dl_sessions:
+
+        category_name = None
+
+        if 'province' in com_data:
+            district_id = dl_session.district.id
+            filter_fields = {'incident': incident, 'district': district_id}
+            category_name = dl_session.district.name
+        else:
+            province_id = None
+            if dl_session.province:
+                province_id = dl_session.province.id
+                category_name = dl_session.province.name
+            filter_fields = {'incident': incident, 'province': province_id}
+
+        if category_name is not None:
+            dl_mtable_data[sector][table_name][category_name] = {}
+
+            for table in tables:
+                print table
+                table_fields = tables[table]
+
+                dl_mtable_data[sector][table_name][category_name][table] = {}
+
+                table_fields = tables[table]
+                model_class = apps.get_model('damage_losses', table)
+
+                table_fields = tables[table]
+                print table_fields
+                dl_mtable_data[sector][table_name][category_name][table] = list(model_class.objects.
+                                                                                filter(**filter_fields)
+                                                                                .values(*table_fields))
+
+
+    return HttpResponse(
+        json.dumps((dl_mtable_data), cls=DjangoJSONEncoder),
         content_type='application/javascript; charset=utf8'
     )
 

@@ -1,983 +1,936 @@
 {% extends "dashboard/base.html" %}
 {% block content %}
+<script>
+   $(document).ready(function(){
+   $(document).on("click", "#add_preschool", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
+ $(document).on("click", "#edit_preschool", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
 
-   <!-- Main content -->
-    <main class="main">
+$(document).on("click", "#add_primary", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
+ $(document).on("click", "#edit_primary", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
 
-        <!-- Breadcrumb -->
-        <ol class="breadcrumb">
-            
-            <li class="breadcrumb-item"><a href="#">Admin</a>
-            </li>
-			 <li class="breadcrumb-item"><a href="#">Education Sector</a>
-            </li>
-           
-			<li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 4. Damage and loss assessment of a private education facility</span></li>
+$(document).on("click", "#add_secondary", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
+ $(document).on("click", "#edit_secondary", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
 
-           
-        </ol>
+$(document).on("click", "#add_university", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
+ $(document).on("click", "#edit_university", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
+
+$(document).on("click", "#add_technical", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
+ $(document).on("click", "#edit_technical", function () {
+     var title = $(this).data('id');
+	 $(".modal-title").text(title);
+});
 
 
-        <div class="container-fluid">
+});
+
+</script>
+<!-- Main content -->
+<main class="main" ng-app="dlPvtEduFacilitiesApp" ng-controller="DlPvtEduFacilitiesController">
+
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item"><a href="#">Admin</a>
+        </li>
+        <li class="breadcrumb-item"><a href="#">Education Sector</a>
+        </li>
+
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 4. Damage and loss assessment of a private education facility</span>
+        </li>
+
+
+    </ol>
+
+
+    <div class="container-fluid">
 
         <ul class='nav nav-wizard'>
-				    <li class="active"><a href='#step1' data-toggle="tab">1 - Damages</a></li>
-				    <li><a href='#step2' data-toggle="tab">2 - Breakdown by Type of Educational Facility</a></li>
-				   
-				  </ul>
-				
-					<div id="myTabContent" class="tab-content">
-						<div class="tab-pane active" id="step1">
-						 
-                           <table class="table table-bordered" >
-    <colgroup>
-        <col width="280"/>
-        <col width="136" span="6"/>
-    </colgroup>
-    <tbody>
-       <tr class="trhead">
-<td style="padding-left:5px;"> Name of District </td>
+            <li class="active"><a href='#step1' data-toggle="tab">1 - Damages</a></li>
+            <li><a href='#step2' data-toggle="tab">2 - Type of Schools and Assets</a></li>
+            <li><a href='#step3' data-toggle="tab">3 - Breakdown by Type of Educational Facility</a></li>
 
-<td colspan="2" style="background:#EFEFEF;">
- <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
- </td>
- <td colspan="2" style="padding-right:5px;text-align:right;">
- Incident
- </td>
- <td colspan="3" style="background:#EFEFEF;">
- <select id="selectbasic" name="selectbasic" class="form-control" style="width:100%;font-weight:400;">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
- </td>
-</tr>
-        <tr class="trheadc" height="21">
-            <td rowspan="2" width="280" height="42">
-                Types of Educational Facilities
-            </td>
-            <td colspan="2" rowspan="2" width="272">
-                Number of Affected Educational Facilities
-            </td>
-            <td colspan="4" width="544">
-                Number of Affected Students
-            </td>
-        </tr>
-        <tr class="trsubc" height="21">
-            <td colspan="2" width="272" height="21">
-                Male
-            </td>
-            <td colspan="2" width="272">
-                Female
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Pre-school
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Primary School
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Secondary School
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                University
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Technical Institutes
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td colspan="2" width="272">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-        </tr>
-        <tr class="tdpa" height="21">
-            <td class="tdpa" width="280" height="21">
-                Others  &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-            <td colspan="2" width="272">
-			
-            </td>
-            <td colspan="2" width="272">
-			
-            </td>
-            <td colspan="2" width="272">
-			
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                TOTAL
-            </td>
-            <td colspan="2" width="272">
-                -
-            </td>
-            <td colspan="2" width="272">
-                -
-            </td>
-            <td colspan="2" width="272">
-                -
-            </td>
-        </tr>
-		</tbody>
-		</table>
-                                    
-                                
-                           
-                            <br>
-<a href="#step2" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span class="glyphicon glyphicon-arrow-right"></span> Fill Average Repair Cost Informations</a>
-               <br>        
-           </div> 
-                        	<div class="tab-pane fade" id="step2">
-                             
-								 <table class="table table-bordered" >
-    <colgroup>
-        <col width="280"/>
-        <col width="136" span="6"/>
-    </colgroup>
-    <tbody>
-	
-       
-        <tr class="trheadc" height="28">
-            <td rowspan="2" width="280" height="49">
-                Type of Schools and Assets
-            </td>
-            <td rowspan="2" width="136">
-                Estimated Replacement Cost (LKR)
-            </td>
-            <td rowspan="2" width="136">
-                Estimated Repair Cost (LKR)
-            </td>
-            <td rowspan="2" width="136">
-                Total Damages (LKR)
-            </td>
-            <td colspan="2" width="272">
-                Estimated Losses (LKR)
-            </td>
-            <td rowspan="2" width="136">
-                Total Losses (LKR)
-            </td>
-        </tr>
-        <tr class="trsubc" height="21">
-            <td width="136" height="21">
-                Year 1
-            </td>
-            <td width="136">
-                Year 2
-            </td>
-        </tr>
-		</tbody>
-		</table>
-		<div id="boxscroll" style="height:400px;overflow:auto;cursor:auto;">
-		 <table class="table table-bordered" >
-		 <tbody>
-        <tr class="trheadc" height="21">
-            <td width="280" height="21">
-                Pre-school
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr class="trsub" height="21">
-            <td class="trhead" width="280" height="21">
-                Pre-school Name
-            </td>
-            <td class="trsub" colspan="2" width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-           
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa"width="280" height="21">
-                Supplies and materials
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-       
-        
-        <tr class="tdpa" height="21">
-            <td colspan="6"  width="280" height="21">
-               
-            </td>
-           
-            <td width="136">
-              <button type="button" class="btn btn-block btn-success">save</button>
-            </td>
-        </tr>
-        <tr class="trheadc" height="21">
-            <td width="280" height="21">
-                Primary School
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr class="trsub" height="21">
-            <td class="trhead" width="280" height="21">
-                Primary School Name
-            </td>
-            <td class="trsub" colspan="2" width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-           
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Supplies and materials
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-       
-       
-        <tr class="tdpa" height="21">
-            <td colspan="6"  width="280" height="21">
-               
-            </td>
-           
-            <td width="136">
-              <button type="button" class="btn btn-block btn-success">save</button>
-            </td>
-        </tr>
-        <tr class="trheadc" height="21">
-            <td width="280" height="21">
-                Secondary School
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr class="trsub" height="21">
-            <td class="trhead" width="280" height="21">
-                Secondary School Name
-            </td>
-            <td class="trsub" colspan="2" width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-           
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Supplies and materials
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-       
-       
-        <tr class="tdpa" height="21">
-            <td colspan="6"  width="280" height="21">
-               
-            </td>
-           
-            <td width="136">
-              <button type="button" class="btn btn-block btn-success">save</button>
-            </td>
-        </tr>
-        <tr class="trheadc" height="21">
-            <td width="280" height="21">
-                University
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-       <tr class="trsub" height="21">
-            <td class="trhead" width="280" height="21">
-                University Name
-            </td>
-            <td class="trsub" colspan="2" width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-           
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Supplies and materials
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-       
-       
-       
-       <tr class="tdpa" height="21">
-            <td colspan="6"  width="280" height="21">
-               
-            </td>
-           
-            <td width="136">
-              <button type="button" class="btn btn-block btn-success">save</button>
-            </td>
-        </tr>
-        <tr class="trheadc" height="21">
-            <td width="280" height="21">
-                Technical Institutes
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-       <tr class="trsub" height="21">
-            <td class="trhead" width="280" height="21">
-                Technical Institute Name
-            </td>
-            <td class="trsub" colspan="2" width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-           
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Structure
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Supplies and materials
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Equipment
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-			<input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                Total
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-       
-      
-       
-       
-        <tr class="tdpa" height="21">
-            <td colspan="6"  width="280" height="21">
-               
-            </td>
-           
-            <td width="136">
-              <button type="button" class="btn btn-block btn-success">save</button>
-            </td>
-        </tr>
-        <tr class="tdpa" height="21">
-            <td width="280" height="21">
-                Others &nbsp;&nbsp;<button class="btn btn-sm btn-info btn-circle" id="insert"><span class="fa fa-plus"></span></button>
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-            <td width="136">
-            </td>
-        </tr>
-       
-      
-       
-       
-        <tr height="21">
-            <td class="tdpa" width="280" height="21">
-                GRAND TOTAL
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-            <td width="136">
-                -
-            </td>
-        </tr>
-    </tbody>
-</table>
-</div>
-								
-                                <br>
-                                <div class="pull-right">
-		<br>
-<button type="button" class="btn btn-info">Clear</button>
-<button type="button" class="btn btn-success">Submit</button>
-</div>	
-                                <br><br><br>
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane active" id="step1">
+
+                <table class="table table-bordered">
+                    <colgroup>
+                        <col width="280"/>
+                        <col width="136" span="6"/>
+                    </colgroup>
+                    <tbody>
+                    <tr class="trhead">
+                        <td style="padding-left:5px;"> Name of District</td>
+
+                        <td colspan="2" style="background:#EFEFEF;">
+                            <select id="selectbasic" name="selectbasic" class="form-control"
+                                    style="width:100%;font-weight:400;">
+                                <option value="1">Option one</option>
+                                <option value="2">Option two</option>
+                            </select>
+                        </td>
+                        <td colspan="2" style="padding-right:5px;text-align:right;">
+                            Incident
+                        </td>
+                        <td colspan="3" style="background:#EFEFEF;">
+                            <select id="selectbasic" name="selectbasic" class="form-control"
+                                    style="width:100%;font-weight:400;">
+                                <option value="1">Option one</option>
+                                <option value="2">Option two</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="trheadc" height="21">
+                        <td rowspan="2" width="280" height="42">
+                            Types of Educational Facilities
+                        </td>
+                        <td colspan="2" rowspan="2" width="272">
+                            Number of Affected Educational Facilities
+                        </td>
+                        <td colspan="4" width="544">
+                            Number of Affected Students
+                        </td>
+                    </tr>
+                    <tr class="trsubc" height="21">
+                        <td colspan="2" width="272" height="21">
+                            Male
+                        </td>
+                        <td colspan="2" width="272">
+                            Female
+                        </td>
+                    </tr>
+                    <tr ng-repeat="dpefNaf in dlPvtEduFacilities.education.Table_4.DpefNaf" height="21">
+                        <td ng-bind="dpefNaf.edu_facilities" ng-model="dpefNaf.edu_facilities" class="tdpa" width="280" height="21">
+                        </td>
+                        <td colspan="2" width="272">
+                            <input ng-model="dpefNaf.num_edu_facilities" id="textinput" name="textinput" type="text" placeholder=""
+                                   class="form-control input-md">
+                        </td>
+                        <td colspan="2" width="272">
+                            <input ng-model="dpefNaf.male" id="textinput" name="textinput" type="text" placeholder=""
+                                   class="form-control input-md">
+                        </td>
+                        <td colspan="2" width="272">
+                            <input ng-model="dpefNaf.female" id="textinput" name="textinput" type="text" placeholder=""
+                                   class="form-control input-md">
+                        </td>
+                    </tr>
+
+                    <tr class="tdpa" height="21">
+                        <td class="tdpa" width="280" height="21">
+                            Others
+                        </td>
+                        <td colspan="2" width="272">
+
+                        </td>
+                        <td colspan="2" width="272">
+
+                        </td>
+                        <td colspan="2" width="272">
+
+                        </td>
+                    </tr>
+                    <tr height="21">
+                        <td class="tdpa" width="280" height="21">
+                            TOTAL
+                        </td>
+                        <td colspan="2" width="272">
+                            -
+                        </td>
+                        <td colspan="2" width="272">
+                            -
+                        </td>
+                        <td colspan="2" width="272">
+                            -
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <br>
+                <a href="#step2" class="btn btn-sm btn-info pull-right" data-toggle="tab"><span
+                        class="glyphicon glyphicon-arrow-right"></span> Fill Type of Schools and Assets Informations</a>
+                <br>
+            </div>
+            <div class="tab-pane fade" id="step2">
+
+                <table class="table table-bordered">
+                    <colgroup>
+                        <col width="280"/>
+                        <col width="136" span="6"/>
+                    </colgroup>
+                    <tbody>
+
+
+                    <tr class="trheadc" height="28">
+                        <td rowspan="2" width="280" height="49">
+                            Type of Schools and Assets
+                        </td>
+                        <td rowspan="2" width="136">
+                            Estimated Replacement Cost (LKR)
+                        </td>
+                        <td rowspan="2" width="136">
+                            Estimated Repair Cost (LKR)
+                        </td>
+                        <td rowspan="2" width="136">
+                            Total Damages (LKR)
+                        </td>
+                        <td colspan="2" width="272">
+                            Estimated Losses (LKR)
+                        </td>
+                        <td rowspan="2" width="136">
+                            Total Losses (LKR)
+                        </td>
+                    </tr>
+                    <tr class="trsubc" height="21">
+                        <td width="136" height="21">
+                            Year 1
+                        </td>
+                        <td width="136">
+                            Year 2
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div id="boxscroll" style="height:400px;overflow:auto;cursor:auto;">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr class="trheadc" height="21">
+                            <td width="280" height="21">
+                                Pre-school
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr class="trsub" height="21">
+                            <td class="trhead" width="280" height="21">
+                                Pre-school Name
+                            </td>
+                            <td class="trsub" colspan="2" width="136">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+
+                            <td width="136">
+                                <a id="add_preschool" href="#modal-container-218029" ng-click="schoolType='Pre-school'" role="button" data-toggle="modal"
+                                   data-id="Add Pre-school"
+                                   class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
+                            </td>
+                            <td width="136">
+                                <a id="edit_preschool" href="#modal-container-218029" role="button" data-toggle="modal"
+                                   data-id="Edit Pre-school"
+                                   class="btn btn-sm btn-block btn-primary btn-warning">Edit</a>
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr ng-repeat="dpefBefPreSchool in dlPvtEduFacilities.education.Table_4.DpefBefPreSchool" height="21">
+                            <td ng-model="dpefBefPreSchool.asset" ng-bind="dpefBefPreSchool.asset" class="tdpa" width="280" height="21">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPreSchool.est_rep_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPreSchool.est_repair_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td ng-model="dpefBefPreSchool.tot_damages" width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPreSchool.est_los_year_1" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPreSchool.est_los_year_2" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136" ng-model="dpefBefPreSchool.tot_los">
+                                -
+                            </td>
+                        </tr>
+
+                        <tr class="tdpa" height="21">
+                            <td colspan="6" width="280" height="21">
+
+                            </td>
+
+                            <td width="136">
+                                <button type="button" class="btn btn-block btn-success">save</button>
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="21">
+                            <td width="280" height="21">
+                                Primary School
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr class="trsub" height="21">
+                            <td class="trhead" width="280" height="21">
+                                Primary School Name
+                            </td>
+                            <td class="trsub" colspan="2" width="136">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+
+                            <td width="136">
+                                <a id="add_primary" href="#modal-container-218029" ng-click="schoolType='Primary-school'" role="button" data-toggle="modal"
+                                   data-id="Add Primary School"
+                                   class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
+                            </td>
+                            <td width="136">
+                                <a id="edit_primary" href="#modal-container-218029" role="button" data-toggle="modal"
+                                   data-id="Edit Primary School" class="btn btn-sm btn-block btn-primary btn-warning">Edit</a>
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr ng-repeat="dpefBefPrmSchool in dlPvtEduFacilities.education.Table_4.DpefBefPrmSchool" height="21">
+                            <td ng-model="dpefBefPrmSchool.asset" ng-bind="dpefBefPrmSchool.asset" class="tdpa" width="280" height="21">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPrmSchool.est_rep_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPrmSchool.est_repair_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td ng-model="dpefBefPrmSchool.tot_damages" width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPrmSchool.est_los_year_1" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefPrmSchool.est_los_year_2" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136" ng-model="dpefBefPrmSchool.tot_los">
+                                -
+                            </td>
+                        </tr>
+
+                        <tr class="tdpa" height="21">
+                            <td colspan="6" width="280" height="21">
+
+                            </td>
+
+                            <td width="136">
+                                <button type="button" class="btn btn-block btn-success">save</button>
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="21">
+                            <td width="280" height="21">
+                                Secondary School
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr class="trsub" height="21">
+                            <td class="trhead" width="280" height="21">
+                                Secondary School Name
+                            </td>
+                            <td class="trsub" colspan="2" width="136">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+
+                            <td width="136">
+                                <a id="add_secondary" href="#modal-container-218029" ng-click="schoolType='Secondary-school'" role="button" data-toggle="modal"
+                                   data-id="Add Secondary  School"
+                                   class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
+                            </td>
+                            <td width="136">
+                                <a id="edit_secondary" href="#modal-container-218029" role="button" data-toggle="modal"
+                                   data-id="Edit Secondary School" class="btn btn-sm btn-block btn-primary btn-warning">Edit</a>
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr ng-repeat="dpefBefSecSchool in dlPvtEduFacilities.education.Table_4.DpefBefSecSchool" height="21">
+                            <td ng-model="dpefBefSecSchool.asset" ng-bind="dpefBefSecSchool.asset" class="tdpa" width="280" height="21">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefSecSchool.est_rep_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefSecSchool.est_repair_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td ng-model="dpefBefSecSchool.tot_damages" width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefSecSchool.est_los_year_1" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefSecSchool.est_los_year_2" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136" ng-model="dpefBefSecSchool.tot_los">
+                                -
+                            </td>
+                        </tr>
+
+
+                        <tr class="tdpa" height="21">
+                            <td colspan="6" width="280" height="21">
+
+                            </td>
+
+                            <td width="136">
+                                <button type="button" class="btn btn-block btn-success">save</button>
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="21">
+                            <td width="280" height="21">
+                                University
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr class="trsub" height="21">
+                            <td class="trhead" width="280" height="21">
+                                University Name
+                            </td>
+                            <td class="trsub" colspan="2" width="136">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+
+                            <td width="136">
+                                <a id="add_university" href="#modal-container-218029" ng-click="schoolType='University'" role="button" data-toggle="modal"
+                                   data-id="Add University"
+                                   class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
+                            </td>
+                            <td width="136">
+                                <a id="edit_university" href="#modal-container-218029" role="button" data-toggle="modal"
+                                   data-id="Edit University"
+                                   class="btn btn-sm btn-block btn-primary btn-warning">Edit</a>
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                       <tr ng-repeat="dpefBefUnv in dlPvtEduFacilities.education.Table_4.DpefBefUnv" height="21">
+                            <td ng-model="dpefBefUnv.asset" ng-bind="dpefBefUnv.asset" class="tdpa" width="280" height="21">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefUnv.est_rep_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefUnv.est_repair_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td ng-model="dpefBefUnv.tot_damages" width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefUnv.est_los_year_1" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefUnv.est_los_year_2" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136" ng-model="dpefBefUnv.tot_los">
+                                -
+                            </td>
+                        </tr>
+
+                        <tr class="tdpa" height="21">
+                            <td colspan="6" width="280" height="21">
+
+                            </td>
+
+                            <td width="136">
+                                <button type="button" class="btn btn-block btn-success">save</button>
+                            </td>
+                        </tr>
+                        <tr class="trheadc" height="21">
+                            <td width="280" height="21">
+                                Technical Institutes
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr class="trsub" height="21">
+                            <td class="trhead" width="280" height="21">
+                                Technical Institute Name
+                            </td>
+                            <td class="trsub" colspan="2" width="136">
+                                <select id="selectbasic" name="selectbasic" class="form-control"
+                                        style="width:100%;font-weight:400;">
+                                    <option value="1">Option one</option>
+                                    <option value="2">Option two</option>
+                                </select>
+                            </td>
+
+                            <td width="136">
+                                <a id="add_technical" href="#modal-container-218029" ng-click="schoolType='Technical Institute'" role="button" data-toggle="modal"
+                                   data-id="Add Technical Institutes"
+                                   class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
+                            </td>
+                            <td width="136">
+                                <a id="edit_technical" href="#modal-container-218029" role="button" data-toggle="modal"
+                                   data-id="Edit Technical Institutes"
+                                   class="btn btn-sm btn-block btn-primary btn-warning">Edit</a>
+                            </td>
+                            <td width="136">
+                            </td>
+                            <td width="136">
+                            </td>
+                        </tr>
+                        <tr ng-repeat="dpefBefTechInst in dlPvtEduFacilities.education.Table_4.DpefBefTechInst" height="21">
+                            <td ng-model="dpefBefTechInst.asset" ng-bind="dpefBefTechInst.asset" class="tdpa" width="280" height="21">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefTechInst.est_rep_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefTechInst.est_repair_cost" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td ng-model="dpefBefTechInst.tot_damages" width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefTechInst.est_los_year_1" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136">
+                                <input ng-model="dpefBefTechInst.est_los_year_2" type="text" placeholder=""
+                                       class="form-control input-md">
+                            </td>
+                            <td width="136" ng-model="dpefBefTechInst.tot_los">
+                                -
+                            </td>
+                        </tr>
+
+
+                        <tr class="tdpa" height="21">
+                            <td colspan="6" width="280" height="21">
+
+                            </td>
+
+                            <td width="136">
+                                <button type="button" class="btn btn-block btn-success">save</button>
+                            </td>
+                        </tr>
+
+
+                        <tr height="21">
+                            <td class="tdpa" width="280" height="21">
+                                GRAND TOTAL
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                            <td width="136">
+                                -
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <br>
+            </div>
+            <div class="tab-pane fade" id="step3">
+
+
+                <table class="table table-bordered">
+                    <colgroup>
+                        <col width="224"/>
+                        <col width="63"/>
+                        <col width="63"/>
+                        <col width="231"/>
+                        <col width="63"/>
+                        <col width="72"/>
+                        <col width="63"/>
+                    </colgroup>
+                    <tbody>
+
+                    <tr class="trheadc" height="28">
+                        <td rowspan="2" width="224" height="49">
+                            Type of Schools and Assets
+                        </td>
+                        <td rowspan="2" width="63" height="49">
+                            Estimated Replacement Cost (LKR)
+                        </td>
+                        <td rowspan="2" width="63" height="49">
+                            Estimated Repair Cost (LKR)
+                        </td>
+                        <td rowspan="2" width="231" height="49">
+                            Total Damages (LKR)
+                        </td>
+                        <td colspan="2" width="126" height="28">
+                            Estimated Losses (LKR)
+                        </td>
+                        <td rowspan="2" width="63" height="49">
+                            Total Losses (LKR)
+                        </td>
+                    </tr>
+                    <tr class="trsubc" height="21">
+                        <td width="63" height="21">
+                            Year 1
+                        </td>
+                        <td width="72" height="21">
+                            Year 2
+                        </td>
+                    </tr>
+                    <tr class="trsub" height="21">
+                        <td class="tdpa" width="224" height="21">
+                            Pre-school
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+                    <tr class="trsub" height="21">
+                        <td class="tdpa" width="224" height="21">
+                            Primary School
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+                    <tr class="trsub" height="21">
+                        <td class="tdpa" width="224" height="21">
+                            Secondary School
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr class="trsub" height="21">
+                        <td class="tdpa" width="224" height="21">
+                            University
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr class="trsub" height="21">
+                        <td class="tdpa" width="224" height="21">
+                            Technical Institutes
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr class="trsub" height="21">
+                        <td class="tdpa" width="224" height="21">
+                            Others
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+
+                    <tr height="21">
+                        <td class="tdpa" width="224" height="21">
+                            GRAND TOTAL
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="231" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                        <td width="72" height="21">
+                            <br/>
+                        </td>
+                        <td width="63" height="21">
+                            <br/>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+                <div class="pull-right">
+                    <br>
+                    <button type="button" class="btn btn-info">Clear</button>
+                    <button type="button" class="btn btn-success">Submit</button>
+                </div>
+                <br><br><br>
+            </div>
         </div>
-        </div>
-							
-							
-			
-								
+    </div>
+
+
+    </div>
+    </div>
+
+    <div class="col-md-12">
+
+
+        <div class="modal fade" id="modal-container-218029" role="dialog" style="width:50%;margin:0 auto;"
+             aria-hidden="true">
+            <div class="modal-dialog" style="width:50%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <h5 class="modal-title">
+                            <span id="bookId"> </span>
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">Name</label>
+                            <div class="col-md-10">
+                                <input ng-model="schoolName" type="text" placeholder=""
+                                       class="form-control input-md">
+
                             </div>
                         </div>
+                    </div>
+                    <br><br>
+                    <div class="modal-footer">
 
-                    </div>    
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                        <button ng-click="addSchool()" type="button" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-        <!-- /.conainer-fluid -->
-    </main>
+
+
+    </div>
+    </div>
+
+    </div>
+
+    <!-- /.conainer-fluid -->
+</main>
 {% endblock content %}
