@@ -1,19 +1,21 @@
 from __future__ import absolute_import
-from django.shortcuts import render
-from django.http import HttpResponse
-import json
-import yaml
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.apps import apps
 import datetime
-from django.utils import timezone
+
+from django.core.serializers.json import DjangoJSONEncoder
+
 from health.base_line.models import BdSessionKeys
 from health.damage_losses.models import DlSessionKeys
 from incidents.models import IncidentReport
-
+import yaml, json
+from django.apps import apps
+from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 from settings.models import District, Province
 from django.core import serializers
 from django.conf import settings
+from django.http import HttpResponse
+
+
 
 
 def fetch_districts(user):
@@ -398,3 +400,97 @@ def dl_save_edit_data(table_data, com_data):
                     model_object.update(**row)
 
                     print 'row', ' --> ', row, ' id ', model_object[0].id, '\n'
+
+
+# edit data baseline mining
+
+@csrf_exempt
+def bs_mining_fetch_edit_data(request):
+    data = (yaml.safe_load(request.body))
+    table_name = data['table_name']
+    sector = data['sector']
+    com_data = data['com_data']
+    bs_date = com_data['bs_date']
+    district = com_data['district']
+    firm = com_data['firm']
+    tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
+
+    bs_mtable_data = {sector: {}}
+    bs_mtable_data[sector][table_name] = {}
+
+    for table in tables:
+        table_fields = tables[table]
+
+        model_class = apps.get_model('base_line', table)
+        bs_mtable_data[sector][table_name][table] = list(model_class.objects.
+                                                 filter(bs_date=bs_date, district=district, firm_id=firm).
+                                                 values(*table_fields).order_by('id'))
+
+    return HttpResponse(
+        json.dumps(bs_mtable_data),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
+#mining
+@csrf_exempt
+def dl_fetch_district_disagtn(request):
+    data = (yaml.safe_load(request.body))
+    table_name = data['table_name']
+    sector = data['sector']
+    com_data = data['com_data']
+    incident = com_data['incident']
+    tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
+
+    dl_mtable_data = {sector: {}}
+    dl_mtable_data[sector][table_name] = {}
+
+    filter_fields = {}
+
+    if 'province' in com_data:
+        admin_area = com_data['province']
+        filter_fields = {'incident': incident, 'district__province': admin_area}
+    else:
+        filter_fields = {'incident': incident}
+
+    dl_sessions = DlSessionKeys.objects.filter(**filter_fields)
+
+    for dl_session in dl_sessions:
+
+        category_name = None
+
+        if 'province' in com_data:
+            district_id = dl_session.district.id
+            filter_fields = {'incident': incident, 'district': district_id}
+            category_name = dl_session.district.name
+        else:
+            province_id = None
+            if dl_session.province:
+                province_id = dl_session.province.id
+                category_name = dl_session.province.name
+            filter_fields = {'incident': incident, 'province': province_id}
+
+        if category_name is not None:
+            dl_mtable_data[sector][table_name][category_name] = {}
+
+            for table in tables:
+                print table
+                table_fields = tables[table]
+
+                dl_mtable_data[sector][table_name][category_name][table] = {}
+
+                table_fields = tables[table]
+                model_class = apps.get_model('damage_losses', table)
+
+                table_fields = tables[table]
+                print table_fields
+                dl_mtable_data[sector][table_name][category_name][table] = list(model_class.objects.
+                                                                                filter(**filter_fields)
+                                                                                .values(*table_fields))
+
+    return HttpResponse(
+        json.dumps((dl_mtable_data), cls=DjangoJSONEncoder),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
