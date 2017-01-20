@@ -229,7 +229,7 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
 
                 'table_data': $scope.dlhealthsectordistrict,
                 'com_data': {
-                    'district': $scope.district,
+                    'district': $scope.district.district__id,
                     'incident' : $scope.incident,
 
 
@@ -237,8 +237,6 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
             }),
             dataType: 'json',
         }).then(function successCallback(response) {
-//            $scope.dlhealthsectordistrict = init_data;
-//                $scope.is_edit = false;
 
                  if(response.data == 'False')
              $scope.is_valid_data = false;
@@ -254,13 +252,9 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
     }
 
 
-    // get relevant damage_losses data for calculations
 
-
-    $scope.changedValue = function getDlData(form)
-    {
-
-        if($scope.incident){
+$scope.getDistrict = function getDistrict(){
+     if($scope.incident){
 
 
        $http({
@@ -275,7 +269,13 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
     })
         }
 
-        if($scope.district && $scope.incident){
+}
+    // get relevant damage_losses data for calculations
+
+
+    $scope.changedValue = function getDlData(form,selectedValue)
+    {
+   if($scope.incident && $scope.district){
 
         $http({
         method: 'POST',
@@ -286,7 +286,7 @@ app.controller("DlHealthSectorDistrictController", ['$scope','$http',function ($
                 'sector':'health',
                 'db_tables': ['DmhDfNum','DmhDfPaf','DmhPdfaNum','DmhPdfaPaf','DmhPdfaOassets','DmhLosFi','DmhLosCud','DmhLosHoc','DmhLosOue','DmfDfaNum','DmfDfaPaf','DmfPdfaNum','DmfPdfaPaf','DmfPdaOassets','DmfLosFi','DmfLosCud','DmfLosHoc','DmfLosOue','DapNapTmf','DapBefPc1','DapBefPcn','DapBefOther'],
                 'com_data': {
-                    'district': $scope.district,
+                    'district': $scope.district.district__id,
                     'incident': $scope.incident,
 
                 }

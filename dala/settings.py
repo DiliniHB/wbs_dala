@@ -37,19 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'incidents',
     'dashboard',
-    #'tastypie',
+    # 'tastypie',
     'settings',
     'users',
     'reports',
     'charts',
     'health',
+    'health.base_line',
+    'health.damage_losses',
     'education',
-    # 'health.base_line',
-    # 'health.damage_losses'
     # 'db_tools'
     'other_govn_services',
-    'other_govn_services.base_line',
-    # 'other_govn_services.damage_losses',
+    'mining',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -60,7 +59,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'dbtools.middleware.ReadOnlyMiddleware',
+    # 'dbtools.middleware.ReadOnlyMiddleware',
 ]
 
 ROOT_URLCONF = 'dala.urls'
@@ -90,8 +89,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': {
-                'options': '-c search_path=health,public,other_government,education'
-            },
+            'options': '-c search_path=health,public,other_government,education,mining'
+        },
         'NAME': 'dala',
         'USER': 'postgres',
 
@@ -490,6 +489,68 @@ TABLE_PROPERTY_MAPPER = {
                               'total', 'id']
 
             }
+
+    },
+    'mining': {
+        'Table_1': {
+
+            'BmaImFn': ['name_min_outputs',
+                        'avg_per_year',
+                        'firm_id',
+                        'ownership', 'id'],
+            'BmaImFirmNum': ['male',
+                             'female',
+                             'firm_id',
+                             'ownership', 'id'],
+
+        },
+        'Table_2': {
+
+            'BmaAmMin': ['minerals',
+                         'avg_per_year', 'id'],
+            'BmaAmMinNum': ['male',
+                            'female',
+                            'id'],
+
+        },
+        'Table_5': {
+
+            'DloDmgStocksDistrict': [
+                'assets',
+                'rep_tot_dassets',
+                'repair_pdmg_assets',
+                'tot_damages',
+                'incident',
+                'firm__firm_name',
+                'ownership', 'id'],
+            'DloLosOlosDistrict': [
+                'type_los',
+                'los_year1',
+                'los_year2',
+                'tot_losses',
+                'incident',
+                'firm__firm_name',
+                'ownership', 'id']
+
+        },
+        'Table_6': {
+
+            'DldTmfIfProvince': [
+                'type_min_firms',
+                'year1_damages_pub',
+                'year1_damages_pvt',
+                'year1_losses_pub',
+                'year1_losses_pvt',
+                'year2_losses_pub ',
+                'year2_losses_pvt',
+                'total_pub',
+                'total_pvt',
+                'province',
+                'incident',
+                'id'
+            ]
+
+        }
 
     }
 }

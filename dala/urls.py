@@ -35,4 +35,13 @@ urlpatterns = [
 
     # other govn services
     url(r'^other_govn_services/', include('other_govn_services.urls', namespace='other_govn_services')),
+
+    #mining
+    url(r'^mining/', include('mining.urls', namespace='mining')),
+    url(r'^bs_mining_fetch_edit_data$', views.bs_mining_fetch_edit_data, name='bs_mining_fetch_edit_data'),
+    url(r'^dl_fetch_district_disagtn$', views.dl_fetch_district_disagtn, name='dl_fetch_district_disagtn'),
+
+
+
+
 ]

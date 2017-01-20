@@ -2,26 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b68c5179-75d5-43de-a52d-b65a672202c0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_assessmen_nationwide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_damage_loss_assessmen_province.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_damage_loss_assessment_district.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/base_line/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/damage_losses/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/static/mining/base_line/js/mining_artisanl_firms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/static/mining/base_line/js/mining_industrial_firms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/static/mining/damage_losses/js/damage_losses_artisanal_mining.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/static/mining/damage_losses/js/damages_losses_of_mining_firms.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/static/mining/damage_losses/js/summary_damages_losses_district.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/static/mining/damage_losses/js/summary_damages_losses_nationwide.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/templates/base_line/mining_artisanal_firms.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/templates/base_line/mining_industrial_firms.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/templates/damage_losses/damages_losses_artisanal_mining.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/templates/damage_losses/damages_losses_of_mining_firms.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/templates/damage_losses/summary_damages_losses_district.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/templates/damage_losses/summary_damages_losses_nationwide.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mining/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dala/settings.py" afterPath="$PROJECT_DIR$/dala/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dala/urls.py" afterPath="$PROJECT_DIR$/dala/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dala/views.py" afterPath="$PROJECT_DIR$/dala/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/static/dashboard/js/angular-underscore-module.js" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/js/angular-underscore-module.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/static/dashboard/js/angular-underscore.min.js" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/js/angular-underscore.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/static/dashboard/js/underscore-min.js" afterPath="$PROJECT_DIR$/dashboard/static/dashboard/js/underscore-min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashboard/templates/dashboard/base.html" afterPath="$PROJECT_DIR$/dashboard/templates/dashboard/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/education/damage_losses/models.py" afterPath="$PROJECT_DIR$/education/damage_losses/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/static/health/base_line/js/bs_unit_cost_mini_health_sys.js" afterPath="$PROJECT_DIR$/health/static/health/base_line/js/bs_unit_cost_mini_health_sys.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_health_summery_damageloss_province.js" afterPath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_health_summery_damageloss_province.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_line_ministry_health_sys.js" afterPath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_line_ministry_health_sys.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/templates/damage_losses/health_damagelost_ministry_helth.html" afterPath="$PROJECT_DIR$/health/templates/damage_losses/health_damagelost_ministry_helth.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/base_line/models.py" afterPath="$PROJECT_DIR$/other_govn_services/base_line/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/damage_losses/models.py" afterPath="$PROJECT_DIR$/other_govn_services/damage_losses/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/damage_losses/urls.py" afterPath="$PROJECT_DIR$/other_govn_services/damage_losses/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/damage_losses/views.py" afterPath="$PROJECT_DIR$/other_govn_services/damage_losses/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/models.py" afterPath="$PROJECT_DIR$/other_govn_services/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/base_line/js/bs_info_for_the_costs_of_structures_and_other_assets_in_the_district.js" afterPath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/base_line/js/bs_info_for_the_costs_of_structures_and_other_assets_in_the_district.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_assessment_of_government_departments_or_offices_in_a_district.js" afterPath="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_assessment_of_government_departments_or_offices_in_a_district.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/templates/base_line/bs_info_for_the_costs_of_structures_and_other_assets_in_the_district.html" afterPath="$PROJECT_DIR$/other_govn_services/templates/base_line/bs_info_for_the_costs_of_structures_and_other_assets_in_the_district.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other_govn_services/templates/damage_losses/dl_assessment_of_government_departments_or_offices_in_a_district.html" afterPath="$PROJECT_DIR$/other_govn_services/templates/damage_losses/dl_assessment_of_government_departments_or_offices_in_a_district.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/base_line/models.py" afterPath="$PROJECT_DIR$/health/base_line/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/damage_losses/models.py" afterPath="$PROJECT_DIR$/health/damage_losses/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/damage_losses/views.py" afterPath="$PROJECT_DIR$/health/damage_losses/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_health_other_medi.js" afterPath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_health_other_medi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_health_sector_district.js" afterPath="$PROJECT_DIR$/health/static/health/damage_losses/js/dl_health_sector_district.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/templates/damage_losses/health_damagelost_other_medi.html" afterPath="$PROJECT_DIR$/health/templates/damage_losses/health_damagelost_other_medi.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/health/templates/damage_losses/health_summery_damageloss_dis.html" afterPath="$PROJECT_DIR$/health/templates/damage_losses/health_summery_damageloss_dis.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings/models.py" afterPath="$PROJECT_DIR$/settings/models.py" />
     </list>
     <ignored path="dala_new.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,24 +71,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dl_assessment_of_government_departments_or_offices_in_a_district.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/other_govn_services/templates/damage_losses/dl_assessment_of_government_departments_or_offices_in_a_district.html">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dala/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="824">
-              <caret line="274" column="25" selection-start-line="274" selection-start-column="16" selection-end-line="274" selection-end-column="25" />
-              <folding>
-                <element signature="n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-                <element signature="n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="378">
+              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dala/settings.py">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="-3096">
+              <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -83,7 +110,6 @@
         <option value="$PROJECT_DIR$/other_govn_services/damage_losses/urls.py" />
         <option value="$PROJECT_DIR$/health/templates/damage_losses/health_damagelost_ministry_helth.html" />
         <option value="$PROJECT_DIR$/other_govn_services/damage_losses/views.py" />
-        <option value="$PROJECT_DIR$/dala/settings.py" />
         <option value="$PROJECT_DIR$/health/static/health/base_line/js/bs_unit_cost_mini_health_sys.js" />
         <option value="$PROJECT_DIR$/other_govn_services/base_line/models.py" />
         <option value="$PROJECT_DIR$/other_govn_services/templates/base_line/bs_info_for_the_costs_of_structures_and_other_assets_in_the_district.html" />
@@ -97,8 +123,9 @@
         <option value="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_damage_loss_assessmen_province.js" />
         <option value="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_assessmen_nationwide.js" />
         <option value="$PROJECT_DIR$/other_govn_services/static/other_govn_services/base_line/js/bs_info_for_the_costs_of_structures_and_other_assets_in_the_district.js" />
-        <option value="$PROJECT_DIR$/dashboard/templates/dashboard/base.html" />
         <option value="$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_assessment_of_government_departments_or_offices_in_a_district.js" />
+        <option value="$PROJECT_DIR$/dala/settings.py" />
+        <option value="$PROJECT_DIR$/dashboard/templates/dashboard/base.html" />
       </list>
     </option>
   </component>
@@ -162,7 +189,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="other_govn_services" />
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -176,7 +203,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="other_govn_services" />
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -184,39 +211,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="damage_losses" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wbs_dala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wbs_dala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="other_govn_services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wbs_dala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wbs_dala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dala" />
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,7 +376,7 @@
     <frame x="55" y="24" width="1225" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40848586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40848586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -756,14 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/other_govn_services/static/other_govn_services/damage_losses/js/dl_assessment_of_government_departments_or_offices_in_a_district.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5022">
@@ -785,8 +772,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dala/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="378">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/templates/dashboard/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3096">
+          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
           <folding />
         </state>
       </provider>
