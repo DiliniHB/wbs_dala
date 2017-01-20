@@ -11,10 +11,11 @@
     
   });
   
+
 </script>
 <!-- Main content -->
 <main class="main" ng-app="dsHealthDamagelostOtherMediApp" ng-controller="DsHealthDamagelostOtherMediController"
-    >
+>
 
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
@@ -34,7 +35,8 @@
 
         <div>
             <ul class='nav nav-wizard'>
-                <li id="li1" class="active"><a href='#step1' data-toggle="tab">1 Destroyed Facilities and Assets</a></li>
+                <li id="li1" class="active"><a href='#step1' data-toggle="tab">1 Destroyed Facilities and Assets</a>
+                </li>
                 <li id="li2"><a href='#step2' data-toggle="tab">2 No of Destroyed Assets </a></li>
                 <li id="li3"><a href='#step3' data-toggle="tab">3 Partially Damaged Facilities and Assets</a></li>
                 <li id="li4"><a href='#step4' data-toggle="tab">4 No of Partially Damaged Assets</a></li>
@@ -58,25 +60,25 @@
                         </colgroup>
                         <tbody>
 
-<tr style="background:#fff;border:1px solid #fff;text-align:center;">
-<td style="background:#fff;border:1px solid #fff;text-align:center;">
+                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td style="background:#fff;border:1px solid #fff;text-align:center;">
 
-</td>
-<td colspan="3" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="3" style="background:#fff;border:1px solid #fff;text-align:center;">
   <span class="arrow_box" ng-show="submitted && form_damagelost_other_medi.incident.$error.required">
                                     Please select incident
                                    </span>
-</td>
+                            </td>
 
-<td colspan="3" style="background:#fff;border:1px solid #fff;text-align:center;">
-</td>
-<td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td colspan="3" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
   <span class="arrow_box" ng-show="submitted && form_damagelost_other_medi.district.$error.required">
                                 Please select District
                                 </span>
 
-</td>
-</tr>
+                            </td>
+                        </tr>
 
 
                         <tr class="trhead">
@@ -87,8 +89,8 @@
                             <td colspan="3" style="background:#EFEFEF;">
 
                                 <select id="selectbasic" name="incident" ng-model="incident"
-                                        class="form-control" ng-change="changedValue(incident)"
-                                        style="width:100%;font-weight:400;" required >
+                                        class="form-control" ng-change="changedValue(true)"
+                                        style="width:100%;font-weight:400;" required>
 
                                     <option value="" selected="true">Select an Incident</option>
                                     {% for incident in incidents %}
@@ -99,19 +101,19 @@
                                     {% endfor %}
 
                                 </select>
-                               
+
                             </td>
                             <td colspan="3" style="padding-left:5px;"> Name of District</td>
 
                             <td colspan="2" style="background:#EFEFEF;">
 
-                               <select name="district" id="ccyear" ng-model="district" class="form-control" required>
-                            <option value="">Select District</option>
+                               <select ng-options="district as district.district__name for district in districts track by district.district__id"
+                                        name="district" id="ccyear" ng-model="district" ng-value="district.district__id" class="form-control" ng-change="changedValue(false)" required>
 
-                            <option ng-repeat="district in districts" ng-value="district.district__id" ng-bind="district.district__name"></option>
+                                    <option value="" selected>Select District</option>
 
-                        </select>
 
+                                </select>
 
                             </td>
                         </tr>
@@ -262,7 +264,7 @@
                                 </td>
                                 <td width="98">
                                 </td>
-                                
+
                             </tr>
 
                             <!--Table 6:Tab one :Table two:row two-->

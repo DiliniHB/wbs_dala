@@ -1,4 +1,7 @@
+from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import render
+
+from health.damage_losses.models import DlSessionKeys
 from settings.models import District, Province
 from incidents.models import IncidentReport
 import yaml, json
@@ -88,3 +91,5 @@ def dl_health_summary_damage_nationwide(request):
         'incidents': incidents,
     }
     return render(request, 'damage_losses/health_summery_damageloss_national.html', context)
+
+

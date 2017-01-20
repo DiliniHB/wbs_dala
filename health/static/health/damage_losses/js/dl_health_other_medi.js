@@ -2,7 +2,7 @@ var app = angular.module('dsHealthDamagelostOtherMediApp', []);
 
 app.controller("DsHealthDamagelostOtherMediController", ['$scope','$http',function ($scope,$http) {
 
-$scope.district;
+ $scope.district;
  $scope.incident;
  $scope.bs_data={};
  $scope.dl_data={};
@@ -612,7 +612,7 @@ $scope.district;
             data: angular.toJson({
                 'table_data': $scope.dlDataHealthDamagelostOtherMedicalFacilities,
                 'com_data': {
-                    'district': $scope.district,
+                    'district':  $scope.district.district__id,
                     'incident': $scope.incident,
 
                 },
@@ -620,8 +620,6 @@ $scope.district;
             }),
             dataType: 'json',
         }).then(function successCallback(response) {
-//        $scope.dlDataHealthDamagelostOtherMedicalFacilities = init_data;
-//                $scope.is_edit = false;
 
                  if(response.data == 'False')
              $scope.is_valid_data = false;
@@ -636,12 +634,10 @@ $scope.district;
 
     }
 
-
     // get relevant base-line data for calculations
-    $scope.changedValue=function getBsData() {
+    $scope.changedValue=function getBsData(selectedValue) {
 
-
-        if($scope.incident){
+        if($scope.incident && selectedValue){
 
        $http({
     method: "POST",
@@ -655,7 +651,7 @@ $scope.district;
     })
         }
 
-        if($scope.district && $scope.incident){
+        if( $scope.incident && $scope.district){
 
         $http({
             method: 'POST',
@@ -664,7 +660,7 @@ $scope.district;
             data: angular.toJson({
               'db_tables': ['BucOmarStructure','BucOmarSupplies','BucOmarMequipment','BucOmarOassets','BucOmarcStructure','BucOmarcCrpm','BucOmarcMequipment','BucOmarcOassets'],
                'com_data': {
-                    'district': $scope.district,
+                    'district': $scope.district.district__id,
                     'incident': $scope.incident,
                     },
                'table_name': 'Table_4'
@@ -687,8 +683,6 @@ $scope.district;
 
 
  // edit relevant damage_losses data
-
-
     $scope.dlDataEdit = function(form)
 {
 
@@ -704,7 +698,7 @@ $scope.district;
     'table_name':  'Table_6',
     'sector':'health',
     'com_data': {
-           'district': $scope.district,
+           'district':  $scope.district.district__id,
             'incident': $scope.incident,
           },
            'is_edit':$scope.is_edit

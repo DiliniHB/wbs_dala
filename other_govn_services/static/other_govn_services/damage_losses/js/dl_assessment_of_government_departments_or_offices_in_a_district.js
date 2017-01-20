@@ -1,726 +1,321 @@
-var app = angular.module('dsHealthDamagelostOtherMediApp', []);
+var app = angular.module('dlAssessmentOfGovnDeptOrOfcInADistrictApp', ['underscore']);
 
-app.controller("DsHealthDamagelostOtherMediController", ['$scope','$http',function ($scope,$http) {
+app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($scope,$http,$parse, _) {
 
-$scope.district;
- $scope.incident;
- $scope.bs_data={};
- $scope.dl_data={};
- $scope.is_edit = false;
- $scope.submitted = false;
- $scope.Districts=[];
-
+    $scope.district;
+    $scope.incident;
+    $scope.bs_data={};
+    $scope.dl_data={};
+    $scope.is_edit = false;
+    $scope.submitted = false;
+    $scope.Districts=[];
+//    $scope.selectedDistrict;
 
     var init_data = {
-        'Table_6': {
-            'DmfDfaNum': [{
-                num_des_facilities: 'Number of Destroyed Facilities',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfDfaPaf': [{
-                num_patients_affected: 'Male',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                num_patients_affected: 'Female',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfDaStructure': [{
-                asset: '1 Floor Structure',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: '2-3 Floors Structure',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'More Than 3 Floors Structure',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Destroyed Structure',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfDaSupplies': [{
-                asset: 'Medicines',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Medical Supplies',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Others',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Destroyed Supplies',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfDaMequipment': [{
-                asset: 'CT Scan',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'X-ray Machine',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'MRI Machine',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Other Equipment (Specify)',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Destroyed Medical Equipment',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfDaOassets': [{
-                asset: 'Computers',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Vehicles',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Furniture',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Office Equipment',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Others',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Destroyed Other Assets',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'VALUE OF DESTROYED ASSETS',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfPdfaNum': [{
-                num_pdamaged_facilities: 'Number of Partially Damaged Facilities',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfPdfaPaf': [{
-                num_patients_affected: 'Male',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                num_patients_affected: 'Female',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-
-           'DmfPdaStructure': [{
-                asset: 'Roof',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Wall',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Flooring',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Partially Damaged Structure',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfPdaMequipment': [{
-                asset: 'CT Scan',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'X-ray Machine',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'MRI Machine',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Other Equipment (Specify)',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Partially Damaged Medical Equipment',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfPdaOassets': [{
-                asset: 'Computers',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Vehicles',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Furniture',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Office Equipment',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Others',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'Value of Partially Damaged Other Assets',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'VALUE OF PARTIALLY DAMAGED ASSETS',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                asset: 'TOTAL VALUE OF DAMAGES',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfLosFi': [{
-                type_of_losses: 'Disaster Year 1',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Year 2',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Total',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfLosCud': [{
-                type_of_losses: 'Disaster Year 1',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Year 2',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Total',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfLosHoc': [{
-                type_of_losses: 'Disaster Year 1',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Year 2',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Total',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }],
-            'DmfLosOue': [{
-                type_of_losses: 'Disaster Year 1',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Year 2',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },{
-                type_of_losses: 'Total',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            },
-            {
-                type_of_losses: 'TOTAL VALUE OF LOSSES',
-                base_hospital : null,
-                divisional_hospital: null,
-                rural_hospital : null,
-                central_dispensary: null,
-                pmcus : null,
-                phccs: null,
-                mchcs : null,
-                total: null,
-            }]
-
-
-
+        'other_govn_services': {
+            'Table_2': {
+                'DlagdDmgStructure': [{
+                    name_dept : '1 Floor Structure',
+                    td_num_structures : null,
+                    td_total_squarem : null,
+                    pd_num_structures : null,
+                    pd_total_squarem_roof : null,
+                    pd_total_squarem_wall : null,
+                    pd_total_squarem_floor : null,
+                    damages : null,
+                }, {
+                    name_dept : '2-3 Floors Structure',
+                    td_num_structures : null,
+                    td_total_squarem : null,
+                    pd_num_structures : null,
+                    pd_total_squarem_roof : null,
+                    pd_total_squarem_wall : null,
+                    pd_total_squarem_floor : null,
+                    damages : null,
+                }, {
+                    name_dept : 'More Than 3 Floors',
+                    td_num_structures : null,
+                    td_total_squarem : null,
+                    pd_num_structures : null,
+                    pd_total_squarem_roof : null,
+                    pd_total_squarem_wall : null,
+                    pd_total_squarem_floor : null,
+                    damages : null,
+                }, {
+                    name_dept : 'Total',
+                    td_num_structures : null,
+                    td_total_squarem : null,
+                    pd_num_structures : null,
+                    pd_total_squarem_roof : null,
+                    pd_total_squarem_wall : null,
+                    pd_total_squarem_floor : null,
+                    damages : null,
+                }],
+                'DlagdDmgOfficeEquipment': [{
+                    name_dept : 'Computers',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }, {
+                    name_dept : 'Furniture',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }, {
+                    name_dept : 'Total',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }],
+                'DlagdDmgMachinery': [{
+                    name_dept : 'Vehicles',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }, {
+                    name_dept : 'Generators',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }, {
+                    name_dept : 'Elevators',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }, {
+                    name_dept : 'Total',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }, {
+                    name_dept : 'TOTAL DAMAGES',
+                    num_tot_destroyed : null,
+                    num_partial_damaged : null,
+                    damages : null,
+                }],
+                'DlagdLosses': [{
+                    name_dept : 'Foregone Income',
+                    los_year1 : null,
+                    los_year2 : null,
+                    total_losses : null,
+                }, {
+                    name_dept : 'Cleaning up of debris',
+                    los_year1 : null,
+                    los_year2 : null,
+                    total_losses : null,
+                }, {
+                    name_dept : 'Higher Operating Costs',
+                    los_year1 : null,
+                    los_year2 : null,
+                    total_losses : null,
+                }, {
+                    name_dept : 'Other Unexpected Expenses',
+                    los_year1 : null,
+                    los_year2 : null,
+                    total_losses : null,
+                }, {
+                    name_dept : 'TOTAL LOSSES',
+                    los_year1 : null,
+                    los_year2 : null,
+                    total_losses : null,
+                }],
+            }
         }
     }
 
-    $scope.dlDataHealthDamagelostOtherMedicalFacilities = init_data;
-    $scope.saveDlData = function(form) {
+    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = init_data;
 
-    $scope.submitted = true;
-       if(form.$valid){
-        $http({
-            method: 'POST',
-            url:'/damage_losses/dl_save_data',
-            contentType: 'application/json; charset=utf-8',
-            data: angular.toJson({
-                'table_data': $scope.dlDataHealthDamagelostOtherMedicalFacilities,
-                'com_data': {
-                    'district': $scope.district,
-                    'incident': $scope.incident,
 
-                },
-                'is_edit' : $scope.is_edit
-            }),
-            dataType: 'json',
-        }).then(function successCallback(response) {
-$("#modal-container-239453").modal('show');
-            console.log(response);
-
-        }, function errorCallback(response) {
-
-            console.log(response);
-        });
+    $scope.insertAsset = function(table) {
+        console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[table]);
+        var new_row;
+        if(table == 'DlagdDmgOfficeEquipment') {
+            new_row = {
+                name_dept : '',
+                num_tot_destroyed : null,
+                num_partial_damaged : null,
+                damages : null,
+            }
+        }
+        else if(table == 'DlagdDmgMachinery') {
+            new_row = {
+                name_dept : '',
+                num_tot_destroyed : null,
+                num_partial_damaged : null,
+                damages : null,
+            }
         }
 
+        $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[table].push(new_row);
     }
 
+    $scope.removeItem = function removeItem(table, index) {
+        if(table == 'DlagdDmgOfficeEquipment') {
+            $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment.splice(index, 1);
+        }
+        else if(table == 'DlagdDmgMachinery') {
+            $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery.splice(index, 1);
+        }
+    }
 
     // get relevant base-line data for calculations
-    $scope.changedValue=function getBsData() {
-
-
-        if($scope.incident){
-
-       $http({
-    method: "POST",
-    url: "/health/damage_losses/fetch_incident_districts",
-    data: angular.toJson({'incident': $scope.incident }),
-    }).success(function(data) {
-        $scope.districts = data;
-        $scope.district = "";
-        console.log(data);
-
-    })
+    $scope.changedValue=function getBsData(selectedValue) {
+        if($scope.incident && selectedValue) {
+            $http({
+                method: "POST",
+                url: "/fetch_incident_districts",
+                data: angular.toJson({'incident': $scope.incident }),
+            }).success(function(data) {
+                $scope.districts = data;
+                $scope.selectedDistrict = "";
+                console.log(data);
+            })
         }
 
-        if($scope.district && $scope.incident){
-
-        $http({
-            method: 'POST',
-            url: '/health/base_line/bs_get_data_mock',
-            contentType: 'application/json; charset=utf-8',
-            data: angular.toJson({
-              'db_tables': ['BucOmarStructure','BucOmarSupplies','BucOmarMequipment','BucOmarOassets','BucOmarcStructure','BucOmarcCrpm','BucOmarcMequipment','BucOmarcOassets'],
-               'com_data': {
-                    'district': $scope.district,
-                    'incident': $scope.incident,
+        if($scope.incident && $scope.district ) {
+            alert(' incident = ' + $scope.incident + ", district=" + $scope.district.district__id);
+            $http({
+                method: 'POST',
+                url: '/bs_get_data_mock',
+                contentType: 'application/json; charset=utf-8',
+                data: angular.toJson({
+                    'db_tables': ['BcsStructure', 'BcsOfficeEquipment', 'BcsMachinery'],
+                    'com_data': {
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
                     },
-               'table_name': 'Table_4'
-            }),
-            dataType: 'json',
-        }).then(function successCallback(response) {
-            var data = response.data;
-            angular.forEach(data, function(value, key) {
-              $scope.bs_data[key] = JSON.parse(value);
+                   'table_name': 'Table_1'
+                }),
+                $http({
+                    method: 'POST',
+                    url:'/damage_losses/dl_save_data',
+                    contentType: 'application/json; charset=utf-8',
+                    data: angular.toJson({
+                        'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
+                        'com_data': {
+                            'district': $scope.district,
+                            'incident': $scope.incident,
+                        },
+                        'is_edit' : $scope.is_edit
+                    }),
+                    dataType: 'json',
+                }).then(function successCallback(response) {
+                    $("#modal-container-239453").modal('show');
+                    console.log(response);
+
+                }, function errorCallback(response) {
+                    console.log(response);
+                });      dataType: 'json',
+            }).then(function successCallback(response) {
+                var data = response.data;
+                angular.forEach(data, function(value, key) {
+                    $scope.bs_data[key] = JSON.parse(value);
+                });
+                console.log($scope.bs_data);
+            }, function errorCallback(response) {
+                console.log(response);
             });
+        }
+    }
 
-            console.log($scope.bs_data);
+    $scope.saveDlData = function(form) {
+        $scope.submitted = true;
+        if(form.$valid){
+            $http({
+                method: 'POST',
+                url:'/damage_losses/dl_save_data',
+                contentType: 'application/json; charset=utf-8',
+                data: angular.toJson({
+                    'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
+                    'com_data': {
+                        'district': $scope.district,
+                        'incident': $scope.incident,
+                    },
+                    'is_edit' : $scope.is_edit
+                }),
+                dataType: 'json',
+            }).then(function successCallback(response) {
+                $("#modal-container-239453").modal('show');
+                console.log(response);
 
-        }, function errorCallback(response) {
+            }, function errorCallback(response) {
 
-            console.log(response);
+                console.log(response);
+            });
+        }
+    }
+
+    $scope.dlDataEdit = function(form) {
+        $scope.is_edit = true;
+        $scope.submitted = true;
+
+        if(form.$valid){
+            $http({
+                method: "POST",
+                url: '/health/damage_losses/dl_fetch_edit_data',
+                data: angular.toJson({
+                    'table_name':  'Table_6',
+                    'com_data': {
+                        'district': $scope.district,
+                        'incident': $scope.incident,
+                    },
+                   'is_edit':$scope.is_edit
+                }),
+            }).success(function(data) {
+                console.log(data);
+                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = data;
+            })
+        }$http({
+                method: 'POST',
+                url:'/damage_losses/dl_save_data',
+                contentType: 'application/json; charset=utf-8',
+                data: angular.toJson({
+                    'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
+                    'com_data': {
+                        'district': $scope.district,
+                        'incident': $scope.incident,
+                    },
+                    'is_edit' : $scope.is_edit
+                }),
+                dataType: 'json',
+    }
+
+    $scope.cancelEdit = function() {
+         $scope.is_edit = false;
+         $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = init_data;
+    }
+
+    $scope.getTotal = function(model, property) {
+        var array = $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[model];
+        var cumulative = 0;
+
+        var sums = _.map(array,function(obj){
+            cumulative += obj[property];
+            return cumulative;
         });
-    }
-    }
 
-
- // edit relevant damage_losses data
-
-
-    $scope.dlDataEdit = function(form)
-{
-
-   $scope.is_edit = true;
-   $scope.submitted = true;
-
-    if(form.$valid){
-
-    $http({
-    method: "POST",
-    url: '/health/damage_losses/dl_fetch_edit_data',
-    data: angular.toJson({
-    'table_name':  'Table_6',
-    'com_data': {
-           'district': $scope.district,
-            'incident': $scope.incident,
-          },
-           'is_edit':$scope.is_edit
-           }),
-    }).success(function(data) {
-
-    console.log(data);
-
-
-    $scope.dlDataHealthDamagelostOtherMedicalFacilities = data;
-    })
+        var the_string = model+'_'+property;
+        var model = $parse(the_string);
+        model.assign($scope, cumulative);
     }
 
+    $scope.getColumnTotal = function(model) {
+        var array = $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[model];
+        var cumulative = 0;
+        var cumulative_two = 0;
+        var cumulative_total = 0;
 
-}
+        var sums = _.map(array, function(obj) {
+            cumulative += obj.num_tot_destroyed;
+            cumulative_two += obj.num_partial_damaged;
+            cumulative_total = cumulative + cumulative_two;
+            return cumulative_total;
+        });
 
-
-    $scope.cancelEdit = function()
-{
-     $scope.is_edit = false;
-     $scope.dlDataHealthDamagelostOtherMedicalFacilities = init_data;
-}
-
-
-
-
-}])
+        var the_string = model+'_damages';
+        var model = $parse(the_string);
+        model.assign($scope, cumulative_total);
+    }
+})
 
 

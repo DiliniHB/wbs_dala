@@ -1,29 +1,15 @@
 from django.db import models
-
-class BcsStructure(models.Model):
-    asset = models.CharField(max_length=255, blank=True, null=True)
-    avg_rep_cost = models.FloatField(blank=True, null=True)
-    avg_repair_cost_roof = models.FloatField(blank=True, null=True)
-    avg_repair_cost_wall = models.FloatField(blank=True, null=True)
-    avg_repair_cost_flooring = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'bcs_structure'
+from settings.models import District, Province
 
 
+# Table
 class DlaOagenciesNatn(models.Model):
     asset_owship = models.CharField(max_length=255, blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
     los_year1 = models.FloatField(blank=True, null=True)
     los_year2 = models.FloatField(blank=True, null=True)
     total = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -34,13 +20,14 @@ class DlaOagenciesNatn(models.Model):
         db_table = 'dla_oagencies_natn'
 
 
+# Table 4
 class DlaProvince(models.Model):
     asset_owship = models.CharField(max_length=255, blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
     los_year1 = models.FloatField(blank=True, null=True)
     los_year2 = models.FloatField(blank=True, null=True)
     total = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -51,13 +38,14 @@ class DlaProvince(models.Model):
         db_table = 'dla_province'
 
 
+# Table 3-1
 class DladAowshipDgovn(models.Model):
     asset_owship = models.CharField(max_length=255, blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
     los_year1 = models.FloatField(blank=True, null=True)
     los_year2 = models.FloatField(blank=True, null=True)
     total = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -68,30 +56,14 @@ class DladAowshipDgovn(models.Model):
         db_table = 'dlad_aowship_dgovn'
 
 
-class DladAowshipMoagency(models.Model):
-    asset_owship = models.CharField(max_length=255, blank=True, null=True)
-    damages = models.FloatField(blank=True, null=True)
-    los_year1 = models.FloatField(blank=True, null=True)
-    los_year2 = models.FloatField(blank=True, null=True)
-    total = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'dlad_aowship_moagency'
-
-
+# Table 3-2
 class DladAowshipPgovn(models.Model):
     asset_owship = models.CharField(max_length=255, blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
     los_year1 = models.FloatField(blank=True, null=True)
     los_year2 = models.FloatField(blank=True, null=True)
     total = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -102,12 +74,30 @@ class DladAowshipPgovn(models.Model):
         db_table = 'dlad_aowship_pgovn'
 
 
+# Table 3-3
+class DladAowshipMoagency(models.Model):
+    asset_owship = models.CharField(max_length=255, blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlad_aowship_moagency'
+
+
 class DlagdDmgMachinery(models.Model):
     name_dept = models.CharField(max_length=255, blank=True, null=True)
     num_tot_destroyed = models.IntegerField(blank=True, null=True)
     num_partial_damaged = models.IntegerField(blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -123,7 +113,7 @@ class DlagdDmgOfficeEquipment(models.Model):
     num_tot_destroyed = models.IntegerField(blank=True, null=True)
     num_partial_damaged = models.IntegerField(blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -143,7 +133,7 @@ class DlagdDmgStructure(models.Model):
     pd_total_squarem_wall = models.FloatField(blank=True, null=True)
     pd_total_squarem_floor = models.FloatField(blank=True, null=True)
     damages = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
@@ -159,7 +149,7 @@ class DlagdLosses(models.Model):
     los_year1 = models.FloatField(blank=True, null=True)
     los_year2 = models.FloatField(blank=True, null=True)
     total_losses = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey('District', db_column='district', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     created_user = models.IntegerField(blank=True, null=True)
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
