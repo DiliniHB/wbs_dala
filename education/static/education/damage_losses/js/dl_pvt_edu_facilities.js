@@ -14,6 +14,8 @@ $scope.submitted = false;
 // declaring school name property
 $scope.schoolName = null;
 $scope.schoolType = null;
+$scope.schools = [];
+$scope.new_school = {id: null, name: null, district_id: null};
 
 var init_data = {
 'education':{
@@ -271,6 +273,40 @@ $scope.addSchool = function()
 {
     alert($scope.schoolType);
 
+        $http({
+        method: "POST",
+        url: "/add_entity",
+        data: angular.toJson({
+        'model_fields': $scope.new_school,
+        'model': $scope.schoolType,
+         }),
+        }).success(function(data) {
+
+           console.log(data);
+            if(data)
+                console.log($scope.schools[$scope.schoolType]);
+
+        })
+
+}
+
+$scope.fetchSchools = function()
+{
+    $scope.new_school.district_id = $scope.district;
+
+    $http({
+    method: "POST",
+    url: "/education/damage_losses/fetch_schools",
+    data: angular.toJson({
+    'district':  $scope.district,
+    'schools': ['PreSchools', 'PrimarySchools', 'SecondarySchools', 'TechInstitutes', 'Universities']
+     }),
+    }).success(function(data) {
+
+        console.log(data);
+
+
+    })
 }
 
 })

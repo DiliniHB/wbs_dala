@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from settings.models import District
+from incidents.models import IncidentReport
 
 
 # model for base_line medical_facilities
@@ -470,6 +471,76 @@ class BucMarcOassets(models.Model):
 
 # education sector models
 
+class PreSchools(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pre_schools'
+
+
+class PrimarySchools(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'primary_schools'
+
+
+class SecondarySchools(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'secondary_schools'
+
+
+class TechInstitutes(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tech_institutes'
+
+
+class Universities(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'universities'
+
+
 class BefPubSchools(models.Model):
     type_facilities = models.CharField(max_length=255, blank=True, null=True)
     total_number = models.IntegerField(blank=True, null=True)
@@ -696,6 +767,23 @@ class BugCrp(models.Model):
 
 
 # mining
+
+class Ownership(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ownership'
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'department'
 
 
 class Firm(models.Model):

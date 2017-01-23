@@ -266,7 +266,7 @@ def dl_save_data(request):
                         filter_fields = {'table_name': interface_table, 'incident': incident, 'province': admin_area}
                     elif 'district' in com_data:
                         admin_area = com_data['district']
-                        filter_fields = {'table_name': interface_table, 'incident': incident, 'district': admin_area}
+                        filter_fields = {'table_name': interface_table, 'incident': incident, 'district_id': admin_area}
                     else:
                         filter_fields = {'table_name': interface_table, 'incident': incident}
 
@@ -562,4 +562,34 @@ def dl_fetch_district_disagtn(request):
         content_type='application/javascript; charset=utf8'
     )
 
+
+@csrf_exempt
+def fetch_entities(request):
+    data = (yaml.safe_load(request.body))
+    district_id = data['district']
+    model_name = data['model']
+
+    model_class = apps.get_model('damage_losses', model_name)
+    fetched_data = model_class.objects.filter(district_id=district_id).values('name', 'id', 'ownership')
+
+    return HttpResponse(
+        json.dumps(list(fetched_data)),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
+@csrf_exempt
+def add_entity(request):
+    data = (yaml.safe_load(request.body))
+    model_fields = data['model_fields']
+    model_name = data['model']
+
+    model_class = apps.get_model('base_line', model_name)
+    model_object = model_class(**model_fields)
+    model_object.save()
+
+    if model_object.id is not None:
+        return HttpResponse(model_object.id)
+    else:
+        return HttpResponse(False)
 

@@ -9,7 +9,11 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
     $scope.is_edit = false;
     $scope.submitted = false;
     $scope.Districts=[];
-//    $scope.selectedDistrict;
+
+    $scope.departments = [];
+    $scope.department = null;
+    $scope.ownership = null;
+    $scope.new_department = {id: null, name: null, ownership_id: null, district_id: null};
 
     var init_data = {
         'other_govn_services': {
@@ -160,7 +164,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     // get relevant base-line data for calculations
     $scope.changedValue=function getBsData(selectedValue) {
-//        alert(' - ' + selectedValue);
         if($scope.incident && selectedValue) {
             $http({
                 method: "POST",
@@ -291,6 +294,67 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         var model = $parse(the_string);
         model.assign($scope, cumulative_total);
     }
+
+$scope.fetchDepartments = function()
+{
+    console.log($scope.district);
+    $scope.new_department.district_id = $scope.district.district__id;
+
+    $http({
+    method: "POST",
+    url: "/fetch_entities",
+    data: angular.toJson({
+    'district':  $scope.district.district__id,
+     }),
+    }).success(function(data) {
+        $scope.departments = data;
+        console.log(data);
+
+
+    })
+}
+
+$scope.saveDepartment = function(form)
+{
+    $http({
+    method: "POST",
+    url: "/add_entity",
+    data: angular.toJson({
+    'model': 'Department',
+    'model_fields': $scope.new_department,
+     }),
+    }).success(function(data) {
+      console.log(data);
+
+      $scope.new_department.id = data;
+
+       if(data)
+        $scope.departments.push($scope.new_department);
+
+       $("#modal-container-218029").modal('hide');
+
+    })
+
+}
+
+$scope.fetchOwnership = function()
+{
+    $http({
+    method: "POST",
+    url: "/other_govn_services/damage_losses/fetch_ownership",
+    data: angular.toJson({
+    'department': $scope.department.id,
+     }),
+    }).success(function(data) {
+        $scope.ownership = data;
+        console.log(data);
+
+
+    })
+
+}
+
+
 })
 
 

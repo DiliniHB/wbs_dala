@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^dl_damage_loss_assessment_district', views.dl_damage_loss_assessment_district, name='dl_damage_loss_assessment_district'),
     url(r'^dl_damage_loss_assessmen_province', views.dl_damage_loss_assessmen_province, name='dl_damage_loss_assessmen_province'),
     url(r'^dl_assessmen_nationwide', views.dl_assessmen_nationwide, name='dl_assessmen_nationwide'),
+    url(r'^fetch_ownership', views.fetch_ownership, name='fetch_ownership'),
 ]
