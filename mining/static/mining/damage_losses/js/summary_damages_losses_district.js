@@ -32,6 +32,7 @@ app.controller("DmLosOfMinFirmsDisController", function($scope,$http,$parse, _) 
     }
 
 
+
     $scope.LoadData = function() {
         $scope.is_edit = true;
         $scope.submitted = true;

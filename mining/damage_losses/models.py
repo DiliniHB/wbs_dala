@@ -1,5 +1,5 @@
 from django.db import models
-from settings.models import District,Firm
+from settings.models import District
 from incidents.models import IncidentReport
 
 

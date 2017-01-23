@@ -74,10 +74,3 @@ class UserRole(models.Model):
     def __str__(self):
         return self.role_name
 
-
-class Firm(models.Model):
-    firm_name = models.CharField(max_length=255, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'firm'

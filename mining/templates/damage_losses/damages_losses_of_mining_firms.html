@@ -49,7 +49,7 @@
                         <td colspan="3" style="background:#EFEFEF;">
                             <select ng-options="district as district.district__name for district in districts track by district.district__id"
                                     name="district" id="ccyear" ng-model="district" ng-value="district.district__id"
-                                    class="form-control" ng-change="changedValue(false)" required>
+                                    class="form-control" ng-change="changedValue(false);fetchFirms();" required>
                                 <option value="" selected>Select District</option>
                             </select>
                         </td>
@@ -59,15 +59,12 @@
                             Name of Firm
                         </td>
                         <td class="trsub" colspan="6" height="19" width="490">
-                            <select id="selectbasic" name="firm" ng-model="firm"
-                                    class="form-control" ng-change="changedValueFirm()"
-                                    style="width:100%;font-weight:400;" required>
+                            <select ng-options="firm as firm.name for firm in firms track by firm.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
 
-                                <option value="" selected="true">Select an Firm</option>
-                                {% for firm in firm %}
-                                <option value={{firm.id}}>{{firm.firm_name}}
-                                </option>
-                                {% endfor %}
+                                <option value="" selected>Select Firm</option>
+
+
                             </select>
                         </td>
                     </tr>
@@ -76,8 +73,7 @@
                             Ownership
                         </td>
                         <td class="trsub" colspan="6" height="19" width="490">
-                            <input id="textinput" name="textinput" type="text" placeholder="" ng-model="ownership"
-                                   class="form-control input-md">
+                            <span ng-bind="selectedFirm.ownership"></span>
                         </td>
                     </tr>
                     <tr class="trhead" height="19">
@@ -163,9 +159,9 @@
 
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgStructures.rep_tot_dassets"
-                                       ng-change="getTotal('DloDmgStructures','rep_tot_dassets');getColumnTotal('DloDmgStructures');"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md">
+                                ng-change="getTotal('DloDmgStructures','rep_tot_dassets'); getColumnTotal('DloDmgStructures');"
+                                id="textinput" name="textinput" type="number" placeholder=""
+                                       class="form-control input-md" >
                             </td>
 
                             <td colspan="2" width="98">
@@ -177,9 +173,9 @@
 
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgStructures.tot_damages"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md"
-                                       ng-bind="dloDmgStructures.tot_damages=dloDmgStructures.rep_tot_dassets+ dloDmgStructures.repair_pdmg_assets">
+                                       id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                       class="form-control input-md nborder"
+                                       ng-bind="dloDmgStructures.tot_damages=dloDmgStructures.rep_tot_dassets + dloDmgStructures.repair_pdmg_assets">
                             </td>
 
 
@@ -195,10 +191,10 @@
                         </tr>
 
                         <tr ng-repeat="dloDmgStructures in dmLosOfMinFirms.mining.Table_3.DloDmgStructures"
-                            ng-if="dloDmgStructures.assets=='Total'" height="20" class="boldash">
+                            ng-if="dloDmgStructures.assets=='Total'" height="20" >
                             <td ng-bind="dloDmgStructures.assets"
                                 height="20" width="264"
-                                class="tdpa"></td>
+                                class="boldash"></td>
                             <td width="98" colspan="2" ng-model="dloDmgStructures.rep_tot_dassets"
                                 ng-bind="DloDmgStructures_rep_tot_dassets"></td>
                             <td width="98" colspan="2" ng-model="dloDmgStructures.repair_pdmg_assets"
@@ -249,8 +245,8 @@
 
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgEquipment.tot_damages"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md"
+                                       id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                       class="form-control input-md nborder"
                                        ng-bind="dloDmgEquipment.tot_damages=dloDmgEquipment.rep_tot_dassets+ dloDmgEquipment.repair_pdmg_assets">
                             </td>
 
@@ -267,10 +263,10 @@
                         </tr>
 
                         <tr ng-repeat="dloDmgEquipment in dmLosOfMinFirms.mining.Table_3.DloDmgEquipment"
-                            ng-if="dloDmgEquipment.assets=='Total'" height="20" class="boldash">
+                            ng-if="dloDmgEquipment.assets=='Total'" height="20" >
                             <td ng-bind="dloDmgEquipment.assets"
                                 height="20" width="264"
-                                class="tdpa">
+                                class="boldash">
                             </td>
                             <td width="98" colspan="2" ng-model="dloDmgEquipment.rep_tot_dassets"
                                 ng-bind="DloDmgEquipment_rep_tot_dassets">
@@ -324,8 +320,8 @@
                             </td>
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgMachinery.tot_damages"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md"
+                                       id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                       class="form-control input-md nborder"
                                        ng-bind="dloDmgMachinery.tot_damages=dloDmgMachinery.rep_tot_dassets+ dloDmgMachinery.repair_pdmg_assets">
 
                             </td>
@@ -340,11 +336,11 @@
                             </td>
                         </tr>
                         <tr ng-repeat="dloDmgMachinery in dmLosOfMinFirms.mining.Table_3.DloDmgMachinery"
-                            ng-if="dloDmgMachinery.assets=='Total'" height="20" class="boldash">
+                            ng-if="dloDmgMachinery.assets=='Total'" height="20" >
                             <!-- Fixed rows -->
                             <td ng-bind="dloDmgMachinery.assets"
                                 height="20" width="264"
-                                class="tdpa">
+                                class="boldash">
                             </td>
 
                             <td width="98" colspan="2" ng-model="dloDmgMachinery.rep_tot_dassets"
@@ -396,8 +392,8 @@
                             </td>
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgVehicles.tot_damages"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md"
+                                       id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                       class="form-control input-md nborder"
                                        ng-bind="dloDmgVehicles.tot_damages=dloDmgVehicles.rep_tot_dassets+ dloDmgVehicles.repair_pdmg_assets">
 
                             </td>
@@ -413,10 +409,10 @@
                             </td>
                         </tr>
                         <tr ng-repeat="dloDmgVehicles in dmLosOfMinFirms.mining.Table_3.DloDmgVehicles"
-                            ng-if="dloDmgVehicles.assets=='Total'" height="20" class="boldash">
+                            ng-if="dloDmgVehicles.assets=='Total'" height="20" >
                             <td ng-bind="dloDmgVehicles.assets"
                                 height="20" width="264"
-                                class="tdpa">
+                                class="boldash">
                             </td>
                             <td width="98" colspan="2" ng-model="dloDmgVehicles.rep_tot_dassets"
                                 ng-bind="DloDmgVehicles_rep_tot_dassets">
@@ -459,20 +455,20 @@
                             <td colspan="2" width="98">
 
                                 <input ng-model="dloDmgStocks.rep_tot_dassets"
-                                       ng-change="getTotal('DloDmgStocks','rep_tot_dassets');getColumnTotal('DloDmgStocks');"
+                                       ng-change="getTotal('DloDmgStocks','rep_tot_dassets');getColumnTotal('DloDmgStocks','rep_tot_dassets');"
                                        id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md">
                             </td>
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgStocks.repair_pdmg_assets"
-                                       ng-change="getTotal('DloDmgStocks','repair_pdmg_assets');getColumnTotal('DloDmgStocks');"
+                                       ng-change="getTotal('DloDmgStocks','repair_pdmg_assets');getColumnTotal('DloDmgStocks','repair_pdmg_assets');"
                                        id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md">
                             </td>
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgStocks.tot_damages"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md"
+                                       id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                       class="form-control input-md nborder"
                                        ng-bind="dloDmgStocks.tot_damages=dloDmgStocks.rep_tot_dassets + dloDmgStocks.repair_pdmg_assets">
                             </td>
                         </tr>
@@ -488,10 +484,10 @@
                         </tr>
 
                         <tr ng-repeat="dloDmgStocks in dmLosOfMinFirms.mining.Table_3.DloDmgStocks"
-                            ng-if="dloDmgStocks.assets=='Total'" height="20" class="boldash">
+                            ng-if="dloDmgStocks.assets=='Total'" height="20" >
                             <td ng-bind="dloDmgStocks.assets"
                                 height="20" width="264"
-                                class="tdpa">
+                                class="boldash">
                             </td>
                             <td width="98" colspan="2" ng-model="dloDmgStocks.rep_tot_dassets"
                                 ng-bind="DloDmgStocks_rep_tot_dassets">
@@ -502,18 +498,18 @@
                         </tr>
 
                         <tr ng-repeat="dloDmgStocks in dmLosOfMinFirms.mining.Table_3.DloDmgStocks"
-                            ng-if="dloDmgStocks.assets=='GRAND TOTAL'" height="20" class="boldash">
+                            ng-if="dloDmgStocks.assets=='GRAND TOTAL'" height="20" >
                             <!-- Fixed rows -->
                             <td ng-bind="dloDmgStocks.assets"
                                 height="20" width="264"
-                                class="tdpa">
+                                class="boldash">
                             </td>
                             <td width="98" colspan="2" ng-model="dloDmgStocks.rep_tot_dassets"
-                                ng-bind="">
+                                ng-bind="DloDmg_rep_tot_dassets_grnd">
                             <td width="98" colspan="2" ng-model="dloDmgStocks.repair_pdmg_assets"
-                                ng-bind="">
+                                ng-bind="DloDmg_repair_pdmg_assets_grnd">
                             <td width="98" colspan="2" ng-model="dloDmgStocks.tot_damages"
-                                ng-bind="">
+                                ng-bind="DloDmg_tot_damages_grnd">
                         </tr>
 
                         </tbody>
@@ -553,7 +549,7 @@
                             Total Losses (LKR)
                         </td>
                     </tr>
-                    <tr class="trsubc" height="19">
+                    <tr class="trheadc" height="19">
                         <td height="19" width="171">
                             Production Losses
                         </td>
@@ -592,41 +588,41 @@
                             {% endverbatim %}
                         </td>
                         <td colspan="2" width="98">
-                            <input ng-model="dloLosPlos.avg_per_year"
+                            <input ng-model="dloLosPlos.avg_per_year" ng-change="getValue('DloLosPlos','avg_per_year');"
                                    id="textinput" name="textinput" type="number" placeholder=""
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
-                            <input ng-model="dloLosPlos.red_voutput_year1"
+                            <input ng-model="dloLosPlos.red_voutput_year1" ng-change="getValue('DloLosPlos','red_voutput_year1');"
                                    id="textinput" name="textinput" type="number" placeholder=""
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
-                            <input ng-model="dloLosPlos.red_voutput_year2"
+                            <input ng-model="dloLosPlos.red_voutput_year2" ng-change="getValue('DloLosPlos','red_voutput_year2');"
                                    id="textinput" name="textinput" type="number" placeholder=""
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
                             <input ng-model="dloLosPlos.los_year1"
-                                   id="textinput" name="textinput" type="number" placeholder=""
-                                   class="form-control input-md"
+                                   id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                   class="form-control input-md nborder"
                                    ng-bind="dloLosPlos.los_year1=dloLosPlos.avg_per_year * dloLosPlos.red_voutput_year1">
                         </td>
                         <td colspan="1" width="98">
                             <input ng-model="dloLosPlos.los_year2"
-                                   id="textinput" name="textinput" type="number" placeholder=""
-                                   class="form-control input-md"
+                                   id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                   class="form-control input-md nborder"
                                    ng-bind="dloLosPlos.los_year2=dloLosPlos.avg_per_year * dloLosPlos.red_voutput_year2">
                         </td>
                         <td colspan="1" width="98">
                             <input ng-model="dloLosPlos.tot_losses"
-                                   id="textinput" name="textinput" type="number" placeholder=""
-                                   class="form-control input-md"
+                                   id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                   class="form-control input-md nborder"
                                    ng-bind="dloLosPlos.tot_losses=dloLosPlos.los_year1 + dloLosPlos.los_year2">
                         </td>
                     </tr>
                     <tr height="20">
-                        <td colspan="6" class="tdpa" height="19" width="171">
+                        <td colspan="8" class="tdpa" height="19" width="171">
                             Others (Enumerate)
                             <button ng-click="insertFirm('DloLosPlos')" class="btn btn-sm btn-info btn-circle"
                                     id="insert"><span
@@ -635,20 +631,20 @@
                         </td>
                     </tr>
                     <tr ng-repeat="dloLosPlos in dmLosOfMinFirms.mining.Table_3.DloLosPlos"
-                        ng-if="dloLosPlos.type_los=='Total'" height="20" class="boldash">
+                        ng-if="dloLosPlos.type_los=='Total'" height="20" >
                         <td ng-bind="dloLosPlos.type_los"
                             height="20" width="264"
-                            class="tdpa">
+                            class="boldash">
                         </td>
-                        <td width="98" colspan="2" ng-model="dloLosPlos.avg_per_year">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.red_voutput_year1">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.red_voutput_year2">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.los_year1"
-                            ng-bind="">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.los_year2"
-                            ng-bind="">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.tot_losses"
-                            ng-bind="">
+                        <td width="98" colspan="2" class="boldash" >
+                        <td width="98" colspan="1" class="boldash">
+                        <td width="98" colspan="1" class="boldash">
+                        <td width="98" colspan="1"
+                            ng-bind="DloLosPlos_los_year1">
+                        <td width="98" colspan="1"
+                            ng-bind="DloLosPlos_los_year2">
+                        <td width="98" colspan="1"
+                            ng-bind="DloLosPlos_total">
                     </tr>
                     <tr class="trheadc" height="19">
                         <td height="19" width="171">
@@ -683,31 +679,31 @@
                         <td colspan="1" width="98">
                             <input ng-model="dloLosOlos.los_year1"
                                    id="textinput" name="textinput" type="number" placeholder=""
-                                   ng-change="getTotal('DloLosOlos','los_year1');getLossesTotal('DloLosOlos');"
+                                   ng-change="getTotal('DloLosOlos','los_year1');getColumnTotal('DloLosOlos','los_year1');"
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
                             <input ng-model="dloLosOlos.los_year2"
                                    id="textinput" name="textinput" type="number" placeholder=""
-                                   ng-change="getTotal('DloLosOlos','los_year2');getLossesTotal('DloLosOlos');"
+                                   ng-change="getTotal('DloLosOlos','los_year2');getColumnTotal('DloLosOlos','los_year2');"
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
                             <input ng-model="dloLosOlos.tot_losses"
-                                   id="textinput" name="textinput" type="number" placeholder=""
-                                   class="form-control input-md"
+                                   id="textinput" name="textinput" onfocus="this.blur()" placeholder=""
+                                   class="form-control input-md nborder"
                                    ng-bind="dloLosOlos.tot_losses = dloLosOlos.los_year1 + dloLosOlos.los_year2">
                         </td>
                     </tr>
                     <tr ng-repeat="dloLosOlos in dmLosOfMinFirms.mining.Table_3.DloLosOlos"
-                        ng-if="dloLosOlos.type_los=='Total' && $index=='3'" height="20" class="boldash">
+                        ng-if="dloLosOlos.type_los=='Total' && $index=='3'" height="20" >
                         <td ng-bind="dloLosOlos.type_los"
                             height="20" width="264"
-                            class="tdpa">
+                            class="boldash">
                         </td>
-                        <td width="98" colspan="2"></td>
-                        <td width="98" colspan="1"></td>
-                        <td width="98" colspan="1"></td>
+                        <td width="98" colspan="2" class="boldash"></td>
+                        <td width="98" colspan="1" class="boldash"></td>
+                        <td width="98" colspan="1" class="boldash"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.los_year1"
                             ng-bind="DloLosOlos_los_year1"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.los_year2"
@@ -716,21 +712,21 @@
                             ng-bind="DloLosOlos_total"></td>
                     </tr>
                     <tr ng-repeat="dloLosOlos in dmLosOfMinFirms.mining.Table_3.DloLosOlos"
-                        ng-if="dloLosOlos.type_los=='GRAND TOTAL' && $index=='4'" height="20" class="boldash">
+                        ng-if="dloLosOlos.type_los=='GRAND TOTAL' && $index=='4'" height="20" >
                         <!-- Fixed rows -->
                         <td ng-bind="dloLosOlos.type_los"
                             height="20" width="264"
-                            class="tdpa">
+                            class="boldash">
                         </td>
-                        <td width="98" colspan="2"></td>
-                        <td width="98" colspan="1"></td>
-                        <td width="98" colspan="1"></td>
+                        <td width="98" colspan="2" class="boldash"></td>
+                        <td width="98" colspan="1" class="boldash"></td>
+                        <td width="98" colspan="1" class="boldash"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.los_year1"
-                            ng-bind=""></td>
+                            ng-bind="DloLosOlos_los_year1_grnd"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.los_year2"
-                            ng-bind=""></td>
+                            ng-bind="DloLosOlos_los_year2_grnd"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.tot_losses"
-                            ng-bind=""></td>
+                            ng-bind="DloLosOlos_tot_losses_grnd"></td>
                     </tr>
                     </tbody>
                 </table>
