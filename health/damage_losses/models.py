@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
-from settings.models import District, Province, Firm
+from settings.models import District, Province
 from incidents.models import IncidentReport
+from health.base_line.models import Firm
 
 
 class DlSessionKeys(models.Model):

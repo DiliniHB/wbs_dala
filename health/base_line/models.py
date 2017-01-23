@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from settings.models import District,Firm
+from settings.models import District
 
 
 # model for base_line medical_facilities
@@ -697,8 +697,21 @@ class BugCrp(models.Model):
 
 # mining
 
+
+class Firm(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    ownership = models.CharField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'firm'
+
+
 class BmaAmMin(models.Model):
     minerals = models.CharField(max_length=255, blank=True, null=True)
+    male = models.IntegerField(blank=True, null=True)
+    female = models.IntegerField(blank=True, null=True)
     avg_per_year = models.FloatField(blank=True, null=True)
     bs_date = models.CharField(max_length=255, blank=True, null=True)
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
@@ -706,6 +719,8 @@ class BmaAmMin(models.Model):
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
+    ownership = models.CharField(max_length=50, blank=True, null=True)
+    firm_id = models.ForeignKey(Firm, blank=True, null=True)
 
     class Meta:
         managed = False

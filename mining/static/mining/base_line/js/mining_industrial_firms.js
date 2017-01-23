@@ -7,7 +7,9 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
     $scope.baselineDate;
     $scope.is_edit = false;
     $scope.selectedFirm;
+    $scope.new_firm = {id: null, name: null, ownership: null};
     $scope.ownership;
+    $scope.firms = [];
 
     var init_data = {
     'mining':{
@@ -53,28 +55,6 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
  $scope.mnIndusMinFirm = init_data;
 
 
-$scope.getfirm = function getfirm(){
-
-//$scope.selectedFirm;
-  $http({
-    method: "POST",
-    url: "/mining/base_line/get_ownership_firm",
-    data: angular.toJson({
-    'firm_id':  $scope.selectedFirm,
-     }),
-    }).success(function(response) {
-
-    $scope.ownership = response;
-
-    });
-
-
-
-}
-
-
-
-
  $scope.insertFirm = function(table)
 {
 
@@ -106,8 +86,6 @@ if(table == 'BmaImFn'){
       $scope.saveBsData = function(form) {
 
       $scope.submitted = true;
-
-//      $scope.mnIndusMinFirm.mining.Table_1.BmaImFn.firm_id = $scope.selectedFirm;
 
       var array = $scope.mnIndusMinFirm.mining.Table_1.BmaImFn;
       var details = _.map(array,function(obj){
@@ -158,40 +136,93 @@ if(table == 'BmaImFn'){
 
 
 
-    $scope.bsHsDataEdit = function(form) {
+$scope.bsHsDataEdit = function(form) {
 
-        $scope.is_edit = true;
-        $scope.submitted = true;
+    $scope.is_edit = true;
+    $scope.submitted = true;
 
-            $http({
-                method: "POST",
-                url: '/bs_mining_fetch_edit_data',
-                data: angular.toJson({
-                    'table_name': 'Table_1',
-                    'sector': 'mining',
-                    'com_data': {
-                        'district': $scope.district,
-                        'bs_date': $scope.baselineDate,
-                        'firm' : $scope.selectedFirm,
-                    }
-                }),
-            }).success(function(data) {
+        $http({
+            method: "POST",
+            url: '/bs_mining_fetch_edit_data',
+            data: angular.toJson({
+                'table_name': 'Table_1',
+                'sector': 'mining',
+                'com_data': {
+                    'district': $scope.district,
+                    'bs_date': $scope.baselineDate,
+                    'firm' : $scope.selectedFirm,
+                }
+            }),
+        }).success(function(data) {
 
-                console.log(data);
-                $scope.mnIndusMinFirm = data;
-            })
+            console.log(data);
+            $scope.mnIndusMinFirm = data;
+        })
 
+}
 
-
-    }
-
-
-
-    $scope.cancelEdit = function()
+$scope.cancelEdit = function()
 {
      $scope.is_edit = false;
      $scope.mnIndusMinFirm = init_data;
 }
+
+$scope.saveFirm = function(form)
+{
+    $http({
+    method: "POST",
+    url: "/mining/base_line/add_firm",
+    data: angular.toJson({
+    'firm': $scope.new_firm,
+     }),
+    }).success(function(data) {
+
+    if(data)
+        $scope.firms.push($scope.new_firm);
+
+    })
+
+}
+
+$scope.saveEditFirm = function(form)
+{
+    alert( $scope.firmName);
+
+    $http({
+    method: "POST",
+    url: "/base_line/edit_firm",
+    data: angular.toJson({
+    'firm_name':  $scope.selectedFirm,
+    'firm_id' :1,
+     }),
+    }).success(function(data) {
+
+    console.log(data);
+
+    })
+
+}
+
+$scope.fetchFirms = function()
+{
+
+    $scope.new_firm.district = $scope.district;
+
+    $http({
+    method: "POST",
+    url: "/mining/base_line/fetch_firms",
+    data: angular.toJson({
+    'district':  $scope.district,
+     }),
+    }).success(function(data) {
+
+    console.log(data);
+    $scope.firms = data;
+
+    })
+}
+
+
 
 
 

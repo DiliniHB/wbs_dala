@@ -33,18 +33,6 @@
                         </td>
 
                         <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <!--<span class="arrow_box" ng-show="submitted && form_industrial_mining_firms_artisanal_mining.district.$error.required">-->
-                            <!--Please select District-->
-                            <!--</span>-->
-                            <!--</td>-->
-                            <!--<td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                            <!--</td>-->
-
-                            <!--<td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                            <!--<span class="arrow_box"-->
-                            <!--ng-show="submitted && form_industrial_mining_firms_artisanal_mining.baselineDate.$error.required">-->
-                            <!--Please select Date-->
-                            <!--</span>-->
                         </td>
                     </tr>
 
@@ -53,7 +41,7 @@
                         <td style="padding-left:5px;"> Name of District</td>
 
                         <td colspan="1" style="background:#EFEFEF;">
-                            <select id="selectbasic" name="district" ng-model='district' class="form-control"
+                            <select id="selectbasic" name="district" ng-change="fetchFirms()" ng-model='district' class="form-control"
                                     style="font-weight:400;" required>
 
                                 <option value="" selected="true">Select a District</option>
@@ -82,10 +70,13 @@
                         </td>
 
                         <td colspan="2">
-                            <input ng-model="selectedFirm"
-                                   id="textinput" name="textinput" type="text" placeholder="" ng-change="getfirm()"
-                                   class="form-control input-md" required>
+                            <select ng-options="firm as firm.name for firm in firms track by firm.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
 
+                                <option value="" selected>Select Firm</option>
+
+
+                            </select>
                         </td>
 
 
@@ -105,9 +96,7 @@
                         </td>
 
                         <td colspan="3">
-
-                                <input id="textinput" name="textinput" type="text" placeholder=""
-                                       class="form-control input-md" ng-model="ownership">
+                            <span ng-bind="selectedFirm.ownership"></span>
 
                         </td>
 
@@ -264,7 +253,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="textinput">Firm Name</label>
                             <div class="col-md-5">
-                                <input id="textinput" name="textinput" type="text" placeholder=""
+                                <input id="textinput" name="textinput" ng-model="new_firm.name" type="text" placeholder=""
                                        class="form-control input-md">
 
                             </div>
@@ -273,8 +262,15 @@
                          <div class="form-group" style="margin-top:5px;">
                             <label class="col-md-4 control-label" for="textinput">Ownership</label>
                             <div class="col-md-5">
-                                <input id="textinput" name="textinput" type="text" placeholder=""
-                                       class="form-control input-md">
+                                <select id="selectbasic" name="ownership" ng-model='new_firm.ownership' class="form-control"
+                                        style="font-weight:400;" required>
+
+                                    <option value="" selected="true">Select Ownership</option>
+
+                                    <option value="Public">Public</option>
+                                    <option value="Private">Private</option>
+
+                                </select>
 
                             </div>
                         </div>
@@ -284,7 +280,7 @@
                     <div class="modal-footer">
 
                         <button id="button1id" name="button1id" class="btn btn-warning">Cancel</button>
-                        <button id="button2id" name="button2id" class="btn btn-success">Save</button>
+                        <button id="button2id" ng-click="saveFirm()" name="button2id" class="btn btn-success">Save</button>
                     </div>
                 </div>
 
@@ -320,8 +316,15 @@
                          <div class="form-group" style="margin-top:5px;">
                             <label class="col-md-4 control-label" for="textinput">Ownership</label>
                             <div class="col-md-5">
-                                <input id="textinput" name="textinput" type="text" placeholder=""
-                                       class="form-control input-md">
+                                 <select id="selectbasic" name="ownership" ng-model='ownership' class="form-control"
+                                        style="font-weight:400;" required>
+
+                                    <option value="" selected="true">Select Ownership</option>
+
+                                    <option value="Public">Public</option>
+                                    <option value="Private">Private</option>
+
+                                </select>
 
                             </div>
                         </div>

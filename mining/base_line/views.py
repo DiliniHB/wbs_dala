@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from settings.models import District
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-import yaml
-from .models import Firm
+import yaml, json
+from health.base_line.models import Firm
 from django.http import HttpResponse
+from django.core import serializers
 
 
 def mn_bs_info_industrial(request):
@@ -29,11 +30,19 @@ def mn_bs_info_artisanal(request):
 @csrf_exempt
 def add_firm(request):
     firm_data = (yaml.safe_load(request.body))
-    firm_name = firm_data['firm_name']
-    firm = Firm(firm_name=firm_name)
+    firm = firm_data['firm']
+
+    firm_name = firm['name']
+    district = firm['district']
+    ownership = firm['ownership']
+
+    firm = Firm(name=firm_name, district_id=district, ownership=ownership)
     firm.save()
 
-    return HttpResponse("Success")
+    if firm.id is not None:
+        return HttpResponse(firm.id)
+    else:
+        return HttpResponse(False)
 
 
 @csrf_exempt
@@ -42,7 +51,7 @@ def edit_firm(request):
     firm_id = firm_data['firm_id']
     firm_name = firm_data['firm_name']
 
-    Firm.objects.filter(pk=firm_id).update(firm_name=firm_name)
+    Firm.objects.filter(pk=firm_id).update(name=firm_name)
 
     return HttpResponse("Success")
 
@@ -56,3 +65,17 @@ def get_ownership_firm(request):
     firm_ownership = firm.ownership
 
     return HttpResponse(firm_ownership)
+
+
+@csrf_exempt
+def fetch_firms(request):
+    data = (yaml.safe_load(request.body))
+    district_id = data['district']
+    firms = Firm.objects.filter(district_id=district_id).values('name', 'id', 'ownership')
+
+    return HttpResponse(
+        json.dumps(list(firms)),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
