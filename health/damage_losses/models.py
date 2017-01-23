@@ -2432,34 +2432,34 @@ class DlaLosPlos(models.Model):
         db_table = 'dla_los_plos'
 
 
-class DloDmgStocksDistrict(models.Model):
-    assets = models.CharField(max_length=255, blank=True, null=True)
-    rep_tot_dassets = models.IntegerField(blank=True, null=True)
-    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
-    tot_damages = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'dlo_dmg_stocks_district'
-
-
-class DloLosOlosDistrict(models.Model):
-    type_los = models.CharField(max_length=255, blank=True, null=True)
-    los_year1 = models.IntegerField(blank=True, null=True)
-    los_year2 = models.IntegerField(blank=True, null=True)
-    tot_losses = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'dlo_los_olos_disrtict'
+# class DloDmgStocksDistrict(models.Model):
+#     assets = models.CharField(max_length=255, blank=True, null=True)
+#     rep_tot_dassets = models.IntegerField(blank=True, null=True)
+#     repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+#     tot_damages = models.FloatField(blank=True, null=True)
+#     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+#     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+#     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+#     ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+#
+#     class Meta:
+#         managed = False
+#         db_table = 'dlo_dmg_stocks_district'
+#
+#
+# class DloLosOlosDistrict(models.Model):
+#     type_los = models.CharField(max_length=255, blank=True, null=True)
+#     los_year1 = models.IntegerField(blank=True, null=True)
+#     los_year2 = models.IntegerField(blank=True, null=True)
+#     tot_losses = models.FloatField(blank=True, null=True)
+#     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+#     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+#     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+#     ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+#
+#     class Meta:
+#         managed = False
+#         db_table = 'dlo_los_olos_disrtict'
 
 
 class DloDmgEquipment(models.Model):

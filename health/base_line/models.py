@@ -719,7 +719,6 @@ class BmaAmMin(models.Model):
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
-    ownership = models.CharField(max_length=50, blank=True, null=True)
     firm_id = models.ForeignKey(Firm, blank=True, null=True)
 
     class Meta:
@@ -751,7 +750,6 @@ class BmaImFn(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     bs_date = models.CharField(max_length=12, blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -768,7 +766,6 @@ class BmaImFirmNum(models.Model):
     lmu = models.IntegerField(blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:

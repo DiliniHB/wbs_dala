@@ -14,6 +14,8 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
     $scope.sRepairPdmgAssets;
     $scope.Districts = [];
     $scope.firm_id;
+    $scope.selectedFirm;
+    $scope.new_firm = {id: null, name: null, ownership: null};
     $scope.ownership;
     $scope.DloDmg_rep_tot_dassets_grnd = null;
     $scope.DloDmg_repair_pdmg_assets_grnd = null;
@@ -515,27 +517,29 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
     }
 
 
-    $scope.changedValueFirm = function getOwnership() {
+$scope.fetchFirms = function()
+{
 
-        console.log($scope.firm);
-        $http({
-            method: "POST",
-            url: "/mining/base_line/get_ownership_firm",
-            data: angular.toJson({
-                'firm_id': $scope.firm,
-            }),
-        }).success(function(response) {
+    $scope.new_firm.district = $scope.district;
 
-            $scope.ownership = response;
+    $http({
+    method: "POST",
+    url: "/mining/base_line/fetch_firms",
+    data: angular.toJson({
+    'district':  $scope.district.district__id,
+     }),
+    }).success(function(data) {
 
-        });
+    console.log(data);
+    $scope.firms = data;
+
+    })
+}
 
 
-    }
+    $scope.changedValue = function getDlData(selectedValue) {
 
-    $scope.changedValue = function getDlData() {
-
-        if ($scope.incident) {
+        if ($scope.incident && selectedValue) {
 
 
             $http({
@@ -555,17 +559,15 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
 
     $scope.saveDlData = function(form) {
 
-        var array = $scope.dmLosOfMinFirms.mining.Table_3.DloNumEmps;
-        var details = _.map(array, function(obj) {
-            obj.firm_id = $scope.firm;
-            obj.ownership = $scope.ownership;
-        });
+    var array = $scope.dmLosOfMinFirms.mining.Table_3;
+    var details = _.map(array, function(model_array) {
+      _.map(model_array, function(model) {
+          model.firm_id = $scope.firm;
 
-        var newarray = $scope.dmLosOfMinFirms.mining.Table_3.DloDmgStructures;
-        var newdetails = _.map(newarray, function(newobj) {
-            newobj.firm_id = $scope.firm;
-            newobj.ownership = $scope.ownership;
-        });
+
+      });
+
+});
 
         $scope.submitted = true;
 

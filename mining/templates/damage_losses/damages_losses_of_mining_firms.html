@@ -49,7 +49,7 @@
                         <td colspan="3" style="background:#EFEFEF;">
                             <select ng-options="district as district.district__name for district in districts track by district.district__id"
                                     name="district" id="ccyear" ng-model="district" ng-value="district.district__id"
-                                    class="form-control" ng-change="changedValue(false)" required>
+                                    class="form-control" ng-change="changedValue(false);fetchFirms();" required>
                                 <option value="" selected>Select District</option>
                             </select>
                         </td>
@@ -59,15 +59,12 @@
                             Name of Firm
                         </td>
                         <td class="trsub" colspan="6" height="19" width="490">
-                            <select id="selectbasic" name="firm" ng-model="firm"
-                                    class="form-control" ng-change="changedValueFirm()"
-                                    style="width:100%;font-weight:400;" required>
+                            <select ng-options="firm as firm.name for firm in firms track by firm.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
 
-                                <option value="" selected="true">Select an Firm</option>
-                                {% for firm in firm %}
-                                <option value={{firm.id}}>{{firm.firm_name}}
-                                </option>
-                                {% endfor %}
+                                <option value="" selected>Select Firm</option>
+
+
                             </select>
                         </td>
                     </tr>
@@ -76,8 +73,7 @@
                             Ownership
                         </td>
                         <td class="trsub" colspan="6" height="19" width="490">
-                            <input id="textinput" name="textinput" type="text" placeholder="" ng-model="ownership"
-                                   class="form-control input-md">
+                            <span ng-bind="selectedFirm.ownership"></span>
                         </td>
                     </tr>
                     <tr class="trhead" height="19">
