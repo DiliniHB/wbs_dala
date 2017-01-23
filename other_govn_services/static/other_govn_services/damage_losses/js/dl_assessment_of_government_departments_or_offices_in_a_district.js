@@ -160,6 +160,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     // get relevant base-line data for calculations
     $scope.changedValue=function getBsData(selectedValue) {
+//        alert(' - ' + selectedValue);
         if($scope.incident && selectedValue) {
             $http({
                 method: "POST",
@@ -186,33 +187,17 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
                     },
                    'table_name': 'Table_1'
                 }),
-                $http({
-                    method: 'POST',
-                    url:'/damage_losses/dl_save_data',
-                    contentType: 'application/json; charset=utf-8',
-                    data: angular.toJson({
-                        'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
-                        'com_data': {
-                            'district': $scope.district,
-                            'incident': $scope.incident,
-                        },
-                        'is_edit' : $scope.is_edit
-                    }),
-                    dataType: 'json',
-                }).then(function successCallback(response) {
-                    $("#modal-container-239453").modal('show');
-                    console.log(response);
-
-                }, function errorCallback(response) {
-                    console.log(response);
-                });      dataType: 'json',
+                dataType: 'json',
             }).then(function successCallback(response) {
                 var data = response.data;
                 angular.forEach(data, function(value, key) {
-                    $scope.bs_data[key] = JSON.parse(value);
+                  $scope.bs_data[key] = JSON.parse(value);
                 });
+
                 console.log($scope.bs_data);
+
             }, function errorCallback(response) {
+
                 console.log(response);
             });
         }
@@ -220,29 +205,31 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     $scope.saveDlData = function(form) {
         $scope.submitted = true;
-        if(form.$valid){
-            $http({
-                method: 'POST',
-                url:'/damage_losses/dl_save_data',
-                contentType: 'application/json; charset=utf-8',
-                data: angular.toJson({
-                    'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
-                    'com_data': {
-                        'district': $scope.district,
-                        'incident': $scope.incident,
-                    },
-                    'is_edit' : $scope.is_edit
-                }),
-                dataType: 'json',
-            }).then(function successCallback(response) {
-                $("#modal-container-239453").modal('show');
-                console.log(response);
+       if(form.$valid){
+        $http({
+            method: 'POST',
+            url:'/damage_losses/dl_save_data',
+            contentType: 'application/json; charset=utf-8',
+            data: angular.toJson({
+                'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
+                'com_data': {
+                    'district': $scope.district,
+                    'incident': $scope.incident,
 
-            }, function errorCallback(response) {
+                },
+                'is_edit' : $scope.is_edit
+            }),
+            dataType: 'json',
+        }).then(function successCallback(response) {
+            $("#modal-container-239453").modal('show');
+            console.log(response);
 
-                console.log(response);
-            });
+        }, function errorCallback(response) {
+
+            console.log(response);
+        });
         }
+
     }
 
     $scope.dlDataEdit = function(form) {
@@ -265,19 +252,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
                 console.log(data);
                 $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = data;
             })
-        }$http({
-                method: 'POST',
-                url:'/damage_losses/dl_save_data',
-                contentType: 'application/json; charset=utf-8',
-                data: angular.toJson({
-                    'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
-                    'com_data': {
-                        'district': $scope.district,
-                        'incident': $scope.incident,
-                    },
-                    'is_edit' : $scope.is_edit
-                }),
-                dataType: 'json',
+        }
     }
 
     $scope.cancelEdit = function() {
