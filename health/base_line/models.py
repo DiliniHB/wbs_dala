@@ -696,8 +696,6 @@ class BugCrp(models.Model):
 
 
 # mining
-
-
 class Firm(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     ownership = models.CharField(max_length=255, blank=True, null=True)

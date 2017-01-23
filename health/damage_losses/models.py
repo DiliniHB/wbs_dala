@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
-from settings.models import District, Province, Firm
+from settings.models import District, Province
+from health.base_line.models import Firm
 from incidents.models import IncidentReport
 
 
@@ -2423,11 +2424,3 @@ class DlaLosPlos(models.Model):
         db_table = 'dla_los_plos'
 
 
-class Firm(models.Model):
-    firm_name = models.CharField(max_length=255, blank=True, null=True)
-    ownership = models.CharField(max_length=50, blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'firm'
