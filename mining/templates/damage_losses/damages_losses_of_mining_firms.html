@@ -163,9 +163,9 @@
 
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgStructures.rep_tot_dassets"
-                                       ng-change="getTotal('DloDmgStructures','rep_tot_dassets');getColumnTotal('DloDmgStructures');"
-                                       id="textinput" name="textinput" type="number" placeholder=""
-                                       class="form-control input-md">
+                                ng-change="getTotal('DloDmgStructures','rep_tot_dassets'); getColumnTotal('DloDmgStructures');"
+                                id="textinput" name="textinput" type="number" placeholder=""
+                                       class="form-control input-md" >
                             </td>
 
                             <td colspan="2" width="98">
@@ -459,13 +459,13 @@
                             <td colspan="2" width="98">
 
                                 <input ng-model="dloDmgStocks.rep_tot_dassets"
-                                       ng-change="getTotal('DloDmgStocks','rep_tot_dassets');getColumnTotal('DloDmgStocks');"
+                                       ng-change="getTotal('DloDmgStocks','rep_tot_dassets');getColumnTotal('DloDmgStocks','rep_tot_dassets');"
                                        id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md">
                             </td>
                             <td colspan="2" width="98">
                                 <input ng-model="dloDmgStocks.repair_pdmg_assets"
-                                       ng-change="getTotal('DloDmgStocks','repair_pdmg_assets');getColumnTotal('DloDmgStocks');"
+                                       ng-change="getTotal('DloDmgStocks','repair_pdmg_assets');getColumnTotal('DloDmgStocks','repair_pdmg_assets');"
                                        id="textinput" name="textinput" type="number" placeholder=""
                                        class="form-control input-md">
                             </td>
@@ -509,11 +509,11 @@
                                 class="tdpa">
                             </td>
                             <td width="98" colspan="2" ng-model="dloDmgStocks.rep_tot_dassets"
-                                ng-bind="">
+                                ng-bind="DloDmg_rep_tot_dassets_grnd">
                             <td width="98" colspan="2" ng-model="dloDmgStocks.repair_pdmg_assets"
-                                ng-bind="">
+                                ng-bind="DloDmg_repair_pdmg_assets_grnd">
                             <td width="98" colspan="2" ng-model="dloDmgStocks.tot_damages"
-                                ng-bind="">
+                                ng-bind="DloDmg_tot_damages_grnd">
                         </tr>
 
                         </tbody>
@@ -592,17 +592,17 @@
                             {% endverbatim %}
                         </td>
                         <td colspan="2" width="98">
-                            <input ng-model="dloLosPlos.avg_per_year"
+                            <input ng-model="dloLosPlos.avg_per_year" ng-change="getValue('DloLosPlos','avg_per_year');"
                                    id="textinput" name="textinput" type="number" placeholder=""
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
-                            <input ng-model="dloLosPlos.red_voutput_year1"
+                            <input ng-model="dloLosPlos.red_voutput_year1" ng-change="getValue('DloLosPlos','red_voutput_year1');"
                                    id="textinput" name="textinput" type="number" placeholder=""
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
-                            <input ng-model="dloLosPlos.red_voutput_year2"
+                            <input ng-model="dloLosPlos.red_voutput_year2" ng-change="getValue('DloLosPlos','red_voutput_year2');"
                                    id="textinput" name="textinput" type="number" placeholder=""
                                    class="form-control input-md">
                         </td>
@@ -640,15 +640,15 @@
                             height="20" width="264"
                             class="tdpa">
                         </td>
-                        <td width="98" colspan="2" ng-model="dloLosPlos.avg_per_year">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.red_voutput_year1">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.red_voutput_year2">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.los_year1"
-                            ng-bind="">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.los_year2"
-                            ng-bind="">
-                        <td width="98" colspan="1" ng-model="dloLosPlos.tot_losses"
-                            ng-bind="">
+                        <td width="98" colspan="2" >
+                        <td width="98" colspan="1" >
+                        <td width="98" colspan="1" >
+                        <td width="98" colspan="1"
+                            ng-bind="DloLosPlos_los_year1">
+                        <td width="98" colspan="1"
+                            ng-bind="DloLosPlos_los_year2">
+                        <td width="98" colspan="1"
+                            ng-bind="DloLosPlos_total">
                     </tr>
                     <tr class="trheadc" height="19">
                         <td height="19" width="171">
@@ -683,13 +683,13 @@
                         <td colspan="1" width="98">
                             <input ng-model="dloLosOlos.los_year1"
                                    id="textinput" name="textinput" type="number" placeholder=""
-                                   ng-change="getTotal('DloLosOlos','los_year1');getLossesTotal('DloLosOlos');"
+                                   ng-change="getTotal('DloLosOlos','los_year1');getColumnTotal('DloLosOlos','los_year1');"
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
                             <input ng-model="dloLosOlos.los_year2"
                                    id="textinput" name="textinput" type="number" placeholder=""
-                                   ng-change="getTotal('DloLosOlos','los_year2');getLossesTotal('DloLosOlos');"
+                                   ng-change="getTotal('DloLosOlos','los_year2');getColumnTotal('DloLosOlos','los_year2');"
                                    class="form-control input-md">
                         </td>
                         <td colspan="1" width="98">
@@ -726,11 +726,11 @@
                         <td width="98" colspan="1"></td>
                         <td width="98" colspan="1"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.los_year1"
-                            ng-bind=""></td>
+                            ng-bind="DloLosOlos_los_year1_grnd"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.los_year2"
-                            ng-bind=""></td>
+                            ng-bind="DloLosOlos_los_year2_grnd"></td>
                         <td width="98" colspan="1" ng-model="dloLosOlos.tot_losses"
-                            ng-bind=""></td>
+                            ng-bind="DloLosOlos_tot_losses_grnd"></td>
                     </tr>
                     </tbody>
                 </table>
