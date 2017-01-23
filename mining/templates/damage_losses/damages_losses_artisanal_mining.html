@@ -1,4 +1,4 @@
-{% extends "dashboard/base.html" %}
+s{% extends "dashboard/base.html" %}
 {% block content %}
 
 <!-- Main content -->
@@ -12,7 +12,7 @@
         <li class="breadcrumb-item"><a href="#">Mining Sector</a>
         </li>
 
-        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 3: Damages and losses in artisanal mining  </span>
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 4: Damages and losses in artisanal mining  </span>
         </li>
 
 
@@ -46,7 +46,7 @@
                             <select id="select" name="incident" ng-model="incident"
                                     class="form-control"
                                     style="width:100%;font-weight:400;"
-                                    ng-change="changedValue(incident)" required>
+                                    ng-change="changedValue(true)" required>
 
                                 <option value="" selected="true">Select an Incident</option>
                                 {% for incident in incidents %}
@@ -61,7 +61,7 @@
 
                         <td colspan="2" style="background:#EFEFEF;">
                             <select name="district" id="ccyear" ng-model="district" class="form-control"
-                                    ng-change="changedValue(district)" required>
+                                    ng-change="changedValue(false)" required>
                                 <option value="">Select District</option>
 
                                 <option ng-repeat="district in districts" ng-value="district.district__id"
@@ -474,7 +474,7 @@
             </div>
 
 
-            <div class="tab-pane fade" id="step2">
+            <div class="tab-pane fade" id="step2" ng-form name="form_mining_artisanal_dl">
                 <table class="table table-bordered">
                     <colgroup>
                         <col width="171"/>
@@ -732,7 +732,7 @@
                 <div class="pull-right">
                     <br>
                     <button type="button" class="btn btn-info">Clear</button>
-                    <button type="button" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-success" ng-click="saveData(form_mining_artisanal_dl)">Submit</button>
                 </div>
                 <br><br><br>
             </div>

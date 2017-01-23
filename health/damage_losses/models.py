@@ -2159,7 +2159,6 @@ class DloDmgStructures(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2178,7 +2177,6 @@ class DloDmgEquipment(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2197,8 +2195,7 @@ class DloDmgMachinery(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
-    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
+    firm = models.ForeignKey(Firm, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2216,7 +2213,6 @@ class DloDmgStocks(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2235,7 +2231,6 @@ class DloDmgVehicles(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2257,7 +2252,6 @@ class DloLosPlos(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2276,12 +2270,11 @@ class DloLosOlos(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
         managed = False
-        db_table = 'dla_los_olos'
+        db_table = 'dlo_los_olos'
 
 
 class DloNumEmps(models.Model):
@@ -2293,7 +2286,6 @@ class DloNumEmps(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2439,7 +2431,6 @@ class DloDmgStocksDistrict(models.Model):
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2454,7 +2445,6 @@ class DloLosOlosDistrict(models.Model):
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2473,30 +2463,10 @@ class DloDmgEquipment(models.Model):
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'dlo_dmg_equipment'
-
-
-class DloDmgMachinery(models.Model):
-    assets = models.CharField(max_length=255, blank=True, null=True)
-    rep_tot_dassets = models.IntegerField(blank=True, null=True)
-    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
-    tot_damages = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'dlo_dmg_machinery'
 
 
 class DloDmgStocks(models.Model):
@@ -2511,7 +2481,6 @@ class DloDmgStocks(models.Model):
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2530,7 +2499,6 @@ class DloDmgStructures(models.Model):
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2549,8 +2517,17 @@ class DloDmgVehicles(models.Model):
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
     firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
+        db_table = 'dlo_dmg_vehicles'
 
+
+class Firm(models.Model):
+    firm_name = models.CharField(max_length=255, blank=True, null=True)
+    ownership = models.CharField(max_length=50, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'firm'

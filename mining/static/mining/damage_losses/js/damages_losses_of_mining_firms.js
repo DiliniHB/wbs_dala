@@ -16,8 +16,6 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
     $scope.firm_id;
     $scope.ownership;
 
-
-
     var init_data = {
         'mining': {
             'Table_3': {
@@ -25,7 +23,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                     male: 0,
                     female: 0,
                     firm_id: 0,
-                    ownership: 0,
+
 
                 }],
                 'DloDmgStructures': [{
@@ -34,7 +32,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         assets: 'Office buildings',
@@ -42,7 +40,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         assets: 'Total',
@@ -50,7 +48,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
 
                 ],
@@ -60,7 +58,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         assets: 'Computers',
@@ -68,7 +66,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         assets: 'Total',
@@ -76,7 +74,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }
 
                 ],
@@ -86,7 +84,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         assets: 'Total',
@@ -94,7 +92,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }
 
                 ],
@@ -104,7 +102,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         assets: 'Cars',
@@ -112,14 +110,14 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }, {
                         assets: 'Total',
                         rep_tot_dassets: 0,
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }
 
                 ],
@@ -129,14 +127,14 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }, {
                         assets: 'GRAND TOTAL',
                         rep_tot_dassets: 0,
                         repair_pdmg_assets: 0,
                         tot_damages: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }
 
                 ],
@@ -149,7 +147,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         type_los: 'Copper',
@@ -160,7 +158,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
 
                     {
@@ -172,7 +170,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
 
                     {
@@ -184,7 +182,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }
 
 
@@ -195,7 +193,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         type_los: 'Higher operating costs',
@@ -203,7 +201,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
 
                     }, {
                         type_los: 'Other unexpected expenses',
@@ -211,7 +209,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
 
                     },
                     {
@@ -220,7 +218,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     },
                     {
                         type_los: 'GRAND TOTAL',
@@ -228,7 +226,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         los_year2: 0,
                         tot_losses: 0,
                         firm_id: 0,
-                        ownership: 0,
+
                     }
                 ]
 
@@ -409,19 +407,18 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                 'firm_id': $scope.firm,
             }),
         }).success(function(response) {
-
             $scope.ownership = response;
-
         });
-
-
     }
 
-    $scope.changedValue = function getDlData() {
+    $scope.changedValue = function getDlData(selectDistrict) {
+        if($scope.incident && selectDistrict) {
+            fetchDistricts();
+        }
+    }
 
+    function fetchDistricts() {
         if ($scope.incident) {
-
-
             $http({
                 method: "POST",
                 url: '/fetch_incident_districts',
@@ -439,17 +436,23 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
 
     $scope.saveDlData = function(form) {
 
-        var array = $scope.dmLosOfMinFirms.mining.Table_3.DloNumEmps;
-        var details = _.map(array, function(obj) {
-            obj.firm_id = $scope.firm;
-            obj.ownership = $scope.ownership;
+        var array = $scope.dmLosOfMinFirms.mining.Table_3;
+        var details = _.map(array, function(model_array) {
+              _.map(model_array, function(model) {
+                  model.firm_id = $scope.firm;
+
+
+              });
+
         });
 
-        var newarray = $scope.dmLosOfMinFirms.mining.Table_3.DloDmgStructures;
-        var newdetails = _.map(newarray, function(newobj) {
-            newobj.firm_id = $scope.firm;
-            newobj.ownership = $scope.ownership;
-        });
+        console.log('firm ', $scope.dmLosOfMinFirms.mining.Table_3);
+
+//        var newarray = $scope.dmLosOfMinFirms.mining.Table_3.DloDmgStructures;
+//        var newdetails = _.map(newarray, function(newobj) {
+//            newobj.firm_id = $scope.firm;
+//            newobj.ownership = $scope.ownership;
+//        });
 
         $scope.submitted = true;
 
@@ -478,10 +481,5 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
 
             console.log(response);
         });
-
-
     }
-
-
-
 })

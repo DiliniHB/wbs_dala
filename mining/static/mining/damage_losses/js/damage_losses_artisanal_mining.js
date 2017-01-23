@@ -245,12 +245,14 @@ app.controller("mnDLArtisanalMinController", function($scope, $http,$parse, _) {
         }
     }
 
+    $scope.changedValue = function getDlData(selectDistrict) {
+        if($scope.incident && selectDistrict) {
+            fetchDistricts();
+        }
+    }
 
-    $scope.changedValue = function getDlData() {
-
+    function fetchDistricts() {
         if ($scope.incident) {
-
-
             $http({
                 method: "POST",
                 url: '/fetch_incident_districts',
@@ -405,6 +407,35 @@ model.assign($scope, cumulative);
 }
 
 
+$scope.saveData = function(form) {
+    $scope.submitted = true;
+    console.log('hi');
+    if(form.$valid) {
+        $http({
+            method : 'POST',
+            url : '/dl_save_data',
+            contentType: 'application/json; charset=utf-8',
+            data: angular.toJson({
+                'table_data': $scope.mnDLArtisanalMin,
+                'com_data': {
+                    'district': $scope.district.district__id,
+                    'incident': $scope.incident,
+                },
+                'is_edit': $scope.is_edit
+            }),
+            dataType: 'json',
+        }).then(function mySucces(response) {
+            console.log(response);
+            if(response.data == 'False')
+                $scope.is_valid_data = false;
+            else
+                $("#modal-container-239453").modal('show');
+            }, function myError(response) {
+                //if data sent to server side method unsuccessfull
+                console.log(response);
+        });
+    }
+}
 
 //    $scope.showtype = function showtype(index) {
 //        alert(index);
