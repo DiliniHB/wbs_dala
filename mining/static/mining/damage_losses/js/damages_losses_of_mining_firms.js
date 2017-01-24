@@ -20,7 +20,7 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
     $scope.DloDmg_rep_tot_dassets_grnd = null;
     $scope.DloDmg_repair_pdmg_assets_grnd = null;
     $scope.DloDmg_tot_damages_grnd = null;
-
+    $scope.is_valid_data = true;
 
 
     var init_data = {
@@ -57,7 +57,6 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
                         firm_id: null,
                         ownership: null,
                     },
-
                 ],
                 'DloDmgEquipment': [{
                         assets: 'Loaders',
@@ -572,10 +571,6 @@ $scope.fetchFirms = function()
 
         });
 
-        console.log('firm ', $scope.dmLosOfMinFirms.mining.Table_3);
-
-
-
         $scope.submitted = true;
 
         $http({
@@ -605,6 +600,33 @@ $scope.fetchFirms = function()
         });
     }
 
+    $scope.dlDataEdit = function(form) {
 
+        $scope.is_edit = true;
+        $scope.submitted = true;
+
+        if(form.$valid) {
+            $http({
+                method: "POST",
+                url: '/dl_fetch_edit_data',
+                data: angular.toJson({
+                    'table_name':  'Table_3',
+                    'sector':'mining',
+                    'com_data': {
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
+                    },
+               }),
+            }).success(function(data) {
+                console.log(data);
+                $scope.dmLosOfMinFirms = data;
+            })
+        }
+    }
+
+    $scope.cancelEdit = function() {
+         $scope.is_edit = false;
+         $scope.dmLosOfMinFirms = init_data;
+    }
 
 })

@@ -27,6 +27,22 @@
                         <col width="120"/>
                     </colgroup>
                     <tbody>
+                    <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                        <td colspan="1"  style="background:#fff;border:1px solid #fff;text-align:center;">
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box" ng-show="submitted && form_damagelost_mining_firm.incident.$error.required">
+                                Please select Incident
+                            </span>
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box" ng-show="submitted && form_damagelost_mining_firm.district.$error.required">
+                                Please select District
+                            </span>
+                        </td>
+                    </tr>
                     <tr class="trhead">
 
                         <td style="padding-left:5px;"> Name of District</td>
@@ -54,18 +70,21 @@
                             </select>
                         </td>
                     </tr>
+
                     <tr class="trhead" height="19">
                         <td height="19" width="171">
                             Name of Firm
                         </td>
-                        <td class="trsub" colspan="6" height="19" width="490">
+                        <td class="trsub" colspan="5" height="19" width="400">
                             <select ng-options="firm as firm.name for firm in firms track by firm.id"
-                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
-
+                                    name="firm" id="ccyear" ng-model="selectedFirm" class="form-control" required>
                                 <option value="" selected>Select Firm</option>
-
-
                             </select>
+                        </td>
+                        <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box" ng-show="submitted && form_damagelost_mining_firm.firm.$error.required">
+                                Please select Firm
+                            </span>
                         </td>
                     </tr>
                     <tr class="trhead" height="19">
