@@ -91,7 +91,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=health,public,other_government,education,mining'
         },
-        'NAME': 'dala_new',
+        'NAME': 'dala_2017',
         'USER': 'postgres',
 
     },
@@ -517,22 +517,35 @@ TABLE_PROPERTY_MAPPER = {
         },
         'Table_5': {
 
-            'DloDmgStocksDistrict': [
-                'assets',
+            'DloDmgDistrict': [
                 'rep_tot_dassets',
                 'repair_pdmg_assets',
                 'tot_damages',
-                'incident',
-                'firm__firm_name',
-                'id'],
-            'DloLosOlosDistrict': [
-                'type_los',
+                'firm__name',
+                'ownership'
+
+                ],
+            'DlaDmgDistrict': [
+                'rep_tot_dassets',
+                'repair_pdmg_assets',
+                'tot_damages'
+                ],
+
+            'DlaLosDistrict': [
+                'los_year1',
+                'los_year2',
+                'tot_losses'
+                ],
+            'DloLosDistrict': [
                 'los_year1',
                 'los_year2',
                 'tot_losses',
-                'incident',
-                'firm__firm_name',
-                'id']
+                'firm__name',
+                'ownership'
+
+                ],
+
+
 
         },
         'Table_6': {

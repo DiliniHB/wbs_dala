@@ -563,3 +563,44 @@ def dl_fetch_district_disagtn(request):
     )
 
 
+#mining
+
+@csrf_exempt
+def dl_fetch_total_data(request):
+
+    data = (yaml.safe_load(request.body))
+    table_name = data['table_name']
+    sector = data['sector']
+    com_data = data['com_data']
+    incident = com_data['incident']
+    tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
+
+    filter_fields = {}
+
+    if 'province' in com_data:
+        admin_area = com_data['province']
+        filter_fields = {'incident': incident, 'province': admin_area}
+    elif 'district' in com_data:
+        admin_area = com_data['district']
+        filter_fields = {'incident': incident, 'district': admin_area}
+    else:
+        filter_fields = {'incident': incident}
+
+    dl_mtable_data = {sector: {}}
+    dl_mtable_data[sector][table_name] = {}
+
+    for table in tables:
+        table_fields = tables[table]
+        model_class = apps.get_model('damage_losses', table)
+        dl_mtable_data[sector][table_name][table] = list(model_class.objects.
+                                                 filter(**filter_fields).
+                                                 values(*table_fields))
+
+        print dl_mtable_data
+
+    return HttpResponse(
+        json.dumps(dl_mtable_data, cls=DjangoJSONEncoder),
+        content_type='application/javascript; charset=utf8'
+    )
+
+

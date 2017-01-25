@@ -158,6 +158,44 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         }
     }
 
+
+
+    //    get Grand Total using watch
+    $scope.$watch(
+        function() {
+
+            if (isNaN(
+                    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages ||
+                    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages ||
+                    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages||
+                    $scope.Total
+
+                )) {
+
+                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages = null;
+                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages = null;
+                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages = null;
+                $scope.Total = null;
+
+            } else {
+
+            console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages);
+            alert($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages);
+            console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages)
+
+
+                $scope.Total =$scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages +
+                              $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages +
+                              $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages;
+
+            }
+
+        },
+        true);
+
+
+
+
     // get relevant base-line data for calculations
     $scope.changedValue=function getBsData(selectedValue) {
 //        alert(' - ' + selectedValue);
