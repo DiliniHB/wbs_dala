@@ -1,6 +1,7 @@
 var app = angular.module('dlAssessmentOfGovnDeptOrOfcInADistrictApp', ['underscore']);
 
 app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($scope,$http,$parse, _) {
+
     $scope.district;
     $scope.incident;
     $scope.bs_data={};
@@ -15,6 +16,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
     $scope.department = null;
     $scope.ownership = null;
     $scope.new_department = {id: null, name: null, ownership_id: null, district_id: null};
+
 
     var init_data = {
         'other_govn_services': {
@@ -130,7 +132,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = init_data;
 
-
     $scope.insertAsset = function(table) {
         console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[table]);
         var new_row;
@@ -163,8 +164,38 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         }
     }
 
+    //get Grand Total using watch
+    $scope.$watch(
+        function() {
+
+            if (isNaN(
+                    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages ||
+                    $scope.DlagdDmgOfficeEquipment_damages ||
+                    $scope.DlagdDmgMachinery_damages
+
+
+                )) {
+
+                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages = null;
+                $scope.DlagdDmgOfficeEquipment_damages = null;
+                $scope.DlagdDmgMachinery_damages= null;
+
+
+            } else {
+
+
+                $scope.Total =$scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages +
+                              $scope.DlagdDmgOfficeEquipment_damages +
+                              $scope.DlagdDmgMachinery_damages;
+
+            }
+
+        },
+        true);
+
     // get relevant base-line data for calculations
     $scope.changedValue=function getBsData(selectedValue) {
+
         if($scope.incident && selectedValue) {
             $http({
                 method: "POST",
@@ -178,7 +209,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         }
 
         if($scope.incident && $scope.district ) {
-            alert(' incident = ' + $scope.incident + ", district=" + $scope.district.district__id);
             $http({
                 method: 'POST',
                 url: '/bs_get_data_mock',
@@ -263,6 +293,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
          $scope.is_edit = false;
          $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = init_data;
     }
+
 
     $scope.getTotal = function(model, property) {
         var array = $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[model];
@@ -375,5 +406,4 @@ $scope.fetchDlData = function(){
     })
 
 }
-
 })

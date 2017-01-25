@@ -2338,19 +2338,16 @@ class DlaLosPlos(models.Model):
         db_table = 'dla_los_plos'
 
 
-class DloDmgStocksDistrict(models.Model):
-    assets = models.CharField(max_length=255, blank=True, null=True)
+class DlaDmgDistrict(models.Model):
     rep_tot_dassets = models.IntegerField(blank=True, null=True)
     repair_pdmg_assets = models.IntegerField(blank=True, null=True)
     tot_damages = models.FloatField(blank=True, null=True)
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'dlo_dmg_stocks_district'
+        db_table = 'dla_dmg_district'
 
 
 class DloLosOlosDistrict(models.Model):
@@ -2436,12 +2433,25 @@ class DloDmgStructures(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
         managed = False
         db_table = 'dlo_dmg_structures'
+
+
+class DloDmgDistrict(models.Model):
+    rep_tot_dassets = models.IntegerField(blank=True, null=True)
+    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
+    ownership = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_dmg_district'
 
 
 class DloDmgVehicles(models.Model):
@@ -2727,3 +2737,28 @@ class DlagdLossesNational(models.Model):
         managed = False
         db_table = 'dlagd_losses_national'
 
+
+class DlaLosDistrict(models.Model):
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    tot_losses = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dla_los_district'
+
+
+class DloLosDistrict(models.Model):
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    tot_losses = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_los_district'

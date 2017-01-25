@@ -190,6 +190,7 @@ app.controller('dlHealthDamagelostPrivateAppController', ['$scope', '$http', fun
         url: '/dl_fetch_edit_data',
         data: angular.toJson({
         'table_name':  'Table_7',
+        'sector':'health',
         'com_data': {
                'district': $scope.district,
                 'incident': $scope.incident,
