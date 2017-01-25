@@ -157,7 +157,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         }
     }
 
-    //    get Grand Total using watch
+    //get Grand Total using watch
     $scope.$watch(
         function() {
 
@@ -175,10 +175,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
                 $scope.Total = null;
 
             } else {
-
-            console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages);
-            alert($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages);
-            console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages)
 
 
                 $scope.Total =$scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages +
@@ -205,7 +201,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         }
 
         if($scope.incident && $scope.district ) {
-            alert(' incident = ' + $scope.incident + ", district=" + $scope.district.district__id);
             $http({
                 method: 'POST',
                 url: '/bs_get_data_mock',
