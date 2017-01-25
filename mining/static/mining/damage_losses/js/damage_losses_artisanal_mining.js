@@ -7,6 +7,7 @@ app.controller("mnDLArtisanalMinController", function($scope, $http,$parse, _) {
     $scope.baselineDate;
     $scope.is_edit = false;
     $scope.myTotal = 5;
+    $scope.is_edit = false;
 
 
     var init_data = {
@@ -239,12 +240,14 @@ app.controller("mnDLArtisanalMinController", function($scope, $http,$parse, _) {
         }
     }
 
+    $scope.changedValue = function getDlData(selectDistrict) {
+        if($scope.incident && selectDistrict) {
+            fetchDistricts();
+        }
+    }
 
-    $scope.changedValue = function getDlData() {
-
+    function fetchDistricts() {
         if ($scope.incident) {
-
-
             $http({
                 method: "POST",
                 url: '/fetch_incident_districts',
@@ -452,83 +455,61 @@ $scope.$watch(
         true);
 
 
+$scope.saveData = function(form) {
+    $scope.submitted = true;
+    console.log('hi', $scope.mnDLArtisanalMin);
+    if(form.$valid) {
+        $http({
+            method : 'POST',
+            url : '/dl_save_data',
+            contentType: 'application/json; charset=utf-8',
+            data: angular.toJson({
+                'table_data': $scope.mnDLArtisanalMin,
+                'com_data': {
+                    'district': $scope.district.district__id,
+                    'incident': $scope.incident,
+                },
+                'is_edit': $scope.is_edit
+            }),
+            dataType: 'json',
+        }).then(function mySucces(response) {
+            console.log(response);
+            if(response.data == 'False')
+                $scope.is_valid_data = false;
+            else
+                $("#modal-container-239453").modal('show');
+            }, function myError(response) {
+                //if data sent to server side method unsuccessfull
+                console.log(response);
+        });
+    }
+}
 
-//    $scope.showtype = function showtype(index) {
-//        alert(index);
-//    }
+    $scope.dlDataEdit = function(form) {
+        $scope.is_edit = true;
+        $scope.submitted = true;
 
-    //
-    //
-    //     $scope.saveBsData = function(form) {
-    //      $scope.submitted = true;
-    //
-    //      console.log($scope.mnIndusMinFirm);
-    //       if(form.$valid){
-    //
-    //        $http({
-    //            method: 'POST',
-    //            url: '/base_line/bs_save_data',
-    //            contentType: 'application/json; charset=utf-8',
-    //            data: angular.toJson({
-    //                'table_data': $scope.mnIndusMinFirm,
-    //                'com_data': {
-    //                    'district': $scope.district,
-    //                    'bs_date': $scope.baselineDate,
-    //
-    //                },
-    //                'is_edit': $scope.is_edit
-    //            }),
-    //            dataType: 'json',
-    //        }).then(function successCallback(response) {
-    //	$("#modal-container-239453").modal('show');
-    //            console.log(response);
-    //
-    //
-    //        }, function errorCallback(response) {
-    //
-    //            console.log(response);
-    //        });
-    //        }
-    //
-    //    }
-    //
-    //
-    //
-    //    $scope.bsHsDataEdit = function(form)
-    //{
-    //
-    //   $scope.is_edit = true;
-    //   $scope.submitted = true;
-    //
-    //    if(form.$valid){
-    //
-    //    $http({
-    //    method: "POST",
-    //    url: "/base_line/bs_fetch_edit_data",
-    //    data: angular.toJson({
-    //    'table_name': 'Table_4',
-    //    'com_data': {
-    //           'district': $scope.district,
-    //           'bs_date': $scope.baselineDate,
-    //
-    //          } }),
-    //    }).success(function(data) {
-    //
-    //    console.log(data);
-    //    $scope.mnIndusMinFirm = data;
-    //    })
-    //    }
-    //
-    //
-    //}
-    //
-    //
-    //    $scope.cancelEdit = function()
-    //{
-    //     $scope.is_edit = false;
-    //     $scope.mnIndusMinFirm = init_data;
-    //}
+        if(form.$valid) {
+            $http({
+                method: "POST",
+                url: '/dl_fetch_edit_data',
+                data: angular.toJson({
+                    'table_name':  'Table_4',
+                    'sector':'mining',
+                    'com_data': {
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
+                    },
+               }),
+            }).success(function(data) {
+                console.log(data);
+                $scope.mnDLArtisanalMin = data;
+            })
+        }
+    }
 
-
-
+    $scope.cancelEdit = function() {
+         $scope.is_edit = false;
+         $scope.mnDLArtisanalMin = init_data;
+    }
 })

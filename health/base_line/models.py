@@ -696,8 +696,6 @@ class BugCrp(models.Model):
 
 
 # mining
-
-
 class Firm(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     ownership = models.CharField(max_length=255, blank=True, null=True)
@@ -773,7 +771,10 @@ class BmaImFirmNum(models.Model):
         db_table = 'bma_im_firm_num'
 
 
-# other_government services
+
+# other_government
+# Table 1
+
 class BcsMachinery(models.Model):
     asset = models.CharField(max_length=255, blank=True, null=True)
     avg_rep_cost = models.FloatField(blank=True, null=True)
@@ -822,3 +823,4 @@ class BcsStructure(models.Model):
     class Meta:
         managed = False
         db_table = 'bcs_structure'
+

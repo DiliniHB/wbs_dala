@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from settings.models import District, Province
-from incidents.models import IncidentReport
 from health.base_line.models import Firm
+from incidents.models import IncidentReport
 
 
 class DlSessionKeys(models.Model):
@@ -2160,7 +2160,6 @@ class DloDmgStructures(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2179,7 +2178,6 @@ class DloDmgEquipment(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2198,8 +2196,7 @@ class DloDmgMachinery(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
-    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
+    firm = models.ForeignKey(Firm, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2217,7 +2214,6 @@ class DloDmgStocks(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2236,7 +2232,6 @@ class DloDmgVehicles(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2258,7 +2253,6 @@ class DloLosPlos(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
@@ -2277,12 +2271,11 @@ class DloLosOlos(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:
         managed = False
-        db_table = 'dla_los_olos'
+        db_table = 'dlo_los_olos'
 
 
 class DloNumEmps(models.Model):
@@ -2294,7 +2287,6 @@ class DloNumEmps(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
     firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
 
     class Meta:

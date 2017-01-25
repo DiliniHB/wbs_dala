@@ -266,7 +266,7 @@ def dl_save_data(request):
                         filter_fields = {'table_name': interface_table, 'incident': incident, 'province': admin_area}
                     elif 'district' in com_data:
                         admin_area = com_data['district']
-                        filter_fields = {'table_name': interface_table, 'incident': incident, 'district': admin_area}
+                        filter_fields = {'table_name': interface_table, 'incident': incident, 'district_id': admin_area}
                     else:
                         filter_fields = {'table_name': interface_table, 'incident': incident}
 

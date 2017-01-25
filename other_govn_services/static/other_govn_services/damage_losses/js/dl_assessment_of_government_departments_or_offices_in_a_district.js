@@ -125,7 +125,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = init_data;
 
-
     $scope.insertAsset = function(table) {
         console.log($scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[table]);
         var new_row;
@@ -157,8 +156,6 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
             $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery.splice(index, 1);
         }
     }
-
-
 
     //    get Grand Total using watch
     $scope.$watch(
@@ -193,12 +190,8 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         },
         true);
 
-
-
-
     // get relevant base-line data for calculations
     $scope.changedValue=function getBsData(selectedValue) {
-//        alert(' - ' + selectedValue);
         if($scope.incident && selectedValue) {
             $http({
                 method: "POST",
@@ -297,6 +290,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
          $scope.is_edit = false;
          $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys = init_data;
     }
+
 
     $scope.getTotal = function(model, property) {
         var array = $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2[model];

@@ -1,4 +1,4 @@
-{% extends "dashboard/base.html" %}
+s{% extends "dashboard/base.html" %}
 {% block content %}
 
 <!-- Main content -->
@@ -12,7 +12,7 @@
         <li class="breadcrumb-item"><a href="#">Mining Sector</a>
         </li>
 
-        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 3: Damages and losses in artisanal mining  </span>
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 4: Damages and losses in artisanal mining  </span>
         </li>
 
 
@@ -27,7 +27,7 @@
 
         </ul>
 
-        <div id="myTabContent" class="tab-content">
+        <div id="myTabContent" class="tab-content" ng-form name="form_mining_artisanal_dl">
             <div class="tab-pane active" id="step1">
 
                 <table class="table table-bordered">
@@ -37,6 +37,22 @@
                         <col width="120"/>
                     </colgroup>
                     <tbody>
+                    <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                        <td colspan="1"  style="background:#fff;border:1px solid #fff;text-align:center;">
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box" ng-show="submitted && form_mining_artisanal_dl.incident.$error.required">
+                                Please select Incident
+                            </span>
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                        </td>
+                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box" ng-show="submitted && form_mining_artisanal_dl.district.$error.required">
+                                Please select District
+                            </span>
+                        </td>
+                    </tr>
                     <tr class="trhead">
 
                         <td colspan="2" style="padding-right:5px;text-align:right;">
@@ -46,7 +62,7 @@
                             <select id="select" name="incident" ng-model="incident"
                                     class="form-control"
                                     style="width:100%;font-weight:400;"
-                                    ng-change="changedValue(incident)" required>
+                                    ng-change="changedValue(true)" required>
 
                                 <option value="" selected="true">Select an Incident</option>
                                 {% for incident in incidents %}
@@ -58,34 +74,29 @@
                             </select>
                         </td>
                         <td style="padding-left:5px;"> Name of District</td>
-
                         <td colspan="2" style="background:#EFEFEF;">
-                            <select name="district" id="ccyear" ng-model="district" class="form-control"
-                                    ng-change="changedValue(district)" required>
-                                <option value="">Select District</option>
-
-                                <option ng-repeat="district in districts" ng-value="district.district__id"
-                                        ng-bind="district.district__name"></option>
-
+                            <select ng-options="district as district.district__name for district in districts track by district.district__id"
+                                    name="district" id="ccyear" ng-model="district" ng-value="district.district__id"
+                                    class="form-control" ng-change="changedValue(false)" required>
+                                <option value="" selected>Select District</option>
                             </select>
                         </td>
-
                     </tr>
 
-                    <tr class="trheadc" height="34">
-                        <td width="171" height="34">
-                            Assets
-                        </td>
-                        <td colspan="2" width="238">
-                            Replacement Value of Totally Destroyed Assets (LKR)
-                        </td>
-                        <td colspan="2" width="238">
-                            Repair Cost for Partially Damaged Assets (LKR)
-                        </td>
-                        <td colspan="2" width="239">
-                            Total Damages (LKR)
-                        </td>
-                    </tr>
+                        <tr class="trheadc" height="34">
+                            <td width="171" height="34">
+                                Assets
+                            </td>
+                            <td colspan="2" width="238">
+                                Replacement Value of Totally Destroyed Assets (LKR)
+                            </td>
+                            <td colspan="2" width="238">
+                                Repair Cost for Partially Damaged Assets (LKR)
+                            </td>
+                            <td colspan="2" width="239">
+                                Total Damages (LKR)
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -769,7 +780,13 @@
                 <div class="pull-right">
                     <br>
                     <button type="button" class="btn btn-info">Clear</button>
-                    <button type="button" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-success" ng-click="saveData(form_mining_artisanal_dl)">Submit</button>
+                    <button type="button" ng-click="dlDataEdit(form_mining_artisanal_dl)" ng-if="!is_edit" class="btn btn-success">
+                        Edit
+                    </button>
+                    <button type="button" ng-click="cancelEdit()" ng-if="is_edit" class="btn btn-warning">
+                        Cancel Edit
+                    </button>
                 </div>
                 <br><br><br>
             </div>

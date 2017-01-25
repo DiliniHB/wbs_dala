@@ -91,6 +91,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=health,public,other_government,education,mining'
         },
+
         'NAME': 'dala_2017',
         'USER': 'postgres',
 
@@ -515,6 +516,74 @@ TABLE_PROPERTY_MAPPER = {
                             'id'],
 
         },
+        'Table_3': {
+            'DloNumEmps': [
+                'male', 'female', 'firm_id', 'id'],
+            'DloDmgStructures': [
+                'assets', 'rep_tot_dassets', 'repair_pdmg_assets', 'tot_damages', 'firm_id', 'id'],
+            'DloDmgEquipment': [
+                'assets', 'rep_tot_dassets', 'repair_pdmg_assets', 'tot_damages', 'firm_id', 'id'],
+            'DloDmgMachinery': [
+                'assets', 'rep_tot_dassets', 'repair_pdmg_assets', 'tot_damages', 'firm_id', 'id'],
+            'DloDmgVehicles': [
+                'assets', 'rep_tot_dassets', 'repair_pdmg_assets', 'tot_damages', 'firm_id', 'id'],
+            'DloDmgStocks': [
+                'assets', 'rep_tot_dassets', 'repair_pdmg_assets', 'tot_damages', 'firm_id', 'id'],
+            'DloLosPlos': [
+                'type_los', 'avg_per_year', 'red_voutput_year1', 'red_voutput_year2', 'los_year1', 'los_year2', 'tot_losses', 'firm_id', 'id'],
+            'DloLosOlos': [
+                'type_los', 'los_year1', 'los_year2', 'tot_losses', 'firm_id', 'id']
+        },
+        'Table_4': {
+            'DlaDmgStructures': [
+                'assets',
+                'rep_tot_dassets',
+                'repair_pdmg_assets',
+                'tot_damages',
+                'id'
+            ],
+            'DlaDmgEquipment': [
+                'assets',
+                'rep_tot_dassets',
+                'repair_pdmg_assets',
+                'tot_damages',
+                'id'
+            ],
+            'DlaDmgMachinery': [
+                'assets',
+                'rep_tot_dassets',
+                'repair_pdmg_assets',
+                'tot_damages',
+                'id'
+            ],
+            'DlaDmgStocks': [
+                'assets',
+                'rep_tot_dassets',
+                'repair_pdmg_assets',
+                'tot_damages',
+                'id'
+            ],
+            'DlaLosPlos': [
+                'type_los',
+                'avg_per_year',
+                'red_voutput_year1',
+                'red_voutput_year2',
+                'los_year1',
+                'los_year2',
+                'tot_losses',
+                'id'
+            ],
+            'DlaLosOlos': [
+                'type_los',
+                'avg_per_year',
+                'red_voutput_year1',
+                'red_voutput_year2',
+                'los_year1',
+                'los_year2',
+                'tot_losses',
+                'id'
+            ]
+        },
         'Table_5': {
 
             'DloDmgDistrict': [
@@ -567,6 +636,42 @@ TABLE_PROPERTY_MAPPER = {
 
         }
 
+    },
+    'other_govn_services': {
+        'Table_2': {
+            'DlagdDmgStructure': [
+                    'name_dept',
+                    'td_num_structures',
+                    'td_total_squarem',
+                    'pd_num_structures',
+                    'pd_total_squarem_roof',
+                    'pd_total_squarem_wall',
+                    'pd_total_squarem_floor',
+                    'damages',
+                    'id'
+            ],
+            'DlagdDmgOfficeEquipment': [
+                    'name_dept',
+                    'num_tot_destroyed',
+                    'num_partial_damaged',
+                    'damages',
+                    'id'
+            ],
+            'DlagdDmgMachinery': [
+                    'name_dept',
+                    'num_tot_destroyed',
+                    'num_partial_damaged',
+                    'damages',
+                    'id'
+            ],
+            'DlagdLosses': [
+                'name_dept',
+                'los_year1',
+                'los_year2',
+                'total_losses',
+                'id'
+            ]
+        }
     }
 }
 

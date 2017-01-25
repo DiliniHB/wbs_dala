@@ -42,7 +42,6 @@ app.controller("DmLosOfMinFirmsDisController", function($scope,$http,$parse, _) 
         }
     }
 
-
     $scope.LoadData = function(){
 
    $scope.tot_damages = null;
@@ -120,7 +119,5 @@ app.controller("DmLosOfMinFirmsDisController", function($scope,$http,$parse, _) 
         $scope.dPubLosTot = $scope.dPubTot + $scope.dPubLosyear1 + $scope.dPubLosyear2;
 
     }
-
-
 
 })
