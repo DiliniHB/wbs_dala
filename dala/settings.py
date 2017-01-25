@@ -238,17 +238,17 @@ TABLE_PROPERTY_MAPPER = {
                 #                  'total', 'id']
 
                 'DshPubLmhProvince': ['facilities_assets', 'total_num_affected', 'male', 'female',
-                                 'total_damages', 'losses_y1',
-                                 'losses_y2', 'total_losses', 'id'],
+                                      'total_damages', 'losses_y1',
+                                      'losses_y2', 'total_losses', 'id'],
                 'DshPubMohProvince': ['facilities_assets', 'total_num_affected', 'male', 'female',
                                       'total_damages', 'losses_y1',
                                       'losses_y2', 'total_losses', 'id'],
                 'DshPubOmfProvince': ['facilities_assets', 'total_num_affected', 'male', 'female',
-                                     'total_damages', 'losses_y1',
-                                     'losses_y2', 'total_losses', 'id'],
-                'DshPvtFaProvince': ['facilities_assets', 'total_num_affected', 'male', 'female',
                                       'total_damages', 'losses_y1',
                                       'losses_y2', 'total_losses', 'id'],
+                'DshPvtFaProvince': ['facilities_assets', 'total_num_affected', 'male', 'female',
+                                     'total_damages', 'losses_y1',
+                                     'losses_y2', 'total_losses', 'id'],
 
             },
 
@@ -334,13 +334,13 @@ TABLE_PROPERTY_MAPPER = {
                 #              'losses_y1', 'losses_y2', 'total_losses', 'id'],
                 # 'DspTdlOwship': ['ownership', 'damages', 'losses_y1', 'losses_y2', 'total'],
                 'DshPubLmhDistrict': ['facilities_assets', 'total_num_affected', 'male', 'female', 'total_damages',
-                                'losses_y1', 'losses_y2', 'total_losses', 'id', 'district'],
+                                      'losses_y1', 'losses_y2', 'total_losses', 'id', 'district'],
                 'DshPubMohDistrict': ['facilities_assets', 'total_num_affected', 'male', 'female', 'total_damages',
                                       'losses_y1', 'losses_y2', 'total_losses', 'id', 'district'],
                 'DshPubOmfDistrict': ['facilities_assets', 'total_num_affected', 'male', 'female', 'total_damages',
                                       'losses_y1', 'losses_y2', 'total_losses', 'id', 'district'],
                 'DshPvtFaDistrict': ['facilities_assets', 'total_num_affected', 'male', 'female', 'total_damages',
-                                      'losses_y1', 'losses_y2', 'total_losses', 'id', 'district']
+                                     'losses_y1', 'losses_y2', 'total_losses', 'id', 'district']
             },
         'Table_6':
             {
@@ -500,11 +500,11 @@ TABLE_PROPERTY_MAPPER = {
             'BmaImFn': ['name_min_outputs',
                         'avg_per_year',
                         'firm_id',
-                        'ownership', 'id'],
+                        'id'],
             'BmaImFirmNum': ['male',
                              'female',
                              'firm_id',
-                             'ownership', 'id'],
+                             'id'],
 
         },
         'Table_2': {
@@ -525,7 +525,7 @@ TABLE_PROPERTY_MAPPER = {
                 'tot_damages',
                 'incident',
                 'firm__firm_name',
-                'ownership', 'id'],
+                'id'],
             'DloLosOlosDistrict': [
                 'type_los',
                 'los_year1',
@@ -533,21 +533,29 @@ TABLE_PROPERTY_MAPPER = {
                 'tot_losses',
                 'incident',
                 'firm__firm_name',
-                'ownership', 'id']
+                'id']
 
         },
         'Table_6': {
 
             'DldTmfIfProvince': [
-                'type_min_firms',
                 'year1_damages_pub',
                 'year1_damages_pvt',
                 'year1_losses_pub',
                 'year1_losses_pvt',
-                'year2_losses_pub ',
+                'year2_losses_pub',
                 'year2_losses_pvt',
-                'total_pub',
-                'total_pvt',
+                'province',
+                'incident',
+                'id'
+            ],
+            'DldTmfAmProvince': [
+                'year1_damages_pub',
+                'year1_damages_pvt',
+                'year1_losses_pub',
+                'year1_losses_pvt',
+                'year2_losses_pub',
+                'year2_losses_pvt',
                 'province',
                 'incident',
                 'id'
@@ -555,7 +563,40 @@ TABLE_PROPERTY_MAPPER = {
 
         }
 
+    },
+    'other_govn_services': {
+        'Table_3': {
+            'DlagdDmgDistrict': [
+                'damages',
+            ],
+            'DlagdLossesDistrict': [
+                'los_year1',
+                'los_year2',
+                'total_losses',
+            ]
+        },
+        'Table_4':{
+        'DlagdDmgProvince': [
+            'damages',
+        ],
+        'DlagdLossesProvince': [
+            'los_year1',
+            'los_year2',
+            'total_losses',
+        ]
+        },
+        'Table_5': {
+            'DlagdDmgNational': [
+                'damages',
+            ],
+            'DlagdLossesNational': [
+                'los_year1',
+                'los_year2',
+                'total_losses',
+            ]
+        }
     }
+
 }
 
 AUTH_USER_MODEL = 'users.MyUser'

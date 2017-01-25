@@ -271,23 +271,21 @@ $scope.dlPvtEduFacilities = init_data;
 // adding schools
 $scope.addSchool = function()
 {
-    alert($scope.schoolType);
+    $http({
+    method: "POST",
+    url: "/add_entity",
+    data: angular.toJson({
+    'model_fields': $scope.new_school,
+    'model': $scope.schoolType,
+     }),
+    }).success(function(data) {
 
-        $http({
-        method: "POST",
-        url: "/add_entity",
-        data: angular.toJson({
-        'model_fields': $scope.new_school,
-        'model': $scope.schoolType,
-         }),
-        }).success(function(data) {
+        $("#modal-container-218029").modal('hide');
+        $scope.new_school.id = data;
+        if(data)
+            $scope.schools[$scope.schoolType].push($scope.new_school);
 
-           console.log(data);
-            if(data)
-                console.log($scope.schools[$scope.schoolType]);
-
-        })
-
+    })
 }
 
 $scope.fetchSchools = function()
@@ -303,8 +301,7 @@ $scope.fetchSchools = function()
      }),
     }).success(function(data) {
 
-        console.log(data);
-
+        $scope.schools = data;
 
     })
 }

@@ -501,7 +501,6 @@ def bs_mining_fetch_edit_data(request):
     )
 
 
-#mining
 @csrf_exempt
 def dl_fetch_district_disagtn(request):
     data = (yaml.safe_load(request.body))
@@ -509,6 +508,7 @@ def dl_fetch_district_disagtn(request):
     sector = data['sector']
     com_data = data['com_data']
     incident = com_data['incident']
+    print settings.TABLE_PROPERTY_MAPPER[sector]
     tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
 
     dl_mtable_data = {sector: {}}
@@ -569,7 +569,7 @@ def fetch_entities(request):
     district_id = data['district']
     model_name = data['model']
 
-    model_class = apps.get_model('damage_losses', model_name)
+    model_class = apps.get_model('base_line', model_name)
     fetched_data = model_class.objects.filter(district_id=district_id).values('name', 'id', 'ownership')
 
     return HttpResponse(

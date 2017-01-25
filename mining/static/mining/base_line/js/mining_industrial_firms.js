@@ -19,7 +19,7 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
                 male :null,
                 female :null,
                 firm_id:$scope.selectedFirm,
-                ownership :$scope.ownership,
+
 
         }],
             'BmaImFn': [{
@@ -28,7 +28,7 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
                 female: null,
                 avg_per_year: null,
                 firm_id:$scope.selectedFirm,
-                ownership :$scope.ownership,
+
 
             },{
                 name_min_outputs:'Copper',
@@ -36,7 +36,7 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
                 female: null,
                 avg_per_year: null,
                 firm_id:$scope.selectedFirm,
-                ownership :$scope.ownership,
+
             },
             {
                 name_min_outputs: 'Gold',
@@ -44,7 +44,7 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
                 female: null,
                 avg_per_year: null,
                 firm_id:$scope.selectedFirm,
-                ownership :$scope.ownership,
+
             }
            ]
 
@@ -87,25 +87,20 @@ if(table == 'BmaImFn'){
 
       $scope.submitted = true;
 
-      var array = $scope.mnIndusMinFirm.mining.Table_1.BmaImFn;
-      var details = _.map(array,function(obj){
-       obj.firm_id = $scope.selectedFirm;
-       obj.ownership = $scope.ownership;
-       });
 
-      var newarray= $scope.mnIndusMinFirm.mining.Table_1.BmaImFirmNum;
-      var newdetails = _.map(newarray,function(newobj){
-       newobj.firm_id = $scope.selectedFirm;
-       newobj.ownership = $scope.ownership;
+      var array = $scope.mnIndusMinFirm.mining.Table_1;
+      var details = _.map(array, function(model_array) {
+      _.map(model_array, function(model) {
+          model.firm_id = $scope.selectedFirm.id;
 
 
-    });
+      });
+
+});
 
 
 
       console.log($scope.mnIndusMinFirm);
-
-       if(form.$valid){
 
         $http({
             method: 'POST',
@@ -130,13 +125,13 @@ if(table == 'BmaImFn'){
 
             console.log(response);
         });
-        }
 
-    }
-
+}
 
 
-$scope.bsHsDataEdit = function(form) {
+
+
+$scope.bsHsDataEdit = function() {
 
     $scope.is_edit = true;
     $scope.submitted = true;
@@ -150,7 +145,7 @@ $scope.bsHsDataEdit = function(form) {
                 'com_data': {
                     'district': $scope.district,
                     'bs_date': $scope.baselineDate,
-                    'firm' : $scope.selectedFirm,
+                    'firm' : $scope.selectedFirm.id,
                 }
             }),
         }).success(function(data) {
@@ -213,6 +208,7 @@ $scope.fetchFirms = function()
     url: "/fetch_entities",
     data: angular.toJson({
     'district':  $scope.district,
+    'model': 'Firm'
      }),
     }).success(function(data) {
 

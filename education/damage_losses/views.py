@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import yaml, json
 from django.apps import apps
 from django.core import serializers
+from django.core.serializers.json import DjangoJSONEncoder
 
 
 def dl_govn_edu_facilities(request):
@@ -61,11 +62,11 @@ def fetch_schools(request):
         model_class = apps.get_model('base_line', school)
         model_array = model_class.objects.filter(district=district_id).values('name', 'id').order_by('id')
 
-        bs_schools[school] = {}
-        bs_schools[school] = model_array
+        bs_schools[school] = list(model_array)
 
     print bs_schools
+
     return HttpResponse(
-        json.dumps(list(bs_schools)),
+        json.dumps((bs_schools), cls=DjangoJSONEncoder),
         content_type='application/javascript; charset=utf8'
     )

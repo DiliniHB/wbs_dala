@@ -4,13 +4,6 @@ from django.shortcuts import render
 from health.damage_losses.models import DlSessionKeys
 from settings.models import District, Province
 from incidents.models import IncidentReport
-import yaml, json
-from django.http import HttpResponse
-from django.apps import apps
-from django.views.decorators.csrf import csrf_exempt
-from django.utils import timezone
-from django.core import serializers
-from django.conf import settings
 from users.decorators import permission_required
 from dala.views import fetch_districts
 

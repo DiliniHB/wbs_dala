@@ -112,8 +112,8 @@ $scope.provinces = [];
             method: "POST",
             url: '/dl_fetch_district_disagtn',
             data: angular.toJson({
-            'table_name':  'Table_9',
-            'sector': 'health',
+            'table_name':  'Table_4',
+            'sector': 'other_govn_services',
             'com_data': {
                     'province': $scope.province,
                     'incident': $scope.incident,

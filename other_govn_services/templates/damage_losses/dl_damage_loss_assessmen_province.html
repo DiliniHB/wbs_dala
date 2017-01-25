@@ -10,220 +10,221 @@
     
   });
   
+
+
+
 </script>
 <!-- Main content -->
-		<main class="main" ng-app="dlAssessmentOfGovnDeptOrOfcInADistrictApp" ng-controller="dlAssessmentOfGovnDeptOrOfcInADistrictController">
+<main class="main" ng-app="dlAssessmenProvinceApp"
+      ng-controller="dlAssessmenProvinceController">
 
-        <!-- Breadcrumb -->
-        <ol class="breadcrumb">
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">Admin</a>
-            </li>
-			 <li class="breadcrumb-item"><a href="#">Other Govnment Sector</a>
-            </li>
+        <li class="breadcrumb-item"><a href="#">Admin</a>
+        </li>
+        <li class="breadcrumb-item"><a href="#">Other Govnment Sector</a>
+        </li>
 
-			<li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 4. Damage and loss assessment in a Province </span></li>
-
-
-        </ol>
-
-
-        <div class="container-fluid">
-
-     <div id="myTabContent" class="tab-content">
-						<div class="tab-pane active" id="step1">
-
-                          <table  class="table table-bordered">
-    <colgroup>
-        <col width="107"/>
-        <col width="191"/>
-        <col width="118" span="4"/>
-    </colgroup>
-    <tbody>
-        <tr class="trheadc" height="20">
-            <td width="107" height="20">
-                Province
-            </td>
-            <td class="trsub" colspan="5" width="663">
-			<select name="province" ng-model="province"
-                        class="form-control"
-                        style="width:100%;font-weight:400;"
-                        ng-change="changedValue(false)" required>
-                     <option value="" selected="true">Select Province</option>
-                            <option ng-repeat="province in provinces" ng-value="province.district__province_id" ng-bind="province.district__province__name"></option>
-                </select>
-            </td>
-        </tr>
-        <tr class="trheadc" height="20">
-
-            <td rowspan="2" width="191">
-                Asset Ownership
-            </td>
-            <td rowspan="2" width="118">
-                Damages (LKR)
-            </td>
-            <td colspan="2" width="236">
-                Losses (LKR)
-            </td>
-            <td rowspan="2" width="118">
-                Total (LKR)
-            </td>
-        </tr>
-        <tr class="trsubc" height="20">
-            <td width="118" height="20">
-                Year 1
-            </td>
-            <td width="118">
-                Year 2
-            </td>
-        </tr>
-		<tr height="20">
-
-            <td class="tdpa" width="191">
-                District
-            </td>
-            <td colspan="4" width="118">
-                <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-
-        </tr>
-        <tr height="20">
-
-            <td class="tdpa" width="191">
-                District Departments
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Provincial Departments
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Ministry or Agency 1
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Ministry or Agency N
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Total
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-
-        <tr height="20">
-            <td class="tdpa" colspan="0" width="298" height="20">
-                TOTAL
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 4. Damage and loss assessment in a Province </span>
+        </li>
 
 
+    </ol>
 
 
- <br>
-                                <div class="pull-right">
-		<br>
-<button type="button" class="btn btn-info">Clear</button>
-<button type="button" class="btn btn-success">Submit</button>
-</div>
-                                <br><br><br>
-        </div>
+    <div class="container-fluid">
 
-        </div>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane active" id="step1">
+
+                <table class="table table-bordered">
+                    <colgroup>
+                        <col width="107"/>
+                        <col width="191"/>
+                        <col width="118" span="4"/>
+                    </colgroup>
+                    <tbody>
+                    <tr class="trheadc" height="20">
+                        <td width="107" height="20">
+                            Province
+                        </td>
+                        <td class="trsub" colspan="5" width="663">
+                            <select name="province" ng-model="province"
+                                    class="form-control"
+                                    style="width:100%;font-weight:400;"
+                                    ng-change="changedValue(false)" required>
+                                <option value="" selected="true">Select Province</option>
+                                <option ng-repeat="province in provinces" ng-value="province.district__province_id"
+                                        ng-bind="province.district__province__name"></option>
+                            </select>
+                        </td>
+                        <td>
+                            <button ng-click="fetchDlData()">Load</button>
+                        </td>
+                    </tr>
+                    <tr class="trheadc" height="20">
+
+                        <td rowspan="2" width="191">
+                            Asset Ownership
+                        </td>
+                        <td rowspan="2" width="118">
+                            Damages (LKR)
+                        </td>
+                        <td colspan="2" width="236">
+                            Losses (LKR)
+                        </td>
+                        <td rowspan="2" width="118">
+                            Total (LKR)
+                        </td>
+                    </tr>
+                    <tr class="trsubc" height="20">
+                        <td width="118" height="20">
+                            Year 1
+                        </td>
+                        <td width="118">
+                            Year 2
+                        </td>
+                    </tr>
+                    <tr height="20">
+
+                        <td class="tdpa" width="191">
+                            District
+                        </td>
+                        <td colspan="4" width="118">
+                            <input id="textinput" name="textinput" type="text" placeholder=""
+                                   class="form-control input-md">
+                        </td>
+
+                    </tr>
+                    <tr height="20">
+
+                        <td class="tdpa" width="191">
+                            District Departments
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                    </tr>
+                    <tr height="20">
+                        <td class="tdpa" width="191" height="20">
+                            Provincial Departments
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                    </tr>
+                    <tr height="20">
+                        <td class="tdpa" width="191" height="20">
+                            Ministry or Agency 1
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                    </tr>
+                    <tr height="20">
+                        <td class="tdpa" width="191" height="20">
+                            Ministry or Agency N
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                    </tr>
+                    <tr height="20">
+                        <td class="tdpa" width="191" height="20">
+                            Total
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                    </tr>
+
+                    <tr height="20">
+                        <td class="tdpa" colspan="0" width="298" height="20">
+                            TOTAL
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                        <td width="118">
+                            -
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
 
-
-
-
-
-
-
-
-                            </div>
-                        </div>
-
-                    </div>
+                <br>
+                <div class="pull-right">
+                    <br>
+                    <button type="button" class="btn btn-info">Clear</button>
+                    <button type="button" class="btn btn-success">Submit</button>
+                </div>
+                <br><br><br>
+            </div>
 
         </div>
-        <!-- /.conainer-fluid -->
-    </main>
+
+
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    <!-- /.conainer-fluid -->
+</main>
 <script>
 /*var button = document.getElementById('insert');
 var table = document.getElementById('tb1');
@@ -238,6 +239,9 @@ button.onclick = function() {
 });
 }
 */
+
+
+
 
 
 
@@ -264,6 +268,9 @@ button.onclick = function() {
 
 
 
+
+
+
 </script>
 <script>
 /*var button = document.getElementById('insert2');
@@ -277,6 +284,9 @@ button.onclick = function() {
  $(this).parent().parent().remove();
 });
 }*/
+
+
+
 
 
 

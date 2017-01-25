@@ -1,7 +1,6 @@
 var app = angular.module('dlAssessmentOfGovnDeptOrOfcInADistrictApp', ['underscore']);
 
 app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($scope,$http,$parse, _) {
-
     $scope.district;
     $scope.incident;
     $scope.bs_data={};
@@ -9,6 +8,8 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
     $scope.is_edit = false;
     $scope.submitted = false;
     $scope.Districts=[];
+
+    $scope.districtData = [];
 
     $scope.departments = [];
     $scope.department = null;
@@ -305,6 +306,7 @@ $scope.fetchDepartments = function()
     url: "/fetch_entities",
     data: angular.toJson({
     'district':  $scope.district.district__id,
+    'model': 'Department'
      }),
     }).success(function(data) {
         $scope.departments = data;
@@ -354,7 +356,24 @@ $scope.fetchOwnership = function()
 
 }
 
+$scope.fetchDlData = function(){
+
+    $http({
+    method: "POST",
+    url: '/other_govn_services/damage_losses/dl_fetch_district_disagtn',
+    data: angular.toJson({
+    'table_name':  'Table_3',
+    'sector': 'other_govn_services',
+    'com_data': {
+            'incident': $scope.incident,
+          },
+           }),
+    }).success(function(data) {
+       $scope.districtData = data;
+       console.log('load ', data);
+
+    })
+
+}
 
 })
-
-

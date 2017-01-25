@@ -25,6 +25,28 @@ app.controller("dlAssessmenProvinceController", function ($scope,$http, _) {
     }
 
     $scope.dlAssessmenProvinceSys = init_data;
+
+$scope.fetchDlData = function(){
+    $http({
+    method: "POST",
+    url: '/dl_fetch_district_disagtn',
+    data: angular.toJson({
+    'table_name':  'Table_4',
+    'sector': 'other_govn_services',
+    'com_data': {
+            'province': 1,
+            'incident': 9,
+          },
+           }),
+    }).success(function(data) {
+
+    console.log('load ', data);
+
+
+
+})
+}
+
 })
 
 

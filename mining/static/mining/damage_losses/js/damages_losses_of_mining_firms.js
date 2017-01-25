@@ -14,6 +14,8 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
     $scope.sRepairPdmgAssets;
     $scope.Districts = [];
     $scope.firm_id;
+    $scope.selectedFirm;
+    $scope.new_firm = {id: null, name: null, ownership: null};
     $scope.ownership;
     $scope.DloDmg_rep_tot_dassets_grnd = null;
     $scope.DloDmg_repair_pdmg_assets_grnd = null;
@@ -260,47 +262,44 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
 
     }
 
-    $scope.getColumnTotal = function(model,property) {
+    $scope.getColumnTotal = function(model, property) {
         var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
         var cumulative = null;
         var cumulative_two = null;
         var cumulative_total = null;
 
-        if(angular.equals(model, 'DloLosOlos')){
+        if (angular.equals(model, 'DloLosOlos')) {
 
-        var sums = _.map(array, function(obj) {
-            cumulative += obj.los_year1;
-            cumulative_two += obj.los_year2;
+            var sums = _.map(array, function(obj) {
+                cumulative += obj.los_year1;
+                cumulative_two += obj.los_year2;
 
-            cumulative_total = cumulative + cumulative_two;
+                cumulative_total = cumulative + cumulative_two;
 
-            return cumulative_total;
-
-
-        });
-        var the_string = model + '_total';
-        var model = $parse(the_string);
-        model.assign($scope, cumulative_total);
-
-        }
+                return cumulative_total;
 
 
-        else{
+            });
+            var the_string = model + '_total';
+            var model = $parse(the_string);
+            model.assign($scope, cumulative_total);
+
+        } else {
 
 
-        var sums = _.map(array, function(obj) {
-            cumulative += obj.rep_tot_dassets;
-            cumulative_two += obj.repair_pdmg_assets;
+            var sums = _.map(array, function(obj) {
+                cumulative += obj.rep_tot_dassets;
+                cumulative_two += obj.repair_pdmg_assets;
 
-            cumulative_total = cumulative + cumulative_two;
+                cumulative_total = cumulative + cumulative_two;
 
-            return cumulative_total;
+                return cumulative_total;
 
 
-        });
-        var the_string = model + '_total';
-        var model = $parse(the_string);
-        model.assign($scope, cumulative_total);
+            });
+            var the_string = model + '_total';
+            var model = $parse(the_string);
+            model.assign($scope, cumulative_total);
         }
 
 
@@ -308,14 +307,14 @@ app.controller("DmLosOfMinFirmsAppController", function($scope, $http, $parse, _
     }
 
 
-$scope.getValue = function (model,property){
+    $scope.getValue = function(model, property) {
 
-$scope.DloLosPlos_total = null;
-$scope.DloLosPlos_los_year1 = null;
-$scope.DloLosPlos_los_year2 = null;
+        $scope.DloLosPlos_total = null;
+        $scope.DloLosPlos_los_year1 = null;
+        $scope.DloLosPlos_los_year2 = null;
 
 
-var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
+        var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
         var cumulative_los_year1 = null;
         var cumulative_los_year2 = null;
         var cumulative_total = null;
@@ -337,7 +336,7 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
         });
 
         var cumulative_tot = _.map(array, function(obj) {
-            cumulative_total += (obj.avg_per_year * obj.red_voutput_year1 )+ (obj.avg_per_year * obj.red_voutput_year2) ;
+            cumulative_total += (obj.avg_per_year * obj.red_voutput_year1) + (obj.avg_per_year * obj.red_voutput_year2);
             console.log(cumulative_total);
             return cumulative_total;
 
@@ -349,17 +348,17 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
         var year_1 = $parse(the_string_year_1);
         year_1.assign($scope, cumulative_los_year1);
 
-         var the_string_year_2 = model + '_los_year2';
+        var the_string_year_2 = model + '_los_year2';
         var year_2 = $parse(the_string_year_2);
         year_2.assign($scope, cumulative_los_year2);
 
-         var the_string_total = model + '_total';
+        var the_string_total = model + '_total';
         var tot = $parse(the_string_total);
         tot.assign($scope, cumulative_total);
 
-}
-    //    get Grand Total using watch
+    }
 
+    //    get Grand Total using watch
     $scope.$watch(
         function() {
 
@@ -374,12 +373,12 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
                     $scope.DloDmgEquipment_repair_pdmg_assets ||
                     $scope.DloDmgMachinery_repair_pdmg_assets ||
                     $scope.DloDmgVehicles_repair_pdmg_assets ||
-                    $scope.DloDmgStocks_repair_pdmg_assets||
+                    $scope.DloDmgStocks_repair_pdmg_assets ||
 
-                    $scope.DloLosPlos_los_year1||
-                    $scope.DloLosPlos_los_year2||
+                    $scope.DloLosPlos_los_year1 ||
+                    $scope.DloLosPlos_los_year2 ||
 
-                    $scope.DloLosOlos_los_year1||
+                    $scope.DloLosOlos_los_year1 ||
                     $scope.DloLosOlos_los_year2
 
 
@@ -421,9 +420,7 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
 
                 $scope.DloLosOlos_tot_losses_grnd = $scope.DloLosOlos_los_year1_grnd + $scope.DloLosOlos_los_year2_grnd;
 
-                console.log($scope.DloLosOlos_los_year1_grnd);
-                console.log($scope.DloLosOlos_los_year2_grnd);
-                console.log($scope.DloLosOlos_tot_losses_grnd);
+
 
             }
 
@@ -520,29 +517,35 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
     }
 
 
-    $scope.changedValueFirm = function getOwnership() {
+$scope.fetchFirms = function()
+{
 
-        console.log($scope.firm);
-        $http({
-            method: "POST",
-            url: "/mining/base_line/get_ownership_firm",
-            data: angular.toJson({
-                'firm_id': $scope.firm,
-            }),
-        }).success(function(response) {
+    $scope.new_firm.district = $scope.district;
 
-            $scope.ownership = response;
+    $http({
+    method: "POST",
+    url: "/fetch_entities",
+    data: angular.toJson({
+    'district':  $scope.district.district__id,
+    'model': 'Firm'
+     }),
+    }).success(function(data) {
 
-        });
+    console.log(data);
+    $scope.firms = data;
+
+    })
+}
 
 
+    $scope.changedValue = function getDlData(selectDistrict) {
+        if($scope.incident && selectDistrict) {
+            fetchDistricts();
+        }
     }
 
-    $scope.changedValue = function getDlData() {
-
+    function fetchDistricts() {
         if ($scope.incident) {
-
-
             $http({
                 method: "POST",
                 url: '/fetch_incident_districts',
@@ -560,17 +563,19 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
 
     $scope.saveDlData = function(form) {
 
-        var array = $scope.dmLosOfMinFirms.mining.Table_3.DloNumEmps;
-        var details = _.map(array, function(obj) {
-            obj.firm_id = $scope.firm;
-            obj.ownership = $scope.ownership;
+        var array = $scope.dmLosOfMinFirms.mining.Table_3;
+        var details = _.map(array, function(model_array) {
+              _.map(model_array, function(model) {
+                  model.firm_id = $scope.firm;
+
+
+              });
+
         });
 
-        var newarray = $scope.dmLosOfMinFirms.mining.Table_3.DloDmgStructures;
-        var newdetails = _.map(newarray, function(newobj) {
-            newobj.firm_id = $scope.firm;
-            newobj.ownership = $scope.ownership;
-        });
+        console.log('firm ', $scope.dmLosOfMinFirms.mining.Table_3);
+
+
 
         $scope.submitted = true;
 
@@ -599,8 +604,6 @@ var array = $scope.dmLosOfMinFirms.mining.Table_3[model];
 
             console.log(response);
         });
-
-
     }
 
 
