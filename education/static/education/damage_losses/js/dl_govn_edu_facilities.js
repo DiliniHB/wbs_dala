@@ -7,9 +7,12 @@ $scope.dlGovnEduFacilities;
 $scope.total;
 $scope.iter_tot;
 $scope.district;
+$scope.incident;
 $scope.bs_date;
 $scope.is_edit = false;
 $scope.submitted = false;
+$scope.selectedValue;
+$scope.bs_data = [];
 
 var init_data = {
 'education':{
@@ -465,6 +468,7 @@ training_colleges: null,
 tc_crc_resc: null,
 min_pzd_offices: null,
 total: null
+
 },
 {
 particulars: 'Year 2',
@@ -572,5 +576,241 @@ total: null
 }
 
 $scope.dlGovnEduFacilities = init_data;
+
+    $scope.insertAsset = function(table) {
+        console.log($scope.dlGovnEduFacilities.education.Table_3[table]);
+        var new_row;
+        if(table == 'DugNdafSupplies') {
+            new_row = {
+                particulars: '',
+                ab1_1c: null,
+                type_2: null,
+                type_3: null,
+                pirivena: null,
+                training_institutes: null,
+                training_colleges: null,
+                tc_crc_resc: null,
+                min_pzd_offices: null,
+                total: null
+            }
+        }
+        else if(table == 'DugNdafEquipment') {
+            new_row = {
+                particulars: '',
+                ab1_1c: null,
+                type_2: null,
+                type_3: null,
+                pirivena: null,
+                training_institutes: null,
+                training_colleges: null,
+                tc_crc_resc: null,
+                min_pzd_offices: null,
+                total: null
+            }
+        }
+        else if(table == 'DugNpdatSupplies') {
+            new_row = {
+                particulars: '',
+                ab1_1c: null,
+                type_2: null,
+                type_3: null,
+                pirivena: null,
+                training_institutes: null,
+                training_colleges: null,
+                tc_crc_resc: null,
+                min_pzd_offices: null,
+                total: null
+            }
+        }
+        else if(table == 'DugNpdatEquipment') {
+            new_row = {
+                particulars: '',
+                ab1_1c: null,
+                type_2: null,
+                type_3: null,
+                pirivena: null,
+                training_institutes: null,
+                training_colleges: null,
+                tc_crc_resc: null,
+                min_pzd_offices: null,
+                total: null
+            }
+        }
+
+        $scope.dlGovnEduFacilities.education.Table_3[table].push(new_row);
+    }
+
+    $scope.removeItem = function removeItem(table, index) {
+        if(table == 'DugNdafSupplies') {
+            $scope.dlGovnEduFacilities.education.Table_3.DugNdafSupplies.splice(index, 1);
+        }
+        else if(table == 'DugNdafEquipment') {
+            $scope.dlGovnEduFacilities.education.Table_3.DugNdafEquipment.splice(index, 1);
+        }
+        else if(table == 'DugNpdatSupplies') {
+            $scope.dlGovnEduFacilities.education.Table_3.DugNpdatSupplies.splice(index, 1);
+        }
+        else if(table == 'DugNpdatEquipment') {
+            $scope.dlGovnEduFacilities.education.Table_3.DugNpdatEquipment.splice(index, 1);
+        }
+    }
+
+    $scope.changedValue=function getBsData(selectedValue) {
+        if($scope.incident && selectedValue) {
+            $http({
+                method: "POST",
+                url: "/fetch_incident_districts",
+                data: angular.toJson({'incident': $scope.incident }),
+            }).success(function(data) {
+                $scope.districts = data;
+                $scope.selectedDistrict = "";
+                console.log(data);
+            })
+        }
+
+        if( $scope.incident && $scope.district){
+            $scope.fetchDlData();
+        }
+    }
+
+    $scope.saveDlData = function(form) {
+        alert('dis '+$scope.district.district__id+ '-ind '+$scope.incident);
+        $scope.submitted = true;
+        console.log($scope.dlGovnEduFacilities);
+        if(form.$valid) {
+            $http({
+                method : 'POST',
+                url : '/dl_save_data',
+                contentType: 'application/json; charset=utf-8',
+                data: angular.toJson({
+                    'table_data': $scope.dlGovnEduFacilities,
+                    'com_data': {
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
+                    },
+                    'is_edit': $scope.is_edit
+                }),
+                dataType: 'json',
+            }).then(function mySucces(response) {
+                console.log(response);
+                if(response.data == 'False')
+                    $scope.is_valid_data = false;
+                else
+                    $("#modal-container-239453").modal('show');
+                }, function myError(response) {
+                    console.log(response);
+            });
+        }
+    }
+
+    $scope.dlDataEdit = function(form) {
+        $scope.is_edit = true;
+        $scope.submitted = true;
+
+        if(form.$valid) {
+            $http({
+                method: "POST",
+                url: '/dl_fetch_edit_data',
+                data: angular.toJson({
+                    'table_name':  'Table_3',
+                    'sector':'education',
+                    'com_data': {
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
+                    },
+               }),
+            }).success(function(data) {
+                console.log(data);
+                $scope.dmLosOfMinFirms = data;
+            })
+        }
+    }
+
+    $scope.cancelEdit = function() {
+         $scope.is_edit = false;
+         $scope.dmLosOfMinFirms = init_data;
+    }
+
+$scope.fetchDlData = function(){
+
+    $http({
+    method: "POST",
+    url: '/bs_get_data_mock',
+    data: angular.toJson({
+    'table_name':  'Table_2',
+    'sector': 'health',
+    'db_tables': ['BugArcSupplies', 'BugArcEquipment'],
+    'com_data': {
+            'district': $scope.district.district__id,
+            'incident': $scope.incident,
+          },
+     }),
+    }).success(function(data) {
+
+     angular.forEach(data, function(value, key) {
+         $scope.bs_data[key] = JSON.parse(value);
+     });
+     generateRefencedData();
+
+    })
+
+}
+
+function generateRefencedData()
+{
+  data_array = ['BugArcSupplies', 'BugArcEquipment'];
+
+  angular.forEach(data_array, function(value, key) {
+    obj_array = $scope.bs_data[value];
+    model_name = value;
+
+    if(model_name == 'BugArcSupplies')
+    {
+       dl_model1 = 'DugNdafSupplies';
+       dl_model2 = 'DugNpdatSupplies';
+    }
+    else if(model_name == 'BugArcEquipment')
+    {
+       dl_model1 = 'DugNdafEquipment';
+       dl_model2 = 'DugNpdatEquipment';
+    }
+
+
+    $scope.dlGovnEduFacilities.education.Table_3[dl_model1] = [];
+    $scope.dlGovnEduFacilities.education.Table_3[dl_model2] = [];
+
+    angular.forEach(obj_array, function(value, key) {
+    console.log(value);
+    var obj = {
+                particulars: value.fields.particulars,
+                ab1_1c: null,
+                type_2: null,
+                type_3: null,
+                pirivena: null,
+                training_institutes: null,
+                training_colleges: null,
+                tc_crc_resc: null,
+                min_pzd_offices: null,
+                total: null
+              };
+
+    if(model_name == 'BugArcSupplies')
+    {
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model1].push(obj);
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model2].push(obj);
+    }
+    else if(model_name == 'BugArcEquipment')
+    {
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model1].push(obj);
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model2].push(obj);
+    }
+
+
+    });
+
+  });
+
+console.log($scope.dlGovnEduFacilities.education.Table_3);
+}
 
 })

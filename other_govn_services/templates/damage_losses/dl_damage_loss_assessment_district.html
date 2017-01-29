@@ -106,6 +106,16 @@
                     <tbody ng-repeat="(key, value) in districtData.other_govn_services.Table_3">
                     <tr>
                         <td ng-bind="key" width="80"></td>
+                        <td width="108">
+                        </td>
+                        <td width="108">
+                        </td>
+                        <td width="108">
+                        </td>
+
+                    </tr>
+                    <tr ng-repeat="(key, value) in value">
+                        <td ng-bind="key" width="80"></td>
                         <td ng-bind="value.DlagdDmgDistrict[0].damages" width="108">
                         </td>
                         <td ng-bind="value.DlagdLossesDistrict[0].los_year1" width="108">

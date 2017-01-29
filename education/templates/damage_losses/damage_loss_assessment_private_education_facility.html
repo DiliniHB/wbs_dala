@@ -302,7 +302,7 @@ $(document).on("click", "#add_technical", function () {
                             </td>
 
                             <td width="136">
-                                <button type="button" class="btn btn-block btn-success">save</button>
+                                <button type="button" class="btn btn-block btn-success" ng-click="dlDataSubmit()">save</button>
                             </td>
                         </tr>
                         <tr class="trheadc" height="21">
@@ -654,7 +654,7 @@ $(document).on("click", "#add_technical", function () {
             </div>
             <div class="tab-pane fade" id="step3">
 
-
+                <button ng-click="fetchSchoolData()">Load</button>
                 <table class="table table-bordered">
                     <colgroup>
                         <col width="224"/>
@@ -695,147 +695,28 @@ $(document).on("click", "#add_technical", function () {
                             Year 2
                         </td>
                     </tr>
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Pre-school
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Primary School
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Secondary School
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                    
+                    <div ng-repeat="(key, value) in schoolData.other_govn_services.Table_4">
 
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            University
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                        <span ng-bind="key"></span>
 
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Technical Institutes
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                        <div ng-repeat="(key, value) in value">
+                            <span ng-bind="key"></span>
+                            <div ng-repeat="model_data in value">
 
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Others
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                                <div ng-repeat="data in model_data">
+                                <span ng-bind="data.asset"></span>
+                                <span ng-bind="data.est_rep_cost"></span>
+                                <span ng-bind="data.est_repair_cost"></span>
+                                <span ng-bind="data.tot_damages"></span>
+                                <span ng-bind="data.est_los_year_1"></span>
+                                <span ng-bind="data.est_los_year_2"></span>
+                                <span ng-bind="data.tot_los"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <tr height="21">
                         <td class="tdpa" width="224" height="21">

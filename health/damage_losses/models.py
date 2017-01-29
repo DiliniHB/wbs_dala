@@ -1983,7 +1983,7 @@ class DpefBefTechInst(models.Model):
 
 class DpefBefUnv(models.Model):
     asset = models.CharField(max_length=255, blank=True, null=True)
-    university = models.ForeignKey(Universities, db_column='tech_institute', blank=True, null=True)
+    university = models.ForeignKey(Universities, db_column='university', blank=True, null=True)
     est_rep_cost = models.FloatField(blank=True, null=True)
     est_repair_cost = models.FloatField(blank=True, null=True)
     tot_damages = models.FloatField(blank=True, null=True)
@@ -2687,6 +2687,7 @@ class DlagdLossesDistrict(models.Model):
     los_year2 = models.FloatField(max_length=255, blank=True, null=True)
     total_losses = models.FloatField(max_length=255, blank=True, null=True)
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    department = models.ForeignKey(Department, db_column='department', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
 
     class Meta:
@@ -2698,6 +2699,7 @@ class DlagdDmgProvince(models.Model):
     damages = models.FloatField(max_length=255, blank=True, null=True)
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2710,6 +2712,7 @@ class DlagdLossesProvince(models.Model):
     total_losses = models.FloatField(max_length=255, blank=True, null=True)
     district = models.ForeignKey(District, db_column='district', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2720,6 +2723,7 @@ class DlagdDmgNational(models.Model):
     damages = models.FloatField(max_length=255, blank=True, null=True)
     province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -2732,6 +2736,7 @@ class DlagdLossesNational(models.Model):
     total_losses = models.FloatField(max_length=255, blank=True, null=True)
     province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
 
     class Meta:
         managed = False

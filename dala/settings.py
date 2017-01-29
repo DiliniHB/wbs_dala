@@ -649,11 +649,13 @@ TABLE_PROPERTY_MAPPER = {
         'Table_3': {
             'DlagdDmgDistrict': [
                 'damages',
+                'department__name'
             ],
             'DlagdLossesDistrict': [
                 'los_year1',
                 'los_year2',
                 'total_losses',
+                'department__name'
             ]
         },
         'Table_4':{

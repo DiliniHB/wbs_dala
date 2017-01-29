@@ -239,15 +239,15 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     $scope.saveDlData = function(form) {
         $scope.submitted = true;
-       if(form.$valid){
+       //if(form.$valid){
         $http({
             method: 'POST',
-            url:'/damage_losses/dl_save_data',
+            url:'/dl_save_data',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
                 'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
                 'com_data': {
-                    'district': $scope.district,
+                    'district': $scope.district.district__id,
                     'incident': $scope.incident,
 
                 },
@@ -262,7 +262,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
             console.log(response);
         });
-        }
+        //}
 
     }
 

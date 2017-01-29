@@ -10,26 +10,12 @@ app.controller("dlAssessmenProvinceController", function ($scope,$http, _) {
     $scope.submitted = false;
     $scope.Districts=[];
 
-    var init_data = {
-        'other_govn_services': {
-            'Table_4': {
-                'DlaProvince': [{
-                    asset_owship : '1 Floor Structure',
-                    damages : null,
-                    los_year1 : null,
-                    los_year2 : null,
-                    total : null,
-                }]
-            }
-        }
-    }
-
-    $scope.dlAssessmenProvinceSys = init_data;
+    $scope.dlAssessmenProvinceSys = null;
 
 $scope.fetchDlData = function(){
     $http({
     method: "POST",
-    url: '/dl_fetch_district_disagtn',
+    url: '/other_govn_services/damage_losses/dl_fetch_disagtn_data',
     data: angular.toJson({
     'table_name':  'Table_4',
     'sector': 'other_govn_services',
@@ -41,7 +27,7 @@ $scope.fetchDlData = function(){
     }).success(function(data) {
 
     console.log('load ', data);
-
+    $scope.dlAssessmenProvinceSys = data;
 
 
 })

@@ -16,6 +16,7 @@ $scope.schoolName = null;
 $scope.schoolType = null;
 $scope.schools = [];
 $scope.new_school = {id: null, name: null, district_id: null};
+$scope.schoolData = null;
 
 var init_data = {
 'education':{
@@ -304,6 +305,53 @@ $scope.fetchSchools = function()
         $scope.schools = data;
 
     })
+}
+
+$scope.dlDataSubmit = function()
+{
+$scope.submitted = true;
+
+ $http({
+    method: "POST",
+    url: "/dl_save_data",
+    data: angular.toJson({
+    'table_data': ($scope.dlPvtEduFacilities),
+    'com_data': {'district': $scope.district,
+    'incident': 9,
+    },
+    'is_edit': $scope.is_edit }),
+    }).success(function(data) {
+
+     $scope.dlPvtEduFacilities = init_data;
+     $scope.is_edit = false;
+
+     if(data == 'False')
+      $scope.is_valid_data = false;
+     else
+      $("#modal-container-239453").modal('show');
+
+ })
+}
+
+$scope.fetchSchoolData = function(){
+
+    $http({
+    method: "POST",
+    url: '/education/damage_losses/dl_fetch_school_disagtn',
+    data: angular.toJson({
+    'table_name':  'Table_4',
+    'sector': 'other_govn_services',
+    'com_data': {
+            'incident': 9,
+            'district': $scope.district
+          },
+           }),
+    }).success(function(data) {
+       $scope.schoolData = data;
+       console.log('load ', data);
+
+    })
+
 }
 
 })

@@ -58,85 +58,40 @@
                 Year 2
             </td>
         </tr>
-		<tr height="20">
-           
-            <td class="tdpa" width="191">
-                Province
-            </td>
-            <td colspan="4" width="118">
-                <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
-            </td>
-           
-        </tr>
-        <tr height="20">
-           
-            <td class="tdpa" width="191">
-                District Departments
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Provincial Departments
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Ministry or Agency 1
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
-        <tr height="20">
-            <td class="tdpa" width="191" height="20">
-                Ministry or Agency N
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-            <td width="118">
-                -
-            </td>
-        </tr>
+
+        <table ng-repeat="(key, value) in dlNationwideSys.other_govn_services.Table_5" class="table table-bordered">
+                        <tbody>
+
+                        <tr height="20">
+
+                            <td ng-bind="key" class="tdpa" width="191">
+                            </td>
+                            <td width="118">
+                                -
+                            </td>
+                            <td width="118">
+                                -
+                            </td>
+                            <td width="118">
+                                -
+                            </td>
+                            <td width="118">
+                                -
+                            </td>
+                        </tr>
+                        <tr ng-repeat="(key, value) in value" height="20">
+
+                            <td ng-bind="key" class="tdpa" width="191">
+                            </td>
+                            <td ng-bind="value.DlagdDmgNational[0].damages" width="118">
+                            </td>
+                            <td ng-bind="value.DlagdLossesNational[0].los_year1" width="118">
+                            </td>
+                            <td ng-bind="value.DlagdLossesNational[0].los_year2" width="118">
+                            </td>
+
+                        </tr>
+
         <tr height="20">
             <td class="tdpa" width="191" height="20">
                 Total

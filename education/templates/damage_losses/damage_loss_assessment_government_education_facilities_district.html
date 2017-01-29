@@ -12,7 +12,7 @@
         <li class="breadcrumb-item"><a href="#">Health Sector</a>
         </li>
 
-        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">Table 3. Damage and loss assessment of government education facilities in the district </span>
+        <li class="breadcrumb-item active"><span class="label label-success" style="font-size:14px;">* Table 3. Damage and loss assessment of government education facilities in the district </span>
         </li>
 
     </ol>
@@ -29,8 +29,7 @@
                 <li><a href='#step5' data-toggle="tab">5 Losses</a></li>
 
             </ul>
-
-            <div id="myTabContent" class="tab-content">
+            <div id="myTabContent" class="tab-content" ng-form name="form_govn_edu_facility_dist_dl">
                 <div class="tab-pane active" id="step1">
                     <table class="table table-bordered">
                         <colgroup>
@@ -39,24 +38,47 @@
                             <col width="122"/>
                         </colgroup>
                         <tbody>
+                        <tr style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <span class="arrow_box" ng-show="submitted && form_govn_edu_facility_dist_dl.incident.$error.required">
+                                    Please select Incident
+                                </span>
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            </td>
+                            <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <span class="arrow_box" ng-show="submitted && form_govn_edu_facility_dist_dl.district.$error.required">
+                                    Please select District
+                                </span>
+                            </td>
+                        </tr>
                         <tr class="trhead">
                             <td style="padding-left:5px;"> Name of District</td>
 
                             <td colspan="3" style="background:#EFEFEF;">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                <select id="selectbasic" name="incident" ng-model="incident"
+                                    class="form-control" ng-change="changedValue(true)"
+                                    style="width:100%;font-weight:400;" required>
+
+                                    <option value="" selected="true">Select an Incident</option>
+                                    {% for incident in incidents %}
+
+                                    <option value={{incident.id}}>{{incident.disaster_type.name}}
+                                        {{incident.reported_date_time}}
+                                    </option>
+                                    {% endfor %}
                                 </select>
                             </td>
                             <td colspan="3" style="padding-right:5px;text-align:right;">
                                 Incident
                             </td>
                             <td colspan="3" style="background:#EFEFEF;">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
+                                <select ng-options="district as district.district__name for district in districts track by district.district__id"
+                                    name="district" id="ccyear" ng-model="district" ng-change="changedValue(false)"
+                                    class="form-control" required>
+                                    <option value="" selected>Select District</option>
                                 </select>
                             </td>
                         </tr>
@@ -313,10 +335,11 @@
                                 </td>
                             </tr>
                             <tr height="17"
-                                ng-repeat="dugNdafSupplies in dlGovnEduFacilities.education.Table_3.DugNdafSupplies">
+                                ng-repeat="dugNdafSupplies in dlGovnEduFacilities.education.Table_3.DugNdafSupplies" >
                                 <td ng-model="dugNdafSupplies.particulars" ng-bind="dugNdafSupplies.particulars"
-                                    class="tdpa" width="280" height="17">
+                                    class="tdpa" width="280" height="17" >
                                 </td>
+
                                 <td width="136">
                                     <input ng-model="dugNdafSupplies.ab1_1c" type="number" placeholder=""
                                            class="form-control input-md">
@@ -353,40 +376,7 @@
                                     type="number">
                                 </td>
                             </tr>
-                            <tr class="tdpa" height="17">
-                                <td width="280" height="17">
-                                    Others &nbsp;&nbsp;
-                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
-                                            class="fa fa-plus"></span></button>
-                                </td>
-                                <td width="136">
 
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="122">
-                                    -
-                                </td>
-                            </tr>
                             <tr height="17">
                                 <td class="tdpa" width="280" height="17">
                                     Value of Destroyed Supplies and Materials
@@ -430,10 +420,7 @@
                                 <td ng-model="dugNdafEquipment.particulars" ng-bind="dugNdafEquipment.particulars"
                                     class="tdpa" width="280" height="17">
                                 </td>
-                                <td width="136">
-                                    <input ng-model="dugNdafEquipment.ab1_1c" type="number" placeholder=""
-                                           class="form-control input-md">
-                                </td>
+
                                 <td width="136">
                                     <input ng-model="dugNdafEquipment.type_2" type="number" placeholder=""
                                            class="form-control input-md">
@@ -466,40 +453,7 @@
                                     type="number">
                                 </td>
                             </tr>
-                            <tr class="tdpa" height="17">
-                                <td width="280" height="17">
-                                    Other Equipments &nbsp;&nbsp;
-                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
-                                            class="fa fa-plus"></span></button>
-                                </td>
-                                <td width="136">
 
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="136">
-
-                                </td>
-                                <td width="122">
-                                    -
-                                </td>
-                            </tr>
                             <tr height="17">
                                 <td class="tdpa" width="280" height="17">
                                     Value of Destroyed Equipment
@@ -827,8 +781,8 @@
                                 </td>
                             </tr>
                             <tr height="17" ng-repeat="dugNpdatSupplies in dlGovnEduFacilities.education.Table_3.DugNpdatSupplies">
-                            <td ng-model="dugNpdatSupplies.particulars" ng-bind="dugNpdatSupplies.particulars" class="tdpa" width="280"
-                                height="17">
+                            <td ng-model="dugNpdatSupplies.particulars" ng-bind="dugNpdatSupplies.particulars"
+                                class="tdpa" width="280" height="17" >
                             </td>
                             <td width="136">
                                 <input ng-model="dugNpdatSupplies.ab1_1c" type="number" placeholder=""
@@ -865,32 +819,6 @@
                             <td width="122" ng-model="dugNpdatSupplies.total" ng-bind="dugNpdatSupplies.total" type="number">
                             </td>
                         </tr>
-                            <tr class="tdpa" height="17">
-                                <td class="tdpa" width="280" height="17">
-                                    Others &nbsp;&nbsp;
-                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
-                                            class="fa fa-plus"></span></button>
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="122">
-                                    -
-                                </td>
-                            </tr>
                             <tr height="17">
                                 <td class="tdpa" width="280" height="17">
                                     Value of Partially Damaged Supplies and Materials
@@ -929,9 +857,10 @@
                                 </td>
                             </tr>
                             <tr height="17" ng-repeat="dugNpdatEquipment in dlGovnEduFacilities.education.Table_3.DugNpdatEquipment">
-                            <td ng-model="dugNpdatEquipment.particulars" ng-bind="dugNpdatEquipment.particulars" class="tdpa" width="280"
-                                height="17">
+                            <td ng-model="dugNpdatEquipment.particulars" ng-bind="dugNpdatEquipment.particulars"
+                                class="tdpa" width="280" height="17" >
                             </td>
+
                             <td width="136">
                                 <input ng-model="dugNpdatEquipment.ab1_1c" type="number" placeholder=""
                                        class="form-control input-md">
@@ -967,32 +896,6 @@
                             <td width="122" ng-model="dugNpdatEquipment.total" ng-bind="dugNpdatEquipment.total" type="number">
                             </td>
                         </tr>
-                            <tr class="tdpa" height="17">
-                                <td class="tdpa" width="280" height="17">
-                                    Other equipment &nbsp;&nbsp;
-                                    <button class="btn btn-sm btn-info btn-circle" id="insert"><span
-                                            class="fa fa-plus"></span></button>
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="136">
-                                </td>
-                                <td width="122">
-                                    -
-                                </td>
-                            </tr>
                             <tr height="17">
                                 <td class="tdpa" width="280" height="17">
                                     Value of Partially Damaged Equipment
@@ -1442,7 +1345,13 @@
                     <div class="pull-right">
                         <br>
                         <button type="button" class="btn btn-info">Clear</button>
-                        <button type="button" class="btn btn-success">Submit</button>
+                        <button type="button" class="btn btn-success" ng-click="saveDlData(form_govn_edu_facility_dist_dl)">Submit</button>
+                        <button type="button" ng-click="dlDataEdit(form_govn_edu_facility_dist_dl)" ng-if="!is_edit" class="btn btn-success">
+                            Edit
+                        </button>
+                        <button type="button" ng-click="cancelEdit()" ng-if="is_edit" class="btn btn-warning">
+                            Cancel Edit
+                        </button>
                     </div>
                 </div>
             </div>

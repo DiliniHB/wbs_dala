@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^dl_assessmen_nationwide', views.dl_assessmen_nationwide, name='dl_assessmen_nationwide'),
     url(r'^fetch_ownership', views.fetch_ownership, name='fetch_ownership'),
     url(r'^dl_fetch_district_disagtn', views.dl_fetch_district_disagtn, name='dl_fetch_district_disagtn'),
+    url(r'^dl_fetch_disagtn_data', views.dl_fetch_disagtn_data, name='dl_fetch_disagtn_data'),
 ]
