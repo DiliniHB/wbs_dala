@@ -92,7 +92,7 @@ DATABASES = {
             'options': '-c search_path=health,public,other_government,education,mining'
         },
 
-        'NAME': 'dala_2017',
+        'NAME': 'dala',
         'USER': 'postgres',
 
     },
@@ -672,6 +672,366 @@ TABLE_PROPERTY_MAPPER = {
                 'id'
             ]
         }
+    },
+    'education': {
+        'Table_3': {
+            'DugDfNdf':[
+                'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugDfNsa':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'total'
+            ],
+            'DugNdafStructure':[
+                'particulars','ab1_1c','type_2','type_3','pirivena','training_institutes','training_colleges','tc_crc_resc','min_pzd_offices','total'
+            ],
+            'DugNdafSupplies':[
+                'particulars','ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugNdafEquipment':[
+                'particulars', 'ab1_1c', 'type_2','type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugPdfaNpdf':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugPdfaNsa':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugNpdatStructure':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugNpdatSupplies':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugNpdatEquipment':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugLosFi':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugLosCud':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugLosHoc':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+            'DugLosOue':[
+                'particulars', 'ab1_1c', 'type_2', 'type_3', 'pirivena', 'training_institutes', 'training_colleges', 'tc_crc_resc', 'min_pzd_offices', 'total'
+            ],
+        },
+        'Table_4': {
+            'DpefNaf':['edu_facilities', 'num_edu_facilities', 'male', 'female'],
+            'DpefBefPreSchool':['asset', 'pre_school', 'est_rep_cost', 'est_repair_cost', 'tot_damages', 'est_los_year_1', 'est_los_year_2', 'tot_los'],
+            'DpefBefPrmSchool':['asset', 'pre_school', 'est_rep_cost', 'est_repair_cost', 'tot_damages', 'est_los_year_1', 'est_los_year_2', 'tot_los'],
+            'DpefBefSecSchool':['asset', 'pre_school', 'est_rep_cost', 'est_repair_cost', 'tot_damages', 'est_los_year_1', 'est_los_year_2', 'tot_los'],
+            'DpefBefUnv':['asset', 'pre_school', 'est_rep_cost', 'est_repair_cost', 'tot_damages', 'est_los_year_1', 'est_los_year_2', 'tot_los'],
+            'DpefBefTechInst':['asset', 'pre_school', 'est_rep_cost', 'est_repair_cost', 'tot_damages', 'est_los_year_1', 'est_los_year_2', 'tot_los']
+        },
+        'Table_5': {
+
+            'DpefBefDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+
+
+            ],
+            'DpefBefPreDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefPrimaryDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefSecondaryDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefTechDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefUnvDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DugDfDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+
+
+            ],
+            'DugNsaDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+
+
+            ],
+            'DpefNaf': [
+                'edu_facilities',
+                'num_edu_facilities',
+                'male',
+                'female',
+                'id',
+            ],
+            'DugNdafDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+
+            ],
+
+        },
+        'Table_6': {
+
+            'DpefBefDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+            ],
+            'DpefBefPreDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+            ],
+            'DpefBefPrimaryDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+            ],
+            'DpefBefSecondaryDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+            ],
+            'DpefBefTechDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+            ],
+            'DpefBefUnvDistrict': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+            ],
+            'DugDfDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+            ],
+            'DugNsaDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+            ],
+            'DpefNaf': [
+                'edu_facilities',
+                'num_edu_facilities',
+                'male',
+                'female',
+                'id',
+            ],
+            'DugNdafDistrict': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+            ],
+
+        },
+        'Table_7': {
+            'DpefBefOtherNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefPreNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefPrimaryNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefPrimaryNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefSecondaryNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefTechNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefBefUnvNational': [
+                'est_rep_cost',
+                'est_repair_cost',
+                'tot_damages',
+                'est_los_year_1',
+                'est_los_year_2',
+                'tot_los',
+
+            ],
+            'DpefNafNational': [
+                'num_edu_facilities',
+                'male',
+                'female',
+
+            ],
+            'DpefBefNational': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+
+            ],
+            'DugDfNational': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+
+            ],
+            'DugNdafNational': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+                'min_pzd_offices',
+
+            ],
+            'DugNsaNational': [
+                'ab1_1c',
+                'type_2',
+                'type_3',
+                'pirivena',
+                'training_institutes',
+                'training_colleges',
+                'tc_crc_resc',
+
+            ],
+        },
     }
 }
 

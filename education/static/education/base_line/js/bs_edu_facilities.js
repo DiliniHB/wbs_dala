@@ -113,12 +113,6 @@ avg_male: null,
 avg_female: null,
 },
 {
-type_facilities: 'Others',
-total_number: null,
-avg_male: null,
-avg_female: null,
-},
-{
 type_facilities: 'TOTAL',
 total_number: null,
 avg_male: null,
@@ -172,5 +166,24 @@ if(form.$valid){
 
 }
 
+    $scope.insertAsset = function(table) {
+        console.log($scope.bsEduFacilities.education.Table_1[table]);
+        var new_row;
+        if(table == 'BefPvt') {
+            new_row = {
+                type_facilities: '',
+                total_number: null,
+                avg_male: null,
+                avg_female: null,
+            }
+        }
+        $scope.bsEduFacilities.education.Table_1[table].push(new_row);
+    }
+
+    $scope.removeItem = function removeItem(table, index) {
+        if(table == 'BefPvt') {
+            $scope.bsEduFacilities.education.Table_1.BefPvt.splice(index, 1);
+        }
+    }
 
 })

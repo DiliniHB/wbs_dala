@@ -7,6 +7,7 @@ $scope.dlPvtEduFacilities;
 $scope.total;
 $scope.iter_tot;
 $scope.district;
+$scope.incident;
 $scope.bs_date;
 $scope.is_edit = false;
 $scope.submitted = false;
@@ -45,6 +46,12 @@ female: null
 },
 {
 edu_facilities: 'Technical Institutes',
+num_edu_facilities: null,
+male: null,
+female: null
+},
+{
+edu_facilities: 'TOTAL',
 num_edu_facilities: null,
 male: null,
 female: null
@@ -272,5 +279,70 @@ $scope.addSchool = function()
     alert($scope.schoolType);
 
 }
+
+    $scope.insertAsset = function(table) {
+        console.log($scope.dlPvtEduFacilities.education.Table_4[table]);
+        var new_row;
+        if(table == 'DpefNaf') {
+            new_row = {
+                edu_facilities: '',
+                num_edu_facilities: null,
+                male: null,
+                female: null
+            }
+        }
+
+        $scope.dlPvtEduFacilities.education.Table_4[table].push(new_row);
+    }
+
+    $scope.removeItem = function removeItem(table, index) {
+        if(table == 'DpefNaf') {
+            $scope.dlPvtEduFacilities.education.Table_4.DpefNaf.splice(index, 1);
+        }
+    }
+
+    $scope.changedValue=function getBsData(selectedValue) {
+        if($scope.incident && selectedValue) {
+            $http({
+                method: "POST",
+                url: "/fetch_incident_districts",
+                data: angular.toJson({'incident': $scope.incident }),
+            }).success(function(data) {
+                $scope.districts = data;
+                $scope.selectedDistrict = "";
+                console.log(data);
+            })
+        }
+    }
+
+    $scope.saveDlData = function(form) {
+        alert('dis '+$scope.district.district__id+ '-ind '+$scope.incident);
+        $scope.submitted = true;
+        console.log($scope.dlPvtEduFacilities);
+        if(form.$valid) {
+            $http({
+                method : 'POST',
+                url : '/dl_save_data',
+                contentType: 'application/json; charset=utf-8',
+                data: angular.toJson({
+                    'table_data': $scope.dlPvtEduFacilities,
+                    'com_data': {
+                        'district': $scope.district.district__id,
+                        'incident': $scope.incident,
+                    },
+                    'is_edit': $scope.is_edit
+                }),
+                dataType: 'json',
+            }).then(function mySucces(response) {
+                console.log(response);
+                if(response.data == 'False')
+                    $scope.is_valid_data = false;
+                else
+                    $("#modal-container-239453").modal('show');
+                }, function myError(response) {
+                    console.log(response);
+            });
+        }
+    }
 
 })

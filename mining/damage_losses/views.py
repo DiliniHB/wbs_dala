@@ -7,50 +7,65 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.apps import apps
+from users.decorators import permission_required
+from dala.views import fetch_districts
 
 # Create your views here.
 
 
+@permission_required("district")
 def damages_losses_of_mining_firms(request):
-    districts = District.objects.all()
-    incidents = IncidentReport.objects.all()
-    firm = Firm.objects.all()
+    user = request.user
+    fetch_data = fetch_districts(user)
+    filtered_districts = fetch_data['districts']
+    filtered_incidents = fetch_data['incidents']
+
     context = {
-        'districts': districts,
-        'incidents': incidents,
-        'firm': firm,
+        'districts': filtered_districts,
+        'incidents': filtered_incidents,
     }
 
     return render(request, 'damage_losses/damages_losses_of_mining_firms.html', context)
 
 
+@permission_required("district")
 def damages_losses_artisanal_mining(request):
-    districts = District.objects.all()
-    incidents = IncidentReport.objects.all()
-    context = {
-        'districts': districts,
-        'incidents': incidents,
+    user = request.user
+    fetch_data = fetch_districts(user)
+    filtered_districts = fetch_data['districts']
+    filtered_incidents = fetch_data['incidents']
 
+    context = {
+        'districts': filtered_districts,
+        'incidents': filtered_incidents,
     }
 
     return render(request, 'damage_losses/damages_losses_artisanal_mining.html', context)
 
 
+@permission_required("district")
 def summary_damage_losses_district(request):
-    districts = District.objects.all()
-    incidents = IncidentReport.objects.all()
+    user = request.user
+    fetch_data = fetch_districts(user)
+    filtered_districts = fetch_data['districts']
+    filtered_incidents = fetch_data['incidents']
+
     context = {
-        'districts': districts,
-        'incidents': incidents,
+        'districts': filtered_districts,
+        'incidents': filtered_incidents,
     }
 
     return render(request, 'damage_losses/summary_damages_losses_district.html', context)
 
 
+@permission_required("national")
 def summary_damage_losses_nationwide(request):
-    incidents = IncidentReport.objects.all()
+    user = request.user
+    fetch_data = fetch_districts(user)
+    filtered_incidents = fetch_data['incidents']
+
     context = {
-        'incidents': incidents,
+        'incidents': filtered_incidents,
     }
 
     return render(request, 'damage_losses/summary_damages_losses_nationwide.html', context)

@@ -5,24 +5,27 @@ import yaml, json
 from health.base_line.models import Firm
 from django.http import HttpResponse
 from django.core import serializers
+from dala.views import fetch_districts
+from users.decorators import permission_required
 
 
+@permission_required("district")
 def mn_bs_info_industrial(request):
-    districts = District.objects.all()
-
+    fetch_data = fetch_districts(request.user)
+    districts = fetch_data['districts']
     context = {
-        'districts': districts,
-
+        'districts': districts
     }
+
     return render(request, 'base_line/mining_industrial_firms.html', context)
 
 
+@permission_required("district")
 def mn_bs_info_artisanal(request):
-    districts = District.objects.all()
-
+    fetch_data = fetch_districts(request.user)
+    districts = fetch_data['districts']
     context = {
-        'districts': districts,
-
+        'districts': districts
     }
     return render(request, 'base_line/mining_artisanal_firms.html', context)
 

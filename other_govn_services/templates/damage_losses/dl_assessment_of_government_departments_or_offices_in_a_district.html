@@ -54,16 +54,16 @@
                         <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
                         </td>
                         <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                <span class="arrow_box" ng-show="submitted && form_ogs_ofc_district_firm.incident.$error.required">
-                    Please select Incident
-                </span>
-                        </td>
-                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                        </td>
-                        <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
-                <span class="arrow_box" ng-show="submitted && form_ogs_ofc_district_firm.district.$error.required">
-                    Please select District
-                </span>
+                            <span class="arrow_box" ng-show="submitted && form_ogs_ofc_district_firm.incident.$error.required">
+                                Please select Incident
+                            </span>
+                                    </td>
+                                    <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                    </td>
+                                    <td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">
+                            <span class="arrow_box" ng-show="submitted && form_ogs_ofc_district_firm.district.$error.required">
+                                Please select District
+                            </span>
                         </td>
                     </tr>
                     <tr class="trhead">
@@ -576,12 +576,20 @@
                 </div>
                 <br><br>
                 <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">-->
+                        <!--Close-->
+                    <!--</button>-->
+                    <!--<button type="button" class="btn btn-primary">-->
+                        <!--Save changes-->
+                    <!--</button>-->
 
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Close
+                    <button type="button" class="btn btn-info">Clear</button>
+                    <button type="button" class="btn btn-success" ng-click="saveData(form_mining_artisanal_dl)">Submit</button>
+                    <button type="button" ng-click="dlDataEdit(form_mining_artisanal_dl)" ng-if="!is_edit" class="btn btn-success">
+                        Edit
                     </button>
-                    <button type="button" class="btn btn-primary">
-                        Save changes
+                    <button type="button" ng-click="cancelEdit()" ng-if="is_edit" class="btn btn-warning">
+                        Cancel Edit
                     </button>
                 </div>
             </div>

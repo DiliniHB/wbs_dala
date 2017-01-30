@@ -183,20 +183,26 @@
                                 </td>
 
                             </tr>
-                            <tr ng-init="" ng-repeat="befPvt in bsEduFacilities.education.Table_1.BefPvt" height="17">
-                                <td ng-bind="befPvt.type_facilities" ng-model="befPvt.type_facilities" class="tdpa"
+                            <tr ng-init="" ng-repeat="befPvt in bsEduFacilities.education.Table_1.BefPvt" ng-if="befPvt.type_facilities != 'TOTAL'" height="17">
+                                <td ng-bind="befPvt.type_facilities" ng-model="befPvt.type_facilities" ng-if="$index < 5" class="tdpa"
                                     width="280" height="17">
-
                                 </td>
-                                <td width="136">
+                                <td width="136" ng-if="$index > 4">
+                                    {% verbatim %}
+                                    <button id="delete" ng-click="removeItem('BefPvt', $index)"
+                                            class="btn btn-sm btn-danger btn-circle">
+                                            <i class="fa fa-minus"></i>
+                                    </button>
                                     <input ng-if="befPvt.type_facilities != 'TOTAL'" ng-model="befPvt.total_number"
                                            type="number" placeholder=""
                                            class="form-control input-md">
-                                    {% verbatim %}
                                     <span ng-bind="befPvt.total_number" ng-if="befPvt.type_facilities == 'TOTAL'">
-
                                     </span>
                                     {% endverbatim %}
+                                </td>
+                                <td width="136">
+                                    <input ng-model="befPvt.total_number" type="number" placeholder=""
+                                           class="form-control input-md">
                                 </td>
                                 <td width="136">
                                     <input ng-model="befPvt.avg_male" type="number" placeholder=""
@@ -207,8 +213,21 @@
                                            class="form-control input-md">
                                 </td>
                             </tr>
-
-
+                            <tr class="tdpa" height="20">
+                                <td width="280" height="17">
+                                    Others (Enumerate)
+                                    <button ng-click="insertAsset('BefPvt')"
+                                            class="btn btn-sm btn-info btn-circle" id="insert">
+                                        <span class="fa fa-plus"></span>
+                                    </button>
+                                </td>
+                                <td colspan="3" colspan="3" width="136">
+                                </td>
+                                <td colspan="3" colspan="3" width="136">
+                                </td>
+                                <td width="136">
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
 

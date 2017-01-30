@@ -1563,6 +1563,7 @@ class DshPvtFaDistrict(models.Model):
 # education sector models
 
 class DugDfNdf(models.Model):
+    particulars = models.CharField(max_length=255, blank=True, null=True)
     ab1_1c = models.IntegerField(blank=True, null=True)
     type_2 = models.IntegerField(blank=True, null=True)
     type_3 = models.IntegerField(blank=True, null=True)
@@ -1601,6 +1602,7 @@ class DugDfNsa(models.Model):
     created_date = models.DateTimeField(blank=True, null=True)
     lmd = models.DateTimeField(blank=True, null=True)
     key = models.BigIntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
     incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
 
     class Meta:
@@ -2051,7 +2053,7 @@ class DpefBefTechInst(models.Model):
 
 class DpefBefUnv(models.Model):
     asset = models.CharField(max_length=255, blank=True, null=True)
-    university = models.ForeignKey(Universities, db_column='tech_institute', blank=True, null=True)
+    university = models.ForeignKey(Universities, db_column='university', blank=True, null=True)
     est_rep_cost = models.FloatField(blank=True, null=True)
     est_repair_cost = models.FloatField(blank=True, null=True)
     tot_damages = models.FloatField(blank=True, null=True)
@@ -2474,3 +2476,334 @@ class DloLosDistrict(models.Model):
     class Meta:
         managed = False
         db_table = 'dlo_los_district'
+
+
+# education view models
+
+class DpefBefDistrict(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_district'
+
+
+class DpefBefPreDistrict(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_pre_district'
+
+
+class DpefBefPrimaryDistrict(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_primary_district'
+
+
+class DpefBefSecondaryDistrict(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_secondary_district'
+
+
+class DpefBefTechDistrict(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_tech_district'
+
+
+class DpefBefUnvDistrict(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_unv_district'
+
+
+class DugDfDistrict(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dug_df_district'
+
+
+class DugNsaDistrict(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dug_nsa_district'
+
+
+class DugNdafDistrict(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dug_ndaf_district'
+
+
+class DpefBefOtherNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_other_national'
+
+
+class DpefBefPreNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_pre_national'
+
+
+class DpefBefPrimaryNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_primary_national'
+
+
+class DpefBefPrimaryNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_primary_national'
+
+
+class DpefBefSecondaryNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_secondary_national'
+
+
+class DpefBefTechNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_tech_national'
+
+
+class DpefBefUnvNational(models.Model):
+    est_rep_cost = models.FloatField(blank=True, null=True)
+    est_repair_cost = models.FloatField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    est_los_year_1 = models.FloatField(blank=True, null=True)
+    est_los_year_2 = models.FloatField(blank=True, null=True)
+    tot_los = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_unv_national'
+
+
+class DpefNafNational(models.Model):
+    num_edu_facilities = models.BigIntegerField(blank=True, null=True)
+    male = models.BigIntegerField(blank=True, null=True)
+    female = models.BigIntegerField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_naf_national'
+
+
+class DpefBefNational(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dpef_bef_national'
+
+
+class DugDfNational(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dug_df_national'
+
+
+class DugNdafNational(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dug_ndaf_national'
+
+
+class DugNsaNational(models.Model):
+    ab1_1c = models.IntegerField(blank=True, null=True)
+    type_2 = models.IntegerField(blank=True, null=True)
+    type_3 = models.IntegerField(blank=True, null=True)
+    pirivena = models.IntegerField(blank=True, null=True)
+    training_institutes = models.IntegerField(blank=True, null=True)
+    training_colleges = models.IntegerField(blank=True, null=True)
+    tc_crc_resc = models.IntegerField(blank=True, null=True)
+    min_pzd_offices = models.IntegerField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dug_nsa_national'
