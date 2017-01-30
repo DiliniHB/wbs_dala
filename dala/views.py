@@ -1,11 +1,4 @@
 from __future__ import absolute_import
-from django.shortcuts import render
-from django.http import HttpResponse
-import json
-from django.core.serializers.json import DjangoJSONEncoder
-import yaml
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.apps import apps
 import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 

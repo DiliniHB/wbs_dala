@@ -20,6 +20,10 @@ $scope.DugNdafSupplies_training_institutes = null;
 $scope.DugNdafSupplies_training_colleges = null;
 $scope.DugNdafSupplies_tc_crc_resc = null;
 $scope.DugNdafSupplies_min_pzd_offices = null;
+$scope.dugNdafTot = 0 ;
+$scope.dugNdafSupTot = 0;
+$scope.dugNdafEquTot = 0;
+var total=0;
 
 
 var init_data = {
@@ -391,6 +395,18 @@ total: null
 },
 {
 particulars: 'Table',
+ab1_1c: null,
+type_2: null,
+type_3: null,
+pirivena: null,
+training_institutes: null,
+training_colleges: null,
+tc_crc_resc: null,
+min_pzd_offices: null,
+total: null
+},
+{
+particulars: 'Value of Destroyed Supplies and Materials',
 ab1_1c: null,
 type_2: null,
 type_3: null,
@@ -799,7 +815,7 @@ function generateRefencedData(){
   angular.forEach(data_array, function(value, key) {
     obj_array = $scope.bs_data[value];
     model_name = value;
-    particular_value1 = null;
+    particular_value = null;
 
     if(model_name == 'BugArcSupplies')
     {
@@ -818,7 +834,7 @@ function generateRefencedData(){
     $scope.dlGovnEduFacilities.education.Table_3[dl_model1] = [];
     $scope.dlGovnEduFacilities.education.Table_3[dl_model2] = [];
 
-    obj = {
+    var obj = {
     particulars: particular_value,
     ab1_1c: null,
     type_2: null,
@@ -834,7 +850,20 @@ function generateRefencedData(){
     console.log($scope.dlGovnEduFacilities.education.Table_3);
 
     angular.forEach(obj_array, function(value, key) {
-    var obj = {
+    var obj1 = {
+                particulars: value.fields.particulars,
+                ab1_1c: null,
+                type_2: null,
+                type_3: null,
+                pirivena: null,
+                training_institutes: null,
+                training_colleges: null,
+                tc_crc_resc: null,
+                min_pzd_offices: null,
+                total: null
+              };
+
+     var obj2 = {
                 particulars: value.fields.particulars,
                 ab1_1c: null,
                 type_2: null,
@@ -849,13 +878,13 @@ function generateRefencedData(){
 
     if(model_name == 'BugArcSupplies')
     {
-       $scope.dlGovnEduFacilities.education.Table_3[dl_model1].push(obj);
-       $scope.dlGovnEduFacilities.education.Table_3[dl_model2].push(obj);
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model1].push(obj1);
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model2].push(obj2);
     }
     else if(model_name == 'BugArcEquipment')
     {
-       $scope.dlGovnEduFacilities.education.Table_3[dl_model1].push(obj);
-       $scope.dlGovnEduFacilities.education.Table_3[dl_model2].push(obj);
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model1].push(obj1);
+       $scope.dlGovnEduFacilities.education.Table_3[dl_model2].push(obj2);
     }
 
 
@@ -871,7 +900,8 @@ function generateRefencedData(){
 $scope.calTotal = function(model,property)
 {
     var obj_array;
-    var total=0;
+    total=0;
+
      if( model == 'DugNdafSupplies')
       {
         obj_array = $scope.bs_data.BugArcSupplies;
@@ -898,11 +928,38 @@ $scope.calTotal = function(model,property)
 
 
     total = total + ($scope.dlGovnEduFacilities.education.Table_3[model][key][property] * value.fields[property]);
+
     })
-    console.log($scope.dlGovnEduFacilities.education.Table_3);
 
     return total;
 
+}
+
+//$scope.calculateFinalTot = function(){
+//console.log(total);
+//$scope.dugNdafSupTot = total;
+//return $scope.dugNdafSupTot ;
+//
+//}
+
+$scope.getTotal =function (value){
+
+$scope.dugNdafTot = $scope.dugNdafTot + value.total;
+console.log($scope.dugNdafTot);
+}
+
+$scope.getGrandTot = function (property){
+
+var strucLength = $scope.dlGovnEduFacilities.education.Table_3.DugNdafStructure.length;
+var suppLength = $scope.dlGovnEduFacilities.education.Table_3.DugNdafSupplies.length;
+var equLength = $scope.dlGovnEduFacilities.education.Table_3.DugNdafEquipment.length;
+
+var ab1_1c= $scope.dlGovnEduFacilities.education.Table_3.DugNdafStructure[strucLength -1].ab1_1c +
+            $scope.dlGovnEduFacilities.education.Table_3.DugNdafSupplies[suppLength -1].ab1_1c +
+            $scope.dlGovnEduFacilities.education.Table_3.DugNdafEquipment[equLength -1].ab1_1c
+
+console.log($scope.dlGovnEduFacilities.education.Table_3.DugNdafSupplies[suppLength -1]);
+return ab1_1c;
 
 
 }

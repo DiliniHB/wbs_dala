@@ -633,4 +633,7 @@ $scope.fetchFirms = function()
          $scope.dmLosOfMinFirms = init_data;
     }
 
+
+
+
 })

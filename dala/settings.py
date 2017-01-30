@@ -92,7 +92,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=health,public,other_government,education,mining'
         },
-        'NAME': 'dala_new',
+        'NAME': 'dala_2017',
         'USER': 'postgres',
 
     },
