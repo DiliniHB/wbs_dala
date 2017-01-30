@@ -37,22 +37,6 @@
                         <col width="91" span="7"/>
                     </colgroup>
                     <tbody>
-                    <!--<tr style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                        <!--<td colspan="1"  style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                        <!--</td>-->
-                        <!--<td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                            <!--<span class="arrow_box" ng-show="submitted && form_damagelost_mining_firm.incident.$error.required">-->
-                                <!--Please select Incident-->
-                            <!--</span>-->
-                        <!--</td>-->
-                        <!--<td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                        <!--</td>-->
-                        <!--<td colspan="2" style="background:#fff;border:1px solid #fff;text-align:center;">-->
-                            <!--<span class="arrow_box" ng-show="submitted && form_damagelost_mining_firm.district.$error.required">-->
-                                <!--Please select District-->
-                            <!--</span>-->
-                        <!--</td>-->
-                    <!--</tr>-->
                     <tr class="trhead" height="17">
                         <td colspan="3" style="padding-right:5px;text-align:right;">
                             Incident
@@ -115,8 +99,6 @@
                 </table>
 
                 <div id="boxscroll" style="height:400px;overflow:auto;">
-
-
                     <table ng-repeat="(key, value) in data.education.Table_7" class="table table-bordered">
                         <tbody>
                         <tr height="20" class="trheadc">
@@ -138,7 +120,6 @@
                             <td width="90">
                             </td>
                         </tr>
-                        <!--start-->
                         <tr height="17" colspan="2">
                             <td class="tdpa" width="307" height="17">
                                 1AB, 1C
@@ -413,6 +394,7 @@
                         <tbody>
                         <tr height="20" class="trheadc" colspan="3">
                             <td ng-bind="key" width="202" height="20">
+<<<<<<< HEAD
 
                             <td width="91">
                             </td>
@@ -447,6 +429,42 @@
                             </td>
                             <td width="110" ng-bind="value['DpefBefPreNational'][0].est_los_year_1">
 
+=======
+
+                            <td width="91">
+                            </td>
+                            <td width="91">
+                            </td>
+                            <td width="91">
+                            </td>
+                            <td width="91">
+                            </td>
+                            <td width="91">
+                            </td>
+                            <td width="91">
+                            </td>
+                            <td width="91">
+                            </td>
+                        </tr>
+                        <tr height="17">
+                            <td class="tdpa" width="307" height="17">
+                                Pre-schools
+                            </td>
+                            <td width="110" ng-bind="value['DpefNafNational'][0].num_edu_facilities">
+
+                            </td>
+                            <td width="110" ng-bind="value['DpefNafNational'][0].male">
+
+                            </td>
+                            <td width="110" ng-bind="value['DpefNafNational'][0].female">
+
+                            </td>
+                            <td width="110" ng-bind="value['DpefBefPreNational'][0].tot_damages">
+
+                            </td>
+                            <td width="110" ng-bind="value['DpefBefPreNational'][0].est_los_year_1">
+
+>>>>>>> 75911d53319e95562c122bfe2295a3a534f7ac6d
                             </td>
                             <td width="110" ng-bind="value['DpefBefPreNational'][0].est_los_year_2">
 

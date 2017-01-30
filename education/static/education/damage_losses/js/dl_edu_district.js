@@ -54,7 +54,6 @@ $scope.submitted = false;
     $scope.data=data;
 
 
-
     })
 
 

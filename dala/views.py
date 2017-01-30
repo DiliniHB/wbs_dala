@@ -1,11 +1,4 @@
 from __future__ import absolute_import
-from django.shortcuts import render
-from django.http import HttpResponse
-import json
-from django.core.serializers.json import DjangoJSONEncoder
-import yaml
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.apps import apps
 import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 
@@ -60,7 +53,8 @@ def fetch_incident_provinces(request):
     dl_data = (yaml.safe_load(request.body))
     incident_id = dl_data['incident']
     incident = IncidentReport.objects.get(pk=incident_id)
-    affected_provinces = incident.effectedarea_set.values('district__id', 'district__province_id', 'district__province__name').distinct()
+    affected_provinces = incident.effectedarea_set.values('district__id', 'district__province_id',
+                                                          'district__province__name').distinct()
 
     return HttpResponse(
         json.dumps(list(affected_provinces)),
@@ -176,8 +170,8 @@ def bs_get_data_mock(request):
     bs_mtable_data = {}
 
     bd_sessions = BdSessionKeys.objects.extra(select={'difference': 'full_bs_date - %s'},
-                                                  select_params=(incident_date,)).\
-        filter(table_name=table_name, district=district).\
+                                              select_params=(incident_date,)). \
+        filter(table_name=table_name, district=district). \
         values('difference', 'id', 'bs_date').order_by('difference').latest('difference')
 
     print bd_sessions
@@ -187,14 +181,14 @@ def bs_get_data_mock(request):
         model_class = apps.get_model('base_line', db_table)
         # assuming there could be multiple data sets for bs_date
         bs_mtable_data[db_table] = serializers.serialize('json',
-                                                         model_class.objects.filter(bs_date=bs_date, district=district).order_by('id'))
+                                                         model_class.objects.filter(bs_date=bs_date,
+                                                                                    district=district).order_by('id'))
 
     return HttpResponse(
         json.dumps((bs_mtable_data)),
 
         content_type='application/javascript; charset=utf8'
     )
-
 
 
 @csrf_exempt
@@ -215,8 +209,8 @@ def bs_fetch_edit_data(request):
 
         model_class = apps.get_model('base_line', table)
         bs_mtable_data[sector][table_name][table] = list(model_class.objects.
-                                                 filter(bs_date=bs_date, district=district).
-                                                 values(*table_fields).order_by('id'))
+                                                         filter(bs_date=bs_date, district=district).
+                                                         values(*table_fields).order_by('id'))
 
     return HttpResponse(
         json.dumps(bs_mtable_data),
@@ -244,7 +238,6 @@ def bs_save_edit_data(table_data, com_data):
                     print 'row', ' --> ', row, ' id ', model_object[0].id, '\n'
 
 
-
 @csrf_exempt
 def dl_save_data(request):
     dl_data = (yaml.safe_load(request.body))
@@ -256,63 +249,60 @@ def dl_save_data(request):
     filter_fields = {}
 
     if not is_edit:
-        try:
-            for sector in dl_table_data:
-                for interface_table in dl_table_data[sector]:
 
-                    incident = com_data['incident']
-                    if 'province' in com_data:
-                        admin_area = com_data['province']
-                        filter_fields = {'table_name': interface_table, 'incident': incident, 'province': admin_area}
-                    elif 'district' in com_data:
-                        admin_area = com_data['district']
-                        filter_fields = {'table_name': interface_table, 'incident': incident, 'district_id': admin_area}
-                    else:
-                        filter_fields = {'table_name': interface_table, 'incident': incident}
+        for sector in dl_table_data:
+            for interface_table in dl_table_data[sector]:
 
-                    record_exist = DlSessionKeys.objects.filter(**filter_fields)
+                incident = com_data['incident']
+                if 'province' in com_data:
+                    admin_area = com_data['province']
+                    filter_fields = {'table_name': interface_table, 'incident': incident, 'province': admin_area}
+                elif 'district' in com_data:
+                    admin_area = com_data['district']
+                    filter_fields = {'table_name': interface_table, 'incident': incident, 'district_id': admin_area}
+                else:
+                    filter_fields = {'table_name': interface_table, 'incident': incident}
 
-                    if not record_exist:
+                record_exist = DlSessionKeys.objects.filter(**filter_fields)
 
-                        print 'interface table', ' -->', interface_table, '\n'
-                        for db_table in dl_table_data[sector][interface_table]:
+                if not record_exist:
 
-                            print 'db table', ' -->', db_table, '\n'
+                    print 'interface table', ' -->', interface_table, '\n'
+                    for db_table in dl_table_data[sector][interface_table]:
 
-                            for row in dl_table_data[sector][interface_table][db_table]:
+                        print 'db table', ' -->', db_table, '\n'
 
-                                model_class = apps.get_model('damage_losses', db_table)
-                                model_object = model_class()
+                        for row in dl_table_data[sector][interface_table][db_table]:
 
-                                # assigning common properties to model object
-                                model_object.created_date = todate
-                                model_object.lmd = todate
-                                if 'province' in com_data:
-                                    model_object.province_id = com_data['province']
-                                elif 'district' in com_data:
-                                    model_object.district_id = com_data['district']
+                            model_class = apps.get_model('damage_losses', db_table)
+                            model_object = model_class()
 
-                                model_object.incident_id = com_data['incident']
+                            # assigning common properties to model object
+                            model_object.created_date = todate
+                            model_object.lmd = todate
+                            if 'province' in com_data:
+                                model_object.province_id = com_data['province']
+                            elif 'district' in com_data:
+                                model_object.district_id = com_data['district']
 
-                                print 'row', ' --> ', row, '\n', ' object '
+                            model_object.incident_id = com_data['incident']
 
-                                for property in row:
-                                    setattr(model_object, property, row[property])
+                            print 'row', ' --> ', row, '\n', ' object '
 
-                                    print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
-                                    model_object.save()
+                            for property in row:
+                                setattr(model_object, property, row[property])
 
-                        dl_session = DlSessionKeys(**filter_fields)
-                        dl_session.date = todate
-                        dl_session.save()
+                                print 'property ', ' --> ', property, ' db_property ', row[property], ' index ', '\n'
+                                model_object.save()
 
-                        return HttpResponse(True)
+                    dl_session = DlSessionKeys(**filter_fields)
+                    dl_session.date = todate
+                    dl_session.save()
 
-                    else:
-                        return HttpResponse(False)
+                    return HttpResponse(True)
 
-        except Exception as e:
-            return HttpResponse(e)
+                else:
+                    return HttpResponse(False)
 
     else:
         dl_save_edit_data(dl_table_data, com_data)
@@ -342,8 +332,9 @@ def dl_get_data(request):
 
     for db_table in db_tables:
         model_class = apps.get_model('damage_losses', db_table)
-        #dl_mtable_data[db_table] = serializers.serialize('json', model_class.objects.filter(incident=incident_id, district=district).order_by('id'))
-        dl_mtable_data[db_table] = serializers.serialize('json', model_class.objects.filter(**filter_fields).order_by('id'))
+        # dl_mtable_data[db_table] = serializers.serialize('json', model_class.objects.filter(incident=incident_id, district=district).order_by('id'))
+        dl_mtable_data[db_table] = serializers.serialize('json',
+                                                         model_class.objects.filter(**filter_fields).order_by('id'))
 
     return HttpResponse(
         json.dumps(dl_mtable_data),
@@ -353,7 +344,6 @@ def dl_get_data(request):
 
 @csrf_exempt
 def dl_fetch_edit_data(request):
-
     data = (yaml.safe_load(request.body))
     table_name = data['table_name']
     sector = data['sector']
@@ -379,8 +369,8 @@ def dl_fetch_edit_data(request):
         table_fields = tables[table]
         model_class = apps.get_model('damage_losses', table)
         dl_mtable_data[sector][table_name][table] = list(model_class.objects.
-                                                 filter(**filter_fields).
-                                                 values(*table_fields).order_by('id'))
+                                                         filter(**filter_fields).
+                                                         values(*table_fields).order_by('id'))
 
         print dl_mtable_data
 
@@ -392,7 +382,6 @@ def dl_fetch_edit_data(request):
 
 @csrf_exempt
 def dl_fetch_district_disagtn(request):
-
     data = (yaml.safe_load(request.body))
     table_name = data['table_name']
     sector = data['sector']
@@ -446,7 +435,6 @@ def dl_fetch_district_disagtn(request):
                                                                                 filter(**filter_fields)
                                                                                 .values(*table_fields))
 
-
     return HttpResponse(
         json.dumps((dl_mtable_data), cls=DjangoJSONEncoder),
         content_type='application/javascript; charset=utf8'
@@ -455,7 +443,6 @@ def dl_fetch_district_disagtn(request):
 
 @csrf_exempt
 def dl_save_edit_data(table_data, com_data):
-
     for sector in table_data:
         for interface_table in table_data[sector]:
             print 'interface table', ' -->', interface_table, '\n'
@@ -492,8 +479,8 @@ def bs_mining_fetch_edit_data(request):
 
         model_class = apps.get_model('base_line', table)
         bs_mtable_data[sector][table_name][table] = list(model_class.objects.
-                                                 filter(bs_date=bs_date, district=district, firm_id=firm).
-                                                 values(*table_fields).order_by('id'))
+                                                         filter(bs_date=bs_date, district=district, firm_id=firm).
+                                                         values(*table_fields).order_by('id'))
 
     return HttpResponse(
         json.dumps(bs_mtable_data),
@@ -501,7 +488,6 @@ def bs_mining_fetch_edit_data(request):
     )
 
 
-#mining
 @csrf_exempt
 def dl_fetch_district_disagtn(request):
     data = (yaml.safe_load(request.body))
@@ -509,6 +495,7 @@ def dl_fetch_district_disagtn(request):
     sector = data['sector']
     com_data = data['com_data']
     incident = com_data['incident']
+    print settings.TABLE_PROPERTY_MAPPER[sector]
     tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
 
     dl_mtable_data = {sector: {}}
@@ -563,11 +550,8 @@ def dl_fetch_district_disagtn(request):
     )
 
 
-#mining
-
 @csrf_exempt
 def dl_fetch_total_data(request):
-
     data = (yaml.safe_load(request.body))
     table_name = data['table_name']
     sector = data['sector']
@@ -593,8 +577,8 @@ def dl_fetch_total_data(request):
         table_fields = tables[table]
         model_class = apps.get_model('damage_losses', table)
         dl_mtable_data[sector][table_name][table] = list(model_class.objects.
-                                                 filter(**filter_fields).
-                                                 values(*table_fields))
+                                                         filter(**filter_fields).
+                                                         values(*table_fields))
 
         print dl_mtable_data
 
@@ -604,3 +588,32 @@ def dl_fetch_total_data(request):
     )
 
 
+@csrf_exempt
+def fetch_entities(request):
+    data = (yaml.safe_load(request.body))
+    district_id = data['district']
+    model_name = data['model']
+
+    model_class = apps.get_model('base_line', model_name)
+    fetched_data = model_class.objects.filter(district_id=district_id).values('name', 'id', 'ownership')
+
+    return HttpResponse(
+        json.dumps(list(fetched_data)),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
+@csrf_exempt
+def add_entity(request):
+    data = (yaml.safe_load(request.body))
+    model_fields = data['model_fields']
+    model_name = data['model']
+
+    model_class = apps.get_model('base_line', model_name)
+    model_object = model_class(**model_fields)
+    model_object.save()
+
+    if model_object.id is not None:
+        return HttpResponse(model_object.id)
+    else:
+        return HttpResponse(False)

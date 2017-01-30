@@ -69,16 +69,3 @@ def get_ownership_firm(request):
 
     return HttpResponse(firm_ownership)
 
-
-@csrf_exempt
-def fetch_firms(request):
-    data = (yaml.safe_load(request.body))
-    district_id = data['district']
-    firms = Firm.objects.filter(district_id=district_id).values('name', 'id', 'ownership')
-
-    return HttpResponse(
-        json.dumps(list(firms)),
-        content_type='application/javascript; charset=utf8'
-    )
-
-

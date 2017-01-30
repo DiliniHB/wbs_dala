@@ -7,7 +7,7 @@ app.controller("MnIndusMinFirmController", function($scope, $http, _) {
     $scope.baselineDate;
     $scope.is_edit = false;
     $scope.selectedFirm;
-    $scope.new_firm = {id: null, name: null, ownership: null};
+    $scope.new_firm = {id: null, name: null, ownership: null, district_id: null};
     $scope.ownership;
     $scope.firms = [];
 
@@ -166,9 +166,10 @@ $scope.saveFirm = function(form)
 {
     $http({
     method: "POST",
-    url: "/mining/base_line/add_firm",
+    url: "/add_entity",
     data: angular.toJson({
-    'firm': $scope.new_firm,
+    'model_fields': $scope.new_firm,
+    'model': 'Firm',
      }),
     }).success(function(data) {
 
@@ -181,7 +182,6 @@ $scope.saveFirm = function(form)
 
 $scope.saveEditFirm = function(form)
 {
-    alert( $scope.firmName);
 
     $http({
     method: "POST",
@@ -201,13 +201,14 @@ $scope.saveEditFirm = function(form)
 $scope.fetchFirms = function()
 {
 
-    $scope.new_firm.district = $scope.district;
+    $scope.new_firm.district_id = $scope.district;
 
     $http({
     method: "POST",
-    url: "/mining/base_line/fetch_firms",
+    url: "/fetch_entities",
     data: angular.toJson({
     'district':  $scope.district,
+    'model': 'Firm'
      }),
     }).success(function(data) {
 

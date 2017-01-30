@@ -44,6 +44,7 @@ $scope.incident;
 
 }
 
+
     $scope.sumFunc8 = function(val1, val2, val3, val4, val5, val6, val7, val8) {
     //  console.log('hi', val1);
       return parseInt(val1) + parseInt(val2) + parseInt(val3) + parseInt(val4) + parseInt(val5) + parseInt(val6) + parseInt(val7) + parseInt(val8);

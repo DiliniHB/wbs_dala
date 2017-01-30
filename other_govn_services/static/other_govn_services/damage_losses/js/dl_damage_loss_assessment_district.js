@@ -187,6 +187,28 @@ app.controller("dlAssessmentDistrictController", function ($scope,$http, _) {
         var model = $parse(the_string);
         model.assign($scope, cumulative);
     }
+
+$scope.fetchDlData = function(){
+
+    $http({
+    method: "POST",
+    url: '/other_govn_services/damage_losses/dl_fetch_district_disagtn',
+    data: angular.toJson({
+    'table_name':  'Table_3',
+    'sector': 'other_govn_services',
+    'com_data': {
+            'incident': $scope.incident,
+          },
+           }),
+    }).success(function(data) {
+       $scope.districtData = data;
+       console.log('load ', data);
+
+    })
+
+}
+
+
 })
 
 

@@ -36,7 +36,6 @@ $scope.data={};
    $scope.submitted = true;
 
    $scope.province;
-
             $http({
             method: "POST",
             url: '/dl_fetch_district_disagtn',

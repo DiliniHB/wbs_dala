@@ -111,9 +111,7 @@
                         <td class="tdpa" width="307" height="17">
                             1AB, 1C
                         </td>
-                        <td width="110" ng-bind="dugDfDistrict.ab1_1c">
 
-                        </td>
                         <td width="110" ng-bind="$parent.data.education.Table_5.DugNsaDistrict[0].ab1_1c">
 
                         </td>
@@ -355,7 +353,8 @@
                                                  data.education.Table_5.DpefBefDistrict[2].training_colleges +
                                                  data.education.Table_5.DpefBefDistrict[2].tc_crc_resc +
                                                  data.education.Table_5.DpefBefDistrict[2].min_pzd_offices">
-                        </td>
+                            </td>
+                        </tr>
                     </tr>
 
                     </tbody>
@@ -413,6 +412,7 @@
                     <tr  height="17" >
                         <td class="tdpa" width="307" height="17">
                             Pre-schools
+
                         </td>
                         <td width="110" ng-bind="data.education.Table_5.DpefNaf[0].num_edu_facilities">
 
@@ -461,7 +461,35 @@
                         <td width="110" ng-bind="data.education.Table_5.DpefNaf[1].num_edu_facilities + data.education.Table_5.DpefNaf[1].male + data.education.Table_5.DpefNaf[1].female + data.education.Table_5.DpefBefPrimaryDistrict[0].tot_damages + data.education.Table_5.DpefBefPrimaryDistrict[0].est_los_year_1 + data.education.Table_5.DpefBefPrimaryDistrict[0].est_los_year_2">
 
                         </td>
+
                     </tr>
+                    <!--<tr  height="17">-->
+                        <!--<td class="tdpa" width="307" height="17">-->
+                            <!--Primary Schools-->
+                        <!--</td>-->
+                        <!--<td width="110" ng-bind="data.education.Table_5.DpefNaf[1].num_edu_facilities">-->
+
+                        <!--</td>-->
+                        <!--<td width="110" ng-bind="data.education.Table_5.DpefNaf[1].male">-->
+
+                        <!--</td>-->
+                        <!--<td width="110" ng-bind="data.education.Table_5.DpefNaf[1].female">-->
+
+                        <!--</td>-->
+                        <!--<td width="110" ng-bind="data.education.Table_5.DpefBefPrimaryDistrict[0].tot_damages">-->
+
+                        <!--</td>-->
+                        <!--<td width="110" ng-bind="data.education.Table_5.DpefBefPrimaryDistrict[0].est_los_year_1">-->
+
+                        <!--</td>-->
+                        <!--<td width="110" ng-bind="data.education.Table_5.DpefBefPrimaryDistrict[0].est_los_year_2">-->
+
+                        <!--</td>-->
+                        <!--<td width="110" >-->
+<!--&gt;>>>>>> 75911d53319e95562c122bfe2295a3a534f7ac6d-->
+
+                        <!--</td>-->
+                    <!--</tr>-->
                     <tr  height="17">
                         <td class="tdpa" width="307" height="17">
                             Secondary Schools
@@ -484,9 +512,9 @@
                         <td width="110" ng-bind="data.education.Table_5.DpefBefSecondaryDistrict[0].est_los_year_2">
 
                         </td>
+
                         <td width="110" ng-bind="data.education.Table_5.DpefNaf[2].num_edu_facilities + data.education.Table_5.DpefNaf[2].male + data.education.Table_5.DpefNaf[2].female + data.education.Table_5.DpefBefSecondaryDistrict[0].tot_damages + data.education.Table_5.DpefBefSecondaryDistrict[0].est_los_year_1 +  data.education.Table_5.DpefBefSecondaryDistrict[0].est_los_year_2">
 
-                        </td>
                     </tr>
                      <tr  height="17">
                         <td class="tdpa" width="307" height="17">
@@ -510,9 +538,9 @@
                         <td width="110" ng-bind="data.education.Table_5.DpefBefUnvDistrict[0].est_los_year_2">
 
                         </td>
+
                         <td width="110" ng-bind="data.education.Table_5.DpefNaf[3].num_edu_facilities + data.education.Table_5.DpefNaf[3].male + data.education.Table_5.DpefNaf[3].female + data.education.Table_5.DpefBefUnvDistrict[0].tot_damages + data.education.Table_5.DpefBefUnvDistrict[0].est_los_year_1 + data.education.Table_5.DpefBefUnvDistrict[0].est_los_year_2">
 
-                        </td>
                     </tr>
                      <tr  height="17">
                         <td class="tdpa" width="307" height="17">
@@ -536,17 +564,18 @@
                         <td width="110" ng-bind="data.education.Table_5.DpefBefTechDistrict[0].est_los_year_2">
 
                         </td>
+
                         <td width="110" ng-bind="data.education.Table_5.DpefNaf[4].num_edu_facilities + data.education.Table_5.DpefNaf[4].male + data.education.Table_5.DpefNaf[4].female + data.education.Table_5.DpefBefTechDistrict[0].tot_damages + data.education.Table_5.DpefBefTechDistrict[0].est_los_year_1 + data.education.Table_5.DpefBefTechDistrict[0].est_los_year_2">
 
-                        </td>
                     </tr>
                     <tr  height="17">
                         <td class="tdpa" width="307" height="17">
                             Others
                         </td>
-                        <td width="110">
 
+                        <td width="110">
                         </td>
+
                         <td width="110">
 
                         </td>
@@ -570,6 +599,7 @@
                         <td class="tdpa" width="307" height="17">
                             Total
                         </td>
+
                         <td width="110" ng-bind="data.education.Table_5.DpefNaf[0].num_edu_facilities +
                                                  data.education.Table_5.DpefNaf[1].num_edu_facilities +
                                                  data.education.Table_5.DpefNaf[2].num_edu_facilities +
@@ -617,9 +647,7 @@
                                                  data.education.Table_5.DpefBefTechDistrict[5].est_los_year_2">
 
                         </td>
-                        <td width="110">
 
-                        </td>
                     </tr>
 
                     </tbody>
@@ -704,6 +732,7 @@
                     <tr  height="17">
                         <td class="tdpa" width="307" height="17">
                             Total
+
                         </td>
                         <td width="110" colspan="2">
 
@@ -716,20 +745,15 @@
                         </td>
                         <td width="110">
 
+
                         </td>
 
                     </tr>
-
                     </tbody>
                 </table>
 
 
                 <br>
-                <div class="pull-right">
-                    <br>
-                    <button type="button" class="btn btn-info">Clear</button>
-                    <button type="button" class="btn btn-success">Submit</button>
-                </div>
                 <br><br><br>
             </div>
 

@@ -1,4 +1,3 @@
-
 var bsHealthStatusApp = angular.module('bsUcostGeduFacilitiesApp', ['ui.bootstrap', 'popoverToggle']);
 
 bsHealthStatusApp.controller('BsUcostGeduFacilitiesController', function BsUcostGeduFacilitiesController($scope, $http) {
@@ -356,7 +355,9 @@ min_pzd_offices: null,
 
 $scope.bsUcostGeduFacilities = init_data;
 
-    $scope.insertAsset = function(table) {
+
+$scope.insertAsset = function(table) {
+
         console.log($scope.bsUcostGeduFacilities.education.Table_2[table]);
         var new_row;
         if(table == 'BugArcSupplies') {
@@ -414,7 +415,9 @@ $scope.bsUcostGeduFacilities = init_data;
         $scope.bsUcostGeduFacilities.education.Table_2[table].push(new_row);
     }
 
-    $scope.removeItem = function removeItem(table, index) {
+
+$scope.removeItem = function removeItem(table, index) {
+
         if(table == 'BugArcSupplies') {
             $scope.bsUcostGeduFacilities.education.Table_2.BugArcSupplies.splice(index, 1);
         }
@@ -429,7 +432,10 @@ $scope.bsUcostGeduFacilities = init_data;
         }
     }
 
-    $scope.saveBsData = function(form) {
+
+
+$scope.saveBsData = function(form) {
+
         alert('hi' +  $scope.district + ' - '+form.$valid);
         console.log($scope.bsUcostGeduFacilities);
         $scope.submitted = true;
@@ -463,7 +469,9 @@ $scope.bsUcostGeduFacilities = init_data;
         }
     }
 
-    $scope.dlDataEdit = function(form) {
+
+$scope.dlDataEdit = function(form) {
+
         $scope.is_edit = true;
         $scope.submitted = true;
 
@@ -486,9 +494,10 @@ $scope.bsUcostGeduFacilities = init_data;
         }
     }
 
-    $scope.cancelEdit = function() {
+$scope.cancelEdit = function() {
          $scope.is_edit = false;
          $scope.mnDLArtisanalMin = init_data;
     }
 
 })
+

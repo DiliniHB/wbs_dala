@@ -88,7 +88,7 @@
                         <td style="padding-left:5px;"> Name of District</td>
                         <td colspan="2" style="background:#EFEFEF;">
                             <select ng-options="district as district.district__name for district in districts track by district.district__id"
-                                    name="district" id="ccyear" ng-model="district" ng-change="changedValue(false)"
+                                    name="district" id="ccyear" ng-model="district" ng-change="fetchDepartments()" ng-change="changedValue(false)"
                                     class="form-control" required>
                                 <option value="" selected>Select District</option>
                             </select>
@@ -96,11 +96,13 @@
                     </tr>
                     <tr height="20">
                         <td class="trheadc" width="241" height="20">
-                            Name of Department or Office
+                            Department or Office
                         </td>
                         <td colspan="5" width="724">
-                            <input id="textinput" name="textinput" type="text" placeholder=""
-                                   class="form-control input-md">
+                            <select ng-options="department as department.name for department in departments track by department.id"
+                                    id="ccyear" ng-change="fetchOwnership()" ng-model="department" class="form-control" required>
+                                <option value="" selected>Select Department</option>
+                            </select>
                         </td>
                         <td width="136">
                             <a id="add_preschool" href="#modal-container-218029" role="button" data-toggle="modal"
@@ -118,13 +120,7 @@
                             Ownership
                         </td>
                         <td colspan="7" width="724">
-                            <select id="selectbasic" name="selectbasic" class="form-control"
-                                    style="width:100%;font-weight:400;">
-                                <option value="" selected="true">Select a Ownership</option>
-                                {% for ownership in ownerships %}
-                                <option value={{ ownership.id }}>{{ ownership.ownership_name }}</option>
-                                {% endfor %}
-                            </select>
+                            <span ng-bind="ownership"></span>
                         </td>
                     </tr>
                     <tr class="trheadc" height="20">
@@ -492,7 +488,7 @@
                 <div class="pull-right">
                     <br>
                     <button type="button" class="btn btn-info">Clear</button>
-                    <button type="button" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-success" ng-click="saveDlData()">Submit</button>
                 </div>
                 <br><br><br>
             </div>
@@ -506,8 +502,7 @@
 
     </div>
     <!-- /.conainer-fluid -->
-
-    <div class="modal fade" id="modal-container-218029" role="dialog" style="width:50%;margin:0 auto;"
+ <div class="modal fade" id="modal-container-218029" role="dialog" style="width:50%;margin:0 auto;"
          aria-hidden="true">
         <div class="modal-dialog" style="width:50%;">
             <div class="modal-content">
@@ -517,7 +512,7 @@
                         ×
                     </button>
                     <h5 class="modal-title">
-                        Add Name of Department or Office
+                        Add Department or Office
                     </h5>
                 </div>
                 <div class="modal-body">
@@ -525,9 +520,21 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="textinput">Name</label>
                         <div class="col-md-10">
-                            <input id="textinput" name="textinput" type="text" placeholder=""
+                            <input ng-model="new_department.name" type="text" placeholder=""
                                    class="form-control input-md">
 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="textinput">Ownership</label>
+                        <div class="col-md-10">
+                            <select id="ccyear" ng-model="new_department.ownership_id" class="form-control" required>
+                                    <option value="" selected>Select Ownership</option>
+                                    {% for ownership in ownerships %}
+                                    <option value="{{ ownership.id }}">{{ ownership.name }}</option>
+                                    {% endfor %}
+
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -537,7 +544,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         Close
                     </button>
-                    <button type="button" class="btn btn-primary" ng-click="saveDlData(form_ogs_ofc_district_firm)">
+                    <button ng-click="saveDepartment()" type="button" class="btn btn-primary">
                         Save changes
                     </button>
                 </div>
@@ -599,67 +606,7 @@
     </div>
 
 
+
 </main>
-<script>
-/*var button = document.getElementById('insert');
-var table = document.getElementById('tb1');
 
-button.onclick = function() {
-    var position=Math.round(table.rows.length / 4);
-    var row = table.insertRow(position);
-    row.innerHTML = '<td width="264"><button id="delete" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button><input id="textinput" placeholder="Name" style="width:90%;float:right;" name="textinput" type="text" placeholder="" class="form-control input-md"><span></span></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+ '<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"> </td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>';
-
-	$("#delete").click(function(){
- $(this).parent().parent().remove();
-});
-}
-*/
-
-
-
-
-
-
-
-
-</script>
-<script>
-/*var button = document.getElementById('insert4');
-var table = document.getElementById('tb1');
-
-button.onclick = function() {
-    var position=Math.round(table.rows.length / 2);
-    var row = table.insertRow(position);
-    row.innerHTML = '<td width="264"><button id="delete1" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button><input id="textinput" placeholder="Name" style="width:90%;float:right;" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+ '<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"> </td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td width="98"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>';
-
-	$("#delete1").click(function(){
- $(this).parent().parent().remove();
-});
-}*/
-
-
-
-
-
-
-</script>
-<script>
-/*var button = document.getElementById('insert2');
-var table = document.getElementById('tb1');
-
-button.onclick = function() {
-    var position=Math.round(table.rows.length / 1);
-    var row = table.insertRow(position);
-    row.innerHTML = '<td width="264"><button id="delete2" class="btn btn-sm btn-danger btn-circle" ><i class="fa fa-minus"></i></button><input id="textinput" style="width:90%;float:right;" placeholder="Name" name="textinput" type="text" placeholder="" class="form-control input-md"></td>'+'<td colspan="4" width="392"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md"></td>';
-	$("#delete2").click(function(){
- $(this).parent().parent().remove();
-});
-}*/
-
-
-
-
-
-
-</script>
 {% endblock content %}

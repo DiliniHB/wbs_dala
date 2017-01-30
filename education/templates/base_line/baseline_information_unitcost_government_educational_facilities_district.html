@@ -2,6 +2,7 @@
 {% block content %}
 
 <!-- Main content -->
+
 <main class="main" ng-app="bsUcostGeduFacilitiesApp" ng-controller="BsUcostGeduFacilitiesController">
 
     <!-- Breadcrumb -->
@@ -35,17 +36,19 @@
                         </colgroup>
                         <tbody>
                         <tr style="background:#fff;border:1px solid #fff;text-align:center;">
-                            <td  style="background:#fff;border:1px solid #fff;text-align:center;" border="0" >
+                            <td style="background:#fff;border:1px solid #fff;text-align:center;" border="0">
                             </td>
-                            <td colspan="1"  style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box" ng-show="submitted && form_bs_edu_untcost_dst.district.$error.required">
+                            <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
+                                <span class="arrow_box"
+                                      ng-show="submitted && form_bs_edu_untcost_dst.district.$error.required">
                                     Please select District
                                 </span>
                             </td>
                             <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
                             </td>
                             <td colspan="1" style="background:#fff;border:1px solid #fff;text-align:center;">
-                                <span class="arrow_box" ng-show="submitted && form_bs_edu_untcost_dst.baselineDate.$error.required">
+                                <span class="arrow_box"
+                                      ng-show="submitted && form_bs_edu_untcost_dst.baselineDate.$error.required">
                                     Please select Date
                                 </span>
                             </td>
@@ -66,7 +69,8 @@
                                 Year/Month
                             </td>
                             <td colspan="3" style="background:#EFEFEF;">
-                                <input name="textinput" type="text" placeholder="" id="datepicker" ng-model="baselineDate" class="form-control input-md" required>
+                                <input name="textinput" type="text" placeholder="" id="datepicker"
+                                       ng-model="baselineDate" class="form-control input-md" required>
                             </td>
                         </tr>
                         <tr class="trheadc" height="17">
@@ -166,7 +170,8 @@
                                     <span style="margin-left:3%;"> Supplies and materials (LKR/Unit)</span>
                                 </td>
                             </tr>
-                            <tr ng-repeat="bugArcSupply in bsUcostGeduFacilities.education.Table_2.BugArcSupplies" height="17">
+                            <tr ng-repeat="bugArcSupply in bsUcostGeduFacilities.education.Table_2.BugArcSupplies"
+                                height="17">
                                 <td ng-bind="bugArcSupply.particulars" ng-if="$index < 5" class="tdpa"
                                     width="280" height="17">
                                 </td>
@@ -174,12 +179,14 @@
                                     {% verbatim %}
                                     <button id="delete" ng-click="removeItem('BugArcSupplies', $index)"
                                             class="btn btn-sm btn-danger btn-circle">
-                                            <i class="fa fa-minus"></i>
+                                        <i class="fa fa-minus"></i>
                                     </button>
-                                    <input ng-if="bugArcSupply.particulars != 'TOTAL'" ng-model="bugArcSupply.total_number"
+                                    <input ng-if="bugArcSupply.particulars != 'TOTAL'"
+                                           ng-model="bugArcSupply.total_number"
                                            type="text" placeholder=""
                                            class="form-control input-md">
-                                    <span ng-bind="bugArcSupply.total_number" ng-if="bugArcSupply.particulars == 'TOTAL'">
+                                    <span ng-bind="bugArcSupply.total_number"
+                                          ng-if="bugArcSupply.particulars == 'TOTAL'">
                                     </span>
                                     {% endverbatim %}
                                 </td>
@@ -230,7 +237,8 @@
                                     <span style="margin-left:3%;">  Equipment (LKR/Unit)</span>
                                 </td>
                             </tr>
-                            <tr ng-repeat="bugArcEquipment in bsUcostGeduFacilities.education.Table_2.BugArcEquipment" height="17">
+                            <tr ng-repeat="bugArcEquipment in bsUcostGeduFacilities.education.Table_2.BugArcEquipment"
+                                height="17">
                                 <td ng-bind="bugArcEquipment.particulars" ng-if="$index < 5" class="tdpa"
                                     width="280" height="17">
                                 </td>
@@ -238,12 +246,14 @@
                                     {% verbatim %}
                                     <button id="delete" ng-click="removeItem('BugArcEquipment', $index)"
                                             class="btn btn-sm btn-danger btn-circle">
-                                            <i class="fa fa-minus"></i>
+                                        <i class="fa fa-minus"></i>
                                     </button>
-                                    <input ng-if="bugArcEquipment.particulars != 'TOTAL'" ng-model="bugArcEquipment.total_number"
+                                    <input ng-if="bugArcEquipment.particulars != 'TOTAL'"
+                                           ng-model="bugArcEquipment.total_number"
                                            type="text" placeholder=""
                                            class="form-control input-md">
-                                    <span ng-bind="bugArcEquipment.total_number" ng-if="bugArcEquipment.particulars == 'TOTAL'">
+                                    <span ng-bind="bugArcEquipment.total_number"
+                                          ng-if="bugArcEquipment.particulars == 'TOTAL'">
                                     </span>
                                     {% endverbatim %}
                                 </td>
@@ -345,7 +355,8 @@
                                     <span style="margin-left:3%;"> Supplies and materials (LKR/Unit) </span>
                                 </td>
                             </tr>
-                            <tr ng-repeat="bugArpcSupply in bsUcostGeduFacilities.education.Table_2.BugArpcSupplies" height="17">
+                            <tr ng-repeat="bugArpcSupply in bsUcostGeduFacilities.education.Table_2.BugArpcSupplies"
+                                height="17">
                                 <td ng-bind="bugArpcSupply.particulars" ng-if="$index < 5" class="tdpa"
                                     width="280" height="17">
                                 </td>
@@ -353,12 +364,14 @@
                                     {% verbatim %}
                                     <button id="delete" ng-click="removeItem('BugArpcSupplies', $index)"
                                             class="btn btn-sm btn-danger btn-circle">
-                                            <i class="fa fa-minus"></i>
+                                        <i class="fa fa-minus"></i>
                                     </button>
-                                    <input ng-if="bugArpcSupply.particulars != 'TOTAL'" ng-model="bugArpcSupply.total_number"
+                                    <input ng-if="bugArpcSupply.particulars != 'TOTAL'"
+                                           ng-model="bugArpcSupply.total_number"
                                            type="text" placeholder=""
                                            class="form-control input-md">
-                                    <span ng-bind="bugArpcSupply.total_number" ng-if="bugArpcSupply.particulars == 'TOTAL'">
+                                    <span ng-bind="bugArpcSupply.total_number"
+                                          ng-if="bugArpcSupply.particulars == 'TOTAL'">
                                     </span>
                                     {% endverbatim %}
                                 </td>
@@ -409,7 +422,8 @@
                                     <span style="margin-left:3%;"> Equipment (LKR/Unit) </span>
                                 </td>
                             </tr>
-                            <tr ng-repeat="bugArpcEquipment in bsUcostGeduFacilities.education.Table_2.BugArpcEquipment" height="17">
+                            <tr ng-repeat="bugArpcEquipment in bsUcostGeduFacilities.education.Table_2.BugArpcEquipment"
+                                height="17">
                                 <td ng-bind="bugArpcEquipment.particulars" ng-if="$index < 5" class="tdpa"
                                     width="280" height="17">
                                 </td>
@@ -417,12 +431,14 @@
                                     {% verbatim %}
                                     <button id="delete" ng-click="removeItem('BugArpcEquipment', $index)"
                                             class="btn btn-sm btn-danger btn-circle">
-                                            <i class="fa fa-minus"></i>
+                                        <i class="fa fa-minus"></i>
                                     </button>
-                                    <input ng-if="bugArpcEquipment.particulars != 'TOTAL'" ng-model="bugArpcEquipment.total_number"
+                                    <input ng-if="bugArpcEquipment.particulars != 'TOTAL'"
+                                           ng-model="bugArpcEquipment.total_number"
                                            type="text" placeholder=""
                                            class="form-control input-md">
-                                    <span ng-bind="bugArpcEquipment.total_number" ng-if="bugArpcEquipment.particulars == 'TOTAL'">
+                                    <span ng-bind="bugArpcEquipment.total_number"
+                                          ng-if="bugArpcEquipment.particulars == 'TOTAL'">
                                     </span>
                                     {% endverbatim %}
                                 </td>
@@ -564,7 +580,9 @@
                     <div class="pull-right">
                         <br>
                         <button type="button" class="btn btn-info">Clear</button>
-                        <button type="button" class="btn btn-success" ng-click="saveBsData(form_bs_edu_untcost_dst)">Submit</button>
+                        <button type="button" class="btn btn-success" ng-click="saveBsData(form_bs_edu_untcost_dst)">
+                            Submit
+                        </button>
                     </div>
 
                 </div>
@@ -576,3 +594,4 @@
     <!-- /.conainer-fluid -->
 </main>
 {% endblock content %}
+
