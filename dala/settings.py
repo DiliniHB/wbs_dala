@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'education',
     # 'db_tools'
     'other_govn_services',
+    #'other_govn_services.damage_losses',
     'mining',
 ]
 
@@ -91,8 +92,7 @@ DATABASES = {
         'OPTIONS': {
             'options': '-c search_path=health,public,other_government,education,mining'
         },
-
-        'NAME': 'dala_2017',
+        'NAME': 'dala_new',
         'USER': 'postgres',
 
     },
@@ -182,8 +182,7 @@ TABLE_PROPERTY_MAPPER = {
                                    'mat_child_health_clinics', 'id'],
                 'BucOmarcCrpm': ['particulars', 'base_hospital', 'divisional_hospital',
                                  'rural_hospital',
-                                 'central_dispensary', 'pri_med_cunits', 'pri_health_ccenters',
-                                 'mat_child_health_clinics', 'id'],
+                                 'central_dispensary', 'pri_med_cunits', 'pri_health_ccenters'                                 'mat_child_health_clinics', 'id'],
                 'BucOmarcStructure': ['particulars', 'base_hospital', 'divisional_hospital',
                                       'rural_hospital',
                                       'central_dispensary', 'pri_med_cunits', 'pri_health_ccenters',
@@ -619,15 +618,23 @@ TABLE_PROPERTY_MAPPER = {
         'Table_6': {
 
             'DldTmfIfProvince': [
-                'type_min_firms',
                 'year1_damages_pub',
                 'year1_damages_pvt',
                 'year1_losses_pub',
                 'year1_losses_pvt',
-                'year2_losses_pub ',
+                'year2_losses_pub',
                 'year2_losses_pvt',
-                'total_pub',
-                'total_pvt',
+                'province',
+                'incident',
+                'id'
+            ],
+            'DldTmfAmProvince': [
+                'year1_damages_pub',
+                'year1_damages_pvt',
+                'year1_losses_pub',
+                'year1_losses_pvt',
+                'year2_losses_pub',
+                'year2_losses_pvt',
                 'province',
                 'incident',
                 'id'
@@ -637,6 +644,38 @@ TABLE_PROPERTY_MAPPER = {
 
     },
     'other_govn_services': {
+        'Table_3': {
+            'DlagdDmgDistrict': [
+                'damages',
+                'department__name'
+            ],
+            'DlagdLossesDistrict': [
+                'los_year1',
+                'los_year2',
+                'total_losses',
+                'department__name'
+            ]
+        },
+        'Table_4':{
+        'DlagdDmgProvince': [
+            'damages',
+        ],
+        'DlagdLossesProvince': [
+            'los_year1',
+            'los_year2',
+            'total_losses',
+        ]
+        },
+        'Table_5': {
+            'DlagdDmgNational': [
+                'damages',
+            ],
+            'DlagdLossesNational': [
+                'los_year1',
+                'los_year2',
+                'total_losses'
+            ]
+        },
         'Table_2': {
             'DlagdDmgStructure': [
                 'name_dept',
@@ -1082,6 +1121,7 @@ TABLE_PROPERTY_MAPPER = {
         },
 
     }
+
 }
 
 AUTH_USER_MODEL = 'users.MyUser'

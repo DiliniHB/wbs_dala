@@ -495,7 +495,6 @@ def bs_mining_fetch_edit_data(request):
     )
 
 
-# mining
 @csrf_exempt
 def dl_fetch_district_disagtn(request):
     data = (yaml.safe_load(request.body))
@@ -503,6 +502,7 @@ def dl_fetch_district_disagtn(request):
     sector = data['sector']
     com_data = data['com_data']
     incident = com_data['incident']
+    print settings.TABLE_PROPERTY_MAPPER[sector]
     tables = settings.TABLE_PROPERTY_MAPPER[sector][table_name]
 
     dl_mtable_data = {sector: {}}
@@ -557,8 +557,6 @@ def dl_fetch_district_disagtn(request):
     )
 
 
-# mining
-
 @csrf_exempt
 def dl_fetch_total_data(request):
     data = (yaml.safe_load(request.body))
@@ -595,3 +593,34 @@ def dl_fetch_total_data(request):
         json.dumps(dl_mtable_data, cls=DjangoJSONEncoder),
         content_type='application/javascript; charset=utf8'
     )
+
+
+@csrf_exempt
+def fetch_entities(request):
+    data = (yaml.safe_load(request.body))
+    district_id = data['district']
+    model_name = data['model']
+
+    model_class = apps.get_model('base_line', model_name)
+    fetched_data = model_class.objects.filter(district_id=district_id).values('name', 'id', 'ownership')
+
+    return HttpResponse(
+        json.dumps(list(fetched_data)),
+        content_type='application/javascript; charset=utf8'
+    )
+
+
+@csrf_exempt
+def add_entity(request):
+    data = (yaml.safe_load(request.body))
+    model_fields = data['model_fields']
+    model_name = data['model']
+
+    model_class = apps.get_model('base_line', model_name)
+    model_object = model_class(**model_fields)
+    model_object.save()
+
+    if model_object.id is not None:
+        return HttpResponse(model_object.id)
+    else:
+        return HttpResponse(False)

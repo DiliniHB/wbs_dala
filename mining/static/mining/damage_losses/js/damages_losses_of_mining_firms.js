@@ -525,9 +525,10 @@ $scope.fetchFirms = function()
 
     $http({
     method: "POST",
-    url: "/mining/base_line/fetch_firms",
+    url: "/fetch_entities",
     data: angular.toJson({
     'district':  $scope.district.district__id,
+    'model': 'Firm'
      }),
     }).success(function(data) {
 

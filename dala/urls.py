@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^bs_get_data_mock$', views.bs_get_data_mock, name='bs_get_data_mock'),
     url(r'^bs_fetch_edit_data$', views.bs_fetch_edit_data, name='bs_fetch_edit_data'),
     url(r'^bs_save_data$', views.bs_save_data, name='bs_save_data'),
+    url(r'^fetch_entities$', views.fetch_entities, name='fetch_entities'),
+    url(r'^add_entity$', views.add_entity, name='add_entity'),
 
     url(r'^dl_save_data$', views.dl_save_data, name='dl_save_data'),
     url(r'^dl_get_data$', views.dl_get_data, name='dl_get_data'),
@@ -41,7 +43,7 @@ urlpatterns = [
     url(r'^mining/', include('mining.urls', namespace='mining')),
     url(r'^bs_mining_fetch_edit_data$', views.bs_mining_fetch_edit_data, name='bs_mining_fetch_edit_data'),
     url(r'^dl_fetch_district_disagtn$', views.dl_fetch_district_disagtn, name='dl_fetch_district_disagtn'),
-    url(r'^dl_fetch_total_data$', views.dl_fetch_total_data, name='dl_fetch_total_data'),
+    #url(r'^dl_fetch_total_data$', views.dl_fetch_total_data, name='dl_fetch_total_data'),
 
 
 

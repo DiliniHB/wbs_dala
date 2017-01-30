@@ -91,11 +91,13 @@ $(document).on("click", "#add_technical", function () {
                         <td style="padding-left:5px;"> Name of District</td>
 
                         <td colspan="2" style="background:#EFEFEF;">
-                            <select id="selectbasic" name="selectbasic" class="form-control"
-                                    style="width:100%;font-weight:400;">
-                                <option value="1">Option one</option>
-                                <option value="2">Option two</option>
-                            </select>
+                             <select ng-change="fetchSchools()" ng-model="district" name="district" class="form-control"
+                                        style="font-weight:400;" required>
+                                    <option value="">-- Select --</option>
+                                    {% for district in districts %}
+                                    <option value="{{ district.id }}">{{ district.name }}</option>
+                                    {% endfor %}
+                                </select>
                         </td>
                         <td colspan="2" style="padding-right:5px;text-align:right;">
                             Incident
@@ -246,15 +248,14 @@ $(document).on("click", "#add_technical", function () {
                                 Pre-school Name
                             </td>
                             <td class="trsub" colspan="2" width="136">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
+                                <select ng-options="school as school.name for school in schools.PreSchools track by school.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
+                                <option value="" selected>Select Firm</option>
+                            </select>
                             </td>
 
                             <td width="136">
-                                <a id="add_preschool" href="#modal-container-218029" ng-click="schoolType='Pre-school'" role="button" data-toggle="modal"
+                                <a id="add_preschool" href="#modal-container-218029" ng-click="schoolType='PreSchools'" role="button" data-toggle="modal"
                                    data-id="Add Pre-school"
                                    class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
                             </td>
@@ -301,7 +302,7 @@ $(document).on("click", "#add_technical", function () {
                             </td>
 
                             <td width="136">
-                                <button type="button" class="btn btn-block btn-success">save</button>
+                                <button type="button" class="btn btn-block btn-success" ng-click="dlDataSubmit()">save</button>
                             </td>
                         </tr>
                         <tr class="trheadc" height="21">
@@ -326,15 +327,14 @@ $(document).on("click", "#add_technical", function () {
                                 Primary School Name
                             </td>
                             <td class="trsub" colspan="2" width="136">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
+                                <select ng-options="school as school.name for school in schools.PrimarySchools track by school.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
+                                <option value="" selected>Select Firm</option>
+                            </select>
                             </td>
 
                             <td width="136">
-                                <a id="add_primary" href="#modal-container-218029" ng-click="schoolType='Primary-school'" role="button" data-toggle="modal"
+                                <a id="add_primary" href="#modal-container-218029" ng-click="schoolType='PrimarySchools'" role="button" data-toggle="modal"
                                    data-id="Add Primary School"
                                    class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
                             </td>
@@ -405,15 +405,14 @@ $(document).on("click", "#add_technical", function () {
                                 Secondary School Name
                             </td>
                             <td class="trsub" colspan="2" width="136">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
+                                <select ng-options="school as school.name for school in schools.SecondarySchools track by school.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
+                                <option value="" selected>Select Firm</option>
+                            </select>
                             </td>
 
                             <td width="136">
-                                <a id="add_secondary" href="#modal-container-218029" ng-click="schoolType='Secondary-school'" role="button" data-toggle="modal"
+                                <a id="add_secondary" href="#modal-container-218029" ng-click="schoolType='SecondarySchools'" role="button" data-toggle="modal"
                                    data-id="Add Secondary  School"
                                    class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
                             </td>
@@ -485,15 +484,14 @@ $(document).on("click", "#add_technical", function () {
                                 University Name
                             </td>
                             <td class="trsub" colspan="2" width="136">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
+                                <select ng-options="school as school.name for school in schools.Universities track by school.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
+                                <option value="" selected>Select Firm</option>
+                            </select>
                             </td>
 
                             <td width="136">
-                                <a id="add_university" href="#modal-container-218029" ng-click="schoolType='University'" role="button" data-toggle="modal"
+                                <a id="add_university" href="#modal-container-218029" ng-click="schoolType='Universities'" role="button" data-toggle="modal"
                                    data-id="Add University"
                                    class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
                             </td>
@@ -565,15 +563,14 @@ $(document).on("click", "#add_technical", function () {
                                 Technical Institute Name
                             </td>
                             <td class="trsub" colspan="2" width="136">
-                                <select id="selectbasic" name="selectbasic" class="form-control"
-                                        style="width:100%;font-weight:400;">
-                                    <option value="1">Option one</option>
-                                    <option value="2">Option two</option>
-                                </select>
+                                <select ng-options="school as school.name for school in schools.TechInstitutes track by school.id"
+                                    name="district" id="ccyear" ng-model="selectedFirm" class="form-control" required>
+                                <option value="" selected>Select Firm</option>
+                            </select>
                             </td>
 
                             <td width="136">
-                                <a id="add_technical" href="#modal-container-218029" ng-click="schoolType='Technical Institute'" role="button" data-toggle="modal"
+                                <a id="add_technical" href="#modal-container-218029" ng-click="schoolType='TechInstitutes'" role="button" data-toggle="modal"
                                    data-id="Add Technical Institutes"
                                    class="open-modal-container-218029 btn btn-sm btn-block btn-primary btn-info">Add</a>
                             </td>
@@ -657,7 +654,7 @@ $(document).on("click", "#add_technical", function () {
             </div>
             <div class="tab-pane fade" id="step3">
 
-
+                <button ng-click="fetchSchoolData()">Load</button>
                 <table class="table table-bordered">
                     <colgroup>
                         <col width="224"/>
@@ -698,147 +695,28 @@ $(document).on("click", "#add_technical", function () {
                             Year 2
                         </td>
                     </tr>
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Pre-school
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Primary School
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Secondary School
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                    
+                    <div ng-repeat="(key, value) in schoolData.other_govn_services.Table_4">
 
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            University
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                        <span ng-bind="key"></span>
 
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Technical Institutes
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                        <div ng-repeat="(key, value) in value">
+                            <span ng-bind="key"></span>
+                            <div ng-repeat="model_data in value">
 
-                    <tr class="trsub" height="21">
-                        <td class="tdpa" width="224" height="21">
-                            Others
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="231" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                        <td width="72" height="21">
-                            <br/>
-                        </td>
-                        <td width="63" height="21">
-                            <br/>
-                        </td>
-                    </tr>
+                                <div ng-repeat="data in model_data">
+                                <span ng-bind="data.asset"></span>
+                                <span ng-bind="data.est_rep_cost"></span>
+                                <span ng-bind="data.est_repair_cost"></span>
+                                <span ng-bind="data.tot_damages"></span>
+                                <span ng-bind="data.est_los_year_1"></span>
+                                <span ng-bind="data.est_los_year_2"></span>
+                                <span ng-bind="data.tot_los"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <tr height="21">
                         <td class="tdpa" width="224" height="21">
@@ -903,7 +781,7 @@ $(document).on("click", "#add_technical", function () {
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="textinput">Name</label>
                             <div class="col-md-10">
-                                <input ng-model="schoolName" type="text" placeholder=""
+                                <input ng-model="new_school.name" type="text" placeholder=""
                                        class="form-control input-md">
 
                             </div>

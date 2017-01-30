@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^dl_edu_district$', views.dl_edu_district, name='dl_edu_district'),
     url(r'^dl_edu_province$', views.dl_edu_province, name='dl_edu_province'),
     url(r'^dl_edu_nationwide$', views.dl_edu_nationwide, name='dl_edu_nationwide'),
-
+    url(r'^fetch_schools$', views.fetch_schools, name='fetch_schools'),
+    url(r'^dl_fetch_school_disagtn$', views.dl_fetch_school_disagtn, name='dl_fetch_school_disagtn'),
 ]
+

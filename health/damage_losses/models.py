@@ -1,7 +1,9 @@
 from __future__ import unicode_literals
 from django.db import models
 from settings.models import District, Province
-from health.base_line.models import Firm
+from incidents.models import IncidentReport
+from health.base_line.models import Firm, PreSchools, PrimarySchools, Universities, TechInstitutes, SecondarySchools
+from health.base_line.models import Firm, Department
 from incidents.models import IncidentReport
 
 
@@ -1897,76 +1899,6 @@ class DugPdfaNsa(models.Model):
         db_table = 'dug_pdfa_nsa'
 
 
-class PreSchools(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'pre_schools'
-
-
-class PrimarySchools(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'primary_schools'
-
-
-class SecondarySchools(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'secondary_schools'
-
-
-class TechInstitutes(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'tech_institutes'
-
-
-class Universities(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'universities'
-
-
 class DpefBefPreSchool(models.Model):
     asset = models.CharField(max_length=255, blank=True, null=True)
     pre_school = models.ForeignKey(PreSchools, db_column='pre_school', blank=True, null=True)
@@ -2223,24 +2155,6 @@ class DloDmgStocks(models.Model):
         db_table = 'dlo_dmg_stocks'
 
 
-class DloDmgVehicles(models.Model):
-    assets = models.CharField(max_length=255, blank=True, null=True)
-    rep_tot_dassets = models.IntegerField(blank=True, null=True)
-    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
-    tot_damages = models.FloatField(blank=True, null=True)
-    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
-    created_user = models.IntegerField(blank=True, null=True)
-    lmu = models.IntegerField(blank=True, null=True)
-    created_date = models.DateTimeField(blank=True, null=True)
-    lmd = models.DateTimeField(blank=True, null=True)
-    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
-    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'dlo_dmg_vehicles'
-
-
 class DloLosPlos(models.Model):
     type_los = models.CharField(max_length=255, blank=True, null=True)
     avg_per_year = models.FloatField(blank=True, null=True)
@@ -2438,6 +2352,96 @@ class DlaDmgDistrict(models.Model):
         db_table = 'dla_dmg_district'
 
 
+class DloLosOlosDistrict(models.Model):
+    type_los = models.CharField(max_length=255, blank=True, null=True)
+    los_year1 = models.IntegerField(blank=True, null=True)
+    los_year2 = models.IntegerField(blank=True, null=True)
+    tot_losses = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_los_olos_disrtict'
+
+
+class DloDmgEquipment(models.Model):
+    assets = models.CharField(max_length=255, blank=True, null=True)
+    rep_tot_dassets = models.IntegerField(blank=True, null=True)
+    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_dmg_equipment'
+
+
+class DloDmgMachinery(models.Model):
+    assets = models.CharField(max_length=255, blank=True, null=True)
+    rep_tot_dassets = models.IntegerField(blank=True, null=True)
+    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_dmg_machinery'
+
+
+class DloDmgStocks(models.Model):
+    assets = models.CharField(max_length=255, blank=True, null=True)
+    rep_tot_dassets = models.IntegerField(blank=True, null=True)
+    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_dmg_stocks'
+
+
+class DloDmgStructures(models.Model):
+    assets = models.CharField(max_length=255, blank=True, null=True)
+    rep_tot_dassets = models.IntegerField(blank=True, null=True)
+    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, blank=True, db_column='firm_id', null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_dmg_structures'
+
+
 class DloDmgDistrict(models.Model):
     rep_tot_dassets = models.IntegerField(blank=True, null=True)
     repair_pdmg_assets = models.IntegerField(blank=True, null=True)
@@ -2450,6 +2454,295 @@ class DloDmgDistrict(models.Model):
     class Meta:
         managed = False
         db_table = 'dlo_dmg_district'
+
+
+class DloDmgVehicles(models.Model):
+    assets = models.CharField(max_length=255, blank=True, null=True)
+    rep_tot_dassets = models.IntegerField(blank=True, null=True)
+    repair_pdmg_assets = models.IntegerField(blank=True, null=True)
+    tot_damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    firm = models.ForeignKey(Firm, db_column='firm_id', blank=True, null=True)
+    ownership = models.CharField(max_length=50, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlo_dmg_vehicles'
+
+
+class DldTmfIfProvince(models.Model):
+    type_min_firms = models.CharField(max_length=255, blank=True, null=True)
+    year1_damages_pub = models.FloatField(blank=True, null=True)
+    year1_damages_pvt = models.FloatField(blank=True, null=True)
+    year1_losses_pub = models.FloatField(blank=True, null=True)
+    year1_losses_pvt = models.FloatField(blank=True, null=True)
+    year2_losses_pub = models.FloatField(blank=True, null=True)
+    year2_losses_pvt = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dld_tmf_if_province'
+
+
+class DldTmfAmProvince(models.Model):
+    type_min_firms = models.CharField(max_length=255, blank=True, null=True)
+    year1_damages_pub = models.FloatField(blank=True, null=True)
+    year1_damages_pvt = models.FloatField(blank=True, null=True)
+    year1_losses_pub = models.FloatField(blank=True, null=True)
+    year1_losses_pvt = models.FloatField(blank=True, null=True)
+    year2_losses_pub = models.FloatField(blank=True, null=True)
+    year2_losses_pvt = models.FloatField(blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dld_tmf_am_province'
+
+
+# Other government sector
+class Ownership(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ownership'
+
+
+class DlaOagenciesNatn(models.Model):
+    asset_owship = models.CharField(max_length=255, blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dla_oagencies_natn'
+
+
+# Table 4
+class DlaProvince(models.Model):
+    asset_owship = models.CharField(max_length=255, blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dla_province'
+
+
+# Table 3-1
+class DladAowshipDgovn(models.Model):
+    asset_owship = models.CharField(max_length=255, blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlad_aowship_dgovn'
+
+
+# Table 3-2
+class DladAowshipPgovn(models.Model):
+    asset_owship = models.CharField(max_length=255, blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlad_aowship_pgovn'
+
+
+# Table 3-3
+class DladAowshipMoagency(models.Model):
+    asset_owship = models.CharField(max_length=255, blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlad_aowship_moagency'
+
+
+class DlagdDmgMachinery(models.Model):
+    name_dept = models.CharField(max_length=255, blank=True, null=True)
+    num_tot_destroyed = models.IntegerField(blank=True, null=True)
+    num_partial_damaged = models.IntegerField(blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_dmg_machinery'
+
+
+class DlagdDmgOfficeEquipment(models.Model):
+    name_dept = models.CharField(max_length=255, blank=True, null=True)
+    num_tot_destroyed = models.IntegerField(blank=True, null=True)
+    num_partial_damaged = models.IntegerField(blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_dmg_office_equipment'
+
+
+class DlagdDmgStructure(models.Model):
+    name_dept = models.CharField(max_length=255, blank=True, null=True)
+    td_num_structures = models.IntegerField(blank=True, null=True)
+    td_total_squarem = models.FloatField(blank=True, null=True)
+    pd_num_structures = models.IntegerField(blank=True, null=True)
+    pd_total_squarem_roof = models.FloatField(blank=True, null=True)
+    pd_total_squarem_wall = models.FloatField(blank=True, null=True)
+    pd_total_squarem_floor = models.FloatField(blank=True, null=True)
+    damages = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_dmg_structure'
+
+
+class DlagdLosses(models.Model):
+    name_dept = models.CharField(max_length=255, blank=True, null=True)
+    los_year1 = models.FloatField(blank=True, null=True)
+    los_year2 = models.FloatField(blank=True, null=True)
+    total_losses = models.FloatField(blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    created_user = models.IntegerField(blank=True, null=True)
+    lmu = models.IntegerField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    lmd = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_losses'
+
+
+class DlagdDmgDistrict(models.Model):
+    damages = models.FloatField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    department = models.ForeignKey(Department, db_column='department', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_dmg_district'
+
+
+class DlagdLossesDistrict(models.Model):
+    los_year1 = models.FloatField(max_length=255, blank=True, null=True)
+    los_year2 = models.FloatField(max_length=255, blank=True, null=True)
+    total_losses = models.FloatField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    department = models.ForeignKey(Department, db_column='department', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_losses_district'
+
+
+class DlagdDmgProvince(models.Model):
+    damages = models.FloatField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_dmg_province'
+
+
+class DlagdLossesProvince(models.Model):
+    los_year1 = models.FloatField(max_length=255, blank=True, null=True)
+    los_year2 = models.FloatField(max_length=255, blank=True, null=True)
+    total_losses = models.FloatField(max_length=255, blank=True, null=True)
+    district = models.ForeignKey(District, db_column='district', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_losses_province'
+
+
+class DlagdDmgNational(models.Model):
+    damages = models.FloatField(max_length=255, blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_dmg_national'
+
+
+class DlagdLossesNational(models.Model):
+    los_year1 = models.FloatField(max_length=255, blank=True, null=True)
+    los_year2 = models.FloatField(max_length=255, blank=True, null=True)
+    total_losses = models.FloatField(max_length=255, blank=True, null=True)
+    province = models.ForeignKey(Province, db_column='province', blank=True, null=True)
+    incident = models.ForeignKey(IncidentReport, db_column='incident', blank=True, null=True)
+    ownership = models.ForeignKey(Ownership, db_column='ownership', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'dlagd_losses_national'
 
 
 class DlaLosDistrict(models.Model):

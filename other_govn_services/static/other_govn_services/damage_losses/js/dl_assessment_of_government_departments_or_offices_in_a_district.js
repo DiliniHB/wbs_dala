@@ -9,7 +9,14 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
     $scope.is_edit = false;
     $scope.submitted = false;
     $scope.Districts=[];
-//    $scope.selectedDistrict;
+
+    $scope.districtData = [];
+
+    $scope.departments = [];
+    $scope.department = null;
+    $scope.ownership = null;
+    $scope.new_department = {id: null, name: null, ownership_id: null, district_id: null};
+
 
     var init_data = {
         'other_govn_services': {
@@ -188,6 +195,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     // get relevant base-line data for calculations
     $scope.changedValue=function getBsData(selectedValue) {
+
         if($scope.incident && selectedValue) {
             $http({
                 method: "POST",
@@ -231,15 +239,15 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
     $scope.saveDlData = function(form) {
         $scope.submitted = true;
-       if(form.$valid){
+       //if(form.$valid){
         $http({
             method: 'POST',
-            url:'/damage_losses/dl_save_data',
+            url:'/dl_save_data',
             contentType: 'application/json; charset=utf-8',
             data: angular.toJson({
                 'table_data': $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys,
                 'com_data': {
-                    'district': $scope.district,
+                    'district': $scope.district.district__id,
                     'incident': $scope.incident,
 
                 },
@@ -254,7 +262,7 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
             console.log(response);
         });
-        }
+        //}
 
     }
 
@@ -318,6 +326,85 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
         var model = $parse(the_string);
         model.assign($scope, cumulative_total);
     }
-})
 
+$scope.fetchDepartments = function()
+{
+    console.log($scope.district);
+    $scope.new_department.district_id = $scope.district.district__id;
+
+    $http({
+    method: "POST",
+    url: "/fetch_entities",
+    data: angular.toJson({
+    'district':  $scope.district.district__id,
+    'model': 'Department'
+     }),
+    }).success(function(data) {
+        $scope.departments = data;
+        console.log(data);
+
+
+    })
+}
+
+$scope.saveDepartment = function(form)
+{
+    $http({
+    method: "POST",
+    url: "/add_entity",
+    data: angular.toJson({
+    'model': 'Department',
+    'model_fields': $scope.new_department,
+     }),
+    }).success(function(data) {
+      console.log(data);
+
+      $scope.new_department.id = data;
+
+       if(data)
+        $scope.departments.push($scope.new_department);
+
+       $("#modal-container-218029").modal('hide');
+
+    })
+
+}
+
+$scope.fetchOwnership = function()
+{
+    $http({
+    method: "POST",
+    url: "/other_govn_services/damage_losses/fetch_ownership",
+    data: angular.toJson({
+    'department': $scope.department.id,
+     }),
+    }).success(function(data) {
+        $scope.ownership = data;
+        console.log(data);
+
+
+    })
+
+}
+
+$scope.fetchDlData = function(){
+
+    $http({
+    method: "POST",
+    url: '/other_govn_services/damage_losses/dl_fetch_district_disagtn',
+    data: angular.toJson({
+    'table_name':  'Table_3',
+    'sector': 'other_govn_services',
+    'com_data': {
+            'incident': $scope.incident,
+          },
+           }),
+    }).success(function(data) {
+       $scope.districtData = data;
+       console.log('load ', data);
+
+    })
+
+}
+})
 
