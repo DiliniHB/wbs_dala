@@ -163,23 +163,23 @@ app.controller("dlAssessmentOfGovnDeptOrOfcInADistrictController", function ($sc
 
             if (isNaN(
                     $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages ||
-                    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages ||
-                    $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages||
-                    $scope.Total
+                    $scope.DlagdDmgOfficeEquipment_damages ||
+                    $scope.DlagdDmgMachinery_damages
+
 
                 )) {
 
                 $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages = null;
-                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages = null;
-                $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages = null;
-                $scope.Total = null;
+                $scope.DlagdDmgOfficeEquipment_damages = null;
+                $scope.DlagdDmgMachinery_damages= null;
+
 
             } else {
 
 
                 $scope.Total =$scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgStructure[3].damages +
-                              $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgOfficeEquipment[2].damages +
-                              $scope.dlAssessmentOfGovnDeptOrOfcInADistrictSys.other_govn_services.Table_2.DlagdDmgMachinery[3].damages;
+                              $scope.DlagdDmgOfficeEquipment_damages +
+                              $scope.DlagdDmgMachinery_damages;
 
             }
 

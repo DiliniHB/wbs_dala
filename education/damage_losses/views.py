@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from dala.views import fetch_districts
+from settings.models import District, Province
 
 
 def dl_govn_edu_facilities(request):
@@ -42,3 +43,29 @@ def dl_edu_district(request):
 
     }
     return render(request, 'damage_losses/summary_damages_losses_education_district.html', context)
+
+
+def dl_edu_province(request):
+    districts = District.objects.all()
+    provinces = Province.objects.all()
+    filtered_incidents = fetch_districts(request.user)
+    incidents = filtered_incidents['incidents']
+    context = {
+        'districts': districts,
+        'provinces': provinces,
+        'incidents': incidents,
+    }
+    return render(request, 'damage_losses/summary_damage_losses_education_sector_province.html', context)
+
+
+def dl_edu_nationwide(request):
+    districts = District.objects.all()
+    provinces = Province.objects.all()
+    filtered_incidents = fetch_districts(request.user)
+    incidents = filtered_incidents['incidents']
+    context = {
+        'districts': districts,
+        'provinces': provinces,
+        'incidents': incidents,
+    }
+    return render(request, 'damage_losses/summary_damage_losses_education_sector_nationwide.html', context)
